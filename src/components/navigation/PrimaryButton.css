@@ -1,0 +1,61 @@
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 1.75rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition:
+    background var(--duration-fast) ease,
+    color var(--duration-fast) ease,
+    border-color var(--duration-fast) ease,
+    transform var(--duration-fast) ease;
+}
+
+.primary-button--solid {
+  background: var(--green-brand);
+  color: var(--text-on-green);
+}
+
+.primary-button--solid:hover,
+.primary-button--solid:focus-visible {
+  background: var(--green-forest);
+  transform: translateY(-1px);
+}
+
+.primary-button--outline {
+  background: transparent;
+  color: var(--green-brand);
+  border: 1px solid var(--green-brand);
+}
+
+.primary-button--outline:hover,
+.primary-button--outline:focus-visible {
+  background: var(--green-tint);
+  transform: translateY(-1px);
+}
+
+.primary-button--outline-light {
+  background: transparent;
+  color: var(--text-on-green);
+  border: 1px solid rgba(246, 243, 238, 0.45);
+}
+
+.primary-button--outline-light:hover,
+.primary-button--outline-light:focus-visible {
+  border-color: var(--text-on-green);
+  background: rgba(246, 243, 238, 0.08);
+}
+
+.primary-button--solid-light {
+  background: var(--text-on-green);
+  color: var(--green-forest);
+}
+
+.primary-button--solid-light:hover,
+.primary-button--solid-light:focus-visible {
+  background: var(--stone);
+}

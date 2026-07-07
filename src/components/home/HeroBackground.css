@@ -1,0 +1,251 @@
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Layer 1 — dark forest gradient */
+.hero-bg__gradient {
+  position: absolute;
+  inset: -50%;
+  background:
+    radial-gradient(ellipse 70% 55% at 20% 42%, #1b5e20 0%, transparent 52%),
+    radial-gradient(ellipse 85% 75% at 78% 38%, rgba(27, 94, 32, 0.5) 0%, transparent 48%),
+    radial-gradient(ellipse 50% 40% at 55% 70%, rgba(15, 51, 18, 0.6) 0%, transparent 55%),
+    linear-gradient(158deg, #040a06 0%, #081408 22%, #0a2410 42%, #0f3312 58%, #071509 78%, #040a06 100%);
+  background-size: 220% 220%;
+  animation: hero-gradient-shift 48s ease-in-out infinite alternate;
+}
+
+/* Layer 2 — volumetric light */
+.hero-bg__glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  will-change: transform, opacity;
+}
+
+.hero-bg__glow--a {
+  width: min(48vw, 460px);
+  height: min(48vw, 460px);
+  left: -8%;
+  top: 22%;
+  background: radial-gradient(circle, rgba(76, 175, 80, 0.14) 0%, transparent 68%);
+  animation: hero-glow-drift-a 34s ease-in-out infinite alternate;
+}
+
+.hero-bg__glow--b {
+  width: min(58vw, 580px);
+  height: min(58vw, 580px);
+  right: -10%;
+  top: 0;
+  background: radial-gradient(circle, rgba(46, 125, 50, 0.2) 0%, transparent 65%);
+  animation: hero-glow-drift-b 42s ease-in-out infinite alternate;
+}
+
+.hero-bg__glow--c {
+  width: min(38vw, 360px);
+  height: min(38vw, 360px);
+  right: 12%;
+  bottom: 8%;
+  background: radial-gradient(circle, rgba(102, 187, 106, 0.1) 0%, transparent 68%);
+  animation: hero-glow-drift-c 28s ease-in-out infinite alternate;
+}
+
+.hero-bg__glow--d {
+  width: min(32vw, 300px);
+  height: min(32vw, 300px);
+  left: 35%;
+  bottom: 15%;
+  background: radial-gradient(circle, rgba(56, 142, 60, 0.08) 0%, transparent 70%);
+  animation: hero-glow-drift-d 38s ease-in-out infinite alternate;
+}
+
+/* Layer 3 — animated fog */
+.hero-bg__fog {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  mix-blend-mode: soft-light;
+  will-change: transform, opacity;
+}
+
+.hero-bg__fog--a {
+  width: min(70vw, 700px);
+  height: min(45vw, 420px);
+  left: 10%;
+  top: 30%;
+  background: radial-gradient(ellipse, rgba(27, 94, 32, 0.12) 0%, transparent 70%);
+  animation: hero-fog-drift-a 55s ease-in-out infinite alternate;
+}
+
+.hero-bg__fog--b {
+  width: min(55vw, 520px);
+  height: min(40vw, 380px);
+  right: 5%;
+  top: 20%;
+  background: radial-gradient(ellipse, rgba(15, 51, 18, 0.15) 0%, transparent 72%);
+  animation: hero-fog-drift-b 62s ease-in-out infinite alternate;
+}
+
+/* Layer 4 — noise */
+.hero-bg__noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* Layer 5 — particles */
+.hero-bg__dust {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(129, 199, 132, 0.35);
+  box-shadow: 0 0 6px rgba(102, 187, 106, 0.3);
+  animation: hero-dust-float linear infinite;
+}
+
+.hero-bg__dust--galaxy {
+  background: rgba(165, 214, 167, 0.45);
+  box-shadow: 0 0 8px rgba(102, 187, 106, 0.4);
+}
+
+/* Layer 6 — flowing curves */
+.hero-bg__flows {
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Cg fill='none' stroke='%23a5d6a7' stroke-width='0.7'%3E%3Cpath d='M520 580 Q680 420 720 280 T760 80'/%3E%3Cpath d='M480 600 Q640 440 700 300 T740 100'/%3E%3Cpath d='M560 560 Q720 400 760 260 T790 60'/%3E%3Cpath d='M500 540 Q660 380 710 240 T750 40'/%3E%3Cellipse cx='620' cy='300' rx='180' ry='120' transform='rotate(-15 620 300)'/%3E%3Cellipse cx='640' cy='320' rx='140' ry='90' transform='rotate(-15 640 320)'/%3E%3Cellipse cx='600' cy='280' rx='200' ry='130' transform='rotate(-12 600 280)'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: 68% 48%;
+  mask-image: radial-gradient(ellipse 80% 90% at 70% 42%, black 10%, transparent 75%);
+  animation: hero-flows-drift 52s ease-in-out infinite alternate;
+}
+
+/* Layer 7 — vignette */
+.hero-bg__vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 90% 85% at 50% 45%, transparent 40%, rgba(4, 10, 6, 0.35) 100%),
+    linear-gradient(180deg, rgba(4, 10, 6, 0.25) 0%, transparent 18%, transparent 82%, rgba(4, 10, 6, 0.4) 100%);
+  pointer-events: none;
+}
+
+@keyframes hero-gradient-shift {
+  from {
+    background-position: 0% 35%;
+  }
+  to {
+    background-position: 100% 65%;
+  }
+}
+
+@keyframes hero-glow-drift-a {
+  from {
+    transform: translate(0, 0);
+    opacity: 0.55;
+  }
+  to {
+    transform: translate(3%, -2%);
+    opacity: 0.85;
+  }
+}
+
+@keyframes hero-glow-drift-b {
+  from {
+    transform: translate(0, 0);
+    opacity: 0.5;
+  }
+  to {
+    transform: translate(-2.5%, 3%);
+    opacity: 0.8;
+  }
+}
+
+@keyframes hero-glow-drift-c {
+  from {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.45;
+  }
+  to {
+    transform: translate(-1.5%, -1.5%) scale(1.06);
+    opacity: 0.7;
+  }
+}
+
+@keyframes hero-glow-drift-d {
+  from {
+    transform: translate(0, 0);
+    opacity: 0.35;
+  }
+  to {
+    transform: translate(2%, 2%);
+    opacity: 0.55;
+  }
+}
+
+@keyframes hero-fog-drift-a {
+  from {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.4;
+  }
+  to {
+    transform: translate(4%, -2%) scale(1.05);
+    opacity: 0.65;
+  }
+}
+
+@keyframes hero-fog-drift-b {
+  from {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.35;
+  }
+  to {
+    transform: translate(-3%, 3%) scale(1.04);
+    opacity: 0.6;
+  }
+}
+
+@keyframes hero-flows-drift {
+  from {
+    transform: translate(0, 0);
+    opacity: 0.04;
+  }
+  to {
+    transform: translate(-1.2%, -0.8%);
+    opacity: 0.08;
+  }
+}
+
+@keyframes hero-dust-float {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.08;
+  }
+  50% {
+    transform: translate(6px, -12px);
+    opacity: 0.4;
+  }
+}
+
+.hero-bg--static .hero-bg__gradient,
+.hero-bg--static .hero-bg__glow,
+.hero-bg--static .hero-bg__fog,
+.hero-bg--static .hero-bg__flows {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg__gradient,
+  .hero-bg__glow,
+  .hero-bg__fog,
+  .hero-bg__flows,
+  .hero-bg__dust {
+    animation: none !important;
+  }
+}

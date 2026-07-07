@@ -1,0 +1,546 @@
+/**
+ * Mobile & tablet only — desktop (≥1024px) is LOCKED.
+ * All rules use max-width media queries unless noted.
+ */
+
+/* ── Tokens (tablet / phone) ── */
+@media (max-width: 767px) {
+  :root {
+    --header-height: 72px;
+    --gutter: clamp(1rem, 4vw, 1.5rem);
+  }
+}
+
+@media (max-width: 359px) {
+  :root {
+    --gutter: 0.875rem;
+  }
+}
+
+/* ── Shared inner pages ── */
+@media (max-width: 767px) {
+  .page-section__head {
+    margin-bottom: clamp(1.5rem, 4vw, 2.25rem);
+    padding-bottom: 1.125rem;
+  }
+
+  .page-section__title {
+    font-size: clamp(1.625rem, 7vw, 2.125rem);
+  }
+
+  .page-section__lead {
+    font-size: 1rem;
+  }
+
+  .page-prose {
+    font-size: 1rem;
+  }
+
+  .page-editorial-quote blockquote {
+    font-size: clamp(1.25rem, 5vw, 1.625rem);
+  }
+}
+
+@media (max-width: 639px) {
+  .page-section__title {
+    font-size: clamp(1.5rem, 7.5vw, 1.875rem);
+  }
+}
+
+/* ── Inner page hero ── */
+@media (max-width: 767px) {
+  .inner-hero {
+    padding-block: calc(var(--header-height) + 1.75rem) clamp(2rem, 5vw, 2.75rem);
+  }
+
+  .inner-hero__intro {
+    font-size: 1rem;
+  }
+
+  .inner-hero--strategic .inner-hero__accent {
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 639px) {
+  .inner-hero {
+    padding-block: calc(var(--header-height) + 1.25rem) 2rem;
+  }
+}
+
+/* ── Site header (subpages) ── */
+@media (max-width: 767px) {
+  .site-header__logo-img {
+    height: 36px;
+  }
+}
+
+/* ── Mobile menu ── */
+@media (max-width: 1099px) {
+  .mobile-menu {
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-menu__list {
+    gap: 0.5rem;
+  }
+
+  .mobile-menu__link {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding-block: 0.625rem;
+    font-size: clamp(1.375rem, 5.5vw, 1.75rem);
+  }
+}
+
+/* ── Footers ── */
+@media (max-width: 767px) {
+  .site-footer {
+    padding-block: 2.5rem 1.25rem;
+  }
+
+  .site-footer__links a,
+  .site-footer__address a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-block: 0.375rem;
+  }
+
+  .site-footer__legal a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-block: 0.375rem;
+  }
+
+  .site-footer__bottom {
+    margin-top: 2rem;
+  }
+
+  .home-footer__links a,
+  .home-footer__address a,
+  .home-footer__social {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-block: 0.375rem;
+  }
+
+  .home-footer__legal a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-block: 0.375rem;
+  }
+}
+
+/* ── Homepage hero ── */
+@media (max-width: 959px) {
+  .home-hero__trust-label {
+    white-space: normal;
+  }
+
+  .home-hero__visual {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 639px) {
+  .home-hero__body {
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .home-hero__visual {
+    min-height: 260px;
+  }
+
+  .home-hero__title-line {
+    font-size: clamp(2.125rem, 9vw, 2.75rem);
+  }
+
+  .home-hero__title-line--accent {
+    font-size: clamp(1.75rem, 7.5vw, 2.25rem);
+  }
+
+  .home-header__logo img,
+  .home-header__logo-img {
+    height: 34px;
+  }
+}
+
+/* ── Hero universe (mobile degrade) ── */
+@media (max-width: 959px) {
+  .hero-universe {
+    overflow: hidden;
+  }
+
+  .hero-universe__ambient {
+    inset: -5%;
+  }
+}
+
+@media (max-width: 639px) {
+  .hero-universe {
+    min-height: 280px;
+  }
+
+  .hero-universe__stage {
+    width: min(92vw, 340px);
+  }
+
+  .hero-universe__center {
+    width: clamp(72px, 20vw, 88px);
+    height: clamp(72px, 20vw, 88px);
+  }
+
+  .hero-universe__node {
+    width: clamp(44px, 11vw, 52px);
+    height: clamp(44px, 11vw, 52px);
+  }
+
+  .hero-universe__node-link {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* ── Premium buttons (touch) ── */
+@media (max-width: 767px) {
+  .premium-btn {
+    min-height: 44px;
+    padding-block: 0.875rem;
+  }
+}
+
+/* ── Page CTA ── */
+@media (max-width: 767px) {
+  .page-cta {
+    text-align: center;
+  }
+}
+
+/* ── Rolunk ── */
+@media (max-width: 767px) {
+  .rolunk-story {
+    gap: 1.5rem;
+  }
+
+  .rolunk-story__aside {
+    padding: 1.25rem;
+  }
+
+  .rolunk-timeline__item {
+    grid-template-columns: 3.5rem 1fr;
+    gap: 1rem;
+    padding: 1.25rem 0;
+  }
+
+  .rolunk-timeline__item::before {
+    left: 3.5rem;
+  }
+
+  .rolunk-timeline__year {
+    font-size: 1.375rem;
+  }
+
+  .rolunk-values__item {
+    padding: 1.25rem 1.375rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .rolunk-team {
+    grid-template-columns: 1fr;
+  }
+
+  .rolunk-team__card,
+  .rolunk-team__card--featured {
+    grid-column: span 1;
+  }
+
+  .rolunk-team__card--featured .rolunk-team__photo {
+    aspect-ratio: 1;
+  }
+
+  .rolunk-testimonials {
+    gap: 1rem;
+  }
+
+  .rolunk-testimonials__item {
+    padding: 1.25rem;
+  }
+}
+
+/* ── Tanácsadás ── */
+@media (max-width: 1023px) {
+  .change-framework__track {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem 1.5rem;
+  }
+
+  .change-framework__progress {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .tanacsadas-framework {
+    padding-block: 2rem;
+  }
+
+  .tanacsadas-framework__title {
+    font-size: clamp(1.375rem, 5vw, 1.75rem);
+  }
+
+  .tanacsadas-framework__diagram {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .tanacsadas-area__index {
+    font-size: clamp(2rem, 14vw, 3rem);
+    opacity: 0.45;
+  }
+
+  .tanacsadas-area__visual {
+    padding: 1.25rem;
+  }
+
+  .tanacsadas-area__grid {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .tanacsadas-area__index {
+    display: none;
+  }
+}
+
+/* ── Mentally ── */
+@media (max-width: 767px) {
+  .mentally-product__visual {
+    padding: 1.25rem;
+  }
+
+  .mentally-product__dashboard {
+    max-width: 100%;
+  }
+
+  .mentally-features__item {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .mentally-flow {
+    gap: 0.5rem 0.75rem;
+    font-size: 0.6875rem;
+  }
+}
+
+/* ── Felnőttképzés ── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .felnottkepzes-journey {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .felnottkepzes-reg__badge {
+    font-size: 0.6875rem;
+    padding: 0.5rem 0.875rem;
+  }
+
+  .felnottkepzes-categories__item {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .felnottkepzes-categories__item img {
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .felnottkepzes-programmes__row {
+    grid-template-columns: 2rem 1fr;
+    gap: 0.5rem 0.75rem;
+    padding: 1rem 1rem;
+  }
+
+  .felnottkepzes-programmes__hours {
+    grid-column: 2;
+    white-space: normal;
+    font-size: 0.6875rem;
+  }
+}
+
+/* ── Referenciák ── */
+@media (max-width: 767px) {
+  .referenciak-category__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .referenciak-category__head img {
+    width: 56px;
+    height: 56px;
+  }
+
+  .referenciak-case {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .referenciak-logo-wall {
+    grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+    gap: 0.625rem;
+  }
+
+  .referenciak-logo-wall__item {
+    padding: 0.75rem 0.5rem;
+    min-height: 64px;
+  }
+
+  .referenciak-partners {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 0.625rem;
+  }
+
+  .referenciak-partners__item {
+    padding: 0.875rem 0.625rem;
+    min-height: 72px;
+  }
+}
+
+@media (max-width: 359px) {
+  .referenciak-logo-wall {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── Pályázatok ── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .palyazatok-process {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .palyazatok-services li {
+    font-size: 0.875rem;
+    padding: 0.75rem 0.875rem 0.75rem 1.5rem;
+  }
+
+  .palyazatok-project {
+    padding: 1.25rem;
+  }
+
+  .palyazatok-eu {
+    gap: 1rem;
+  }
+
+  .palyazatok-eu__banner {
+    max-height: 64px;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* ── Kapcsolat ── */
+@media (max-width: 767px) {
+  .kapcsolat-hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .kapcsolat-card {
+    padding: 1.25rem;
+  }
+
+  .kapcsolat-form {
+    padding: 1.25rem;
+  }
+
+  .kapcsolat-form__field input,
+  .kapcsolat-form__field textarea {
+    padding: 0.875rem 1rem;
+    min-height: 44px;
+    font-size: 16px; /* prevents iOS zoom */
+  }
+
+  .kapcsolat-form__field textarea {
+    min-height: 120px;
+  }
+
+  .kapcsolat-form__submit {
+    width: 100%;
+    min-height: 44px;
+    align-self: stretch;
+  }
+
+  .kapcsolat-map iframe {
+    min-height: 220px;
+    height: clamp(220px, 50vw, 320px);
+  }
+}
+
+/* ── Homepage sections ── */
+@media (max-width: 767px) {
+  .home-funding__badge img {
+    width: 100%;
+    max-width: 180px;
+  }
+
+  .home-spread {
+    min-height: auto;
+  }
+
+  .home-spread__page {
+    min-height: auto;
+    padding-block: 2.5rem;
+  }
+
+  .home-about__grid {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 639px) {
+  .section-shell {
+    padding-block: clamp(3rem, 8vw, 4.5rem);
+  }
+}
+
+/* ── Strategic diagram overflow ── */
+@media (max-width: 767px) {
+  .strategic-diagram {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
+
+/* ── Prevent long-word overflow site-wide on small screens ── */
+@media (max-width: 767px) {
+  .page-section__lead,
+  .page-prose p,
+  .rolunk-team__body p,
+  .referenciak-case p,
+  .palyazatok-project p,
+  .kapcsolat-card p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+}

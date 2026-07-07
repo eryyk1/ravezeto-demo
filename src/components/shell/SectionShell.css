@@ -1,0 +1,75 @@
+.section-shell {
+  position: relative;
+  padding-block: var(--section-py, var(--section-py));
+}
+
+.section-shell::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(var(--content-max), 100% - var(--gutter) * 2);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(27, 94, 32, 0.08) 20%,
+    rgba(27, 94, 32, 0.08) 80%,
+    transparent
+  );
+  pointer-events: none;
+}
+
+.section-shell:first-of-type::before,
+.section-shell--green-forest::before,
+.section-shell--green-dark::before,
+.section-shell--green-deep::before {
+  display: none;
+}
+
+.section-shell--warm-white {
+  background: var(--white-warm);
+  color: var(--text-primary);
+}
+
+.section-shell--stone {
+  background: var(--stone);
+  color: var(--text-primary);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.section-shell--grey-light {
+  background: var(--stone);
+  color: var(--text-primary);
+}
+
+.section-shell--green-brand {
+  background: var(--green-brand);
+  color: var(--text-on-green);
+}
+
+.section-shell--green-forest {
+  background: var(--green-forest);
+  color: var(--text-on-green);
+}
+
+.section-shell--green-dark {
+  background: var(--green-deep);
+  color: var(--text-on-green);
+}
+
+.section-shell--green-deep {
+  background: var(--green-deep);
+  color: var(--text-on-green);
+}
+
+.section-shell--graphite {
+  background: var(--graphite);
+  color: var(--text-on-green);
+}
+
+.section-shell--navy-deep {
+  background: var(--green-forest);
+  color: var(--text-on-green);
+}

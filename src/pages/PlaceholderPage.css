@@ -1,0 +1,22 @@
+.placeholder-page {
+  padding-top: calc(var(--header-height) + 2rem);
+  min-height: 60vh;
+}
+
+.placeholder-page__note {
+  margin: 1.5rem 0 2rem;
+  color: var(--text-secondary);
+  max-width: 48ch;
+}
+
+.placeholder-page__back {
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-primary);
+}
+
+.placeholder-page__back:hover {
+  text-decoration: underline;
+}

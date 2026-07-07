@@ -1,0 +1,104 @@
+.inner-hero {
+  position: relative;
+  padding-block: calc(var(--header-height) + clamp(2.5rem, 6vw, 4rem)) clamp(3rem, 6vw, 4.5rem);
+  color: var(--text-on-green);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.inner-hero__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 80% at 20% 40%, rgba(76, 175, 80, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 70% at 85% 30%, rgba(46, 125, 50, 0.15) 0%, transparent 50%),
+    linear-gradient(165deg, #071509 0%, #0a2410 40%, #0f3312 100%);
+  animation: inner-hero-shift 52s ease-in-out infinite alternate;
+}
+
+.inner-hero--deep .inner-hero__bg {
+  background:
+    radial-gradient(ellipse 65% 75% at 75% 35%, rgba(76, 175, 80, 0.1) 0%, transparent 52%),
+    linear-gradient(168deg, #040a06 0%, #081408 45%, #0a2410 100%);
+}
+
+.inner-hero__wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 52rem;
+}
+
+.inner-hero__intro {
+  margin: 1.25rem 0 0;
+  max-width: 52ch;
+  font-size: clamp(1.0625rem, 1.4vw, 1.1875rem);
+  line-height: 1.7;
+  color: rgba(247, 246, 242, 0.78);
+}
+
+@keyframes inner-hero-shift {
+  from {
+    filter: brightness(0.98);
+  }
+  to {
+    filter: brightness(1.03);
+  }
+}
+
+.inner-hero__accent {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.inner-hero--editorial .inner-hero__accent {
+  background:
+    radial-gradient(ellipse 55% 45% at 88% 25%, rgba(129, 199, 132, 0.14) 0%, transparent 60%),
+    linear-gradient(120deg, transparent 60%, rgba(247, 246, 242, 0.03) 100%);
+}
+
+.inner-hero--strategic .inner-hero__accent {
+  background:
+    repeating-linear-gradient(
+      -12deg,
+      transparent,
+      transparent 48px,
+      rgba(129, 199, 132, 0.04) 48px,
+      rgba(129, 199, 132, 0.04) 49px
+    ),
+    radial-gradient(ellipse 40% 50% at 15% 70%, rgba(76, 175, 80, 0.1) 0%, transparent 55%);
+}
+
+.inner-hero--product .inner-hero__accent {
+  background:
+    radial-gradient(circle at 78% 35%, rgba(102, 187, 106, 0.12) 0%, transparent 42%),
+    radial-gradient(circle at 22% 75%, rgba(46, 125, 50, 0.08) 0%, transparent 38%);
+}
+
+.inner-hero--education .inner-hero__accent {
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(129, 199, 132, 0.06) 100%),
+    radial-gradient(ellipse 50% 40% at 90% 20%, rgba(76, 175, 80, 0.1) 0%, transparent 55%);
+}
+
+.inner-hero--cases .inner-hero__accent {
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 30%, rgba(129, 199, 132, 0.11) 0%, transparent 58%);
+}
+
+.inner-hero--official .inner-hero__accent {
+  background:
+    linear-gradient(90deg, rgba(247, 246, 242, 0.04) 0%, transparent 30%, transparent 70%, rgba(247, 246, 242, 0.04) 100%);
+}
+
+.inner-hero--contact .inner-hero__accent {
+  background:
+    radial-gradient(ellipse 45% 55% at 85% 60%, rgba(102, 187, 106, 0.12) 0%, transparent 55%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inner-hero__bg {
+    animation: none;
+  }
+}

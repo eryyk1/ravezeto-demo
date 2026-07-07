@@ -1,0 +1,28 @@
+.section-edge {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+  margin-top: -1px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.section-edge__svg {
+  display: block;
+  width: 100%;
+  height: clamp(3rem, 8vw, 7rem);
+}
+
+.section-edge--flip {
+  transform: scaleX(-1);
+}
+
+.section-edge--overlap {
+  margin-top: calc(clamp(3rem, 8vw, 7rem) * -1);
+}
+
+@media (max-width: 768px) {
+  .section-edge__svg {
+    height: clamp(2rem, 6vw, 4rem);
+  }
+}

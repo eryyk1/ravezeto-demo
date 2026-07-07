@@ -1,0 +1,66 @@
+.strategic-diagram {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+}
+
+.strategic-diagram__svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.25));
+}
+
+.strategic-diagram__label {
+  fill: var(--green-accent);
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.strategic-diagram__node-label {
+  fill: rgba(247, 245, 242, 0.7);
+  font-family: var(--font-body);
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.strategic-diagram__dim {
+  fill: rgba(247, 245, 242, 0.35);
+  font-family: var(--font-body);
+  font-size: 8px;
+  letter-spacing: 0.2em;
+}
+
+.strategic-diagram__float {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(161, 180, 85, 0.3);
+  pointer-events: none;
+}
+
+.strategic-diagram__float--a {
+  width: 12px;
+  height: 12px;
+  top: 8%;
+  right: 5%;
+  background: rgba(42, 107, 82, 0.15);
+}
+
+.strategic-diagram__float--b {
+  width: 8px;
+  height: 8px;
+  bottom: 15%;
+  left: 0;
+  background: rgba(161, 180, 85, 0.2);
+}
+
+@media (max-width: 768px) {
+  .strategic-diagram {
+    max-width: 280px;
+    margin-inline: auto;
+    opacity: 0.85;
+  }
+}

@@ -1,0 +1,4277 @@
+{
+  "generatedAt": "2026-07-06T11:03:06.389Z",
+  "source": {
+    "sql": "ravezeto.hu_wpvivid-62f3de7a6aed8_2026-07-06-10-38_backup_db.sql",
+    "uploadsPath": "uploads/",
+    "theme": "RavezetoNewTheme",
+    "wpVersion": "6.8.5"
+  },
+  "counts": {
+    "totalPosts": 696,
+    "publishedPosts": 198,
+    "byType": {
+      "logos": 34,
+      "page": 29,
+      "wpcf7_contact_form": 1,
+      "references": 7,
+      "nav_menu_item": 19,
+      "services": 7,
+      "trainings": 25,
+      "trainingsmain": 3,
+      "trainingsstrategy": 5,
+      "empx": 6,
+      "colleagues": 8,
+      "oembed_cache": 1,
+      "post": 44,
+      "acf-field-group": 3,
+      "acf-field": 4,
+      "tenders": 2
+    },
+    "uploadFiles": 733,
+    "uploadImages": 682,
+    "uploadPdfs": 6,
+    "themeImages": 224
+  },
+  "company": {
+    "name": "RÁvezető Projekt Kft.",
+    "address": "1146 Budapest, Izsó u. 7. 1/3.",
+    "postalAddress": "1146 Budapest, Izsó u. 7. 1/3.",
+    "phone": "+36 70 513 4128",
+    "phoneAlt": "06 1 798 80 33",
+    "email": "info@ravezeto.hu",
+    "website": "www.ravezeto.hu",
+    "trainingReg": "Felnőttképzési nyilvántartási számunk: E-000362/2014",
+    "facebook": "https://www.facebook.com/profile.php?id=100063907730525",
+    "officeHours": "H-P: 9.00-16.00",
+    "doorbell": "6. kapucsengő"
+  },
+  "navigation": {
+    "menuName": "Main Menu",
+    "items": [
+      {
+        "id": 122,
+        "title": "Főoldal",
+        "slug": "fooldal",
+        "content": "",
+        "excerpt": "",
+        "parent": 0,
+        "menuOrder": 1,
+        "date": "2025-01-11 17:35:50",
+        "guid": "http://ravezeto.hu/?p=122",
+        "mimeType": "",
+        "meta": {
+          "thumbnail": null,
+          "palyazatPdf": null,
+          "attachedFile": null
+        },
+        "menuMeta": {
+          "url": "http://ravezeto.hu/",
+          "objectId": "122",
+          "object": "custom",
+          "type": "custom",
+          "parent": "0"
+        },
+        "linkedPage": {
+          "id": 122,
+          "title": "Főoldal",
+          "slug": "fooldal",
+          "type": "nav_menu_item"
+        }
+      },
+      {
+        "id": 761,
+        "title": "",
+        "slug": "761",
+        "content": " ",
+        "excerpt": "",
+        "parent": 0,
+        "menuOrder": 1,
+        "date": "2025-06-12 16:39:56",
+        "guid": "https://ravezeto.hu/?p=761",
+        "mimeType": "",
+        "meta": {
+          "thumbnail": null,
+          "palyazatPdf": null,
+          "attachedFile": null
+        },
+        "menuMeta": {
+          "url": "",
+          "objectId": "734",
+          "object": "page",
+          "type": "post_type",
+          "parent": "0"
+        },
+        "linkedPage": {
+          "id": 734,
+          "title": "Főoldal",
+          "slug": "fooldal",
+          "type": "page"
+        }
+      },
+      {
+        "id": 307,
+        "title": "Magunkról",
+        "slug": "magunkrol",
+        "content": "",
+        "excerpt": "",
+        "parent": 0,
+        "menuOrder": 2,
+        "date": "2025-01-11 17:35:51",
+        "guid": "http://ravezeto.hu/?p=307",
+        "mimeType": "",
+        "meta": {
+          "thumbnail": null,
+          "palyazatPdf": null,
+          "attachedFile": null
+        },
+        "menuMeta": {
+          "url": "http://ravezeto.hu/magunkrol",
+          "objectId": "307",
+          "object": "custom",
+          "type": "custom",
+          "parent": "0"
+        },
+        "linkedPage": {
+          "id": 307,
+          "title": "Magunkról",
+          "slug": "magunkrol",
+          "type": "nav_menu_item"
+        }
+      },
+      {
+        "id": 753,
+        "title": "",
+        "slug": "753",
+        "content": " ",
+        "excerpt": "",
+        "parent": 0,
+        "menuOrder": 2,
+        "date": "2025-06-12 16:39:56",
+        "guid": "https://ravezeto.hu/?p=753",
+        "mimeType": "",
+        "meta": {
+          "thumbnail": null,
+          "palyazatPdf": null,
+          "attachedFile": null
+        },
+        "menuMeta": {
+          "url": "",
+          "objectId": "736",
+          "object": "page",
+          "type": "post_type",
+          "parent": "0"
+        },
+        "linkedPage": {
+          "id": 736,
+          "title": "Csapatunk",
+          "slug": "csapatunk",
+          "type": "page"
+        }
+      },
+      {
+        "id": 92,
+        "title": "",
+        "slug": "92",
+        "content": " ",
+        "excerpt": "",
+        "parent": 0,
+        "menuOrder": 3,
+        "date": "2025-01-11 17:35:51",
+        "guid": "http://ravezeto.hu/?p=92",
+        "mimeType": "",
+        "meta": {
+          "thumbnail": null,
+          "palyazatPdf": null,
+          "attachedFile": null
+        },
+        "menuMeta": {
+          "url": "",
+          "objectId": "34",
+          "object": "page",
+          "type": "post_type",
+          "parent": "0"
+        },
+        "linkedPage": {
+          "id": 34,
+          "title": "Szolgáltatásaink",
+          "slug": "szolgaltatasaink",
+          "type": "page"
+        }
+      },
+      {
+        "id": 771,
+        "title": "Szolgáltatásaink",
+        "slug": "szolgaltatasaink",
+        "content": "",
+        "excerpt": "",
+        "parent": 0,
+        "menuOrder": 3,
+        "date": "2025-06-12 16:39:56",
+        "guid": "https://ravezeto.hu/?p=771",
+        "mimeType": "",
+        "meta": {
+          "thumbnail": null,
+          "palyazatPdf": null,
+          "attachedFile": null
+        },
+        "menuMeta": {
+          "url": "#",
+          "objectId": "771",
+          "object": "custom",
+          "type": "custom",
+          "parent": "0"
+        },
+        "linkedPage": {
+          "id": 771,
+          "title": "Szolgáltatásaink",
+          "slug": "szolgaltatasaink",
+          "type": "nav_menu_item"
+        }
+      },
+      {
+        "id": 138,
+        "title": "",
+        "slug": "138",
+        "content": " ",
+        "excerpt": "",
+        "parent": 0,
+        "menuOrder": 4,
+        "date": "2025-01-11 17:35:51",
+        "guid": "http://ravezeto.hu/?p=138",
+        "mimeType": "",
+        "meta": {
+          "thumbnail": null,
+          "palyazatPdf": null,
+          "attachedFile": null
+        },
+        "menuMeta": {
+          "url": "",
+          "objectId": "135",
+          "object": "page",
+          "type": "post_type",
+          "parent": "0"
+        },
+        "linkedPage": {
+          "id": 135,
+          "title": "Felnőttképzés",
+          "slug": "felnottkepzes",
+          "type": "page"
+        }
+      },
+      {
+        "id": 760,
+        "title": "",
+        "slug": "760",
+        "content": " ",
+        "excerpt": "",
+        "parent": 0,
+        "menuOrder": 4,
+        "date": "2025-06-12 16:39:56",
+        "guid": "https://ravezeto.hu/?p=760",
+        "mimeType": "",
+        "meta": {
+          "thumbnail": null,
+          "palyazatPdf": null,
+          "attachedFile": null
+        },
+        "menuMeta": {
+          "url": "",
+          "objectId": "750",
+          "object": "page",
+          "type": "post_type",
+          "parent": "771"
+        },
+        "linkedPage": {
+          "id": 750,
+          "title": "Tanácsadás",
+          "slug": "tanacsadas",
+          "type": "page"
+        }
+      },
+      {
+        "id": 91,
+        "title": "",
+        "slug": "91",
+        "content": " ",
+        "excerpt": "",
+        "parent": 0,
+        "menuOrder": 5,
+        "date": "2025-01-11 17:35:51",
+        "guid": "http://ravezeto.hu/?p=91",
+        "mimeType": "",
+        "meta": {
+          "thumbnail": null,
+          "palyazatPdf": null,
+          "attachedFile": null
+        },
+        "menuMeta": {
+          "url": "",
+          "objectId": "50",
+          "object": "page",
+          "type": "post_type",
+          "parent": "0"
+        },
+        "linkedPage": {
+          "id": 50,
+          "title": "Referenciáink",
+          "slug": "referenciaink-2",
+          "type": "page"
+        }
+      },
+      {
+        "id": 754,
+        "title": "",
+        "slug": "754",
+        "content": " ",
+        "excerpt": "",
+        "parent": 0,
+        "menuOrder": 5,
+        "date": "2025-06-12 16:39:56",
+        "guid": "https://ravezeto.hu/?p=754",
+        "mimeType": "",
+        "meta": {
+          "thumbnail": null,
+          "palyazatPdf": null,
+          "attachedFile": null
+        },
+        "menuMeta": {
+          "url": "",
+          "objectId": "738",
+          "object": "page",
+          "type": "post_type",
+          "parent": "771"
+        },
+        "linkedPage": {
+          "id": 738,
+          "title": "Felnőttképzés",
+          "slug": "felnottkepzesek",
+          "type": "page"
+        }
+      },
+      {
+        "id": 335,
+        "title": "",
+        "slug": "335",
+        "content": " ",
+        "excerpt": "",
+        "parent": 0,
+        "menuOrder": 6,
+        "date": "2025-01-11 17:35:51",
+        "guid": "http://ravezeto.hu/?p=335",
+        "mimeType": "",
+        "meta": {
+          "thumbnail": null,
+          "palyazatPdf": null,
+          "attachedFile": null
+        },
+        "menuMeta": {
+          "url": "",
+          "objectId": "86",
+          "object": "page",
+          "type": "post_type",
+          "parent": "0"
+        },
+        "linkedPage": {
+          "id": 86,
+          "title": "Impresszum",
+          "slug": "impresszum",
+          "type": "page"
+        }
+      },
+      {
+        "id": 772,
+        "title": "Pályázatok",
+        "slug": "palyazatok",
+        "content": "",
+        "excerpt": "",
+        "parent": 0,
+        "menuOrder": 6,
+        "date": "2025-06-12 16:39:56",
+        "guid": "https://ravezeto.hu/?p=772",
+        "mimeType": "",
+        "meta": {
+          "thumbnail": null,
+          "palyazatPdf": null,
+          "attachedFile": null
+        },
+        "menuMeta": {
+          "url": "#",
+          "objectId": "772",
+          "object": "custom",
+          "type": "custom",
+          "parent": "0"
+        },
+        "linkedPage": {
+          "id": 772,
+          "title": "Pályázatok",
+          "slug": "palyazatok",
+          "type": "nav_menu_item"
+        }
+      },
+      {
+        "id": 396,
+        "title": "CSR",
+        "slug": "csr",
+        "content": "",
+        "excerpt": "",
+        "parent": 0,
+        "menuOrder": 7,
+        "date": "2025-01-11 17:35:51",
+        "guid": "http://ravezeto.hu/?p=396",
+        "mimeType": "",
+        "meta": {
+          "thumbnail": null,
+          "palyazatPdf": null,
+          "attachedFile": null
+        },
+        "menuMeta": {
+          "url": "",
+          "objectId": "394",
+          "object": "page",
+          "type": "post_type",
+          "parent": "0"
+        },
+        "linkedPage": {
+          "id": 394,
+          "title": "Társadalmi felelősségvállalás",
+          "slug": "csr",
+          "type": "page"
+        }
+      },
+      {
+        "id": 787,
+        "title": "",
+        "slug": "787",
+        "content": " ",
+        "excerpt": "",
+        "parent": 0,
+        "menuOrder": 7,
+        "date": "2025-06-12 16:39:56",
+        "guid": "https://ravezeto.hu/?p=787",
+        "mimeType": "",
+        "meta": {
+          "thumbnail": null,
+          "palyazatPdf": null,
+          "attachedFile": null
+        },
+        "menuMeta": {
+          "url": "",
+          "objectId": "781",
+          "object": "post",
+          "type": "post_type",
+          "parent": "772"
+        },
+        "linkedPage": {
+          "id": 781,
+          "title": "GINOP Plusz 3.2.1-21",
+          "slug": "ginop-plusz-3-2-1-21",
+          "type": "post"
+        }
+      },
+      {
+        "id": 89,
+        "title": "",
+        "slug": "89",
+        "content": " ",
+        "excerpt": "",
+        "parent": 0,
+        "menuOrder": 8,
+        "date": "2025-01-11 17:35:51",
+        "guid": "http://ravezeto.hu/?p=89",
+        "mimeType": "",
+        "meta": {
+          "thumbnail": null,
+          "palyazatPdf": null,
+          "attachedFile": null
+        },
+        "menuMeta": {
+          "url": "",
+          "objectId": "37",
+          "object": "page",
+          "type": "post_type",
+          "parent": "0"
+        },
+        "linkedPage": {
+          "id": 37,
+          "title": "Kapcsolat",
+          "slug": "kapcsolat",
+          "type": "page"
+        }
+      },
+      {
+        "id": 937,
+        "title": "GINOP-5.3.1",
+        "slug": "ginop-5-3-1-2",
+        "content": "",
+        "excerpt": "",
+        "parent": 0,
+        "menuOrder": 8,
+        "date": "2025-06-12 16:39:56",
+        "guid": "https://ravezeto.hu/?p=937",
+        "mimeType": "",
+        "meta": {
+          "thumbnail": null,
+          "palyazatPdf": null,
+          "attachedFile": null
+        },
+        "menuMeta": {
+          "url": "",
+          "objectId": "783",
+          "object": "post",
+          "type": "post_type",
+          "parent": "772"
+        },
+        "linkedPage": {
+          "id": 783,
+          "title": "GINOP-5.3.1-14-2015-00051",
+          "slug": "ginop-5-3-1-14-2015-00051",
+          "type": "post"
+        }
+      },
+      {
+        "id": 758,
+        "title": "",
+        "slug": "758",
+        "content": " ",
+        "excerpt": "",
+        "parent": 0,
+        "menuOrder": 9,
+        "date": "2025-06-12 16:39:56",
+        "guid": "https://ravezeto.hu/?p=758",
+        "mimeType": "",
+        "meta": {
+          "thumbnail": null,
+          "palyazatPdf": null,
+          "attachedFile": null
+        },
+        "menuMeta": {
+          "url": "",
+          "objectId": "746",
+          "object": "page",
+          "type": "post_type",
+          "parent": "0"
+        },
+        "linkedPage": {
+          "id": 746,
+          "title": "Referenciák",
+          "slug": "referenciaink",
+          "type": "page"
+        }
+      },
+      {
+        "id": 756,
+        "title": "",
+        "slug": "756",
+        "content": " ",
+        "excerpt": "",
+        "parent": 0,
+        "menuOrder": 10,
+        "date": "2025-06-12 16:39:56",
+        "guid": "https://ravezeto.hu/?p=756",
+        "mimeType": "",
+        "meta": {
+          "thumbnail": null,
+          "palyazatPdf": null,
+          "attachedFile": null
+        },
+        "menuMeta": {
+          "url": "",
+          "objectId": "742",
+          "object": "page",
+          "type": "post_type",
+          "parent": "0"
+        },
+        "linkedPage": {
+          "id": 742,
+          "title": "Mentally",
+          "slug": "mentally",
+          "type": "page"
+        }
+      },
+      {
+        "id": 755,
+        "title": "",
+        "slug": "755",
+        "content": " ",
+        "excerpt": "",
+        "parent": 0,
+        "menuOrder": 11,
+        "date": "2025-06-12 16:39:56",
+        "guid": "https://ravezeto.hu/?p=755",
+        "mimeType": "",
+        "meta": {
+          "thumbnail": null,
+          "palyazatPdf": null,
+          "attachedFile": null
+        },
+        "menuMeta": {
+          "url": "",
+          "objectId": "740",
+          "object": "page",
+          "type": "post_type",
+          "parent": "0"
+        },
+        "linkedPage": {
+          "id": 740,
+          "title": "Kapcsolat",
+          "slug": "kapcsolatok",
+          "type": "page"
+        }
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": 736,
+      "title": "Csapatunk",
+      "slug": "csapatunk",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-01-11 17:32:17",
+      "guid": "https://ravezeto.hu/?page_id=736",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 259,
+      "title": "EMPX",
+      "slug": "empx",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2017-05-23 18:25:36",
+      "guid": "http://ravezeto.hu/?page_id=259",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 262,
+      "title": "EMPX bevezető",
+      "slug": "empx-bevezeto",
+      "content": "A munkatársak elköteleződését a munkavállalói élmény határozza meg. Legfontosabb összetevői az emberi kapcsolatok, a munka minősége, a fejlett digitalizáción alapuló munkahelyi környezet, valamint a jövedelem, amely csak ezek után következik.\r\n<h3>A munkavállalói élmény a legfontosabb motiváció</h3>\r\n„Jelentősen megváltozott a hazai munkaerőpiac magatartása az elmúlt négy-öt évben. A korábbi állapotokhoz képest jelenleg szinte minden ágazatban a munkaerőhiány és a magas fluktuáció a jellemző, amely több okból is káros a munkaadóknak: a munkatársak kiválasztása, felvétele, betanítása minden esetben jelentős költséggel és munkaidő ráfordítással jár.\r\nA távozó munkavállalók nem feltétlenül a magasabb fizetés vagy beosztás kedvéért lépnek ki, hanem gyakran azért, mert nem tartják megfelelőnek a munkahelyi környezetet, az egyre fontosabbá váló munkavállalói élményt (Employee Experience, EX). Minden vezetőnek teljesen át kell értékelnie a munkavállalóik munkához, munkahelyhez való viszonyát ahhoz, hogy megfelelően tudja támogatni és motiválni őket.\r\nEz nem egyszerűen HR feladat, hanem a vezetés teljes szemléletváltása, el kell fogadni, hogy a kollégák számára a munkahely már nem egyszerűen a munkavégzés helye, hanem olyan élettér, ahol saját szakmai önmegvalósítása és egyéni kiteljesedése teljes mértékben találkozik a munkaadó céljaival. Ennek érdekében a menedzsmentnek az egyéni érdekek rugalmas kezelésén, a munkavállalói diverzitás biztosításán keresztül szinte ’személyre szabott’ munkakörnyezetet kell teremteni számukra.\r\nA Rávezető Projekt Kft. saját Employee Experience (EX) megoldáscsomagján keresztül az ágazati igények és sajátosságok figyelembe vételével nyújt támogatást a munkavállalói élményút feltárásában, elemzésében, és az adott vállalatnak leginkább megfelelő megoldás kialakításában és bevezetésében.”\r\nRíz Ádám ügyvezető igazgató (fotó)",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2017-05-23 18:38:40",
+      "guid": "http://ravezeto.hu/?page_id=262",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2017/01/Riz-Adam.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 135,
+      "title": "Felnőttképzés",
+      "slug": "felnottkepzes",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2016-07-01 12:42:39",
+      "guid": "http://ravezeto.hu/?page_id=135",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 738,
+      "title": "Felnőttképzés",
+      "slug": "felnottkepzesek",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-01-11 17:32:12",
+      "guid": "https://ravezeto.hu/?page_id=738",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 32,
+      "title": "Főoldal",
+      "slug": "fooldal-2-2",
+      "content": "<a href=\"https://ravezeto.hu/aktualis-ginop-es-vekop-palyazatok/\"><img class=\"alignnone size-full wp-image-704\" src=\"http://ravezeto.hu/wp-content/uploads/2024/12/esba.jpg\" alt=\"\" width=\"708\" height=\"295\" /></a>\n\n<a href=\"https://ravezeto.hu/aktualis-ginop-es-vekop-palyazatok/\"><img class=\"alignnone wp-image-708\" src=\"http://ravezeto.hu/wp-content/uploads/2024/12/infoblokk_ESZA_FULL-e1734522016579-1024x719.jpg\" alt=\"\" width=\"682\" height=\"479\" /></a>",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2016-06-15 11:09:05",
+      "guid": "http://ravezeto.hu/?page_id=32",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 734,
+      "title": "Főoldal",
+      "slug": "fooldal",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-01-11 17:31:16",
+      "guid": "https://ravezeto.hu/?page_id=734",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 86,
+      "title": "Impresszum",
+      "slug": "impresszum",
+      "content": "Cégnév: RÁvezető Projekt Kft.\r\nszékhely: 1146 Budapest, Izsó u. 7. 1/3.\r\npostacím: 1146 Budapest, Izsó u. 7. 1/3.\r\ntelefonszám: 06 1 798 80 33\r\ne-mail: info@ravezeto.hu\r\nweb: www.ravezeto.hu\r\nA weboldal a RÁvezető Projekt Kft. tulajdonát képezi.\r\nA honlapon elhelyezett tartalom szerzői jogvédelem alatt áll!",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2016-06-16 11:03:53",
+      "guid": "http://ravezeto.hu/?page_id=86",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 37,
+      "title": "Kapcsolat",
+      "slug": "kapcsolat",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2016-06-15 11:13:27",
+      "guid": "http://ravezeto.hu/?page_id=37",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 740,
+      "title": "Kapcsolat",
+      "slug": "kapcsolatok",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-01-11 17:32:07",
+      "guid": "https://ravezeto.hu/?page_id=740",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 47,
+      "title": "Kapcsolat - Felnőttképzés",
+      "slug": "kapcsolat-felnottkepzes",
+      "content": "Felnőttképzési nyilvántartási számunk: E-000362/2014",
+      "excerpt": "",
+      "parent": 37,
+      "menuOrder": 0,
+      "date": "2016-06-15 11:17:38",
+      "guid": "http://ravezeto.hu/?page_id=47",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 43,
+      "title": "Kapcsolat - Irodáink",
+      "slug": "kapcsolat-irodaink",
+      "content": "<h3>Irodánk</h3>\r\n1146 Budapest\r\n\r\nIzsó u. 7. 1/3.\r\n\r\n6. kapucsengő",
+      "excerpt": "",
+      "parent": 37,
+      "menuOrder": 0,
+      "date": "2016-06-15 11:16:20",
+      "guid": "http://ravezeto.hu/?page_id=43",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 45,
+      "title": "Kapcsolat - Telefon",
+      "slug": "kapcsolat-telefon",
+      "content": "<em>+36 70 513 4128</em>",
+      "excerpt": "",
+      "parent": 37,
+      "menuOrder": 0,
+      "date": "2016-06-15 11:17:01",
+      "guid": "http://ravezeto.hu/?page_id=45",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 40,
+      "title": "Kapcsolat - Ügyfélszolgálat",
+      "slug": "kapcsolat-ugyfelszolgalat",
+      "content": "<h3>Ügyfélszolgálat</h3>\r\n1146 Budapest, Izsó u. 7. 1/3. H-P: 9.00-16.00",
+      "excerpt": "",
+      "parent": 37,
+      "menuOrder": 0,
+      "date": "2016-06-15 11:15:32",
+      "guid": "http://ravezeto.hu/?page_id=40",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 575,
+      "title": "Képzések uniós forrásból",
+      "slug": "aktualis-ginop-es-vekop-palyazatok",
+      "content": "<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2021-05-17 20:11:02",
+      "guid": "http://ravezeto.hu/?page_id=575",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 30,
+      "title": "Magunkról",
+      "slug": "magunkrol",
+      "content": "Citius, Altius, Fortius. Minden munkaszervezet állandó mozgásban, változásban éli mindennapjait. Úgy hisszük, hogy a szervezetek életében megjelenő kihívások a sport nyelvén is leírhatók, mert tervezés, felkészülés és kitartás nélkül nincs siker, a teljesítmény itt is mérhető, az eredmény pedig igazolja a szervezet létét, erejét, befolyását, fejlesztését.<!--more-->\n\nMunkatársaink és szakértőink jelentős szervezeti tapasztalattal rendelkező tanácsadók, projekttervezők és menedzserek. Minőségelvű csapatban gondolkodunk és cselekszünk, ügyfeleinket rávezetjük a megoldás útjára és végig is kísérjük azon. Belső meggyőződés a munkáink által saját magunk fejlesztése is. Gyorsabban, magasabbra, erősebben! Találkozunk Párizsban?",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2016-06-15 11:08:04",
+      "guid": "http://ravezeto.hu/?page_id=30",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 742,
+      "title": "Mentally",
+      "slug": "mentally",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-01-11 17:32:01",
+      "guid": "https://ravezeto.hu/?page_id=742",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 456,
+      "title": "Munkatársaink",
+      "slug": "munkatarsaink",
+      "content": "teszt",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2019-12-07 08:36:05",
+      "guid": "http://ravezeto.hu/?page_id=456",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 744,
+      "title": "Pályázatok",
+      "slug": "palyazatok",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-01-11 17:31:56",
+      "guid": "https://ravezeto.hu/?page_id=744",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 50,
+      "title": "Referenciáink",
+      "slug": "referenciaink-2",
+      "content": "Cégünk teljesítményének értékét ügyfeleink véleménye, elégedettsége határozza meg. Szakértő munkatársaink az alábbi feladatok megoldásában segédkeztek a közelmúltban:<!--more-->",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2016-06-15 12:04:51",
+      "guid": "http://ravezeto.hu/?page_id=50",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 746,
+      "title": "Referenciák",
+      "slug": "referenciaink",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-01-11 17:31:51",
+      "guid": "https://ravezeto.hu/?page_id=746",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 213,
+      "title": "Sikeres Küldés",
+      "slug": "sikeres-kuldes",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2016-10-28 17:07:16",
+      "guid": "http://ravezeto.hu/?page_id=213",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 34,
+      "title": "Szolgáltatásaink",
+      "slug": "szolgaltatasaink",
+      "content": "A szervezeti teljesítmény növelése optimálisan több tényező együttes fejlesztésével valósítható meg. Ügyfeleink számára igényeik szerint szervezeti stratégiájuk megalkotásában és<!--more--> karbantartásában, a szervezeti folyamatok tisztázásában és újjászervezésében, a szervezeti megújulást célzó változások kezelésében nyújtunk támogatást. A szervezeti és egyéni teljesítmények fokozása érdekében humán stratégia kidolgozását és frissítését, a fejlesztési és képzési igények meghatározását, illesztését és megvalósítását, a szervezet felsővezetőinek személyi edzését, valamint a szervezeten belüli projektek szakszerű tervezését és végrehajtását végezzük. Szervezetre szabott, átgondolt eredménytermékeink a tanácsadási folyamat során születnek meg. Ügyfeleinket nem hagyjuk magukra, a fejlesztés része a bevezetéshez szükséges konzultáció és támogatás is.",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2016-06-15 11:11:38",
+      "guid": "http://ravezeto.hu/?page_id=34",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 748,
+      "title": "Szolgáltatásaink",
+      "slug": "szolgaltatasok",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-01-11 17:31:43",
+      "guid": "https://ravezeto.hu/?page_id=748",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 331,
+      "title": "Tájékoztató a cookie-k használatáról",
+      "slug": "tajekoztato-cookie-k-hasznalatarol",
+      "content": "<h3>Mi a cookie (azaz süti)?</h3>\r\nA cookie-k (sütik) kisméretű, szövegből és számból álló fájlok, amelyeket a böngészés során a weboldal kiszolgálója helyez el az Ön számítógépén. A cookie (süti) önmagában semmilyen módon nem képes az Ön azonosítására, kizárólag az Ön gépének felismerésére alkalmas.\r\n<h3>Milyen célt szolgálnak a cookie-k?</h3>\r\nA cookie-k az Ön számítógépén tárolásra kerülnek, és lehetőséget biztosítanak egyes adatainak lekérdezésére, az Ön internethasználatának nyomon követésére. A cookie-kat abból a célból kezeljük, hogy többet tudhassunk meg a weboldal látogatóinak információhasználati szokásairól, amely információkat a weboldal tartalmi és funkcionális fejlesztésére használunk, biztosítva a weboldal jobb használhatóságát. A cookie-k alapján meg tudjuk állapítani, hogy hányan látogatták meg a weboldalt, hány új látogató van, és a látogatók mely oldalakat nyitották meg.\r\n\r\nA Weboldal független látogatottsági és egyéb webanalitikai adatainak kinyerése érdekében a Szolgáltató igénybe veszi a Google Analitycs szoftvert. A Google Analitycs is cookie-kat használ.\r\n\r\nA cookie-k hazsnálatával a Google kiértékeli a weboldalunk használatát és jelentéseket készít a weboldalunkon tapasztalható aktivitásokról, illetve a weboldal és az internet használatával kapcsolatos egyéb szolgáltatásokat nyújt számunkra.\r\n\r\nA Google Inc. Adatvédelmi irányelve a <a href=\"http://www.google.com/intl/hu ALL/privacypolicy.html\">http://www.google.com/intl/hu ALL/privacypolicy.html</a> oldalon érhető el.\r\nWeboldalunk használatával Ön tudomásul veszi és belegyezik abba, hogy adatait a Google a fentiekben leírt célokra és módon feldolgozza, használja és továbbítsa.\r\n<h3>Az általunk használt cookie-k típusai</h3>\r\n<ol>\r\n \t<li>Kötelező cookie-k: a weboldalon történő navigálást, illetve az oldal funkcióinak használatát teszik lehetővé.</li>\r\n \t<li>Funkcionális cookie-k: ezek teszik lehetővé a felhasználói beállítások tárolását (pl.: bejelentkezési adatok), megjegyzik az Ön korábbi választásait, ezáltal lehetővé teszik a weboldal használatának személyre szabását.</li>\r\n \t<li>Teljesítmény cookie-k: a weboldal fejlesztését szolgálják. Mérik, hogy hányan és milyen rendszerességgel használják a weboldalt, mely oldalakat látogatták meg a legtöbben</li>\r\n</ol>\r\n<h3>A cookie-k használatának megtiltása</h3>\r\nA böngésző megfelelő beállításaival Ön megakadályozhatja a cookie-k használatát, azonban felhívjuk a figyelmét arra, hogy ebben az esetben előfordul, hogy nem tudja weboldalunk valamennyi funkcióját teljes körűen használni.",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2018-05-17 12:17:45",
+      "guid": "http://ravezeto.hu/?page_id=331",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 750,
+      "title": "Tanácsadás",
+      "slug": "tanacsadas",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-01-11 17:31:36",
+      "guid": "https://ravezeto.hu/?page_id=750",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 394,
+      "title": "Társadalmi felelősségvállalás",
+      "slug": "csr",
+      "content": "Büszkék vagyunk rá, hogy támogatásunkkal hozzájárulhatunk alapítványok áldozatos munkájához, egyesületek eredményes működéséhez.\n\n2022: Kárpátaljai Családokért Egyesület, valamint az Edisonfund\n\n2020: Fővárosi Önkormányzat Jahn Ferenc Dél-pesti Kórháza Alapítvány\n\n2016: AGA-PÉ Osztozó Szeretet Alapítvány\n\n2015: Csömöri Sport Nonprofit Kft., Kaposvári Rákóczi Bene Ferenc Labdarúgó Akadémia, Balatonfüred Város Sportjáért Közhasznú Alapítvány\n\n2014: Minden Baleseti Sérült Gyermekért Alapítvány, dévai Szent Ferenc Alapítvány, Rákosligeti Magyarok Nagyasszonya Plébánia, Keresztúri Központi Sportsuli DSE, Csömöri Sport Nonprofit Kft., Monori Sportegyesület",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2018-07-19 06:07:09",
+      "guid": "http://ravezeto.hu/?page_id=394",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 219,
+      "title": "teszt",
+      "slug": "teszt",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2016-12-19 23:05:52",
+      "guid": "http://ravezeto.hu/?page_id=219",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 458,
+      "title": "Ügyfeleink írták",
+      "slug": "rolunk-mondtak",
+      "content": "„Magas szakmai felkészültség. Szakmailag alátámasztott, a témának megfelelő részletesség.\"\r\n\r\n________________________________________________________________________________________________\r\n\r\n„A tréner segítőkész, nagyon felkészült, kedves, nem személyválogató, közvetlen és megértő. Külső szemmel ezeket tapasztaltam. Sokat tanultam ás ráláthattam általuk a saját életemben lévő problémák gyökerére.\"\r\n\r\n________________________________________________________________________________________________\r\n\r\n„Interaktív, gyakorlatias, hasznos.\"\r\n\r\n________________________________________________________________________________________________\r\n\r\n„Játékos, kifejező gyakorlatok, melyekből könnyen levonhatók a következtetések.\"\r\n\r\n________________________________________________________________________________________________\r\n\r\n„Nagyon hasznos információkkal lettem gazdagabb. Úgy érzem, hogy ez a képzés hatással lesz az életem további részére.”\r\n\r\n________________________________________________________________________________________________\r\n\r\n„Jól szervezett, magas szakmai színvonal.\"\r\n\r\n________________________________________________________________________________________________\r\n\r\n„Precíz és nagyon jó volt az oktató. Nagyon jól végezte a munkáját. Teljes volt a képzés az elejétől a végéig és nagyon hasznos volt számomra.”\r\n\r\n________________________________________________________________________________________________\r\n\r\n„Érdekes, mozgalmas, magával ragadó, szemléletes elemekkel tarkított volt az előadás! A lehető legjobb oktatást kaptuk, nagyon hasznos volt és élvezetes a tanfolyam.”",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2019-12-07 08:58:01",
+      "guid": "http://ravezeto.hu/?page_id=458",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    }
+  ],
+  "services": [
+    {
+      "id": 94,
+      "title": "Projekttervezés és menedzsment",
+      "slug": "projekttervezes-es-menedzsment",
+      "content": "<h3>Fejlesztésben gondolkodom, projektkeretben? Uniós forrásból?</h3>\r\nA munkaszervezetek egyedi fejlesztési céljaikat projektek keretében érik el. A hiányzó, vagy nem elég fejlett szabályozás, a projekt logikától eltérő szervezeti kultúra, a felkészült menedzserek hiánya akadályt képezhet a sikeres megvalósításban. A \"hagyományos\" projekt menedzsment módszertanok alkalmazása mellett támogatjuk ügyfeleinket a komplex vagy nem jól definiálható projektek megvalósítását szolgáló iteratív, agilis projektmenedzsment módszerek bevezetésében is. Támogatjuk a szervezetet a felkészülésben, a szabályozás kialakításában, de igény szerint átvállaljuk a részletes tervezési és menedzsment feladatokat is. Évtizedes tapasztalattal rendelkezünk EU-forrásból (ÁROP, TÁMOP) megvalósuló humánerőforrás- és közigazgatás-fejlesztési projektek, komplex fejlesztési programok tervezésében, menedzsmentjében.",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2016-06-16 11:15:51",
+      "guid": "http://ravezeto.hu/?post_type=services&#038;p=94",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2016/06/illust_projectmanagement.svg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 109,
+      "title": "Felnőttképzés",
+      "slug": "felnottkepzes",
+      "content": "<h3>Segít-e a szervezeti működés fejlesztésében vagy a munkatársi kiválóság növelésében egy kompetenciafejlesztő képzés?</h3>\r\nMi hisszük, hogy igen, mert a megszokott munkakörnyezetből kiszakadva elérhető az áttörés, a „küszöb-élmény”, mind egyéni, mind szervezeti szinten. A Rávezető Projekt munkatársaiként úgy véljük, a szervezeti teljesítmény növelése optimálisan több tényező együttes fejlesztésével, több eszköz használatával valósítható meg, amelyek közül az egyik legfontosabb a képzés. Cégünk felnőttképzési engedéllyel rendelkező intézmény (nyilvántartásba vételi számunk: E-000362/2014). A fejlesztési és képzési igények meghatározását, illesztését és megvalósítását szervezetre, illetve személyre szabva, ügyfeleink valós igényei és meglévő tudásszintje figyelembevételével végezzük. Elfogadott képzési stratégiánk (melynek kivonatát a honlapon olvashatja) értelmében arra törekszünk, hogy képzési programjaink ne „dobozos” termékek legyenek, hanem differenciált, változatos oktatás-módszertani megoldásokkal (1-2-3 napos tréningek, e-learning modulok, online tréning elemek, follow up szolgáltatások) biztosítsuk a képzés hasznosulását a szervezetek számára. Belső és külső tréneri csapatunk tagjainak sok éves piaci és közigazgatási tapasztalata, kiemelkedő szakmai tudása garantálja, hogy közvetlen, felszabadult légkörben zajló tréningjeink a lehető legjobban szolgálják a megfogalmazott képzési célokat.\r\n\r\nBízunk benne, hogy Ön és munkatársai is elégedettek lesznek szolgáltatásainkkal!\r\n\r\n<p>\r\n<a href=\"http://ravezeto.hu/felnottkepzes/\" class=\"btn\"><span>Bővebben</span></a> ‎\r\n</p>",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2016-06-16 11:22:03",
+      "guid": "http://ravezeto.hu/?post_type=services&#038;p=109",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2016/06/illust_courses.svg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 102,
+      "title": "Stratégiaalkotás és szervezetfejlesztés",
+      "slug": "strategiaalkotas-es-szervezetfejlesztes",
+      "content": "<h3>Hová szeretnék eljutni és mennyi idő alatt, milyen utat válasszunk?</h3>\r\nMinden szervezet rendelkezik a stratégiai gondolkodás igényével, de az azonnali feladatok és gyors változások közepette a stratégiaalkotás feleslegesnek tűnő erőfeszítést igényel. A megvalósítható stratégia kialakítása és alkalmazása, a szervezet munkavállalóinak és folyamatainak ehhez történő illesztése jelent valódi kihívást. Ehhez a kiemelt vezetői feladathoz biztosítunk szakértői támogatást, a stratégia alkotás folyamatától a cselekvés mozzanatáig. Szervezeti működést fejlesztő javaslatainkkal abban támogatjuk ügyfeleinket, hogy a szervezet állapotának és érettségének megfelelő szinten legyenek képesek a stratégiai megvalósító képesség és hatékonyság javítására, a folyamatok optimalizálásával, munkaszervezéssel, együttműködésen alapuló szervezeti kultúra kialakításával.",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 1,
+      "date": "2016-06-16 11:17:00",
+      "guid": "http://ravezeto.hu/?post_type=services&#038;p=102",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2016/06/illust_strategy.svg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 107,
+      "title": "Üzleti edzés, coaching",
+      "slug": "uzleti-edzes-coaching",
+      "content": "<h3>Üzleti edzés, coaching - Tényleg szükségem van rá?</h3>\r\n                            <p>Napjaink vezetői döntési helyzeteikben minden szervezeti támogatás ellenére nap mint nap egyedül maradnak a rájuk háruló felelősséggel.</p>\r\n                            <h3>Melyek döntéseim szempontjai? Jól döntöttem?</h3>\r\n                            <p>Szakembereink egyéni megközelítésükkel, saját szervezeti vezetői tapasztalatukkal támogatják a vezetői munkavégzést a szervezeti problémák és kihívások, döntési pontok, korábbi és jelenidejű döntések közös elemzésével.</p>\r\n                            <h3>Miben kell fejlődnöm, hogy jobb vezető legyek?</h3> \r\n                            <p>A személyes és bizalmi kapcsolat vezető és tanácsadó között arra is alkalmas, hogy többféle módszertani eszköz, gyakorlatok és a visszacsatolás révén elősegítse a vezetői készségek és kompetenciák fejlesztését a szervezeti és személyes haszon maximalizálására.</p>",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 3,
+      "date": "2016-06-16 11:20:34",
+      "guid": "http://ravezeto.hu/?post_type=services&#038;p=107",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2016/06/illust_coaching.svg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 158,
+      "title": "Munkahelyi Stressz Audit",
+      "slug": "munkahelyi-stressz-audit",
+      "content": "<h3>Megtakarítás a stressz csökkentésével!</h3>\r\nAz Európai Munkahelyi Biztonsági és Egészségvédelmi Ügynökség felmérése* szerint a munkahelyi stressz okozta GDP-kiesés hazánkban nagyjából évi 1000 milliárd forintra tehető, és a hiányzások 50-60%-a tulajdonítható közvetve vagy közvetlenül a stressznek.\r\n<h3>Segítségünkkel:</h3>\r\n<ul>\r\n \t<li>Csökkentse az ártó stressz hatásait és így a kockázatot!</li>\r\n \t<li>Növelje munkatársai és cége teljesítményét!</li>\r\n \t<li>Csökkentse a hiányzást és a fluktuációt!</li>\r\n \t<li>Növelje a kreativitást és a proaktivitást!</li>\r\n \t<li>Motiválja dolgozóit a szervezete minden szintjén!</li>\r\n \t<li>Javítsa a munkahelyi légkört!</li>\r\n</ul>\r\n<small>*Európai Munkahelyi Biztonság és Egészségvédelmi Ügynökség 2000. Kutatás a munkával kapcsolatos stresszről. </small>\r\n\r\n<small><a href=\"http://osha.europa.eu/en/publications/reports/203/view\"><span style=\"color: #ccffff;\">http://osha.europa.eu/en/publications/reports/203/view</span></a></small>\r\n\r\n<a class=\"btn\" href=\"http://www.stresszaudit.hu/\" target=\"_blank\" rel=\"noopener\">Tovább a weboldalra</a>",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 6,
+      "date": "2016-07-02 14:56:35",
+      "guid": "http://ravezeto.hu/?post_type=services&#038;p=158",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2016/07/illust_stress.svg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 104,
+      "title": "Humán fejlesztés",
+      "slug": "human-fejlesztes",
+      "content": "<h3>Pozitívan befolyásolja-e a szervezeti működést, ha fontos nekem munkatársaim képzettsége, motiváltsága?</h3>\r\n                            <p>Vezetőként nagyon könnyű igent mondani erre a kérdésre, de nehéz tenni is érte a mindennapokban. Munkatársaink a humán szervezeti igények felmérésével és elemzésével, az ebből levezethető humán fejlesztési stratégia megalkotásával, az új munkatársak kiválasztásával, a meglévő munkatársak motiválásával, fejlesztésével, az egyéni teljesítmény értékelésével támogatják a működés fejlesztését. Hiszünk abban, hogy tartósan csak olyan munkaszervezet lehet sikeres, amely a folyamatok szabályozottsága mellett kiemelten foglalkozik a rendelkezésre álló emberi erőforrások minőségi fejlesztésével, motiválásával.</p>",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 7,
+      "date": "2016-06-16 11:18:26",
+      "guid": "http://ravezeto.hu/?post_type=services&#038;p=104",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2016/06/illust_hrdevelopment.svg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 193,
+      "title": "Kutatás, Felmérés",
+      "slug": "kutatas",
+      "content": "<h3> Elégedettek az ügyfeleim? Milyen fejlesztésekkel előzhetem meg a versenytársaimat? </h3> \r\n\r\nSokan azt gondolják, hogy a felmérés és elemzés kizárólag a legnagyobb szervezetek kiváltsága. Nem is sejtik, hogy a szervezet működését befolyásoló, máshogyan nem megszerezhető konkrét információknak fordítottak eddig hátat. A munkaszervezetek működése során rengeteg adat és információ keletkezik, amelyek jelentős része nem hasznosul, egy másik részét pedig nem is rögzítik, pedig ezek elemzése olykor meglepő, de mindenképpen hasznos tanulságokhoz vezet. Kérésére azonosítjuk az Ön kutatási szükségleteit, majd megtervezzük, és teljes körűen lebonyolítjuk az Ön cége számára szükséges és hasznos felmérést, vizsgálatot, elemzést, amely többek között lehet ügyfélelégedettség-mérés, fejlesztést megelőző helyzetelemzés, igényfelmérés, a bevezetett újdonság beválásának hatásvizsgálata, vagy adatbányászat.",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 7,
+      "date": "2016-08-02 20:55:46",
+      "guid": "http://ravezeto.hu/?post_type=services&#038;p=193",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2016/08/illust_research.svg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    }
+  ],
+  "references": [
+    {
+      "id": 68,
+      "title": "Gazdasági társaságok",
+      "slug": "gazdasagi-tarsasagok",
+      "content": "<h3>Deloitte Üzletviteli és Vezetési Tanácsadó Zrt. (2017)</h3>\r\n<p>Szakértői tevékenység Debrecen Város munkaerőpiaci helyzetének komplex vizsgálata és a kapcsolódó foglalkoztatási stratégia valamint akcióterv elkészítésében</p>\r\n<h3>KOPINT-DATORG Kft. (2016)</h3>\r\n<p>Szakértői tevékenység a KÖFOP-1.2.1 sz. \"Ügyfélkapcsolati rendszerek fejlesztése (kormányablak, települési ügysegéd, közvetlen kiszolgálás)\" megnevezésű projekthez kapcsolódóan</p>\r\n<h3>Cultivatum Kft. (2015)</h3>\r\n<p>Kutatási portfólió készítés és nemzetközi kapcsolatépítés a TÁMOP-4.2.2.D-15/1/KONV-2012-0015 ”Környezetiparhoz kapcsolódó innovatív transz- és interdiszciplináris kutatói team fejlesztése a PTE tudományos bázisán” című projekthez kapcsolódóan</p>\r\n<p>Kutatási adatbányászati feladatok ellátása a TÁMOP-4.2.1.D-15/1/KONV-2015-0001 „Társadalmi innováció és hálózatépítés a Pécsi Tudományegyetem tudásbázisán a Dél-dunántúli régióban” című projekthez kapcsolódóan</p>\r\n<h3>HYDEA Tanácsadó Kft. (2015)</h3>\r\n<p>A TIOP és TÁMOP tekintetében a 2007-2013-as programozási időszak végrehajtási szempontú elemzési feladatainak ellátása</p>\r\n<h3>Pro Rekreatione Közhasznú Nonprofit Kft. (2015)</h3>\r\n<p>A TIOP-3.5.2-12/1-2013-0001 számú projekt keretében folyamat szabályozó dokumentumok kidolgozása</p>\r\n<h3>SZÁMALK Oktatási és Informatikai Zrt. (2015)</h3>\r\n<p>Európai uniós pályázati lehetőségekkel kapcsolatos szakértői és tanácsadási feladatok ellátása</p>\r\n<h3>Hungaro Support Kft. (2014)</h3>\r\n<p>Szervezetfejlesztési tanácsadás ÁROP önkormányzati szervezetfejlesztési projektek keretében</p>\r\n<h3>Rail Cargo Hungaria Árufuvarozási Zrt. (2014)</h3>\r\n<p>„GREEN INTERMODAL FREIGHT TRANSPORT CLUSTER OPERATION” feladatok ellátásához szakértői támogatás</p>",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2016-06-15 18:56:29",
+      "guid": "http://ravezeto.hu/?post_type=references&#038;p=68",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2016/07/illust_inner_references_economic3.svg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 69,
+      "title": "Központi közigazgatási intézmények",
+      "slug": "kozponti-kozigazgatasi-intezmenyek",
+      "content": "<h3>Közbeszerzési és Ellátási Főigazgatóság (2016)</h3>\r\nKEHOP-5.2.9. felhívás alapján megvalósítandó projekt előkészítéséhez kapcsolódó stratégiai tanácsadás\r\n<h3>Közszolgálati Személyzetfejlesztési Főigazgatóság (2016)</h3>\r\nStratégia és akcióterv kidolgozása a HU-11-0006-HU11-PP3-2013 sz. projekt keretében\r\n<h3>Nemzeti Fogyasztóvédelmi Hatóság (2014-2015)</h3>\r\nA fogyasztóvédelmi intézményrendszer szervezeti működésének fejlesztése című kiemelt projekt (ÁROP-1.2.24-2014) előkészítési feladatainak ellátása\r\n\r\nÁROP-1.2.24-2014-2014-0001 számú projekt keretében kutatások, elemzések módszertan készítése\r\n\r\nAz ÁROP-1.2.24-2014-2014-0001 számú projekt keretében az NFH intézmény működtetési, üzemeltetési folyamatainak és helyzetének átfogó felmérése és továbbfejlesztési javaslatok kidolgozása\r\n<h3>Miniszterelnökség (2015)</h3>\r\nA programozási időszakok kiemelt/kiemelt eljárásrendű projektjeinek vizsgálata\r\n<h3>Oktatási Hivatal (2015)</h3>\r\nAz intézményi minőségfejlesztési és önértékelési standardok bevezetésével kapcsolatos helyzetértékelés és javaslat készítése\r\n<h3>Emberi Erőforrások Minisztériuma (2015)</h3>\r\nAz ÁROP-1.2.22-2013-2013-0001 \"A jelenlegi szociális ellátórendszer folyamatainak átalakításához szükséges módszertanok kidolgozása” c. projekt keretében belül kutatások elvégzése\r\n<h3>Belügyminisztérium (2015)</h3>\r\nAZ ÁROP-2.2.23-2013-2013-0001 „Közigazgatási szervek munkatársainak kompetencia fejlesztése” c. projekt keretében kompetenciafejlesztő tréningek megtartása, valamint a forgatókönyvek, tematikák és a képzést támogató csomag összeállítása\r\n<h3>Klebelsberg Intézményfenntartó Központ (2015)</h3>\r\nModellalkotás a Partnerség és hálózatosodás modul tevékenysége során - projekt partnerségi moduljának folyamatértékelése, elemzése, hatásainak vizsgálata, modellalkotás\r\n<h3>Nemzetgazdasági Minisztérium (2014-2015)</h3>\r\nTÁMOP-2.1.6-12/1-2012-0001 azonosító számú „Újra Tanulok!” című kiemelt projekthez kapcsolódóan a konzorciumi tagok tevékenységének folyamatos helyszíni monitorozása, az esetleges nem megfelelőségek feltárása és javaslattétel azok kezelésére\r\n<h3>Miniszterelnökség/Nemzeti Fejlesztési Ügynökség (2013-2015)</h3>\r\nAz Ernst &amp; Young Kft. által vezetett konzorcium részeként 2014-2020-as operatív programok közül az Emberi Erőforrás Program (EFOP) ex-ante értékelése és stratégiai vizsgálata a Nemzeti Fejlesztési Ügynökség megbízásából",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 1,
+      "date": "2016-06-15 18:57:48",
+      "guid": "http://ravezeto.hu/?post_type=references&#038;p=69",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2016/07/illust_inner_references_government.svg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 70,
+      "title": "Felsőoktatási intézmények",
+      "slug": "felsooktatasi-intezmenyek",
+      "content": "<h3>Állatorvostudományi Egyetem (2016)</h3>\r\n                                <p>EFOP-3.6.1-16 sz. projekt megvalósíthatósági tanulmányának elkészítéses</p>\r\n<h3>Nemzeti Közszolgálati Egyetem (2016)</h3>\r\n                                <p>A közszolgáltatás komplex kompetencia, életpálya-program és oktatástechnológia fejlesztése c. projekt megtervezéséhez és a megvalósíthatósági tanulmány elkészítéséhez szakértői támogatás</p>\r\n<h3>Eötvös József Főiskola (2015)</h3>\r\n                                <p>A TÁMOP-4.1.1.F-14/1/Konv-2015-0003 azonosító számú projekt keretében „D” típusú felnőttképzés körébe tartozó kompetenciafejlesztő képzési szolgáltatások és kapcsolódó módszertan elkészítése</p>\r\n\t\t\t\t\t\t\t\t<h3>Nyíregyházi Főiskola (2015)</h3>\r\n                                <p>TÁMOP-4.1.1.F-14/1/KONV-2015-0007 számú projekt keretében kompetenciafejlesztő képzések tartása</p>\r\n\t\t\t\t\t\t\t\t<h3>Széchenyi István Egyetem (2015)</h3>\r\n                                <p>A TÁMOP-4.2.1.C-14/1/KONV-2015-0005 számú projekthez a projekt kiemelt területein minőségi kritériumok meghatározásával, illetve a felsőoktatási tudományos eredmények hasznosítási módszertanok kidolgozásával kapcsolatos feladatok ellátása</p>\r\n                                <p>A TÁMOP-4.1.1.C-12/1/KONV-2012-0002 számú projekt keretében intézményi együttműködési hálózat kapacitásainak, erőforrásainak és működési folyamatainak felmérése</p>\r\n                                <p>Kutatásmenedzsmenti szervezetfejlesztés, valamint szervezeti és módszertani fejlesztés a TÁMOP-4.2.2.D-15/1/KONV-2015-0007 számú projekt keretében</p>\r\n                                <p>Képzők képzése és tréning a tanácsadók felkészítésére a TÁMOP-4.1.1.F-13/1-2013-0001 számú projekt keretében</p>\r\n                                <p>Intézményi együttműködési hálózat kapacitásainak, erőforrásainak és működési folyamatainak felmérése</p>                            \r\n\t\t\t\t\t\t\t\t<h3>Miskolci Egyetem (2015)</h3>\r\n                                <p>TÁMOP-4.1.1.C projekt keretében Hallgatói szolgáltatás minőségbiztosítás és validáció. Képzési programok és szolgáltatások validálása.</p>                            \r\n                                 <h3>Nemzeti Közszolgálati Egyetem (2014-2015) </h3>\r\n                                <p>ÁROP-2.2.19, ÁROP-2.2.21 és ÁROP-2.2.22 kiemelt projektekhez kapcsolódóan projektmenedzsment tanácsadás</p>\r\n",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 2,
+      "date": "2016-06-15 18:58:14",
+      "guid": "http://ravezeto.hu/?post_type=references&#038;p=70",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2016/06/illust_inner_references_highereducation.svg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 71,
+      "title": "Önkormányzatok",
+      "slug": "onkormanyzatok",
+      "content": " <h3>Derecske Város Önkormányzata (2015)</h3>\r\n                                <p>Az ÁROP-1.A.3-2014-2014-0064 számú projekthez kapcsolódó koordinációs, szervezési és lebonyolítási feladatok ellátása</p>\r\n                                <h3>Veszprém Megyei Jogú Város Önkormányzata (2015)</h3>\r\n                                <p>Az ÁROP-1.A.3-2014-2014-0054 számú projekt keretében tréning megtartása, esélyegyenlőségi kerekasztal lebonyolítása, járási szolgáltatási csomagok biztosítása, horizontális szempontok érvényesítése</p>\r\n                                <p>Aranyosvölgy tudáspark mintaprojekt stratégiai üzleti esettanulmányának és a projekt működtetési kereteinek kidolgozása</p>\r\n                                <h3>Bicske Város Önkormányzata (2015)</h3>\r\n                                <p>Közreműködés „Területi együttműködést segítő programok kialakítása Bicske Járásban” című projekt megvalósításában</p>\r\n                                                                                   \r\n                                <h3>Veszprém Megyei Jogú Város (2014)</h3>\r\n                                <p>KDOP-3.1.1/E „Fenntartható Városfejlesztés Veszprémben” projekt keretei között az Integrált Településfejlesztési Stratégia elkészítése a 2014-2020-as időszakra vonatkozóan</p>\r\n                                <h3>Budapest Főváros XVIII. kerület Pestszentlőrinc-Pestszentimre Önkormányzata (2014)</h3>\r\n                                <p>ÁROP-1.A.6 „Zöld Kerület – Zöld Partnerség” című projekt keretében Partnerségi Stratégiai Kézikönyv és Partnerségi Cselekvési terv elkészítése</p>\r\n                                <p>ÁROP önkormányzati szervezetfejlesztési projektek keretében szervezetfejlesztési tanácsadási feladatok ellátása Monor, Soltvadkert, Veszprém, valamint Budapest Főváros XII. kerület, Budapest Főváros XIX. kerület Önkormányzatánál (2014)</p>                                ",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 3,
+      "date": "2016-06-15 18:58:33",
+      "guid": "http://ravezeto.hu/?post_type=references&#038;p=71",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2016/06/illust_inner_municipalities.svg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 72,
+      "title": "Nemzetközi projektek",
+      "slug": "nemzetkozi-projektek",
+      "content": "<h3>ESS Grúzia</h3>\r\n                                <p>Eastern Partnership Integration and Cooperation (EaPIC) 2013, GE/20 Capacity Building of the Employment Support Services (ESS) in Georgia (2015-2016)</p>\r\n<h3>Horvát Közigazgatási Minisztérium (Ministarstvo Uprave) </h3>\r\n                                <p>„Modernising Public Administration with EU Structural and Investment Funds” – Workshop (2014) </p>\r\n                                <p>Turning strategies into practice: European Structural and Investment Funds project management – practical experience on project implementation – Workshop (2014)</p>\r\n                                <h3>Horvát Igazságügyi Minisztérium (Ministarstvo Pravosuda) </h3>\r\n                                <p>„Planning European Structural and Investment Funds key projects in the field of justice” – Wokrshop (2014)</p>",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 4,
+      "date": "2016-06-15 18:59:22",
+      "guid": "http://ravezeto.hu/?post_type=references&#038;p=72",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2016/06/illust_inner_international.svg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 74,
+      "title": "Fejlesztő- és kutató intézetek",
+      "slug": "egyeb",
+      "content": "<h3>Informatika a Társadalomért Egyesület (2016)</h3>\r\nIKT tanácsadók személyes felkészítése a GINOP-3.2.1-15-2015-00001 projekt keretében\r\n<h3>„VKSZ” Veszprémi Közüzemi Szolgáltató Zrt. (2015)</h3>\r\nTanácsadási és képzési szolgáltatások ellátása a TÁMOP-2.4.5 projekt keretében\r\n<h3>Oktatáskutató és Fejlesztő Intézet (2015)</h3>\r\nTÁMOP-3.1.15-14-2014-0001 számú projekt keretében kutatás-fejlesztési feladatok ellátása\r\n\r\nA TÁMOP-3.1.2-B/13-2013-0001 számú kiemelt projekt keretében \"A projekt-megvalósítás szakmai megfelelőségének vizsgálata, értékelése a tartalomfejlesztés, tudásmegosztó oktatási rendszerfejlesztés területén\"",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 7,
+      "date": "2016-06-15 19:00:31",
+      "guid": "http://ravezeto.hu/?post_type=references&#038;p=74",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2016/06/illust_inner_other.svg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 296,
+      "title": "GINOP 5.3.1",
+      "slug": "ginop-5-3-1",
+      "content": "<img style=\"max-width: 100%; float: right; height: auto;\" src=\"http://ravezeto.hu/wp-content/uploads/2017/06/infoblokk_esza.png\" alt=\"infoblokk_esza\" width=\"319\" height=\"223\" />\r\n<h3>A projekt bemutatása</h3>\r\nA Nemzetgazdasági Minisztérium (NGM) 2014 őszén pályázatot írt ki, „GINOP 5.3.1- Rugalmas foglalkoztatás elterjesztése a konvergencia régiókban” címmel. A pályázat célja a munka és a magánélet összehangolását lehetővé tévő rugalmas foglalkoztatás elterjesztése volt a kis- és középvállalkozások körében, a kisgyermeket nevelő szülők foglalkoztatásának növelése, valamint a munkavállalók és munkáltatók alkalmazkodóképességének növelése.\r\n<h3>Mi volt a pályázat lényege?</h3>\r\nA pályázat első ütemében az NGM kiválasztotta azokat a széleskörű tapasztalatokkal rendelkező szolgáltatókat, akik komplett átvilágítást biztosítanak a résztvevő kis- és középvállalkozások számára. Az átvilágítási szolgáltatást nyújtók egyike volt konzorciumunk, amelyet a Corex Projektfejlesztési Kft., a Rávezető Projekt Kft. és a Learning Innovation Kft. alkotott.\r\n<h3>Kik tudtak bekapcsolódni a programba?</h3>\r\nA projektbe azok az együttműködési szándéknyilatkozatot aláíró kis- és középvállalkozások voltak, amelyek megfeleltek az alábbi feltételeknek:\r\n<ul>\r\n \t<li>10-249 főt foglalkoztatnak,</li>\r\n \t<li>konvergencia régióban (is) rendelkeznek működő székhellyel/ telephellyel.</li>\r\n</ul>\r\nHogyan történt az átvilágítás és a fejlesztési terv kidolgozása?\r\n<ul>\r\n \t<li>elemeztük a vállalat szervezeti működését szabályozó dokumentumokat;</li>\r\n \t<li>megismertük a vállalkozás céljait, stratégiai irányait és dolgozói igényeit workshopok, interjúk és kérdőíves felmérések keretében;</li>\r\n \t<li>helyzetelemzést, fejlesztési és bevezetési terveket készítettünk.</li>\r\n</ul>\r\n<h3>A beruházás adatai:</h3>\r\nA projekt megnevezése: Nemzeti Rugalmassági Terv\r\nKedvezményezett: Corex Projektfejlesztési Kft.\r\nKonzorciumi Tagok:\r\n<ul>\r\n \t<li>Learning Innovation Kft.</li>\r\n \t<li>Rávezető Projekt Kft.</li>\r\n</ul>\r\nSzerződés hatályba lépésének dátuma: 2016.01.11.\r\nKonstrukció száma: GINOP-5.3.1-14\r\nA projekt azonosító száma: GINOP-5.3.1-14-2015-00051\r\nTámogatás összege: 309 228 700 Ft\r\nA projekt elszámolható költsége: 309 228 700 Ft\r\nProjekt időtartama (tervezett): 2015.10.01-2017.03.31.\r\nKözreműködő szervezet: <a style=\"color: inherit; text-decoration: underline;\" href=\"http://www.kormany.hu/hu/nemzetgazdasagi-miniszterium\" target=\"_blank\" rel=\"noopener\">Nemzetgazdasági Minisztérium</a>\r\n<h3>Az átvilágítást végző konzorcium</h3>\r\nA Konzorcium három, a maga területén meghatározó szereppel bíró partnerből állt össze. A Konzorcium összetételekor fontos szempont volt, hogy a csapatban megjelenjen a rugalmas foglalkoztatási programokban korábban megszerzett tudás, csakúgy, mint a magyarországi KKV-k körében az évek alatt összegyűlt széleskörű, közvetlen tapasztalat, és a hátrányos helyzetű munkavállalókkal kapcsolatos gyakorlati ismeret egyaránt. Ennek köszönhetően egy olyan, szerencsés kombináció jött létre, amely biztos szakmai alapokra helyezi a projekt megvalósítási fázisát, a mellett, hogy kézzelfogható segítséget tudjon nyújtani a programban a Konzorciumhoz jelentkező kis- és középvállalati vezetőknek.\r\n<h3>Corex Projektfejlesztési Kft.</h3>\r\nA Corex Projektfejlesztési Kft. egy több mint hét éves pályázatírói tapasztalattal bíró vállalkozás, mely Európai Uniós támogatások lehívását célzó vállalkozói és önkormányzati projektek teljes körű előkészítésével és megvalósításával foglalkozik. Tevékenységi körébe tartozik a pályázati tanácsadás, pályázatírás, projektmenedzsment, illetve a nyomonkövetés, mely tevékenységek célcsoportjai az önkormányzatok, mikro-, kis-, és középvállalatok, turisztikában érdekelt cégek, szervezetek, illetve a közintézmények (óvodák, iskolák). Az ügyfeleknek sokrétű szolgáltatást nyújtunk, mely kiterjed többek között a projekttervezésre, a projektfejlesztéssel kapcsolatos adminisztratív és tartalmi feladatok elvégzésére, valamint a pályázatírással kapcsolatos szakmai és adminisztratív teendők ellátására is.\r\n\r\nA cég elsősorban pályázati tanácsadással és megvalósítással foglalkozik, azonban az elmúlt évek tapasztalatai, valamint ügyfeleink igénye alapján az elmúlt évben a pályázati tanácsadásokon kívül új tanácsadási területtel kezdett el vállalat foglalkozni, mely magában foglalja a vállalati tanácsadás, szervezetfejlesztés területét is.\r\n\r\nMinden sikeres fejlesztésnek alapvető kulcseleme, és egyben első lépése az, hogy mindazokat a partnereket (szervezeteket, személyeket, intézményeket) azonosítsunk, akikkel a munkánk során kapcsolatba kerülünk. A vállalat fennállása során igyekezett minél nagyobb kapcsolatrendszert kiépíteni mind az állami, mid a vállalati szektorban. A Corex Projektfejlesztési Kft. tevékenységéből adódóan jelenleg is országos lefedettségű, Magyarország minden régiójában végzett már tanácsadási szolgáltatást.\r\n<h3>Rávezető Projekt Kft.</h3>\r\nA Rávezető Projekt Kft. 2008-ban kezdte meg működését, elsődlegesen vezetési tanácsadási és projektfejlesztési területeken. Az Ügyfelek elégedettségének köszönhetően szolgáltatásaink stratégiai tervezési és átfogó szervezetfejlesztési szolgáltatásokkal bővültek. A cég a megrendelések számának és volumenének folyamatos növekedésére válaszul az elmúlt években úgy tudta kapacitásait és portfolióját szélesíteni, hogy közben a bővülő szakembergárdája képességei és tapasztalatai révén folyamatosan magas szolgáltatási színvonalat képvisel.\r\n\r\nA Rávezető Projekt Kft. 6-8 belső munkatárssal és számos külső szakértővel dolgozik, akik széles körű szakmai tudással és tényleges vezetői tapasztalatokkal rendelkeznek a vezetési ismeretek, szervezetfejlesztés, képzés, vezetési ismeretek, projekt menedzsment és humán fejlesztés területén. Ügyfeleinket támogatjuk a szervezeti teljesítmény növelésében, akár stratégiai tervezésről és az elfogadott stratégia megvalósításáról, akár humán fejlesztésről, tréneri, üzleti edzői feladatokról, vagy projektek tervezéséről és projektmenedzsmentről van szó.\r\n\r\nA Rávezető beszélő név. Hisszük, hogy leendő ügyfeleink ismerik stratégiai céljaikat, támogatást a célok eléréséhez vezető út kiválasztásához, megépítéséhez igényelnek. Elhivatott szakembereinkkel és közös gondolkodással ebben tudunk nekik segíteni.\r\n<h3>A Learning Innovation Kft.</h3>\r\nA humán területen működő, 2000-ben alakult vállalkozásunk elsősorban felnőttképzéssel, humán- és innovációs fejlesztésekkel, tartalom- és szervezetfejlesztéssel, illetve üzleti tanácsadással foglalkozik. Partnereinket mindezek mellett segítjük a források felkutatásában is, hiszen munkatársaink a releváns pályázati lehetőségeket jól ismerő és a projektgenerálás folyamatában is jártas szakemberek. Vállalkozásunk korábban akkreditált, majd a felnőttképzésről szóló 2013. LXXVII. törvénynek megfelelően 2014-től engedéllyel rendelkező felnőttképzési intézmény.\r\n\r\nSzéles választékban kínálunk szakmai kompetenciafejlesztő és személyiségfejlesztő képzéseket valamint pedagógus továbbképzéseket is. Képzési palettánk releváns elemei azok a szervezeti és személyes érzékenyítő tréningek is, amelyek fontos támpontokat adnak a megfelelő szakmai tudással rendelkező, ámde társadalmi helyzetükben hátrányt szenvedő (pl. kisgyermeküket egyedül nevelő, hozzátartozójukat otthonukban ápoló, mozgásukban korlátozott) munkatársak szervezeti és közösségi integrációjához. Szakértőként rendszeresen részt veszünk esélyegyenlőséggel kapcsolatos szakmai fórumokon. Tanácsadói munkánkban hangsúlyos szerepet kap a stratégiai tudatosság, a projekt- és rendszerszemlélet. Az atipikus foglalkoztatási formákkal kapcsolatos, kis-és középvállalkozásokkal folytatott tanácsadói és képzési munkáink során jelentős figyelmet szentelünk a rugalmas munkaidő gazdálkodás és távmunka bevezetésével kapcsolatos stratégiai és operatív kérdéseknek, valamint az esélyegyenlőségi szempontoknak.\r\n\r\n2013-2014-ben vállalkozásunk önállóan, illetve az INNOREG Közép-magyarországi Regionális Innovációs Ügynökséggel együttműködve valósított meg atipikus foglalkoztatási formák kialakítását célzó és támogató programokat, amelyek eredményeként a munkaszervezetünkbe új a munka és magánélet összehangolását segítő foglalkoztatási formákat vezettünk be, valamint 10 fő közép- illetve felsőfokú végzettségű fiatal új munkavállalót foglalkoztathattunk, akik különféle nyelvi-, informatikai- és kompetencia fejlesztő képzésekben részesülhettek. A képzés és tanácsadás fontos eleme volt a távmunka és rugalmas munkaidő beosztással kapcsolatos kompetenciák fejlesztése.",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 10,
+      "date": "2017-06-13 16:39:43",
+      "guid": "http://ravezeto.hu/?post_type=references&#038;p=296",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2017/06/illust_2020.svg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    }
+  ],
+  "colleagues": [
+    {
+      "id": 464,
+      "title": "Bíró Gabriella",
+      "slug": "biro-gabriella",
+      "content": "1992-től dolgozom szervezetfejlesztés területén. Voltam kozmetikus, óvónő, nemzetiségi nyelvet oktató falusi iskolában összevont osztályt tanító, aztán tanár, majd nagyrendezvények szervezője, mentálhigiénés csoportok vezetője és szaktanácsadó, dolgoztam hátrányos helyzetű fiatalokkal. 1989-ben megismerkedtem az OD szervezetfejlesztés módszerével, azóta közreműködtem szervezeti kultúraváltás folyamataiban, vezettem tréningeket, workshopokat, és szervezeti folyamatok fejlesztése részeként coachként dolgoztam vezetőkkel. A kulturális antropológia területén szerzett ismereteimet törekszem alkalmazni, szemlélődöm, tanulok és értelmezek. Szabadidőmben egyaránt szeretem a csendet és a zenét, a könyvek és a barátaim társaságát.",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 1,
+      "date": "2019-12-09 10:34:59",
+      "guid": "http://ravezeto.hu/?post_type=colleagues&#038;p=464",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2016/06/portrait_biro_gabriella.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 600,
+      "title": "Duleba Marianna",
+      "slug": "duleba-marianna",
+      "content": "Tanulmányaim befejezését követően a közszférában dolgoztam, majd 2015-ben új irányt vett az életem és belecsöppentem a pályázatok világába. Munkám során projektek tervezésében, előkészítésében és megvalósításában veszek részt. 2019 óta foglalkozom felnőtt- és pedagógusképzések szervezésével, lebonyolításával.\r\nSzeretem a kihívásokat, az új dolgokat. Szabadidőmet leginkább családommal és barátaimmal töltöm, szeretek kirándulni, új helyeket felfedezni.",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 2,
+      "date": "2022-07-06 14:22:41",
+      "guid": "https://ravezeto.hu/?post_type=colleagues&#038;p=600",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2022/07/DSC5776_ok2_sq_HD.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 603,
+      "title": "Halász Krisztina",
+      "slug": "halasz-krisztina",
+      "content": "Pályakezdőként - 2001-ben irodavezetőként, irodai asszisztensként kezdtem meg a munka világát egy cipőkereskedelmi nagyvállalat európai központjában, ahol közel 10 éven át dolgoztam.\r\n\r\n2014-től - gyermekem születését követően – irodavezetőként helyezkedtem el, egy többnyire európai uniós pályázatokkal, felnőttképzéssel és szakértői munkákkal foglalkozó cégnél, ahol a klasszikus irodavezetői feladatok mellett támogattam a cégvezetés, a közbeszerzési vezető, a pénzügyi vezető, és a különböző szakmai részlegek munkáit. Feladatköröm dinamikus, színes, szerteágazó és sokrétegű volt, rengeteg tapasztalattal gazdagodtam.\r\n\r\nA Rávezető csapatát 2022 óta erősítem.",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 3,
+      "date": "2022-10-27 09:42:24",
+      "guid": "https://ravezeto.hu/?post_type=colleagues&#038;p=603",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2022/10/kriszti_ff-e1666863662139.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 605,
+      "title": "Mázásné Dinnyés Hajnalka",
+      "slug": "mazasne-dinnyes-hajnalka",
+      "content": "<strong>Végzettségemet tekintve okleveles közgazdász vagyok, 2017. óta üzleti tanácsadói feladatokat látok el adatvédelmi, gazdasági és HR témakörben. Ezt megelőző huszonöt éves szakmai múltamból közel tíz évet vezetőként dolgoztam, munkáim során több szakterületet és szervezeti kultúrát ismertem meg. Tapasztalatot szereztem állami- és a versenyszektorban egyaránt. Erősségem a gyakorlatba ültethető személyes tanácsadás. Tanácsadói megbízatásaim során kiemelt figyelmet fordítok ügyfeleim céljainak pontos megértésére és a folyamatos – minőségi – együttműködésre.</strong>",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 4,
+      "date": "2022-10-27 09:49:50",
+      "guid": "https://ravezeto.hu/?post_type=colleagues&#038;p=605",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2022/10/MDH-foto.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 461,
+      "title": "Ríz Ádám",
+      "slug": "veztek-keresztnev2",
+      "content": "Tanulmányaim befejezését követően hét esztendőnyi középiskolai tanítást követően köztisztviselőként egyes oktatási, valamint európai uniós humán fejlesztési támogatások tervezésében és végrehajtásában működtem közre. Több, mint egy évtizedes, közigazgatásban szerzett gyakorlati és vezetői tapasztalat birtokában 2008 óta dolgozom a tanácsadói szférában. Elsősorban humán projektek tervezésével és megvalósításával foglalkozom, de a projektfolyamatok szervezése, az ehhez szükséges szervezeti működést fejlesztő feladatok elvégzése, valamint a felsővezetők stratégiai és üzleti támogatása is része munkámnak. A Rávezető Projekt szisztematikus felépítése a munkám és hobbim egyaránt. Szabadidőmben családomnak, barátaimnak és többféle sportnak hódolok a legszívesebben.",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 5,
+      "date": "2019-12-07 09:23:47",
+      "guid": "http://ravezeto.hu/?post_type=colleagues&#038;p=461",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2017/01/Riz-Adam.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 466,
+      "title": "Soós Andrea",
+      "slug": "soos-andrea",
+      "content": "Közgazdászként végeztem a Corvinuson, amit kiegészítettem mérlegképes könyvelői és adótanácsadói oklevéllel is. Eddigi pályafutásom során megfordultam a hazai és a külföldi munkaerőpiacon, szereztem tapasztalatot a közszférában és a multi világában, voltam alkalmazotti és vezető beosztásban, de vállalkozóként is megmérettettem magam már az egyetem alatt is. Ezekből a tapasztalatokból merítek a projektek vezetésénél is, hiszen nincs két egyforma és mindig van új kihívás. Szabadidőmben zenélek, sportolok és az ismerőseimmel igyekszem megismertetni a gerincjóga jótékony hatásait.",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 6,
+      "date": "2019-12-09 10:34:14",
+      "guid": "http://ravezeto.hu/?post_type=colleagues&#038;p=466",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2019/12/portrait_soos_andrea-e1575455494622.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 465,
+      "title": "Molnár Zsolt",
+      "slug": "molnar-zsolt",
+      "content": "Gazdasági és kommunikációs diplomával rendelkezem. Korábban nagyvállalatoknál, kommunikációs ügynökségeknél és non-profit szervezeteknél dolgoztam különböző szakmai és vezetői beosztásokban. Jelenleg tanácsadóként kommunikációs- és vezetési tanácsadással, szervezetfejlesztéssel és tréningekkel foglalkozom. Különösen érdekel a különböző kultúrák közötti kommunikáció és együttműködés. Fontosnak tartom a stratégiai gondolkodást, a szervezet célkitűzéseihez igazított, azok elérését lehetővé tevő tudatos és tervszerű fejlesztést. Szabadidőmet szeretem aktívan tölteni, szívesen utazom, sportolok és önkéntességgel foglalkozom.",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 8,
+      "date": "2019-12-09 10:34:32",
+      "guid": "http://ravezeto.hu/?post_type=colleagues&#038;p=465",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2019/12/portrait_molnar_zsolt-e1575460119239.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 509,
+      "title": "Dr. Szalay Árpád",
+      "slug": "dr-szalay-arpad",
+      "content": "Szegeden végeztem jogászként a József Attila Tudományegyetem Állam és Jogtudományi Karán. Ezt követően tanulmányaimat még kiegészítettem európai uniós szakjogász képzéssel. Négy év piaci szférában eltöltött év után a közigazgatásban helyezkedtem el. Több szervezetnél dolgoztam jogi, közbeszerzési és üzemeltetés vezetői pozícióban. 2017 óta felelős akkreditált közbeszerzési tanácsadóként is dolgozok piaci és a közszféra ügyfelek részére. Munkám során törekedtem hatékony, átlátható eljárási környezet kialakítására, amely képes a gyorsan változó jogszabályi környezet változásaira reagálni. Kiemelten fontosnak tartom a feladatok gyakorlatorientált és megoldásközpontú megközelítését és a precíz munkavégzést. Szabadidőmet a családomnak szentelem. Feleségemmel két gyönyörű kislányt nevelünk, próbálunk nekik a fejlődésükhöz kiegyensúlyozott hátteret biztosítani.",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 8,
+      "date": "2020-01-15 09:25:02",
+      "guid": "http://ravezeto.hu/?post_type=colleagues&#038;p=509",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2020/01/portrait_szalay_arpad-e1579080209295.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    }
+  ],
+  "logos": [
+    {
+      "id": 631,
+      "title": "",
+      "slug": "631",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2023-01-16 08:15:40",
+      "guid": "https://ravezeto.hu/?post_type=logos&#038;p=631",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2023/01/ME.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 379,
+      "title": "állat",
+      "slug": "allat",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 305,
+      "date": "2018-06-22 13:58:58",
+      "guid": "http://ravezeto.hu/?post_type=logos&#038;p=379",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2018/06/ref_06.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 552,
+      "title": "Bolko",
+      "slug": "bolko",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2021-02-24 11:32:45",
+      "guid": "http://ravezeto.hu/?post_type=logos&#038;p=552",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2021/02/Bolko.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 544,
+      "title": "Corvinus",
+      "slug": "corvinus",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2021-01-25 10:26:58",
+      "guid": "http://ravezeto.hu/?post_type=logos&#038;p=544",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2021/01/corvinus_nagy2-e1611570746573.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 384,
+      "title": "deloite",
+      "slug": "deloite",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 5,
+      "date": "2018-06-22 14:00:25",
+      "guid": "http://ravezeto.hu/?post_type=logos&#038;p=384",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2018/06/ref_01.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 497,
+      "title": "djp",
+      "slug": "djp",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2019-12-10 09:24:48",
+      "guid": "http://ravezeto.hu/?post_type=logos&#038;p=497",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2019/12/DJP-e1575969875461.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 503,
+      "title": "ejf",
+      "slug": "ejf",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2019-12-10 09:35:21",
+      "guid": "http://ravezeto.hu/?post_type=logos&#038;p=503",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2019/12/EJF-e1575970508303.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 499,
+      "title": "gameinvest",
+      "slug": "gameinvest",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2019-12-10 09:29:00",
+      "guid": "http://ravezeto.hu/?post_type=logos&#038;p=499",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2019/12/GameInvest-e1575970131254.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 627,
+      "title": "Globomax",
+      "slug": "globomax",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2023-01-16 08:11:45",
+      "guid": "https://ravezeto.hu/?post_type=logos&#038;p=627",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2023/01/globomax.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 629,
+      "title": "HRDirekt",
+      "slug": "hrdirekt",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2023-01-16 08:13:09",
+      "guid": "https://ravezeto.hu/?post_type=logos&#038;p=629",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2023/01/hrdirekt-2.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 377,
+      "title": "hungaro",
+      "slug": "hungaro",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 10,
+      "date": "2018-06-22 13:58:02",
+      "guid": "http://ravezeto.hu/?post_type=logos&#038;p=377",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2018/06/ref_08.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 555,
+      "title": "IFKA",
+      "slug": "ifka",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2021-03-08 15:48:40",
+      "guid": "http://ravezeto.hu/?post_type=logos&#038;p=555",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2021/03/Képkivágás.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 364,
+      "title": "Infotér",
+      "slug": "infoter",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 505,
+      "date": "2018-06-22 13:53:19",
+      "guid": "http://ravezeto.hu/?post_type=logos&#038;p=364",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2018/06/ref_20.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 382,
+      "title": "kef",
+      "slug": "kef",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 110,
+      "date": "2018-06-22 13:59:51",
+      "guid": "http://ravezeto.hu/?post_type=logos&#038;p=382",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2018/06/ref_03.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 505,
+      "title": "kevi",
+      "slug": "kevi",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2019-12-10 09:41:33",
+      "guid": "http://ravezeto.hu/?post_type=logos&#038;p=505",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2019/12/Kevi-e1575970885822.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 367,
+      "title": "kifü",
+      "slug": "kifu",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 115,
+      "date": "2018-06-22 13:54:22",
+      "guid": "http://ravezeto.hu/?post_type=logos&#038;p=367",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2018/06/ref_18.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 375,
+      "title": "kopint",
+      "slug": "kopint",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 20,
+      "date": "2018-06-22 13:57:05",
+      "guid": "http://ravezeto.hu/?post_type=logos&#038;p=375",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2018/06/ref_10.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 366,
+      "title": "Közig",
+      "slug": "kozig",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 120,
+      "date": "2018-06-22 13:54:00",
+      "guid": "http://ravezeto.hu/?post_type=logos&#038;p=366",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2018/06/ref_19.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 368,
+      "title": "külügy",
+      "slug": "kulugy",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 120,
+      "date": "2018-06-22 13:54:37",
+      "guid": "http://ravezeto.hu/?post_type=logos&#038;p=368",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2018/06/KKM-e1575969158803.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 614,
+      "title": "Malta",
+      "slug": "malta",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2023-01-16 07:49:50",
+      "guid": "https://ravezeto.hu/?post_type=logos&#038;p=614",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2023/01/mmsz-1.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 549,
+      "title": "Matehetsz",
+      "slug": "matehetsz",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2021-01-27 12:39:07",
+      "guid": "http://ravezeto.hu/?post_type=logos&#038;p=549",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2021/01/matehetsz-e1611751139435.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 619,
+      "title": "NAV",
+      "slug": "nav",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2023-01-16 07:59:21",
+      "guid": "https://ravezeto.hu/?post_type=logos&#038;p=619",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2023/01/nav-2.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 376,
+      "title": "nfh",
+      "slug": "nfh",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 130,
+      "date": "2018-06-22 13:57:26",
+      "guid": "http://ravezeto.hu/?post_type=logos&#038;p=376",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2018/06/ref_09.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 385,
+      "title": "nke",
+      "slug": "nke",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 310,
+      "date": "2018-06-22 14:00:47",
+      "guid": "http://ravezeto.hu/?post_type=logos&#038;p=385",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2018/06/ref_23.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 622,
+      "title": "NKFIH",
+      "slug": "nkfih",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2023-01-16 08:03:29",
+      "guid": "https://ravezeto.hu/?post_type=logos&#038;p=622",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2023/01/nkfih.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 633,
+      "title": "ObudaiE",
+      "slug": "obudaie",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2023-01-16 08:18:10",
+      "guid": "https://ravezeto.hu/?post_type=logos&#038;p=633",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2023/01/OE-1.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 624,
+      "title": "p2m",
+      "slug": "p2m",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2023-01-16 08:10:10",
+      "guid": "https://ravezeto.hu/?post_type=logos&#038;p=624",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2023/01/p2m-1.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 640,
+      "title": "PMKH",
+      "slug": "pmkh",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2023-01-16 08:25:04",
+      "guid": "https://ravezeto.hu/?post_type=logos&#038;p=640",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2023/01/PMKH-1.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 501,
+      "title": "sbt protect",
+      "slug": "sbt-protect",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2019-12-10 09:32:21",
+      "guid": "http://ravezeto.hu/?post_type=logos&#038;p=501",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2019/12/SBT-e1575970332528.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 371,
+      "title": "szechenyi",
+      "slug": "szechenyi",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 315,
+      "date": "2018-06-22 13:55:34",
+      "guid": "http://ravezeto.hu/?post_type=logos&#038;p=371",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2018/06/ref_14.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 617,
+      "title": "TE",
+      "slug": "te",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2023-01-16 07:57:50",
+      "guid": "https://ravezeto.hu/?post_type=logos&#038;p=617",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2023/01/tf2.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 636,
+      "title": "TSZC",
+      "slug": "tszc",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2023-01-16 08:23:05",
+      "guid": "https://ravezeto.hu/?post_type=logos&#038;p=636",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2023/01/tszc.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 638,
+      "title": "VEMKH",
+      "slug": "vemkh",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2023-01-16 08:24:06",
+      "guid": "https://ravezeto.hu/?post_type=logos&#038;p=638",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2023/01/vemkh-1.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 363,
+      "title": "Veszprém",
+      "slug": "automatikus-vazlat",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 405,
+      "date": "2018-06-22 13:52:04",
+      "guid": "http://ravezeto.hu/?post_type=logos&#038;p=363",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2018/06/ref_22.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    }
+  ],
+  "blogPosts": [
+    {
+      "id": 794,
+      "title": "Ríz Ádám CMC",
+      "slug": "riz-adam-cmc",
+      "content": "16 éve dolgozom tanácsadóként, nagyon szeretem a munkámat. Öröm tanácsadással fejleszteni azt a vállalatot, amely emberközpontú fejlesztésekben gondolkodik, és igyekszik a munkahelyi hétköznapokat jobbá tenni. Mert tényleg megéri.",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 16:48:18",
+      "guid": "https://ravezeto.hu/?p=794",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/MG_1333.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 803,
+      "title": "Soós Andrea",
+      "slug": "soos-andrea",
+      "content": "A korábbi munkahelyeken szerzett változatos tapasztalatokat felhasználva a cég operatív vezetésében veszek részt. A projektek menedzsmentjén felül azért is felelek, hogy a cég pénzügyei rendben legyenek. Számomra fontos, hogy a minőségi munkavégzés kiemelt szempont a Rávezetőnél, ami együtt jár az ügyfeleink és a velünk együtt dolgozó szakértők elégedettségével",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 16:57:24",
+      "guid": "https://ravezeto.hu/?p=803",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/MG_1458.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 806,
+      "title": "Szőke Ádám",
+      "slug": "szoke-adam",
+      "content": "A Rávezetőben elsősorban szervezetfejlesztési projekteken dolgozom tanácsadóként, amelyben nagy segítséget nyújt a korábban 9 év alatt szerzett vezetői tapasztalatom egy felsőoktatási intézményben. Rendszergondolkodásom, empátiám kiegészült a szervezetfejlesztés képzésen szerzett strukturált ismeretekkel, amelyeket még tovább bővítve igyekszem több szemszögből és eszközzel megközelíteni az egyéni-, csoportos- és szervezeti problémákat.",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 16:59:13",
+      "guid": "https://ravezeto.hu/?p=806",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/MG_1055.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 781,
+      "title": "GINOP Plusz 3.2.1-21",
+      "slug": "ginop-plusz-3-2-1-21",
+      "content": "„A munkavállalók és vállalatok alkalmazkodóképességének és termelékenységének javítása a munkaerő fejlesztésén keresztül”",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-02 15:03:59",
+      "guid": "https://ravezeto.hu/?p=781",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 797,
+      "title": "Bíró Gabriella",
+      "slug": "biro-gabriella",
+      "content": "1992-től dolgozom szervezetfejlesztés területén. 1989-ben megismerkedtem az OD szervezetfejlesztés módszerével, azóta közreműködtem szervezeti kultúraváltás folyamataiban, vezettem tréningeket, workshopokat, és szervezeti folyamatok fejlesztése részeként coachként dolgoztam vezetőkkel. A kulturális antropológia területén szerzett ismereteimet törekszem alkalmazni, szemlélődöm, tanulok és értelmezek.",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 16:50:20",
+      "guid": "https://ravezeto.hu/?p=797",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/MG_0645-scaled.jpg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 800,
+      "title": "Berta Anikó",
+      "slug": "duleba-marianna",
+      "content": "2018 óta foglalkozom felnőttképzések szervezésével és lebonyolításával. A képzési folyamatot a tervezéstől a megvalósításig végigkísérem, ügyelve arra, hogy a programok az ügyfelek valós igényeire épüljenek, szakmailag magas színvonalúak legyenek, és minden jogszabályi előírásnak megfeleljenek.",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 16:55:29",
+      "guid": "https://ravezeto.hu/?p=800",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/IMG_0070-scaled.jpeg",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 815,
+      "title": "ref1",
+      "slug": "ref1",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:24:47",
+      "guid": "https://ravezeto.hu/?p=815",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/OKFO-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 821,
+      "title": "ref3",
+      "slug": "ref3",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:26:50",
+      "guid": "https://ravezeto.hu/?p=821",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/NNGYK-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 824,
+      "title": "ref4",
+      "slug": "ref4",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:27:35",
+      "guid": "https://ravezeto.hu/?p=824",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/mmsz-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 827,
+      "title": "ref5",
+      "slug": "ref5",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:30:34",
+      "guid": "https://ravezeto.hu/?p=827",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/univgyor.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 830,
+      "title": "ref6",
+      "slug": "ref6",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:31:51",
+      "guid": "https://ravezeto.hu/?p=830",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/tszc-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 833,
+      "title": "ref7",
+      "slug": "ref7",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:32:57",
+      "guid": "https://ravezeto.hu/?p=833",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/TE-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 836,
+      "title": "ref8",
+      "slug": "ref8",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:33:37",
+      "guid": "https://ravezeto.hu/?p=836",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/SSZC-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 839,
+      "title": "ref9",
+      "slug": "ref9",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:34:26",
+      "guid": "https://ravezeto.hu/?p=839",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/sze_logo-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 842,
+      "title": "ref10",
+      "slug": "ref10",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:35:10",
+      "guid": "https://ravezeto.hu/?p=842",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/Soproni-Egyetem-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 845,
+      "title": "ref11",
+      "slug": "ref11",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:35:55",
+      "guid": "https://ravezeto.hu/?p=845",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/OE-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 848,
+      "title": "ref12",
+      "slug": "ref12",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:36:27",
+      "guid": "https://ravezeto.hu/?p=848",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/mome.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 851,
+      "title": "ref13",
+      "slug": "ref13",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:40:18",
+      "guid": "https://ravezeto.hu/?p=851",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/Zengo-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 854,
+      "title": "ref14",
+      "slug": "ref14",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:42:04",
+      "guid": "https://ravezeto.hu/?p=854",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/Smart_Digital-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 857,
+      "title": "ref15",
+      "slug": "ref15",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:42:48",
+      "guid": "https://ravezeto.hu/?p=857",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/SBT_processed.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 860,
+      "title": "ref16",
+      "slug": "ref16",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:43:25",
+      "guid": "https://ravezeto.hu/?p=860",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/SALDO-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 863,
+      "title": "ref17",
+      "slug": "ref17",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:44:18",
+      "guid": "https://ravezeto.hu/?p=863",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/Profikomp-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 866,
+      "title": "ref18",
+      "slug": "ref18",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:44:54",
+      "guid": "https://ravezeto.hu/?p=866",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/MNA-GROUP-Kft-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 869,
+      "title": "ref19",
+      "slug": "ref19",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:45:29",
+      "guid": "https://ravezeto.hu/?p=869",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/Konigsberg-Consulting-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 872,
+      "title": "ref20",
+      "slug": "ref20",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:53:06",
+      "guid": "https://ravezeto.hu/?p=872",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/kemence.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 875,
+      "title": "ref21",
+      "slug": "ref21",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:53:45",
+      "guid": "https://ravezeto.hu/?p=875",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/HD-Direkt-Hungary-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 878,
+      "title": "ref22",
+      "slug": "ref22",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:54:31",
+      "guid": "https://ravezeto.hu/?p=878",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/globomax-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 881,
+      "title": "ref23",
+      "slug": "ref23",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:55:08",
+      "guid": "https://ravezeto.hu/?p=881",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/Ex-Ante-Kft-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 884,
+      "title": "ref24",
+      "slug": "ref24",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:55:44",
+      "guid": "https://ravezeto.hu/?p=884",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/Equinox-Consulting-Kft-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 887,
+      "title": "ref25",
+      "slug": "ref25",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:56:20",
+      "guid": "https://ravezeto.hu/?p=887",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/Dyntell-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 890,
+      "title": "ref26",
+      "slug": "ref26",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:56:55",
+      "guid": "https://ravezeto.hu/?p=890",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/BauDekor-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 893,
+      "title": "ref27",
+      "slug": "ref27",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:58:23",
+      "guid": "https://ravezeto.hu/?p=893",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/vksz-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 896,
+      "title": "ref28",
+      "slug": "ref28",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:59:02",
+      "guid": "https://ravezeto.hu/?p=896",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/Vajda_Papir-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 899,
+      "title": "ref29",
+      "slug": "ref29",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 17:59:39",
+      "guid": "https://ravezeto.hu/?p=899",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/rc-hungaria-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 902,
+      "title": "ref30",
+      "slug": "ref30",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 18:00:15",
+      "guid": "https://ravezeto.hu/?p=902",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/NFFKU-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 905,
+      "title": "ref31",
+      "slug": "ref31",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 18:01:03",
+      "guid": "https://ravezeto.hu/?p=905",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/Lechner-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 908,
+      "title": "ref32",
+      "slug": "ref32",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 18:01:38",
+      "guid": "https://ravezeto.hu/?p=908",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/KSZK-1-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 911,
+      "title": "ref33",
+      "slug": "ref33",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 18:02:11",
+      "guid": "https://ravezeto.hu/?p=911",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/DKU-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 914,
+      "title": "ref34",
+      "slug": "ref34",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 18:02:46",
+      "guid": "https://ravezeto.hu/?p=914",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/BGYH-new.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 917,
+      "title": "ref35",
+      "slug": "ref35",
+      "content": "",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-02-20 18:03:54",
+      "guid": "https://ravezeto.hu/?p=917",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": "2025/02/ATEV_processed.png",
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 1143,
+      "title": "70+ Uk Gambling Dens Not On Gamstop » Best Web Sites Of July 2025",
+      "slug": "70-uk-gambling-dens-not-on-gamstop-best-web-sites-of-july-2025",
+      "content": "<div id=\"toc\" style=\"background: #f9f9f9;border: 1px solid #aaa;display: table;margin-bottom: 1em;padding: 1em;width: 350px;\"><p class=\"toctitle\" style=\"font-weight: 700;text-align: center;\">Content</p><ul class=\"toc_list\"><li><a href=\"#toc-0\">📍 Does Gamstop Include Casinos? </a></li><li><a href=\"#toc-1\">Credit/debit Cards</a></li><li><a href=\"#toc-2\">⌛ Will I Get My Winnings Quick From Casinos Not With Gamstop? </a></li><li><a href=\"#toc-3\">Top Self-exclusion Tools To Gamble Not Upon Gamstop</a></li><li><a href=\"#toc-4\">Available Payment Options With Non Gamstop Casinos For Uk Players</a></li><li><a href=\"#toc-5\">Winit Casino</a></li><li><a href=\"#toc-6\">What Bingo Sites Are Not On Gamstop? </a></li></ul></div>\r\n<p>Cashiering options include cards, e-wallets, crypto, and bank exchange.  Frequently playing about this casino not on GamStop signifies you qualify for your unbeatable 200 zero-wagering FS weekly.  We believe you can love this benefit offer for the £1, 000 profits cap that a majority of other brands don’t provide.  You’ll find many methods from classic table video games and high-RTP slots to progressive jackpots and live seller rooms. newlineSome of the ideal non-GamStop casinos also feature game exclusives not seen in <a href=\"https://wreckbet-casino.co.uk/\">wreckbet casino</a> UKGC platforms.  There are many non-GamStop BRITISH casinos that recognize UK players, present GBP transactions, and can include popular British casino games.  Non-GamStop internet casinos are international casino sites not coupled to the UK’s GamStop self-exclusion scheme.</p>\r\n<h2 id=\"toc-0\">📍 Does Gamstop Include Casinos? </h2>\r\n<p>Party Casino mixes distinctive quite happy with high-value jackpots and fast-play groups.  Favourites include Chilli Heat, Jewels Match 3, Dazzling Sun, and Reel Ruler Megaways.  The web site runs without holdups hindrances impediments on mobile and desktop, with zero download required.</p>\r\n<h3 id=\"toc-1\">Credit/debit Cards</h3>\r\n<p>The online gaming site features a wide variety regarding games, whether it’s online slots or perhaps live dealer games.  At Memo, a person can look out there for games produced by Pragmatic Have fun with Live, Evolution Gaming, Pragmatic Play, BGaming, Highfive, Popiplay, and more.  To make things better, there will be Memo Casino Primary games that a person can’t find anywhere else.</p>\r\n<h3 id=\"toc-2\">⌛ Will I Obtain My Winnings Quickly From Casinos Not Necessarily With Gamstop? </h3>\r\n<p>Many of such casinos have a variety of safe payment options that will allow you in order to manage your bankroll with zero fuss.  Golden Mister Online Casino is the fantastic sort of a non-GamStop site.  It shames other gambling establishment sites using its generous 525% welcome package deal, no-deposit offers, in addition to a 150% sportsbook bonus.  It’s secure to say that will if your top priority is a big promo, this can be your on line casino match.  NonGamStopGambling. corp. uk is surely a 3rd party gambling site reporter that focuses on discovering what each non-GamStop casino offers.  If you’ve been searching for all typically the information surrounding these sites to enhance your own own playing experience, this is wherever you’ll get this.</p>\r\n<h2 id=\"toc-3\">Top Self-exclusion Tools To Gamble Not On Gamstop</h2>\r\n<ul><li>Launched in 2020, Rollino is area of the group of non GamStop casinos owned and operated by Santeda. </li><li>Many UK players have a sensible question regarding typically the legality of participating in at casino web sites not registered along with GamStop. </li><li>We also considered online gaming sites that undergo typical audits, providing justness, consistent withdrawals plus player security. </li><li>Once you’re comfortable and self-confident, you can create a deposit to start playing. </li></ul>\r\n<p>What I mean is that these gaming platforms don’t provide an UK license, although despite that, these people can still be acknowledged as international casinos.  They’re not enrolled to GamStop, when you’ve put oneself on that record, you can nonetheless access these ones.  Sometimes, it’s worthwhile for taking some time, go to google and yahoo. co. uk, in addition to search for Gamstop not participating organizations within the best research engine on earth.  It’ll suggest to a person many documents and several international offshore companies that can probably accept you along with actual money deposits.  Luckily for poker lovers, various poker sites not on GamStop can be obtained online.</p>\r\n<h2 id=\"toc-4\">Available Payment Options With Non Gamstop Internet Casinos For Uk Players</h2>\r\n<p>Getting become a member of GamStop is a piece of cake but obtaining off it is an inconvenience .  Good that there is no need to get worried about this all any time you can pick any casino internet site out of this guide plus simply enjoy the favourite games.  In the beginning, we covered the key positioning criteria that we value to cherry-pick gambling establishment sites.  However, right now there is more in order to know about typically the features of no GamStop sites.  There are many thrilling options with The state of texas Hold’em and Omaha cash games plus tournaments, so please explore them just about all.  This welcome bonus is one associated with the biggest I’ve seen, rewarding a person on your 1st 5 deposits.</p>\r\n<h3 id=\"toc-5\">Winit Casino</h3>\r\n<p>For players throughout search of BRITISH casinos not on GamStop, these websites represent both liberty and responsibility – a mix that specifies the modern online casino experience.  Magical Vegas doesn’t depend on angles – it’s just about all about colour, rate, and perks.  The platform offers a wealth of slot titles, through high-volatility thrillers to be able to casual games along with fun themes.</p>\r\n<h2 id=\"toc-6\">What Online Bingo Providers Are Not Upon Gamstop? </h2>\r\n<p>These wagering platforms aren’t regulated by the particular UKGC but can easily accept British players.  Like most gamers, we favour on line casino sites not about GamStop that have plentiful games, through popular slots in order to bingo variants.  We go for brands together with hefty bonuses and even a broad range of banking options, too.  Launched in 2020, MyStake is probably the highly authorized non GamStop internet casinos operate by Santeda.  Players in Britain and even  beyond turn in order to it for safety in iGaming, protection in banking, assortment of games, and frequency of bonuses.</p>",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-01-04 16:41:30",
+      "guid": "https://ravezeto.hu/70-uk-gambling-dens-not-on-gamstop-best-web-sites-of-july-2025/",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 1159,
+      "title": "Uk Non Gamstop Bookmakers",
+      "slug": "uk-non-gamstop-bookmakers",
+      "content": "<div id=\"toc\" style=\"background: #f9f9f9;border: 1px solid #aaa;display: table;margin-bottom: 1em;padding: 1em;width: 350px;\"><p class=\"toctitle\" style=\"font-weight: 700;text-align: center;\">Content</p><ul class=\"toc_list\"><li><a href=\"#toc-0\">Uk Betting Sites Certainly Not On Gamstop</a></li><li><a href=\"#toc-1\">Many Good New Sportsbooks Appear</a></li><li><a href=\"#toc-2\">How We All Discover The Top Betting Sites Certainly Not Signed Up To Be Able To Gamstop</a></li><li><a href=\"#toc-3\">☑️plenty Of Repayment Methods Offered</a></li><li><a href=\"#toc-4\">New Betting Sites Not On Gamstop For Uk Gamblers</a></li><li><a href=\"#toc-5\">Uk Gambling Sites Not On Gamstop</a></li><li><a href=\"#toc-6\">Actual Game Range At Casinos Not On Gamstop — Different 20 Slots</a></li></ul></div>\r\n<p>So, having top-class crickinfo betting sites of which aren’t on GamStop was obviously a top goal to us.  Test your betting skills on match wagering, outrights, tournament special deals, and much more.  Another huge benefit for UK players is that these people don’t have to stick to any complicated verification procedures upon creating an account.  Betting sites with <a href=\"https://cryptoleocasino.org/\">http://cryptoleocasino.org/</a> no verification can save you time, as typically, KYC procedures will take up to several days.  During this particular time, anyone with capable to make debris or withdrawals.</p>\r\n<h2 id=\"toc-0\">Uk Betting Sites Certainly Not On Gamstop</h2>\r\n<p>Deep insurance coverage of your respective favourite market segments, like a wild assortment of football competitions, for example, scores highly with people.  You receive benefits based on your betting volume, such because free bets, procuring, and special matched bonuses.  The more significant you go in the VIP programme, the more you can assume.  If you’re trying to decide when a Non Gamstop bookies in the UK is typically the right fit intended for you, consider the using pros and negatives.  Depending on your betting needs, these sites can get the ideal choice.  The site is usually managed by Johan Vesel, a playing industry expert using over a decade of experience.</p>\r\n<h3 id=\"toc-1\">Many Good New Sportsbooks Appear</h3>\r\n<p>I’ve gathered the particular best online bookies, crack down a mini-review for each involving them, through adding some extra bonuses regarding registering with the link.  That’s exactly where online operators using licences from Malta, Curacao, or Anjouan come in handy.  These bookmakers not registered with GamStop don’t have these restrictions.</p>\r\n<h3 id=\"toc-2\">How All Of Us Discover The Preferred Betting Sites Not Signed Up To Gamstop</h3>\r\n<p>You may easily bet for the UK’s most-loved sports activity by visiting the best football bets sites.  You need to opt set for this kind of promo, as soon as you have, you’ll must wager a certain number of bets at minimum odds over a given period of time.  Once you may have met these criteria, the particular bookmaker will reward you with the free bet.</p>\r\n<ul><li>The good news is that additional handy withdrawal options for your money moves. </li><li>Head over to be able to the Sports section of the bookmaker website and find their way the many choices to find your current favourite sports. </li><li>In-play betting options are substantial, offering match effect, total goals, right score, and other niche markets just like corners and bookings. </li><li>Risks range from difficulties with dispute resolution, less robust liable gambling tools, in addition to potential issues together with unlicensed or poorly regulated operators. </li><li>While UK-licensed sportsbooks may well be limited in some markets, these offshore platforms go emotional with options. </li></ul>\r\n<h2 id=\"toc-3\">☑️plenty Of Settlement Methods Offered</h2>\r\n<p>Most top-rated non-GamStop Slot internet sites offer thousands involving non Gamstop games from global suppliers like Pragmatic Have fun, NetEnt, Betsoft, Quickspin Not on Gamstop and Evolution Game playing.  This includes classic slots, mega jackpots, niche table video games, and exclusive mini-games that you won’t find on BRITISH platforms.  Pitbet On line casino is perfect intended for bonus hunters and even  UK players who else enjoy regular rewards.  With a cashback-focused structure and 2, 500+ slots, Pitbet stands out in the non GamStop UNITED KINGDOM casino Site place as a fun, no-KYC alternative in order to UKGC sites.  SparrowLondon. co. uk is usually an independent reference providing information about betting sites not really on GamStop.</p>\r\n<h2 id=\"toc-4\">New Betting Sites Not On Gamstop For Uk Gamblers</h2>\r\n<p>Some have excellent apps, while some others offer mobile-friendly websites, so no downloads available are expected.  If some sort of person subscribes along with GamStop, they are rejected access to all UK betting internet sites for 6 several weeks to 5 years.  It’s a helpful application for all those needing a break, but when signed up, customers remain blocked even when  they feel willing to bet responsibly once again.</p>\r\n<h3 id=\"toc-5\">Uk Gambling Sites Not In Gamstop</h3>\r\n<p>When placing this kind of wager you select which team an individual expect will succeed the match general.  Skrill, Neteller, Mifinity, and Neosurf are popular e-wallet techniques offered by on the internet bookmakers.  These electronic digital wallets allow you to make and receive payments on-line quickly and safely.  Here, you obtain your accumulator gamble at increased costs or odds, supplied you wager on the selections put ahead by the bookmaker.  High-stakes bettors may join VIP plans that award tips for each wagered bet.</p>\r\n<h2 id=\"toc-6\">Actual Game Selection At Casinos Not Necessarily On Gamstop — Different 20 Slots</h2>\r\n<p>Over the past few years, non-GamStop playing sites have altered from a specialized niche alternative to some sort of mainstream choice regarding savvy UK bettors.  What started as a workaround has evolved into a new legitimate category with high-quality platforms offering innovative features.  It’s a haven with regard to fans who want depth, reliability, in addition to coverage of significant events like Cheltenham and Ascot racing.  Betano is a powerhouse for global activities fans and one particular of the most technically sophisticated non-GamStop betting web sites in 2025.  With real-time data contribution, wide league protection, and a sleek interface, it’s built intended for users who would like sharp insights plus fluid betting in one place.  You can bet on the wide variety of sports including soccer, horse racing, tennis, basketball, rugby, tennis, baseball, and in many cases eSports.</p>",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2025-01-19 21:56:53",
+      "guid": "https://ravezeto.hu/uk-non-gamstop-bookmakers/",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 1160,
+      "title": "Best Non-gamstop Casinos In Typically The Uk 2025",
+      "slug": "best-non-gamstop-casinos-in-typically-the-uk-2025",
+      "content": "<div id=\"toc\" style=\"background: #f9f9f9;border: 1px solid #aaa;display: table;margin-bottom: 1em;padding: 1em;width: 350px;\"><p class=\"toctitle\" style=\"font-weight: 700;text-align: center;\">Content</p><ul class=\"toc_list\"><li><a href=\"#toc-0\">Can My Partner And I Reverse Gamstop By Joining Non Gamstop Casinos? </a></li><li><a href=\"#toc-1\">Payment Methods</a></li><li><a href=\"#toc-2\">List Regarding Trusted Uk Gambling Establishment Sites Not In Gamstop 2025</a></li><li><a href=\"#toc-3\">Recommended British Non Gamstop Slot Machine Sites 2025</a></li><li><a href=\"#toc-4\">Paypal</a></li><li><a href=\"#toc-5\">Betsio Com ⭐️ Greatest Games Not Upon Gamstop</a></li><li><a href=\"#toc-6\">Goldenbet – Vip Non Gamstop Slots Site</a></li><li><a href=\"#toc-7\">Games Offered By Gambling Dens Not Registered On Gamstop Uk</a></li><li><a href=\"#toc-8\">Features Of Not Gamstop Casinos You Should Know About</a></li></ul></div>\r\n<p>Unlike UKGC-licensed sites, which in turn impose maximum wagers of up to be able to £5 per spin, non-Gamstop platforms enable players to spot bets without such restrictions.  This freedom is particularly appealing to high rollers who enjoy high-stakes video gaming and want the chance to win big.  On the other hands, you will find no first deposit bonuses that honor players either some bonus cash or perhaps free spins just for registering on the particular site.</p>\r\n<h2 id=\"toc-0\">Can I Reverse Gamstop Simply By Joining Non Gamstop Casinos? </h2>\r\n<p>Moreover, in the event that you are prepared to spend big dollars, you are able to count upon special bonuses developed just for you, which will permit you improve the bankroll even further.  From March 2020, all operators who would like to obtain an UKGC licence must interact personally with Gamstop.  This means that when you are on a self-exclusion scheme and want to gamble in any kind of casino registered in Great Britain, you won’t be ready to.  I worked with the highest-rated brands in each of our industry like gambling. com, casino. org, and others.</p>\r\n<h3 id=\"toc-1\">Payment Methods</h3>\r\n<p>The main benefits of mobile internet casinos not blocked by simply GamStop, like GoldenBet, MyStake, and Rolletto, is that a person can play slot machines, bingo, live shows, in addition to other games without notice.  While not most brands have devoted apps, our testing prove that each system is perfectly appropriate with iOS and Android.  These are usually generally entered by simply playing certain video games from the site’s huge collection every day, week, or even month.  FreshBet Gambling establishment is another great UK casino certainly not registered with GamStop scheme.  It has been around a little more time than VeloBet, possessing launched in 2022.</p>\r\n<h3 id=\"toc-2\">List Associated With Trusted Uk On Line Casino Sites Not On Gamstop 2025</h3>\r\n<p>Each of these offers a good unique gaming expertise, ensuring players could find a site that suits their particular preferences.  In purchase to ensure a new fulfilling gaming expertise, it is essential that you include access slots game titles.  The online gambling dens on our list offer you you access to slot machine games by high-quality developers like Play’n GO, Playtech, Microgaming, NetEnt, and others.  You can play these kinds of games on non-GamStop sites even if you are authorized to the exclusion program.</p>\r\n<ul><li>This implies you can count on us to offer you quality based on a target set of parameters. </li><li>Opened in 2024, this website is one of the non GamStop casinos introduced by Santeda Essential BV, a dependable operator based throughout the Country involving Curacao. </li><li>You get titles by providers like Red Tiger, NetEnt, Yggdrasil, Hacksaw Gaming, and massive Time Gaming – along with many unique games created exclusively for MyStake itself. </li><li>What we look at here happen to be system technologies, like Secure Socket Level (SSL) encryption. </li><li>Playing at the non GamStop casinos does indeed not mean that will you do not necessarily can access tools that will allow you to control your gambling habits. </li></ul>\r\n<h2 id=\"toc-3\">Recommended United Kingdom Non Gamstop Slot Machine Sites 2025</h2>\r\n<p>I’ll continue updating this web site, testing new websites, and giving an individual honest feedback based on firsthand experience — not affiliate hype.  Whether you’re trying to find around GamStop with regard to personal reasons or simply want more versatility in how plus where you perform, I’ve built this particular site to be your honest guideline.  No hype, not any filler — only straight answers, comprehensive reviews, and helpful advice from somebody who’s tested it all.  So ahead of you hit “deposit, ” take the  moment to select just what fits you greatest — or check out my personal full guides linked above to discover which method matches your lifestyle of have fun with.  We also analyze customer satisfaction ourselves by simply submitting different queries to view how fast and efficiently the support team reacts.</p>\r\n<h2 id=\"toc-4\">Paypal</h2>\r\n<p>Goldenbet operates below a Curacao licence&nbsp;and claims to be considered a reliable and trusted&nbsp;offshore casino regulated simply by an independent business.  I’ve put together this little table because it’s the particular easiest way to be able to show you what’s what with these types of non-GamStop casinos.  I dig into almost all the boring parts, check out all those sneaky bonus phrases, and rank every thing properly.  Some non-GamStop casinos allow an individual to play in addition to even withdraw with minimal or not any KYC verification.</p>\r\n<h3 id=\"toc-5\">Betsio Com ⭐️ Best Games Not Upon Gamstop</h3>\r\n<p>It’s necessary to look for these kinds of licenses to assure a new  safe gaming knowledge.  Additionally, non-Gamstop casinos may encourage participants to limit exposure to gambling advertisements and utilise alternative self-exclusion services.  Providing dependable gambling tools, non-Gamstop casinos aim to promote a safe and enjoyable surroundings, addressing potential gambling addiction issues.</p>\r\n<h2 id=\"toc-6\">Goldenbet – Vip Non Gamstop Slots Site</h2>\r\n<p>At the exact same time, the reduced wagering requirement tends to make the bonus certainly not just attractive, but additionally easy to gamble.  Delightful game lobby, that has more compared to 6000 casino game titles without GamStop, can not let even a very experienced participant get bored.  And to get maximum pleasure from a single down payment will allow various bonus section and not a few some other surprises for users.  Playing in the no GamStop casinos does not mean of which you do certainly not gain access to tools that enable you to control the gambling habits.  Most casino sites possess local self-exclusion choices which might be temporary and even easily managed.  Besides, you can locate operators that enable you to limit your deposits, program times, or damage amounts.</p>\r\n<h3 id=\"toc-7\">Games Available At Internet Casinos Not Registered In Gamstop Uk</h3>\r\n<p>This contemporary web-site delivers high procuring rewards, crypto repayments like Bitcoin in addition to Ethereum, and a new comprehensive sportsbook.  With Curacao licensing, PitBet ensures safety along with premium gaming.  Table games are a staple at non-Gamstop casinos, offering traditional options for instance black  jack, roulette, craps, in addition to baccarat.  These games <a href=\"https://fresh-bet.org.uk/\">www.fresh-bet.org.uk</a> appeal to gamers who enjoy strategic and skill-based gaming, offering a various experience from slots.  Higher betting boundaries cater to a varied range of participants, from casual avid gamers to high rollers.  Non-Gamstop casinos offer several benefits, which includes greater control with regard to players, diverse game selections, and attractive bonuses.</p>\r\n<h3 id=\"toc-8\">Features Of No Gamstop Casinos An Individual Should Know About</h3>\r\n<p>And while optional, GamCare still doesn’t apply at any international internet casinos as it centers solely on UKGC ones.  If an individual like slots in addition to have a lot of fun with lotteries, then we have a chance that enjoying on bingo internet sites not on GamStop may be your factor.  Visit online bingo rooms, buy tickets, and win money – nice and easy.  If you are searching for activities betting sites not really on GamStop, you could have come to typically the right place.  Several of the internet casinos on our checklist have got a sports gambling section, too, despite the fact that you might obtain thinking about the devoted sportsbooks as nicely.</p>",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2024-10-28 00:58:10",
+      "guid": "https://ravezeto.hu/best-non-gamstop-casinos-in-typically-the-uk-2025/",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    },
+    {
+      "id": 1166,
+      "title": "Online Casino Transaction Methods & Deposit Options 2025",
+      "slug": "online-casino-transaction-methods-deposit-options-2025",
+      "content": "<div id=\"toc\" style=\"background: #f9f9f9;border: 1px solid #aaa;display: table;margin-bottom: 1em;padding: 1em;width: 350px;\"><p class=\"toctitle\" style=\"font-weight: 700;text-align: center;\">Content</p><ul class=\"toc_list\"><li><a href=\"#toc-0\">No Betting Bonus</a></li><li><a href=\"#toc-1\">Pay By Mobile Internet Casinos Faqs</a></li><li><a href=\"#toc-2\">How To Be Able To Deposit By Cell Phone Bill</a></li><li><a href=\"#toc-3\">Pay By Mobile Boku</a></li><li><a href=\"#toc-4\">Live Casino Games</a></li><li><a href=\"#toc-5\">Top Casinos That Accept Spend By Phone Deposits 2025</a></li><li><a href=\"#toc-6\">Pros Plus Cons Of Phone Bill Casinos</a></li></ul></div>\r\n<p>Pay by phone costs casino sites may work for people who want fast plus hassle-free payments.  There are no enrolling e-wallet accounts or perhaps purchasing prepaid vouchers.  Are you wondering what bonuses English players can seem forward to at a pay by mobile phone bill online online casino?</p>\r\n<h2 id=\"toc-0\">No Gaming Bonus</h2>\r\n<p>When considering transaction with a mobile expenses, we assess the deposit limits and the speed of crediting the finances to the video gaming account.  As regarding speed, such deals is going to take no even more than a few seconds, so much longer processing times happen to be not even regarded  for discussion.  Unlike specialized payment providers, Payforit is the standard feature presented by most repayment operators.</p>\r\n<h3 id=\"toc-1\">Pay By Mobile Gambling Dens Faqs</h3>\r\n<p>In a new pay by phone bill casino, you can create a deposit and start playing with out settling the repayment right away.  If you make a casino deposit simply by phone bill, the particular charges are integrated in your subsequent phone bill.  Deposit by phone expenses casinos work simply by charging the portable phone bill directly or by deducting the prepaid stability.  Apple Pay is usually one of the particular most popular portable deposit methods, because it’s linked to your bank card, so it’s really easy to work with.</p>\r\n<h2 id=\"toc-2\">How To Deposit By Cell Phone Bill</h2>\r\n<ul><li>They offer rapid deposits, quick withdrawals, and protect your own information. </li><li>Always inspect casino and settlement provider's terms to avoid surprises. </li><li>Pay by Phone Bill UK casinos allow you to deposit instantly using your mobile credit or monthly bill. </li><li>The most important element of any portable casino we recommend is that it’s licensed by a respected gambling expert, such as the UKGC, and offers proper security protocols. </li><li>An excellent example regarding this type of casino site is Rolling Slot machine games Casino. </li></ul>\r\n<p>Slots, table video games, live casino games, in addition to bingo are offered at MrQ to both desktop and portable via their application.  We look in to each casino’s pleasant bonus, including the size, free rounds, in addition to wagering requirements, to be able to find the best-value offers for our readers.  Our staff also closely examines the variety involving promotions available for existing players.  While Pay by Phone is compatible with assorted mobile providers, confirming that your cell phone provider supports this specific  payment method is definitely essential.</p>\r\n<h3 id=\"toc-3\">Pay By Mobile Boku</h3>\r\n<p>The on line casino also supports PayPal, Trustly, and MuchBetter for easy, mobile-friendly cashouts.  Withdrawals generally process within forty-eight hours, and simply no fees are suitable if you’re cashing out over £30.  Extra spins on selected games only- must be employed <a href=\"https://wreckbet-casino.uk/\">wreck bet login</a> within 72 hours.  Bonus funds are usually separate to Money funds, and are subject to 40x wagering the entire bonus &amp; cash.  Bonus spins in selected games only- can be used within 72 hours.  Bonus finances are separate to be able to Cash funds, plus are subject to 40x wagering the total added bonus, cash &amp; added bonus spins.</p>\r\n<h2 id=\"toc-4\">Live Casino Games</h2>\r\n<p>Additionally, Hot Streak helps fast withdrawals, usually processing them inside 24 hours.  Players can also filter games by supplier, making it simpler to get new or favourite titles.  Most gambling dens don’t provide a welcome bonus for Give by Phone Invoice deposits.  If you need a new-player deposit bonus, use a different method, such since debit cards, and after that use your mobile phone bill or prepaid balance for the particular second and succeeding deposits.</p>\r\n<h3 id=\"toc-5\">Top Internet Casinos That Accept Shell Out By Phone Debris 2025</h3>\r\n<p>We’re pleased to say that the best pay by phone bill deposit gambling dens often outdo on their own in this consideration.  You sees sport lobbies featuring hundreds of games simply by various studios.  To use a give by phone gambling establishment, you need to have the mobile phone contract with an UNITED KINGDOM network provider.  When you would like to make some sort of deposit, you are going to enter your contact number and even the amount you would like to deposit.  The first deposit amount will in that case be included with your current next phone bill, or deducted out of your available phone credit rating if you will be  on a pay-as-you-go plan.  WatchMySpin can be a PaybyPhone casino having a high level involving diversity regarding the available payment approaches.</p>\r\n<h3 id=\"toc-6\">Pros And Even Cons Of Mobile Phone Bill Casinos</h3>\r\n<p>The casino likewise provides cashback offers and various promotions for existing clients, including loyalty returns and free re-writes.  In conjunction with staying accessible via mobile browsers, moreover it presents dedicated apps for both Android and iOS devices.  The app has brought beneficial feedback, boasting the score of four. 6/5 on the search engines Play and also a new 4. 6/5 upon the App Store.  With touch functionality, you can easily find their way and deposit finances directly from your gadget.</p>",
+      "excerpt": "",
+      "parent": 0,
+      "menuOrder": 0,
+      "date": "2024-09-20 05:04:41",
+      "guid": "https://ravezeto.hu/online-casino-transaction-methods-deposit-options-2025/",
+      "mimeType": "",
+      "meta": {
+        "thumbnail": null,
+        "palyazatPdf": null,
+        "attachedFile": null
+      }
+    }
+  ],
+  "categories": [
+    {
+      "id": 15,
+      "name": "Palyazat",
+      "slug": "palyazat"
+    },
+    {
+      "id": 16,
+      "name": "munkatarsak",
+      "slug": "munkatarsak"
+    },
+    {
+      "id": 17,
+      "name": "referenciák",
+      "slug": "referenciak"
+    }
+  ],
+  "documents": [],
+  "media": {
+    "sqlAttachments": {
+      "images": 0,
+      "pdfs": 0
+    },
+    "uploadsOnDisk": {
+      "images": 682,
+      "pdfs": 6,
+      "total": 733
+    },
+    "themeImages": [
+      {
+        "path": "theme/images/csapat/Adam_uj_szines.jpg",
+        "ext": ".jpg",
+        "size": 67954
+      },
+      {
+        "path": "theme/images/csapat/Andi_szines.jpg",
+        "ext": ".jpg",
+        "size": 929044
+      },
+      {
+        "path": "theme/images/csapat/blank.png",
+        "ext": ".png",
+        "size": 37098
+      },
+      {
+        "path": "theme/images/csapat/Kriszti_szines.jpg",
+        "ext": ".jpg",
+        "size": 122805
+      },
+      {
+        "path": "theme/images/csapat/Mariann_szines.jpg",
+        "ext": ".jpg",
+        "size": 2577483
+      },
+      {
+        "path": "theme/images/csapat/Szoke Adam.png",
+        "ext": ".png",
+        "size": 929679
+      },
+      {
+        "path": "theme/images/csapat/ta.png",
+        "ext": ".png",
+        "size": 2716599
+      },
+      {
+        "path": "theme/images/csapat/tportrait_vagvolgyi_julia_szines.jpg",
+        "ext": ".jpg",
+        "size": 1141026
+      },
+      {
+        "path": "theme/images/csapat/_MG_0645.JPG",
+        "ext": ".jpg",
+        "size": 1106146
+      },
+      {
+        "path": "theme/images/home/akt_paly_left.png",
+        "ext": ".png",
+        "size": 19437
+      },
+      {
+        "path": "theme/images/home/backgroundArrow2.png",
+        "ext": ".png",
+        "size": 60788
+      },
+      {
+        "path": "theme/images/home/beküldés.png",
+        "ext": ".png",
+        "size": 14807
+      },
+      {
+        "path": "theme/images/home/bg.png",
+        "ext": ".png",
+        "size": 205020
+      },
+      {
+        "path": "theme/images/home/bigGreenArrow.png",
+        "ext": ".png",
+        "size": 36622
+      },
+      {
+        "path": "theme/images/home/boatIcon.png",
+        "ext": ".png",
+        "size": 480
+      },
+      {
+        "path": "theme/images/home/bulbIcon.png",
+        "ext": ".png",
+        "size": 711
+      },
+      {
+        "path": "theme/images/home/buszkekArrow.png",
+        "ext": ".png",
+        "size": 4631
+      },
+      {
+        "path": "theme/images/home/buszkek_left.png",
+        "ext": ".png",
+        "size": 22751
+      },
+      {
+        "path": "theme/images/home/button_blue.png",
+        "ext": ".png",
+        "size": 3622
+      },
+      {
+        "path": "theme/images/home/button_brown.png",
+        "ext": ".png",
+        "size": 3939
+      },
+      {
+        "path": "theme/images/home/button_green.png",
+        "ext": ".png",
+        "size": 3843
+      },
+      {
+        "path": "theme/images/home/button_pink.png",
+        "ext": ".png",
+        "size": 3646
+      },
+      {
+        "path": "theme/images/home/button_purple.png",
+        "ext": ".png",
+        "size": 3911
+      },
+      {
+        "path": "theme/images/home/Button_red.png",
+        "ext": ".png",
+        "size": 3960
+      },
+      {
+        "path": "theme/images/home/buxus.png",
+        "ext": ".png",
+        "size": 37882
+      },
+      {
+        "path": "theme/images/home/call.png",
+        "ext": ".png",
+        "size": 1510
+      },
+      {
+        "path": "theme/images/home/chessIcon.png",
+        "ext": ".png",
+        "size": 559
+      },
+      {
+        "path": "theme/images/home/compass.png",
+        "ext": ".png",
+        "size": 1025850
+      },
+      {
+        "path": "theme/images/home/copy_r.png",
+        "ext": ".png",
+        "size": 1186
+      },
+      {
+        "path": "theme/images/home/crownIcon.png",
+        "ext": ".png",
+        "size": 531
+      },
+      {
+        "path": "theme/images/home/Csapatunk.png",
+        "ext": ".png",
+        "size": 27198
+      },
+      {
+        "path": "theme/images/home/datumIcon.png",
+        "ext": ".png",
+        "size": 9504
+      },
+      {
+        "path": "theme/images/home/enterBlogPost.png",
+        "ext": ".png",
+        "size": 2389
+      },
+      {
+        "path": "theme/images/home/ertekeink.png",
+        "ext": ".png",
+        "size": 760923
+      },
+      {
+        "path": "theme/images/home/facebook.png",
+        "ext": ".png",
+        "size": 1769
+      },
+      {
+        "path": "theme/images/home/felnotkepzes_nyil.png",
+        "ext": ".png",
+        "size": 84556
+      },
+      {
+        "path": "theme/images/home/felnottkepz_left.png",
+        "ext": ".png",
+        "size": 34721
+      },
+      {
+        "path": "theme/images/home/files.png",
+        "ext": ".png",
+        "size": 900
+      },
+      {
+        "path": "theme/images/home/footer_bg.png",
+        "ext": ".png",
+        "size": 6236
+      },
+      {
+        "path": "theme/images/home/footer_img.png",
+        "ext": ".png",
+        "size": 86293
+      },
+      {
+        "path": "theme/images/home/Futok.png",
+        "ext": ".png",
+        "size": 36090
+      },
+      {
+        "path": "theme/images/home/gondolatFelho.png",
+        "ext": ".png",
+        "size": 19327
+      },
+      {
+        "path": "theme/images/home/hamburger_icon.png",
+        "ext": ".png",
+        "size": 1062
+      },
+      {
+        "path": "theme/images/home/hatarido_icon.png",
+        "ext": ".png",
+        "size": 9504
+      },
+      {
+        "path": "theme/images/home/irodank_hatter.png",
+        "ext": ".png",
+        "size": 17470
+      },
+      {
+        "path": "theme/images/home/kapcsolatIcon.png",
+        "ext": ".png",
+        "size": 8399
+      },
+      {
+        "path": "theme/images/home/kapcsolat_hatter1.png",
+        "ext": ".png",
+        "size": 2501630
+      },
+      {
+        "path": "theme/images/home/kapcsolat_hatter2.png",
+        "ext": ".png",
+        "size": 2264280
+      },
+      {
+        "path": "theme/images/home/Keep_calm_call_ravezeto.png",
+        "ext": ".png",
+        "size": 709207
+      },
+      {
+        "path": "theme/images/home/location.png",
+        "ext": ".png",
+        "size": 1745
+      },
+      {
+        "path": "theme/images/home/location_icon.png",
+        "ext": ".png",
+        "size": 6784
+      },
+      {
+        "path": "theme/images/home/logo-upscale.png",
+        "ext": ".png",
+        "size": 20579
+      },
+      {
+        "path": "theme/images/home/logo.png",
+        "ext": ".png",
+        "size": 21219
+      },
+      {
+        "path": "theme/images/home/longTextBackground.png",
+        "ext": ".png",
+        "size": 8166
+      },
+      {
+        "path": "theme/images/home/longText_arrow.png",
+        "ext": ".png",
+        "size": 33255
+      },
+      {
+        "path": "theme/images/home/mail.png",
+        "ext": ".png",
+        "size": 1306
+      },
+      {
+        "path": "theme/images/home/Mariann.png",
+        "ext": ".png",
+        "size": 123918
+      },
+      {
+        "path": "theme/images/home/mentally.png",
+        "ext": ".png",
+        "size": 89092
+      },
+      {
+        "path": "theme/images/home/mentally.webp",
+        "ext": ".webp",
+        "size": 32964
+      },
+      {
+        "path": "theme/images/home/mentally1_grouped.png",
+        "ext": ".png",
+        "size": 543573
+      },
+      {
+        "path": "theme/images/home/mentally_left.png",
+        "ext": ".png",
+        "size": 32582
+      },
+      {
+        "path": "theme/images/home/menu0.png",
+        "ext": ".png",
+        "size": 14612
+      },
+      {
+        "path": "theme/images/home/menu1.png",
+        "ext": ".png",
+        "size": 22595
+      },
+      {
+        "path": "theme/images/home/menu2.png",
+        "ext": ".png",
+        "size": 22404
+      },
+      {
+        "path": "theme/images/home/menu3.png",
+        "ext": ".png",
+        "size": 22453
+      },
+      {
+        "path": "theme/images/home/menu4.png",
+        "ext": ".png",
+        "size": 21739
+      },
+      {
+        "path": "theme/images/home/menu5.png",
+        "ext": ".png",
+        "size": 20625
+      },
+      {
+        "path": "theme/images/home/menu6.png",
+        "ext": ".png",
+        "size": 17041
+      },
+      {
+        "path": "theme/images/home/mobile_menu1.png",
+        "ext": ".png",
+        "size": 15308
+      },
+      {
+        "path": "theme/images/home/mobile_menu2.png",
+        "ext": ".png",
+        "size": 15726
+      },
+      {
+        "path": "theme/images/home/mobile_menu3.png",
+        "ext": ".png",
+        "size": 14956
+      },
+      {
+        "path": "theme/images/home/mobile_menu4.png",
+        "ext": ".png",
+        "size": 14782
+      },
+      {
+        "path": "theme/images/home/mobile_menu5.png",
+        "ext": ".png",
+        "size": 14095
+      },
+      {
+        "path": "theme/images/home/mobile_menu6.png",
+        "ext": ".png",
+        "size": 14545
+      },
+      {
+        "path": "theme/images/home/munkatars_hatter.png",
+        "ext": ".png",
+        "size": 7048
+      },
+      {
+        "path": "theme/images/home/munkatars_left.png",
+        "ext": ".png",
+        "size": 23389
+      },
+      {
+        "path": "theme/images/home/negativumok01.webp",
+        "ext": ".webp",
+        "size": 1107186
+      },
+      {
+        "path": "theme/images/home/palyazatKapcsolatHatter.png",
+        "ext": ".png",
+        "size": 108209
+      },
+      {
+        "path": "theme/images/home/palyazat_button.png",
+        "ext": ".png",
+        "size": 2311
+      },
+      {
+        "path": "theme/images/home/palyazat_feherTabla.png",
+        "ext": ".png",
+        "size": 11199
+      },
+      {
+        "path": "theme/images/home/palyazat_info_back.png",
+        "ext": ".png",
+        "size": 673382
+      },
+      {
+        "path": "theme/images/home/palyazat_left.png",
+        "ext": ".png",
+        "size": 16327
+      },
+      {
+        "path": "theme/images/home/palyazat_partnereink1.png",
+        "ext": ".png",
+        "size": 16307
+      },
+      {
+        "path": "theme/images/home/palyazat_partnereink1_rev.png",
+        "ext": ".png",
+        "size": 16940
+      },
+      {
+        "path": "theme/images/home/palyazat_partnereink2.png",
+        "ext": ".png",
+        "size": 14407
+      },
+      {
+        "path": "theme/images/home/palyazat_partnereink2_rev.png",
+        "ext": ".png",
+        "size": 13958
+      },
+      {
+        "path": "theme/images/home/palyazat_partnereink3.png",
+        "ext": ".png",
+        "size": 16642
+      },
+      {
+        "path": "theme/images/home/palyazat_partnereink4.png",
+        "ext": ".png",
+        "size": 16223
+      },
+      {
+        "path": "theme/images/home/palyazat_partnereink5.png",
+        "ext": ".png",
+        "size": 14468
+      },
+      {
+        "path": "theme/images/home/palyazat_partnereink6.png",
+        "ext": ".png",
+        "size": 14104
+      },
+      {
+        "path": "theme/images/home/palyazat_submenu.png",
+        "ext": ".png",
+        "size": 10084
+      },
+      {
+        "path": "theme/images/home/palyazat_submenu_inactive.png",
+        "ext": ".png",
+        "size": 5834
+      },
+      {
+        "path": "theme/images/home/palyazat_upper.png",
+        "ext": ".png",
+        "size": 7970
+      },
+      {
+        "path": "theme/images/home/palyazat_upper_mobile.png",
+        "ext": ".png",
+        "size": 14869
+      },
+      {
+        "path": "theme/images/home/paralax_harom_flat.png",
+        "ext": ".png",
+        "size": 41071
+      },
+      {
+        "path": "theme/images/home/paralax_harom_flat_rev.png",
+        "ext": ".png",
+        "size": 43060
+      },
+      {
+        "path": "theme/images/home/pink_arrow.png",
+        "ext": ".png",
+        "size": 2902
+      },
+      {
+        "path": "theme/images/home/pipasEmber.png",
+        "ext": ".png",
+        "size": 113595
+      },
+      {
+        "path": "theme/images/home/planeIcon.png",
+        "ext": ".png",
+        "size": 682
+      },
+      {
+        "path": "theme/images/home/pozitivumok01.webp",
+        "ext": ".webp",
+        "size": 1035352
+      },
+      {
+        "path": "theme/images/home/projekt_menedzser_arrow.png",
+        "ext": ".png",
+        "size": 10705
+      },
+      {
+        "path": "theme/images/home/questioningFigure.png",
+        "ext": ".png",
+        "size": 63837
+      },
+      {
+        "path": "theme/images/home/redMan.png",
+        "ext": ".png",
+        "size": 14082
+      },
+      {
+        "path": "theme/images/home/refKepz.png",
+        "ext": ".png",
+        "size": 19774
+      },
+      {
+        "path": "theme/images/home/ref_hatter1.png",
+        "ext": ".png",
+        "size": 16725
+      },
+      {
+        "path": "theme/images/home/ref_hatter2.png",
+        "ext": ".png",
+        "size": 18867
+      },
+      {
+        "path": "theme/images/home/ref_hatter3.png",
+        "ext": ".png",
+        "size": 16473
+      },
+      {
+        "path": "theme/images/home/ref_item1.png",
+        "ext": ".png",
+        "size": 22155
+      },
+      {
+        "path": "theme/images/home/ref_item2.png",
+        "ext": ".png",
+        "size": 15141
+      },
+      {
+        "path": "theme/images/home/ref_item3.png",
+        "ext": ".png",
+        "size": 67985
+      },
+      {
+        "path": "theme/images/home/ref_item4.png",
+        "ext": ".png",
+        "size": 17619
+      },
+      {
+        "path": "theme/images/home/ref_item5.png",
+        "ext": ".png",
+        "size": 47383
+      },
+      {
+        "path": "theme/images/home/ref_item6.png",
+        "ext": ".png",
+        "size": 204378
+      },
+      {
+        "path": "theme/images/home/ref_item7.png",
+        "ext": ".png",
+        "size": 37368
+      },
+      {
+        "path": "theme/images/home/ref_item8.png",
+        "ext": ".png",
+        "size": 16586
+      },
+      {
+        "path": "theme/images/home/Repulo.png",
+        "ext": ".png",
+        "size": 46268
+      },
+      {
+        "path": "theme/images/home/sandwich_new.png",
+        "ext": ".png",
+        "size": 5016
+      },
+      {
+        "path": "theme/images/home/section0_back.png",
+        "ext": ".png",
+        "size": 1358368
+      },
+      {
+        "path": "theme/images/home/section0_left.png",
+        "ext": ".png",
+        "size": 19081
+      },
+      {
+        "path": "theme/images/home/section0_right.png",
+        "ext": ".png",
+        "size": 23819
+      },
+      {
+        "path": "theme/images/home/section1_1_right1.png",
+        "ext": ".png",
+        "size": 26602
+      },
+      {
+        "path": "theme/images/home/section1_back.png",
+        "ext": ".png",
+        "size": 1032488
+      },
+      {
+        "path": "theme/images/home/section1_left.png",
+        "ext": ".png",
+        "size": 79322
+      },
+      {
+        "path": "theme/images/home/section1_left2.png",
+        "ext": ".png",
+        "size": 17132
+      },
+      {
+        "path": "theme/images/home/section2_1_back.png",
+        "ext": ".png",
+        "size": 1145525
+      },
+      {
+        "path": "theme/images/home/section2_2_back.png",
+        "ext": ".png",
+        "size": 925117
+      },
+      {
+        "path": "theme/images/home/section2_left.png",
+        "ext": ".png",
+        "size": 64165
+      },
+      {
+        "path": "theme/images/home/section3_back.png",
+        "ext": ".png",
+        "size": 884843
+      },
+      {
+        "path": "theme/images/home/section3_left.png",
+        "ext": ".png",
+        "size": 53135
+      },
+      {
+        "path": "theme/images/home/section4_back.png",
+        "ext": ".png",
+        "size": 1000313
+      },
+      {
+        "path": "theme/images/home/section4_left.png",
+        "ext": ".png",
+        "size": 71678
+      },
+      {
+        "path": "theme/images/home/section5_back.png",
+        "ext": ".png",
+        "size": 719365
+      },
+      {
+        "path": "theme/images/home/section5_left.png",
+        "ext": ".png",
+        "size": 83703
+      },
+      {
+        "path": "theme/images/home/section6_back.png",
+        "ext": ".png",
+        "size": 960220
+      },
+      {
+        "path": "theme/images/home/section6_left.png",
+        "ext": ".png",
+        "size": 24669
+      },
+      {
+        "path": "theme/images/home/sixReasons1.png",
+        "ext": ".png",
+        "size": 33236
+      },
+      {
+        "path": "theme/images/home/sixReasons1_4.png",
+        "ext": ".png",
+        "size": 9367
+      },
+      {
+        "path": "theme/images/home/sixReasons1_4_rev.png",
+        "ext": ".png",
+        "size": 8658
+      },
+      {
+        "path": "theme/images/home/sixReasons1_rev.png",
+        "ext": ".png",
+        "size": 8658
+      },
+      {
+        "path": "theme/images/home/sixReasons2.png",
+        "ext": ".png",
+        "size": 29751
+      },
+      {
+        "path": "theme/images/home/sixReasons2_4.png",
+        "ext": ".png",
+        "size": 9884
+      },
+      {
+        "path": "theme/images/home/sixReasons2_4_rev.png",
+        "ext": ".png",
+        "size": 9302
+      },
+      {
+        "path": "theme/images/home/sixReasons2_rev.png",
+        "ext": ".png",
+        "size": 9302
+      },
+      {
+        "path": "theme/images/home/sixReasons3.png",
+        "ext": ".png",
+        "size": 29751
+      },
+      {
+        "path": "theme/images/home/sixReasons3_4.png",
+        "ext": ".png",
+        "size": 10245
+      },
+      {
+        "path": "theme/images/home/sixReasons3_4_rev.png",
+        "ext": ".png",
+        "size": 10072
+      },
+      {
+        "path": "theme/images/home/sixReasons3_rev.png",
+        "ext": ".png",
+        "size": 10072
+      },
+      {
+        "path": "theme/images/home/sixReasons4.png",
+        "ext": ".png",
+        "size": 29751
+      },
+      {
+        "path": "theme/images/home/sixReasons4_4.png",
+        "ext": ".png",
+        "size": 10358
+      },
+      {
+        "path": "theme/images/home/sixReasons4_4_rev.png",
+        "ext": ".png",
+        "size": 9977
+      },
+      {
+        "path": "theme/images/home/sixReasons4_rev.png",
+        "ext": ".png",
+        "size": 21079
+      },
+      {
+        "path": "theme/images/home/sixReasons5.png",
+        "ext": ".png",
+        "size": 29753
+      },
+      {
+        "path": "theme/images/home/sixReasons5_4.png",
+        "ext": ".png",
+        "size": 17271
+      },
+      {
+        "path": "theme/images/home/sixReasons5_4_rev.png",
+        "ext": ".png",
+        "size": 8690
+      },
+      {
+        "path": "theme/images/home/sixReasons5_rev.png",
+        "ext": ".png",
+        "size": 25852
+      },
+      {
+        "path": "theme/images/home/sixReasons6.png",
+        "ext": ".png",
+        "size": 29751
+      },
+      {
+        "path": "theme/images/home/sixReasons6_4_rev.png",
+        "ext": ".png",
+        "size": 9469
+      },
+      {
+        "path": "theme/images/home/sixReasons6_rev.png",
+        "ext": ".png",
+        "size": 25971
+      },
+      {
+        "path": "theme/images/home/Szechenyi-2020-logo.png",
+        "ext": ".png",
+        "size": 299145
+      },
+      {
+        "path": "theme/images/home/szerv_fejl_tanacs_left.png",
+        "ext": ".png",
+        "size": 28551
+      },
+      {
+        "path": "theme/images/home/szolgaltatasArrow.png",
+        "ext": ".png",
+        "size": 8099
+      },
+      {
+        "path": "theme/images/home/szolgaltatasArrow_mobile.png",
+        "ext": ".png",
+        "size": 12873
+      },
+      {
+        "path": "theme/images/home/szolgaltatas_hatterdownlila.png",
+        "ext": ".png",
+        "size": 10198
+      },
+      {
+        "path": "theme/images/home/szolgaltatas_hatteruplila.png",
+        "ext": ".png",
+        "size": 10211
+      },
+      {
+        "path": "theme/images/home/szolgaltatas_submenu.png",
+        "ext": ".png",
+        "size": 9099
+      },
+      {
+        "path": "theme/images/home/szolgaltatas_submenu_inactive.png",
+        "ext": ".png",
+        "size": 5977
+      },
+      {
+        "path": "theme/images/home/Tabla.png",
+        "ext": ".png",
+        "size": 14898
+      },
+      {
+        "path": "theme/images/home/tanacs_tev_left.png",
+        "ext": ".png",
+        "size": 28645
+      },
+      {
+        "path": "theme/images/home/teamIcon.png",
+        "ext": ".png",
+        "size": 559
+      },
+      {
+        "path": "theme/images/home/tel_hatter.png",
+        "ext": ".png",
+        "size": 7612
+      },
+      {
+        "path": "theme/images/home/tel_icon.png",
+        "ext": ".png",
+        "size": 11921
+      },
+      {
+        "path": "theme/images/home/threeArrows.png",
+        "ext": ".png",
+        "size": 42458
+      },
+      {
+        "path": "theme/images/home/threeArrows1.png",
+        "ext": ".png",
+        "size": 12806
+      },
+      {
+        "path": "theme/images/home/threeArrows2.png",
+        "ext": ".png",
+        "size": 13166
+      },
+      {
+        "path": "theme/images/home/threeArrows3.png",
+        "ext": ".png",
+        "size": 13219
+      },
+      {
+        "path": "theme/images/home/thumbsUp.png",
+        "ext": ".png",
+        "size": 333303
+      },
+      {
+        "path": "theme/images/home/ugyf_irtak_left.png",
+        "ext": ".png",
+        "size": 45701
+      },
+      {
+        "path": "theme/images/home/ugyf_szol_hatter.png",
+        "ext": ".png",
+        "size": 20394
+      },
+      {
+        "path": "theme/images/home/ugyf_szol_icon.png",
+        "ext": ".png",
+        "size": 7777
+      },
+      {
+        "path": "theme/images/home/uzenet_hatter.png",
+        "ext": ".png",
+        "size": 25155
+      },
+      {
+        "path": "theme/images/home/uzenet_icon.png",
+        "ext": ".png",
+        "size": 5871
+      },
+      {
+        "path": "theme/images/home/very_proud.png",
+        "ext": ".png",
+        "size": 1063336
+      },
+      {
+        "path": "theme/images/home/videoContainer.png",
+        "ext": ".png",
+        "size": 59828
+      },
+      {
+        "path": "theme/images/home/web.png",
+        "ext": ".png",
+        "size": 2832
+      },
+      {
+        "path": "theme/images/home/writing.png",
+        "ext": ".png",
+        "size": 641409
+      },
+      {
+        "path": "theme/images/partnerek/globomax.png",
+        "ext": ".png",
+        "size": 13206
+      },
+      {
+        "path": "theme/images/partnerek/Gyógyfürdő.png",
+        "ext": ".png",
+        "size": 24786
+      },
+      {
+        "path": "theme/images/partnerek/refPage/BauDekor new.png",
+        "ext": ".png",
+        "size": 49867
+      },
+      {
+        "path": "theme/images/partnerek/refPage/BGYH new.png",
+        "ext": ".png",
+        "size": 44588
+      },
+      {
+        "path": "theme/images/partnerek/refPage/DKÜ new.png",
+        "ext": ".png",
+        "size": 38093
+      },
+      {
+        "path": "theme/images/partnerek/refPage/Dyntell new.png",
+        "ext": ".png",
+        "size": 24700
+      },
+      {
+        "path": "theme/images/partnerek/refPage/Equinox Consulting Kft new.png",
+        "ext": ".png",
+        "size": 20873
+      },
+      {
+        "path": "theme/images/partnerek/refPage/Ex Ante Kft new.png",
+        "ext": ".png",
+        "size": 31765
+      },
+      {
+        "path": "theme/images/partnerek/refPage/globomax new.png",
+        "ext": ".png",
+        "size": 27130
+      },
+      {
+        "path": "theme/images/partnerek/refPage/Gondosóra new.png",
+        "ext": ".png",
+        "size": 33145
+      },
+      {
+        "path": "theme/images/partnerek/refPage/HD Direkt Hungary new.png",
+        "ext": ".png",
+        "size": 30015
+      },
+      {
+        "path": "theme/images/partnerek/refPage/KSZK-1 new.png",
+        "ext": ".png",
+        "size": 22311
+      },
+      {
+        "path": "theme/images/partnerek/refPage/Königsberg Consulting new.png",
+        "ext": ".png",
+        "size": 45061
+      },
+      {
+        "path": "theme/images/partnerek/refPage/Lechner new.png",
+        "ext": ".png",
+        "size": 52353
+      },
+      {
+        "path": "theme/images/partnerek/refPage/mmsz new.png",
+        "ext": ".png",
+        "size": 32989
+      },
+      {
+        "path": "theme/images/partnerek/refPage/MNA GROUP Kft new.png",
+        "ext": ".png",
+        "size": 61418
+      },
+      {
+        "path": "theme/images/partnerek/refPage/MOME new.png",
+        "ext": ".png",
+        "size": 44624
+      },
+      {
+        "path": "theme/images/partnerek/refPage/mome.png",
+        "ext": ".png",
+        "size": 141572
+      },
+      {
+        "path": "theme/images/partnerek/refPage/NFFKÜ new.png",
+        "ext": ".png",
+        "size": 89174
+      },
+      {
+        "path": "theme/images/partnerek/refPage/NNGYK new.png",
+        "ext": ".png",
+        "size": 31171
+      },
+      {
+        "path": "theme/images/partnerek/refPage/NNK new.png",
+        "ext": ".png",
+        "size": 46437
+      },
+      {
+        "path": "theme/images/partnerek/refPage/OE new.png",
+        "ext": ".png",
+        "size": 50531
+      },
+      {
+        "path": "theme/images/partnerek/refPage/OKFŐ new.png",
+        "ext": ".png",
+        "size": 21297
+      },
+      {
+        "path": "theme/images/partnerek/refPage/Profikomp new.png",
+        "ext": ".png",
+        "size": 35650
+      },
+      {
+        "path": "theme/images/partnerek/refPage/rc-hungaria new.png",
+        "ext": ".png",
+        "size": 25613
+      },
+      {
+        "path": "theme/images/partnerek/refPage/SALDO new.png",
+        "ext": ".png",
+        "size": 20458
+      },
+      {
+        "path": "theme/images/partnerek/refPage/Smart_Digital new.png",
+        "ext": ".png",
+        "size": 48906
+      },
+      {
+        "path": "theme/images/partnerek/refPage/Soproni Egyetem new.png",
+        "ext": ".png",
+        "size": 71473
+      },
+      {
+        "path": "theme/images/partnerek/refPage/SSZC new.png",
+        "ext": ".png",
+        "size": 70901
+      },
+      {
+        "path": "theme/images/partnerek/refPage/sze_logo new.png",
+        "ext": ".png",
+        "size": 23690
+      },
+      {
+        "path": "theme/images/partnerek/refPage/TE new.png",
+        "ext": ".png",
+        "size": 38211
+      },
+      {
+        "path": "theme/images/partnerek/refPage/tszc new.png",
+        "ext": ".png",
+        "size": 83052
+      },
+      {
+        "path": "theme/images/partnerek/refPage/uni-know-how-logo new.png",
+        "ext": ".png",
+        "size": 37030
+      },
+      {
+        "path": "theme/images/partnerek/refPage/unigyor new.png",
+        "ext": ".png",
+        "size": 29022
+      },
+      {
+        "path": "theme/images/partnerek/refPage/Vajda_Papir new.png",
+        "ext": ".png",
+        "size": 90365
+      },
+      {
+        "path": "theme/images/partnerek/refPage/vksz new.png",
+        "ext": ".png",
+        "size": 22074
+      },
+      {
+        "path": "theme/images/partnerek/refPage/Zengo new.png",
+        "ext": ".png",
+        "size": 23536
+      },
+      {
+        "path": "theme/images/partnerek/Saldo_logo_feher.png",
+        "ext": ".png",
+        "size": 18658
+      },
+      {
+        "path": "theme/images/partnerek/Vajda-papir.png",
+        "ext": ".png",
+        "size": 10182
+      }
+    ],
+    "uploadImagesSample": [
+      {
+        "path": "2016/06/csr_bg-1024x693.jpg",
+        "ext": ".jpg",
+        "size": 52899
+      },
+      {
+        "path": "2016/06/csr_bg-150x150.jpg",
+        "ext": ".jpg",
+        "size": 4504
+      },
+      {
+        "path": "2016/06/csr_bg-170x170.jpg",
+        "ext": ".jpg",
+        "size": 5265
+      },
+      {
+        "path": "2016/06/csr_bg-300x203.jpg",
+        "ext": ".jpg",
+        "size": 7960
+      },
+      {
+        "path": "2016/06/csr_bg-500x500.jpg",
+        "ext": ".jpg",
+        "size": 24197
+      },
+      {
+        "path": "2016/06/csr_bg-768x520.jpg",
+        "ext": ".jpg",
+        "size": 30729
+      },
+      {
+        "path": "2016/06/csr_bg.jpg",
+        "ext": ".jpg",
+        "size": 507742
+      },
+      {
+        "path": "2016/06/illust_coaching.svg",
+        "ext": ".svg",
+        "size": 4514
+      },
+      {
+        "path": "2016/06/illust_courses.svg",
+        "ext": ".svg",
+        "size": 1650
+      },
+      {
+        "path": "2016/06/illust_csr.svg",
+        "ext": ".svg",
+        "size": 1954
+      },
+      {
+        "path": "2016/06/illust_hrdevelopment.svg",
+        "ext": ".svg",
+        "size": 3193
+      },
+      {
+        "path": "2016/06/illust_inner_coaching.svg",
+        "ext": ".svg",
+        "size": 9186
+      },
+      {
+        "path": "2016/06/illust_inner_courses.svg",
+        "ext": ".svg",
+        "size": 1654
+      },
+      {
+        "path": "2016/06/illust_inner_hrdevelopment.svg",
+        "ext": ".svg",
+        "size": 3170
+      },
+      {
+        "path": "2016/06/illust_inner_international.svg",
+        "ext": ".svg",
+        "size": 836
+      },
+      {
+        "path": "2016/06/illust_inner_municipalities.svg",
+        "ext": ".svg",
+        "size": 2153
+      },
+      {
+        "path": "2016/06/illust_inner_ongoing.svg",
+        "ext": ".svg",
+        "size": 2385
+      },
+      {
+        "path": "2016/06/illust_inner_other.svg",
+        "ext": ".svg",
+        "size": 875
+      },
+      {
+        "path": "2016/06/illust_inner_projectmanagement.svg",
+        "ext": ".svg",
+        "size": 5931
+      },
+      {
+        "path": "2016/06/illust_inner_references_economic.svg",
+        "ext": ".svg",
+        "size": 1247
+      },
+      {
+        "path": "2016/06/illust_inner_references_economic2.svg",
+        "ext": ".svg",
+        "size": 1236
+      },
+      {
+        "path": "2016/06/illust_inner_references_government.svg",
+        "ext": ".svg",
+        "size": 1227
+      },
+      {
+        "path": "2016/06/illust_inner_references_highereducation.svg",
+        "ext": ".svg",
+        "size": 1149
+      },
+      {
+        "path": "2016/06/illust_inner_services.svg",
+        "ext": ".svg",
+        "size": 2171
+      },
+      {
+        "path": "2016/06/illust_inner_strategy.svg",
+        "ext": ".svg",
+        "size": 3238
+      },
+      {
+        "path": "2016/06/illust_projectmanagement.svg",
+        "ext": ".svg",
+        "size": 4345
+      },
+      {
+        "path": "2016/06/illust_strategy.svg",
+        "ext": ".svg",
+        "size": 3240
+      },
+      {
+        "path": "2016/06/portrait_biro_gabriella-150x150.jpg",
+        "ext": ".jpg",
+        "size": 7565
+      },
+      {
+        "path": "2016/06/portrait_biro_gabriella-170x170.jpg",
+        "ext": ".jpg",
+        "size": 9111
+      },
+      {
+        "path": "2016/06/portrait_biro_gabriella-300x300.jpg",
+        "ext": ".jpg",
+        "size": 21346
+      },
+      {
+        "path": "2016/06/portrait_biro_gabriella.jpg",
+        "ext": ".jpg",
+        "size": 117123
+      },
+      {
+        "path": "2016/06/portrait_kisfaludi_laszlo-150x150.jpg",
+        "ext": ".jpg",
+        "size": 6099
+      },
+      {
+        "path": "2016/06/portrait_kisfaludi_laszlo-170x170.jpg",
+        "ext": ".jpg",
+        "size": 7354
+      },
+      {
+        "path": "2016/06/portrait_kisfaludi_laszlo-300x300.jpg",
+        "ext": ".jpg",
+        "size": 17799
+      },
+      {
+        "path": "2016/06/portrait_kisfaludi_laszlo.jpg",
+        "ext": ".jpg",
+        "size": 121335
+      },
+      {
+        "path": "2016/07/illust_courses.svg",
+        "ext": ".svg",
+        "size": 1650
+      },
+      {
+        "path": "2016/07/illust_inner_actuels.svg",
+        "ext": ".svg",
+        "size": 1198
+      },
+      {
+        "path": "2016/07/illust_inner_personal.svg",
+        "ext": ".svg",
+        "size": 1367
+      },
+      {
+        "path": "2016/07/illust_inner_references_economic3.svg",
+        "ext": ".svg",
+        "size": 1087
+      },
+      {
+        "path": "2016/07/illust_inner_references_government-1.svg",
+        "ext": ".svg",
+        "size": 1704
+      },
+      {
+        "path": "2016/07/illust_inner_references_government.svg",
+        "ext": ".svg",
+        "size": 1712
+      },
+      {
+        "path": "2016/07/illust_inner_stress.svg",
+        "ext": ".svg",
+        "size": 1137
+      },
+      {
+        "path": "2016/07/illust_inner_traininglist.svg",
+        "ext": ".svg",
+        "size": 1267
+      },
+      {
+        "path": "2016/07/illust_stress.svg",
+        "ext": ".svg",
+        "size": 1140
+      },
+      {
+        "path": "2016/07/kepzesi_strat_01_jovokep-1024x646.jpg",
+        "ext": ".jpg",
+        "size": 107632
+      },
+      {
+        "path": "2016/07/kepzesi_strat_01_jovokep-150x150.jpg",
+        "ext": ".jpg",
+        "size": 7824
+      },
+      {
+        "path": "2016/07/kepzesi_strat_01_jovokep-170x170.jpg",
+        "ext": ".jpg",
+        "size": 8908
+      },
+      {
+        "path": "2016/07/kepzesi_strat_01_jovokep-300x189.jpg",
+        "ext": ".jpg",
+        "size": 15364
+      },
+      {
+        "path": "2016/07/kepzesi_strat_01_jovokep-500x500.jpg",
+        "ext": ".jpg",
+        "size": 53749
+      },
+      {
+        "path": "2016/07/kepzesi_strat_01_jovokep-768x485.jpg",
+        "ext": ".jpg",
+        "size": 70480
+      }
+    ],
+    "uploadPdfs": [
+      {
+        "path": "2017/04/palyazati_lehetosegek.pdf",
+        "ext": ".pdf",
+        "size": 149865
+      },
+      {
+        "path": "2017/06/PR_Ravezeto_Projekt_Kft_0531_02.pdf",
+        "ext": ".pdf",
+        "size": 404734
+      },
+      {
+        "path": "2018/05/RAvezeto_belso_adatkezelesi_szab.pdf",
+        "ext": ".pdf",
+        "size": 118291
+      },
+      {
+        "path": "2018/08/GDPR_Kapcsolatok.pdf",
+        "ext": ".pdf",
+        "size": 55601
+      },
+      {
+        "path": "2025/02/Ginop-5.3.1.-14.pdf",
+        "ext": ".pdf",
+        "size": 111314
+      },
+      {
+        "path": "2025/03/Adatvedelmi_2025.pdf",
+        "ext": ".pdf",
+        "size": 48661
+      }
+    ]
+  },
+  "themeHardcodedFiles": [
+    "front-page.php",
+    "template-csapatunk.php",
+    "template-tanacsadas.php",
+    "template-felnottkepzes.php",
+    "template-szolgaltatasaink.php",
+    "template-palyazatok.php",
+    "template-referenciak.php",
+    "template-mentally.php",
+    "template_kapcsolatok.php",
+    "template-tarsadalmi-felelossegunk.php",
+    "footer.php",
+    "header.php"
+  ]
+}

@@ -1,0 +1,87 @@
+.home-quote {
+  position: relative;
+  z-index: 1;
+  background: var(--white-warm);
+  padding-top: var(--section-py);
+  padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.home-quote__inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  min-height: clamp(180px, 22vw, 220px);
+}
+
+.home-quote__mark {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 10vw, 6.5rem);
+  line-height: 0.8;
+  color: rgba(46, 125, 50, 0.14);
+  user-select: none;
+  align-self: flex-start;
+  margin-top: -0.25rem;
+}
+
+.home-quote__content {
+  max-width: 640px;
+}
+
+.home-quote__text {
+  margin: 0 0 0.875rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.625rem, 3.2vw, 2.375rem);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  color: var(--green-forest);
+}
+
+.home-quote__author {
+  display: block;
+  font-family: var(--font-ui);
+  font-style: normal;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.home-quote__visual {
+  position: relative;
+  width: clamp(160px, 22vw, 280px);
+  height: clamp(120px, 16vw, 180px);
+  flex-shrink: 0;
+}
+
+.home-quote__ship {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: right center;
+  opacity: 0.35;
+}
+
+.home-quote__boat {
+  position: absolute;
+  right: 12%;
+  bottom: 8%;
+  width: clamp(40px, 5vw, 56px);
+  height: auto;
+  opacity: 0.2;
+  filter: brightness(0) saturate(100%) invert(30%) sepia(20%) saturate(800%) hue-rotate(90deg);
+}
+
+@media (max-width: 767px) {
+  .home-quote__inner {
+    grid-template-columns: auto 1fr;
+    min-height: auto;
+  }
+
+  .home-quote__visual {
+    display: none;
+  }
+}

@@ -1,0 +1,15 @@
+.section-label {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green-primary);
+}
+
+.section-shell--navy-deep .section-label,
+.section-shell--green-dark .section-label,
+.section-shell--graphite .section-label {
+  color: var(--green-accent);
+}

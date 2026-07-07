@@ -1,0 +1,34 @@
+.mesh-gradient {
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(80px);
+  opacity: 0.85;
+  background-size: 200% 200%;
+  will-change: background-position;
+}
+
+.mesh-gradient--green-navy {
+  background-image:
+    radial-gradient(circle at 30% 40%, rgba(42, 107, 82, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(14, 26, 43, 0.35) 0%, transparent 55%);
+}
+
+.mesh-gradient--green-charcoal {
+  background-image:
+    radial-gradient(circle at 25% 35%, rgba(42, 107, 82, 0.1) 0%, transparent 45%),
+    radial-gradient(circle at 75% 65%, rgba(28, 31, 36, 0.4) 0%, transparent 50%);
+}
+
+@media (max-width: 768px) {
+  .mesh-gradient {
+    filter: blur(48px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mesh-gradient {
+    will-change: auto;
+  }
+}

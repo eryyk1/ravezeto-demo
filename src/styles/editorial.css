@@ -1,0 +1,66 @@
+/* Rávezető editorial system — magazine rhythm, green identity */
+
+.chapter-label {
+  display: block;
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green-brand);
+  margin-bottom: 1.25rem;
+}
+
+.chapter-label--on-green {
+  color: var(--green-light);
+  opacity: 0.85;
+}
+
+.editorial-rule {
+  display: block;
+  width: clamp(48px, 8vw, 96px);
+  height: 2px;
+  background: var(--green-brand);
+  margin-block: 2rem;
+}
+
+.editorial-rule--on-green {
+  background: var(--green-light);
+  opacity: 0.5;
+}
+
+.marginalia {
+  font-size: var(--text-marginalia);
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.link-editorial {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green-brand);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition:
+    gap var(--duration-medium) var(--ease-reveal),
+    border-color var(--duration-fast) ease;
+}
+
+.link-editorial:hover,
+.link-editorial:focus-visible {
+  gap: 1rem;
+  border-bottom-color: var(--green-brand);
+}
+
+.link-editorial--on-green {
+  color: var(--text-on-green);
+  border-bottom-color: rgba(246, 243, 238, 0.3);
+}
+
+.link-editorial--on-green:hover {
+  border-bottom-color: var(--text-on-green);
+}

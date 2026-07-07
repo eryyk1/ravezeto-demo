@@ -1,0 +1,38 @@
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: var(--green-forest);
+  padding: calc(var(--header-height) + 2rem) var(--gutter) 2rem;
+  overflow-y: auto;
+}
+
+.mobile-menu__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mobile-menu__link {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 6vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: rgba(247, 246, 242, 0.72);
+  transition: color var(--duration-fast) ease;
+}
+
+.mobile-menu__link--active,
+.mobile-menu__link:hover,
+.mobile-menu__link:focus-visible {
+  color: var(--green-light);
+}
+
+@media (min-width: 1100px) {
+  .mobile-menu {
+    display: none;
+  }
+}

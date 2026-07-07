@@ -1,0 +1,84 @@
+:root {
+  /* Reference palette */
+  --green-brand: #2e7d32;
+  --green-forest: #1b5e20;
+  --green-deep: #0f3312;
+  --green-light: #66bb6a;
+  --green-muted: #4caf50;
+  --green-tint: rgba(46, 125, 50, 0.12);
+  --green-glow: rgba(102, 187, 106, 0.4);
+
+  --green-primary: var(--green-brand);
+  --green-dark: var(--green-forest);
+
+  --white-warm: #f7f6f2;
+  --stone: #e9ece8;
+  --stone-dark: #d8ddd4;
+  --grey-light: var(--stone);
+  --grey-mid: #b8bdb4;
+  --graphite: #1f1f1f;
+  --graphite-soft: #2a2a2a;
+
+  --blue-secondary: #3d4f5c;
+  --blue-muted: rgba(61, 79, 92, 0.12);
+  --navy-deep: var(--green-forest);
+
+  --text-primary: #1f1f1f;
+  --text-secondary: #5a5a54;
+  --text-on-green: #f7f6f2;
+  --text-on-dark: var(--text-on-green);
+  --text-muted-dark: rgba(247, 246, 242, 0.68);
+
+  --error: #8b3a3a;
+  --focus-ring: rgba(46, 125, 50, 0.45);
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Source Sans 3', system-ui, sans-serif;
+  --font-ui: 'Source Sans 3', system-ui, sans-serif;
+  --font-quote: 'Playfair Display', Georgia, serif;
+
+  --text-hero: clamp(2.75rem, 5.5vw, 4.35rem);
+  --text-display: clamp(2.25rem, 4.5vw, 3.25rem);
+  --text-stat: clamp(2.25rem, 4vw, 3.25rem);
+
+  --section-py: clamp(4.5rem, 10vw, 7rem);
+  --section-py-loose: clamp(5.5rem, 12vw, 8.5rem);
+  --section-py-tight: clamp(3rem, 6vw, 4.5rem);
+  --content-max: 1440px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --header-height: 84px;
+
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-reveal: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 220ms;
+  --duration-medium: 480ms;
+  --duration-slow: 800ms;
+
+  --shadow-sm: 0 2px 8px rgba(15, 51, 18, 0.08);
+  --shadow-md: 0 8px 32px rgba(15, 51, 18, 0.12);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.22);
+  --shadow-xl: 0 32px 80px rgba(0, 0, 0, 0.32);
+  --shadow-badge: 0 24px 64px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(255, 255, 255, 0.12);
+  --shadow-card: 0 4px 24px rgba(31, 31, 31, 0.07);
+  --shadow-card-hover: 0 16px 48px rgba(31, 31, 31, 0.12);
+  --shadow-btn: 0 4px 20px rgba(46, 125, 50, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  --shadow-btn-hover: 0 8px 32px rgba(46, 125, 50, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+  --glass-bg: rgba(247, 246, 242, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.45);
+  --glass-blur: 20px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-medium: 0ms;
+    --duration-slow: 0ms;
+  }
+}

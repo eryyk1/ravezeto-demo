@@ -1,0 +1,58 @@
+.home-funding {
+  background: var(--white-warm);
+  border-top: 1px solid var(--stone-dark);
+  padding-block: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.home-funding__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1rem, 3vw, 2rem);
+  flex-wrap: wrap;
+}
+
+.home-funding__label {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green-forest);
+}
+
+.home-funding__badge {
+  display: block;
+  padding: 0.75rem 1rem;
+  background: var(--white-warm);
+  border: 1px solid var(--stone-dark);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  line-height: 0;
+  text-decoration: none;
+  transition:
+    box-shadow var(--duration-fast) ease,
+    border-color var(--duration-fast) ease;
+}
+
+.home-funding__badge:hover {
+  border-color: rgba(46, 125, 50, 0.35);
+  box-shadow: var(--shadow-md);
+}
+
+.home-funding__badge img {
+  width: clamp(160px, 18vw, 220px);
+  height: auto;
+}
+
+@media (max-width: 599px) {
+  .home-funding__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .home-funding__badge img {
+    width: 180px;
+  }
+}

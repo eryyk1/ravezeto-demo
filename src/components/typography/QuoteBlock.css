@@ -1,0 +1,58 @@
+.quote-block {
+  margin: 0;
+}
+
+.quote-block__text {
+  font-family: var(--font-quote);
+  font-style: italic;
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  line-height: 1.35;
+  color: var(--text-primary);
+  margin: 0 0 1.5rem;
+  max-width: 28ch;
+}
+
+.quote-block__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.quote-block__author {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green-primary);
+}
+
+.quote-block__rule {
+  display: block;
+  width: min(180px, 40%);
+  height: 1px;
+  background: var(--grey-mid);
+}
+
+.quote-block__context {
+  margin: 0;
+  max-width: 50ch;
+  margin-inline-start: auto;
+  color: var(--text-secondary);
+  font-size: var(--text-body);
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .quote-block__context {
+    margin-inline-start: 0;
+    max-width: none;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .quote-block__context {
+    margin-inline-start: clamp(2rem, 15vw, 8rem);
+  }
+}

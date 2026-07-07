@@ -1,0 +1,35 @@
+.arch-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--green-primary) 15%,
+    var(--green-primary) 85%,
+    transparent 100%
+  );
+  transform-origin: left center;
+  opacity: 0.6;
+}
+
+.arch-line--horizontal {
+  width: min(720px, 85%);
+  margin-inline-start: var(--arch-offset, 10%);
+}
+
+.arch-line--diagonal {
+  width: 120px;
+  height: 1px;
+  transform: rotate(-32deg);
+  transform-origin: left center;
+}
+
+.section-shell--navy-deep .arch-line,
+.section-shell--graphite .arch-line {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(247, 245, 242, 0.35) 20%,
+    rgba(247, 245, 242, 0.35) 80%,
+    transparent 100%
+  );
+}
