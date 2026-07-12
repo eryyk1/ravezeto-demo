@@ -400,6 +400,46 @@
   color: var(--green-brand);
 }
 
+@media (max-width: 768px) {
+  .hero-universe--compact {
+    min-height: 260px;
+    contain: layout style paint;
+  }
+
+  .hero-universe--compact .hero-universe__stage {
+    width: min(88vw, 300px);
+    will-change: auto;
+  }
+
+  .hero-universe--compact .hero-universe__ambient {
+    inset: -2%;
+    opacity: 0.45;
+  }
+
+  .hero-universe--compact .hero-universe__center {
+    width: clamp(76px, 22vw, 92px);
+    height: clamp(76px, 22vw, 92px);
+  }
+
+  .hero-universe--compact .hero-universe__center-glow {
+    inset: -35%;
+  }
+
+  .hero-universe--compact .hero-universe__node {
+    width: clamp(48px, 12vw, 56px);
+    height: clamp(48px, 12vw, 56px);
+  }
+
+  .hero-universe--compact .hero-universe__node-body {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .hero-universe--compact .hero-universe__rings--mid {
+    opacity: 0.65;
+  }
+}
+
 @media (max-width: 959px) {
   .hero-universe {
     min-height: 340px;

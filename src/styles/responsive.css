@@ -474,3 +474,333 @@
     hyphens: auto;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   Phase 12 — Mobile & tablet optimization (desktop ≥769px locked)
+   Targets: 768, 414, 390, 375, 320
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Tablet (≤768px) ── */
+@media (max-width: 768px) {
+  :root {
+    --section-py: clamp(3.25rem, 9vw, 4.75rem);
+    --section-py-loose: clamp(3.75rem, 10vw, 5.25rem);
+    --section-py-tight: clamp(2.75rem, 7vw, 3.5rem);
+    --text-display: clamp(1.875rem, 7vw, 2.5rem);
+    --text-hero: clamp(2rem, 8vw, 2.75rem);
+    --gutter: clamp(1.125rem, 4.5vw, 1.5rem);
+  }
+
+  .page,
+  .home-hero,
+  .section-shell,
+  .content-wrap {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  /* Decorative backgrounds — simplify on small screens */
+  .inner-hero__accent {
+    opacity: 0.35;
+  }
+
+  .inner-hero__bg {
+    animation: none;
+  }
+
+  .home-hero__spotlight {
+    display: none;
+  }
+
+  .home-mentally__bg::after {
+    display: none;
+  }
+
+  .home-mentally__device-frame {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+  }
+
+  /* Typography — cap oversized headings */
+  .display-heading {
+    font-size: clamp(1.75rem, 7vw, 2.375rem);
+    line-height: 1.05;
+  }
+
+  .home-spread__title {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  .home-quote__text {
+    font-size: clamp(1.375rem, 5.5vw, 1.75rem);
+  }
+
+  .home-quote__mark {
+    font-size: clamp(3rem, 12vw, 4.5rem);
+  }
+
+  .home-about__title {
+    font-size: clamp(1.5rem, 5.5vw, 1.875rem);
+  }
+
+  .home-mentally__title {
+    font-size: clamp(1.5rem, 5.5vw, 2rem);
+  }
+
+  /* Buttons — larger touch targets */
+  .premium-btn {
+    min-height: 48px;
+    padding: 1rem 1.75rem;
+    font-size: 0.75rem;
+  }
+
+  .home-text-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .mentally-cta__button,
+  .kapcsolat-form__submit {
+    min-height: 48px;
+    padding-block: 1rem;
+  }
+
+  /* Spacing — more breathing room */
+  .page-section {
+    gap: 1.5rem;
+  }
+
+  .home-services__card {
+    min-height: auto;
+    padding: 1.75rem 1.5rem 2.5rem;
+  }
+
+  .home-spread__page {
+    padding-block: clamp(2.75rem, 8vw, 3.5rem);
+    min-height: auto;
+  }
+
+  .home-about__content {
+    padding-block: clamp(2.25rem, 6vw, 3rem);
+  }
+
+  /* Images — prevent crop / overflow */
+  .home-about__media {
+    min-height: auto;
+  }
+
+  .home-about__media img {
+    min-height: 220px;
+    max-height: 300px;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .home-mentally__device-frame img,
+  .rolunk-team__photo img,
+  .referenciak-logo-wall__item img,
+  .referenciak-partners__item img {
+    object-fit: contain;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .home-funding__inner {
+    gap: 1.25rem;
+  }
+
+  /* Layout simplification */
+  .home-hero__actions {
+    gap: 0.875rem;
+    margin-top: 1.75rem;
+  }
+
+  .home-hero__trust {
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    gap: 1.125rem;
+  }
+
+  .change-framework__tabs {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    gap: 0.5rem;
+  }
+
+  .strategic-diagram svg {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* ── Large phones (≤414px) ── */
+@media (max-width: 414px) {
+  :root {
+    --gutter: 1.125rem;
+  }
+
+  .home-hero__title-line {
+    font-size: clamp(1.9375rem, 9vw, 2.25rem);
+  }
+
+  .home-hero__title-line--accent {
+    font-size: clamp(1.625rem, 7.5vw, 1.9375rem);
+  }
+
+  .home-hero__intro {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    max-width: none;
+  }
+
+  .page-section__title {
+    font-size: clamp(1.4375rem, 7vw, 1.75rem);
+  }
+
+  .inner-hero__intro {
+    font-size: 1.0625rem;
+  }
+
+  .home-spread__text {
+    font-size: 1.0625rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .home-services__text,
+  .page-prose p {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+}
+
+/* ── Standard phones (≤390px) ── */
+@media (max-width: 390px) {
+  .home-hero__body {
+    gap: 1.75rem;
+  }
+
+  .home-hero__visual {
+    min-height: 250px;
+  }
+
+  .display-heading {
+    font-size: clamp(1.625rem, 7.5vw, 2.125rem);
+  }
+
+  .home-spread__title {
+    font-size: clamp(1.875rem, 9.5vw, 2.5rem);
+  }
+
+  .kapcsolat-grid {
+    gap: 1rem;
+  }
+
+  .mentally-benefits__grid {
+    gap: 1rem;
+  }
+}
+
+/* ── Small phones (≤375px) ── */
+@media (max-width: 375px) {
+  :root {
+    --gutter: 1rem;
+    --section-py: clamp(3rem, 10vw, 4.25rem);
+  }
+
+  .home-hero__title-line {
+    font-size: clamp(1.875rem, 9.5vw, 2.125rem);
+  }
+
+  .home-hero__title-line--accent {
+    font-size: clamp(1.5rem, 7.8vw, 1.8125rem);
+  }
+
+  .home-quote__inner {
+    gap: 0.875rem;
+  }
+
+  .home-quote__text {
+    font-size: clamp(1.25rem, 6vw, 1.5rem);
+  }
+
+  .premium-btn {
+    padding-inline: 1.5rem;
+  }
+}
+
+/* ── Narrow phones (≤320px) ── */
+@media (max-width: 359px) {
+  :root {
+    --gutter: 0.875rem;
+  }
+
+  .home-hero__title-line {
+    font-size: 1.8125rem;
+    letter-spacing: -0.025em;
+  }
+
+  .home-hero__title-line--accent {
+    font-size: 1.5rem;
+  }
+
+  .display-heading {
+    font-size: 1.625rem;
+  }
+
+  .page-section__title {
+    font-size: 1.375rem;
+  }
+
+  .home-spread__title {
+    font-size: 1.875rem;
+  }
+
+  .home-spread__page {
+    padding-block: 2.5rem;
+  }
+
+  .home-services__grid {
+    gap: 1rem;
+  }
+
+  .home-services__card {
+    padding: 1.5rem 1.25rem 2.25rem;
+  }
+
+  .hero-universe--compact .hero-universe__stage {
+    width: min(90vw, 280px);
+  }
+
+  .hero-universe--compact {
+    min-height: 240px;
+  }
+
+  .mobile-menu__link {
+    font-size: 1.375rem;
+  }
+
+  .site-footer__links,
+  .home-footer__links {
+    gap: 0.25rem;
+  }
+}
+
+/* ── Tablet landscape / small tablet (769–1023px) ── */
+@media (min-width: 769px) and (max-width: 1023px) {
+  :root {
+    --gutter: clamp(1.5rem, 3vw, 2rem);
+    --section-py: clamp(4rem, 8vw, 5.5rem);
+  }
+
+  .home-hero__body {
+    gap: 2rem;
+  }
+
+  .home-spread__title {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+  }
+
+  .premium-btn {
+    min-height: 46px;
+  }
+}

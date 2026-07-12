@@ -7,8 +7,11 @@ import {
   homeUniverseNodes,
   homeUniverseSecondaryNodes,
 } from '../../content/homeUniverse';
+import { useCompactViewport } from '../../hooks/useCompactViewport';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import './HeroUniverse.css';
+
+const COMPACT_NODE_IDS = new Set(['strategy', 'training', 'mentally', 'grants', 'contact']);
 
 const ease = [0.22, 1, 0.36, 1] as const;
 const CX = 50;
@@ -156,6 +159,8 @@ export default function HeroUniverse() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-5%' });
   const reduced = useReducedMotion();
+  const compact = useCompactViewport();
+  const lightweight = reduced || compact;
   const [hovered, setHovered] = useState<string | null>(null);
 
   const mx = useMotionValue(0);
@@ -164,9 +169,17 @@ export default function HeroUniverse() {
   const py = useSpring(my, { stiffness: 32, damping: 28 });
   const parallax = useMotionTemplate`translate(${px}px, ${py}px)`;
 
+  const nodeSource = useMemo(
+    () =>
+      compact
+        ? homeUniverseNodes.filter((n) => COMPACT_NODE_IDS.has(n.id))
+        : homeUniverseNodes,
+    [compact],
+  );
+
   const nodes = useMemo(
     () =>
-      homeUniverseNodes.map((n) => {
+      nodeSource.map((n) => {
         const pos = polar(n.angle, n.radius);
         const pathData = curvedPathData(CX, CY, pos.x, pos.y, n.bend);
         const pulsePoints = [0, 0.25, 0.5, 0.75, 1].map((t) =>
@@ -179,20 +192,25 @@ export default function HeroUniverse() {
           pulsePoints,
         };
       }),
-    [],
+    [nodeSource],
   );
 
   const secondaryNodes = useMemo(
     () =>
-      homeUniverseSecondaryNodes.map((n) => ({
-        ...n,
-        pos: polar(n.angle, n.radius),
-      })),
-    [],
+      compact
+        ? []
+        : homeUniverseSecondaryNodes.map((n) => ({
+            ...n,
+            pos: polar(n.angle, n.radius),
+          })),
+    [compact],
   );
 
+  const backRings = compact ? ORBITAL_RINGS.slice(2, 4) : ORBITAL_RINGS.slice(0, 4);
+  const midRings = compact ? ORBITAL_RINGS.slice(3, 5) : ORBITAL_RINGS.slice(3);
+
   const onMove = (e: React.MouseEvent) => {
-    if (reduced || !ref.current) return;
+    if (lightweight || !ref.current) return;
     const rect = ref.current.getBoundingClientRect();
     mx.set((e.clientX - rect.left - rect.width / 2) * 0.022);
     my.set((e.clientY - rect.top - rect.height / 2) * 0.022);
@@ -207,26 +225,27 @@ export default function HeroUniverse() {
   return (
     <div
       ref={ref}
-      className="hero-universe"
+      className={`hero-universe${compact ? ' hero-universe--compact' : ''}`}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       aria-label="Szervezeti fejlesztési rendszer"
     >
       <div className="hero-universe__ambient" aria-hidden="true" />
-      <div className="hero-universe__bloom" aria-hidden="true" />
+      {!compact && <div className="hero-universe__bloom" aria-hidden="true" />}
 
       <motion.div
         className="hero-universe__stage"
-        style={reduced ? undefined : { transform: parallax }}
+        style={lightweight ? undefined : { transform: parallax }}
       >
         {/* Depth layer — back rings, slow counter-rotate */}
+        {!compact && (
         <motion.div
           className="hero-universe__ring-layer hero-universe__ring-layer--back"
-          animate={reduced ? undefined : { rotate: -360 }}
+          animate={lightweight ? undefined : { rotate: -360 }}
           transition={{ duration: 280, repeat: Infinity, ease: 'linear' }}
         >
           <svg className="hero-universe__rings" viewBox="0 0 100 100" aria-hidden="true">
-            {ORBITAL_RINGS.slice(0, 4).map((ring, i) => (
+            {backRings.map((ring, i) => (
               <motion.ellipse
                 key={`back-${ring.rx}`}
                 cx={CX}
@@ -238,7 +257,7 @@ export default function HeroUniverse() {
                 strokeWidth="0.1"
                 animate={{ opacity: [ring.opacity * 0.6, ring.opacity, ring.opacity * 0.6] }}
                 transition={
-                  reduced
+                  lightweight
                     ? { duration: 0.5 }
                     : { duration: ring.duration, repeat: Infinity, ease: 'easeInOut', delay: i * 0.8 }
                 }
@@ -246,10 +265,11 @@ export default function HeroUniverse() {
             ))}
           </svg>
         </motion.div>
+        )}
 
         {/* Mid rings */}
         <svg className="hero-universe__rings hero-universe__rings--mid" viewBox="0 0 100 100" aria-hidden="true">
-          {ORBITAL_RINGS.slice(3).map((ring, i) => (
+          {midRings.map((ring, i) => (
             <motion.ellipse
               key={`mid-${ring.rx}`}
               cx={CX}
@@ -262,7 +282,7 @@ export default function HeroUniverse() {
               strokeDasharray="0.4 1.2"
               animate={{ opacity: [ring.opacity * 0.5, ring.opacity * 1.2, ring.opacity * 0.5] }}
               transition={
-                reduced
+                lightweight
                   ? { duration: 0.5 }
                   : { duration: ring.duration + 4, repeat: Infinity, ease: 'easeInOut', delay: i * 1.2 }
               }
@@ -271,7 +291,7 @@ export default function HeroUniverse() {
         </svg>
 
         {/* Stage particles */}
-        {!reduced && (
+        {!lightweight && (
           <svg className="hero-universe__particles" viewBox="0 0 100 100" aria-hidden="true">
             {STAGE_PARTICLES.map((p) => (
               <motion.circle
@@ -297,6 +317,7 @@ export default function HeroUniverse() {
         )}
 
         {/* Broken organic arc segments */}
+        {!compact && (
         <svg className="hero-universe__arcs hero-universe__arcs--organic" viewBox="0 0 100 100" aria-hidden="true">
           {BROKEN_ARCS.map((arc, i) => (
             <motion.path
@@ -308,7 +329,7 @@ export default function HeroUniverse() {
               strokeDasharray={arc.dash}
               animate={{ opacity: [0.04, 0.12, 0.04], strokeDashoffset: [0, -4, 0] }}
               transition={
-                reduced
+                lightweight
                   ? { duration: 0.5 }
                   : {
                       opacity: { duration: 10 + i * 2, repeat: Infinity, ease: 'easeInOut' },
@@ -318,6 +339,7 @@ export default function HeroUniverse() {
             />
           ))}
         </svg>
+        )}
 
         {/* Connector lines + light pulses */}
         <svg className="hero-universe__lines" viewBox="0 0 100 100" aria-hidden="true">
@@ -352,14 +374,14 @@ export default function HeroUniverse() {
                   stroke={active ? 'url(#uni-line-active)' : 'url(#uni-line)'}
                   strokeWidth={active ? 0.2 : 0.12}
                   strokeLinecap="round"
-                  initial={reduced ? { pathLength: 1, opacity: 0.3 } : { pathLength: 0, opacity: 0 }}
+                  initial={lightweight ? { pathLength: 1, opacity: 0.3 } : { pathLength: 0, opacity: 0 }}
                   animate={{
                     pathLength: 1,
                     opacity: dimmed ? 0.12 : active ? 0.9 : 0.38,
                   }}
-                  transition={{ duration: 1.2, delay: 0.15 + i * 0.08, ease }}
+                  transition={{ duration: lightweight ? 0.5 : 1.2, delay: lightweight ? 0 : 0.15 + i * 0.08, ease }}
                 />
-                {!reduced && (
+                {!lightweight && (
                   <motion.circle
                     r="0.28"
                     fill="#dcedc8"
@@ -383,6 +405,7 @@ export default function HeroUniverse() {
         </svg>
 
         {/* Flowing arc sweep */}
+        {!compact && (
         <svg className="hero-universe__arcs" viewBox="0 0 100 100" aria-hidden="true">
           {[0, 1, 2, 3, 4, 5].map((i) => (
             <motion.path
@@ -391,10 +414,10 @@ export default function HeroUniverse() {
               fill="none"
               stroke="rgba(102,187,106,0.07)"
               strokeWidth="0.1"
-              initial={reduced ? { pathLength: 1 } : { pathLength: 0 }}
+              initial={lightweight ? { pathLength: 1 } : { pathLength: 0 }}
               animate={{ pathLength: 1, opacity: [0.03, 0.1, 0.03] }}
               transition={
-                reduced
+                lightweight
                   ? { duration: 0.5 }
                   : {
                       pathLength: { duration: 2.5, delay: 0.4 + i * 0.12, ease },
@@ -404,18 +427,19 @@ export default function HeroUniverse() {
             />
           ))}
         </svg>
+        )}
 
         {/* Center core */}
         <motion.div
           className="hero-universe__center"
-          initial={reduced ? false : { opacity: 0, scale: 0.88 }}
+          initial={lightweight ? false : { opacity: 0, scale: 0.88 }}
           animate={
-            inView || reduced
-              ? { opacity: 1, scale: reduced ? 1 : [1, 1.03, 1] }
+            inView || lightweight
+              ? { opacity: 1, scale: lightweight ? 1 : [1, 1.03, 1] }
               : { opacity: 0, scale: 0.88 }
           }
           transition={
-            reduced
+            lightweight
               ? { duration: 0.8, ease }
               : {
                   opacity: { duration: 0.8, ease },
@@ -425,17 +449,19 @@ export default function HeroUniverse() {
         >
           <motion.div
             className="hero-universe__center-glow"
-            animate={reduced ? undefined : { opacity: [0.45, 0.75, 0.45], scale: [1, 1.1, 1] }}
+            animate={lightweight ? undefined : { opacity: [0.45, 0.75, 0.45], scale: [1, 1.1, 1] }}
             transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
           />
+          {!compact && (
           <motion.div
             className="hero-universe__center-halo"
-            animate={reduced ? undefined : { opacity: [0.2, 0.4, 0.2], rotate: 360 }}
+            animate={lightweight ? undefined : { opacity: [0.2, 0.4, 0.2], rotate: 360 }}
             transition={{
               opacity: { duration: 6, repeat: Infinity, ease: 'easeInOut' },
               rotate: { duration: 120, repeat: Infinity, ease: 'linear' },
             }}
           />
+          )}
           <div className="hero-universe__center-core">
             <span className="hero-universe__center-title">{homeUniverseCenter.title}</span>
           </div>
@@ -443,9 +469,10 @@ export default function HeroUniverse() {
         </motion.div>
 
         {/* Secondary micro-nodes */}
+        {secondaryNodes.length > 0 && (
         <motion.div
           className="hero-universe__secondary-orbit"
-          animate={reduced ? undefined : { rotate: 360 }}
+          animate={lightweight ? undefined : { rotate: 360 }}
           transition={{ duration: 320, repeat: Infinity, ease: 'linear' }}
         >
           {secondaryNodes.map((sn, i) => (
@@ -454,7 +481,7 @@ export default function HeroUniverse() {
               className="hero-universe__secondary-node"
               style={{ left: `${sn.pos.x}%`, top: `${sn.pos.y}%` }}
               animate={
-                reduced
+                lightweight
                   ? undefined
                   : {
                       opacity: [0.25, 0.65, 0.25],
@@ -470,11 +497,12 @@ export default function HeroUniverse() {
             />
           ))}
         </motion.div>
+        )}
 
         {/* Primary orbital nodes */}
         <motion.div
           className="hero-universe__orbit"
-          animate={reduced ? undefined : { rotate: 360 }}
+          animate={lightweight ? undefined : { rotate: 360 }}
           transition={{ duration: 240, repeat: Infinity, ease: 'linear' }}
         >
           {nodes.map((node, i) => {
@@ -489,7 +517,7 @@ export default function HeroUniverse() {
                   top: `${node.pos.y}%`,
                 }}
                 animate={
-                  reduced
+                  lightweight
                     ? undefined
                     : {
                         rotate: -360,
@@ -498,7 +526,7 @@ export default function HeroUniverse() {
                       }
                 }
                 transition={
-                  reduced
+                  lightweight
                     ? undefined
                     : {
                         rotate: { duration: 240, repeat: Infinity, ease: 'linear' },
@@ -523,9 +551,9 @@ export default function HeroUniverse() {
                     ['--node-scale' as string]: node.scale,
                     ['--node-opacity' as string]: node.opacity,
                   }}
-                  initial={reduced ? false : { opacity: 0, scale: 0.8 }}
+                  initial={lightweight ? false : { opacity: 0, scale: 0.8 }}
                   animate={
-                    inView || reduced
+                    inView || lightweight
                       ? {
                           opacity: dimmed ? 0.5 : 1,
                           scale: active ? 1.14 : 1,
@@ -533,7 +561,7 @@ export default function HeroUniverse() {
                       : { opacity: 0, scale: 0.8 }
                   }
                   transition={
-                    reduced
+                    lightweight
                       ? { duration: 0.5, delay: 0.3 + i * 0.06 }
                       : {
                           opacity: { duration: 0.35 },
