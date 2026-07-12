@@ -1,0 +1,66 @@
+.kapcsolat-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .kapcsolat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .kapcsolat-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.kapcsolat-card {
+  height: 100%;
+  padding: 1.625rem;
+  background: var(--white-warm);
+  border: 1px solid rgba(27, 94, 32, 0.08);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.kapcsolat-card:hover {
+  border-color: rgba(27, 94, 32, 0.14);
+  box-shadow: var(--shadow-card);
+}
+
+.kapcsolat-card h2 {
+  margin: 0 0 1rem;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-forest);
+}
+
+.kapcsolat-card p {
+  margin: 0 0 0.375rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.kapcsolat-card a {
+  color: var(--green-brand);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.kapcsolat-card a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  .kapcsolat-page .kapcsolat-card p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+}

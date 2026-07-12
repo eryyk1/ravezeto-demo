@@ -1,0 +1,21 @@
+.kapcsolat-map {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(27, 94, 32, 0.1);
+  box-shadow: var(--shadow-card);
+}
+
+.kapcsolat-map iframe {
+  display: block;
+  width: 100%;
+  height: clamp(280px, 40vw, 420px);
+  border: 0;
+}
+
+@media (max-width: 767px) {
+  .kapcsolat-page .kapcsolat-map iframe {
+    min-height: 240px;
+    height: clamp(240px, 52vw, 320px);
+  }
+}

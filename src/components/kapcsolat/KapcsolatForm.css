@@ -1,0 +1,125 @@
+.kapcsolat-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+  padding: 1.75rem;
+  background: var(--white-warm);
+  border: 1px solid rgba(27, 94, 32, 0.08);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.kapcsolat-form__honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.kapcsolat-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.kapcsolat-form__field span {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.kapcsolat-form__required {
+  margin-left: 0.2em;
+  color: var(--green-brand);
+}
+
+.kapcsolat-form__field input,
+.kapcsolat-form__field textarea {
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-primary);
+  background: var(--white-warm);
+  border: 1px solid var(--stone-dark);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kapcsolat-form__field input:focus,
+.kapcsolat-form__field textarea:focus {
+  outline: none;
+  border-color: var(--green-brand);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.kapcsolat-form__field input[aria-invalid='true'],
+.kapcsolat-form__field textarea[aria-invalid='true'] {
+  border-color: #b42318;
+}
+
+.kapcsolat-form__error {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: #b42318;
+}
+
+.kapcsolat-form__submit {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  font-family: var(--font-ui);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-on-green);
+  background: var(--green-brand);
+  border: none;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  box-shadow: var(--shadow-btn);
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.kapcsolat-form__submit:hover:not(:disabled) {
+  background: var(--green-forest);
+  box-shadow: var(--shadow-btn-hover);
+  transform: translateY(-1px);
+}
+
+.kapcsolat-form__submit:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.kapcsolat-form__status {
+  margin: 0.25rem 0 0;
+  padding: 0.875rem 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  border-radius: var(--radius-sm);
+}
+
+.kapcsolat-form__status--success {
+  color: var(--green-forest);
+  background: rgba(27, 94, 32, 0.08);
+  border: 1px solid rgba(27, 94, 32, 0.14);
+}
+
+.kapcsolat-form__status--error {
+  color: #7a1b12;
+  background: rgba(180, 35, 24, 0.08);
+  border: 1px solid rgba(180, 35, 24, 0.16);
+}
+
+@media (max-width: 767px) {
+  .kapcsolat-page .kapcsolat-form__submit {
+    width: 100%;
+    min-height: 44px;
+    align-self: stretch;
+  }
+}
