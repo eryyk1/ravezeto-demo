@@ -1,0 +1,105 @@
+.mentally-benefits {
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.mentally-benefits__grid {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.25rem);
+}
+
+@media (min-width: 768px) {
+  .mentally-benefits__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.mentally-benefits__card {
+  height: 100%;
+  padding: clamp(1.5rem, 2.5vw, 1.875rem);
+  background: var(--white-warm);
+  border: 1px solid rgba(27, 94, 32, 0.1);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
+}
+
+.mentally-benefits__card:hover {
+  border-color: rgba(27, 94, 32, 0.18);
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+}
+
+.mentally-benefits__card-title {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.0625rem, 1.6vw, 1.1875rem);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text-primary);
+}
+
+.mentally-benefits__card-text {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.mentally-benefits__comparison {
+  display: grid;
+  gap: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+@media (min-width: 768px) {
+  .mentally-benefits__comparison {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.mentally-benefits__figure {
+  margin: 0;
+}
+
+.mentally-benefits__figure-label {
+  margin: 0 0 0.875rem;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--green-forest);
+}
+
+.mentally-benefits__figure-frame {
+  overflow: hidden;
+  padding: clamp(1rem, 2vw, 1.25rem);
+  background: var(--white-warm);
+  border: 1px solid rgba(27, 94, 32, 0.1);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.35s ease;
+}
+
+.mentally-benefits__figure:hover .mentally-benefits__figure-frame {
+  box-shadow: var(--shadow-card);
+}
+
+.mentally-benefits__figure-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.mentally-benefits__figure--after .mentally-benefits__figure-label {
+  color: var(--green-brand);
+}
+
+@media (max-width: 767px) {
+  .mentally-page .mentally-benefits__card-text {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+}

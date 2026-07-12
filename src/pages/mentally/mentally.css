@@ -1,50 +1,14 @@
-@import '../../components/home/PremiumButton.css';
+/* Mentally page — scoped styles only */
 
-.mentally-landing__inner {
-  display: grid;
-  gap: clamp(2rem, 4vw, 3rem);
-  align-items: center;
+.mentally-page .page-divider {
+  margin-block: 0;
 }
 
-@media (min-width: 900px) {
-  .mentally-landing__inner {
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-    gap: clamp(2.5rem, 5vw, 4rem);
-  }
-}
-
-.mentally-landing__visual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: clamp(2rem, 4vw, 2.75rem);
-  background: var(--white-warm);
-  border: 1px solid rgba(27, 94, 32, 0.1);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-}
-
-.mentally-landing__image {
-  width: min(100%, 260px);
-  height: auto;
-  object-fit: contain;
-}
-
-.mentally-landing__description {
-  margin: 0 0 1.75rem;
-  max-width: 36rem;
-  font-size: clamp(1rem, 1.6vw, 1.125rem);
-  line-height: 1.7;
-  color: var(--text-secondary);
-}
-
-.mentally-landing__cta {
-  display: inline-flex;
-}
-
-@media (max-width: 899px) {
-  .mentally-landing__cta {
-    width: 100%;
-    justify-content: center;
+@media (max-width: 767px) {
+  .mentally-page .mentally-about__description,
+  .mentally-page .mentally-cta__lead {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
   }
 }

@@ -1,12 +1,13 @@
 import InnerPageHero from '../../components/pages/InnerPageHero';
 import PageSection from '../../components/pages/PageSection';
-import SectionShell from '../../components/shell/SectionShell';
+import GrantsInternational from '../../components/grants/GrantsInternational';
+import GrantsStatus from '../../components/grants/GrantsStatus';
 import {
   palyazatokConsulting,
-  palyazatokEu,
   palyazatokHero,
-  palyazatokNoOpenGrants,
-} from '../../content/palyazatok';
+  palyazatokInternational,
+  palyazatokStatusMessage,
+} from './palyazatokContent';
 import './palyazatok.css';
 
 export default function PalyazatokPage() {
@@ -15,33 +16,38 @@ export default function PalyazatokPage() {
       <InnerPageHero
         label={palyazatokHero.label}
         title={palyazatokHero.title}
-        intro={palyazatokHero.intro || undefined}
         accent="official"
       />
 
-      <PageSection tone="warm-white" label={palyazatokConsulting.label} accent>
-        <div className="page-prose">
+      <PageSection tone="warm-white" label="Aktuális helyzet" accent>
+        <GrantsStatus message={palyazatokStatusMessage} />
+      </PageSection>
+
+      <PageSection
+        tone="stone"
+        label={palyazatokConsulting.label}
+        title={palyazatokConsulting.title}
+        accent
+      >
+        <div className="page-prose palyazatok-consulting">
           {palyazatokConsulting.paragraphs.map((p) => (
             <p key={p.slice(0, 30)}>{p}</p>
           ))}
         </div>
       </PageSection>
 
-      <PageSection tone="stone" label="Pályázatok" title="Aktuális pályázataink">
-        <p className="palyazatok-no-open">{palyazatokNoOpenGrants}</p>
-      </PageSection>
+      <div className="page-divider" aria-hidden="true">
+        <span className="page-divider__mark" />
+      </div>
 
-      <SectionShell tone="green-forest">
-        <div className="content-wrap palyazatok-eu">
-          <img
-            src={palyazatokEu.image}
-            alt={palyazatokEu.alt}
-            className="palyazatok-eu__banner"
-            loading="lazy"
-          />
-          <p>{palyazatokEu.text}</p>
-        </div>
-      </SectionShell>
+      <PageSection
+        tone="warm-white"
+        label={palyazatokInternational.label}
+        title={palyazatokInternational.title}
+        accent
+      >
+        <GrantsInternational section={palyazatokInternational} />
+      </PageSection>
     </div>
   );
 }
