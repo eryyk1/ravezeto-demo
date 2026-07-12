@@ -23,8 +23,6 @@ export const rolunkStory = {
   paragraphs: [
     'A vállalatok életében megjelenő kihívások a sport nyelvén is leírhatók, mert tervezés, felkészülés és kitartás nélkül nincs siker, a teljesítmény mérhető, az eredmény pedig igazolja a szervezet létét, erejét, befolyását.',
   ],
-  image: rolunkImages.story,
-  imageAlt: 'Rávezető Projekt — szervezetfejlesztés és tanácsadás',
   motto: 'Citius, Altius, Fortius.',
 } as const;
 

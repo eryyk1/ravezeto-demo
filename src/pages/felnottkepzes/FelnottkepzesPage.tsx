@@ -1,12 +1,19 @@
-import InnerPageHero from '../../components/pages/InnerPageHero';
+import FelnottkepzesHero from '../../components/training/FelnottkepzesHero';
+import TrainingAreas from '../../components/training/TrainingAreas';
+import TrainingProcess from '../../components/training/TrainingProcess';
+import TrainingProgrammes from '../../components/training/TrainingProgrammes';
+import PageCta from '../../components/pages/PageCta';
 import PageSection from '../../components/pages/PageSection';
-import { StaggerGrid, StaggerItem } from '../../components/pages/StaggerReveal';
 import {
   felnottkepzesCategories,
   felnottkepzesContact,
+  felnottkepzesCredentials,
+  felnottkepzesCta,
   felnottkepzesHero,
-  felnottkepzesLongIntro,
+  felnottkepzesKeyMessage,
   felnottkepzesMotto,
+  felnottkepzesProcess,
+  felnottkepzesProgrammeCta,
   felnottkepzesProgrammeGroups,
   felnottkepzesReg,
 } from '../../content/felnottkepzes';
@@ -15,21 +22,26 @@ import './felnottkepzes.css';
 export default function FelnottkepzesPage() {
   return (
     <div className="page felnottkepzes-page">
-      <InnerPageHero
+      <FelnottkepzesHero
         label={felnottkepzesHero.label}
         title={felnottkepzesHero.title}
         intro={felnottkepzesHero.intro}
-        accent="education"
+        image={felnottkepzesHero.image}
+        imageAlt={felnottkepzesHero.imageAlt}
       />
 
-      <PageSection
-        tone="warm-white"
-        label={felnottkepzesLongIntro.label}
-        title={felnottkepzesLongIntro.title}
-        accent
-      >
-        <div className="page-prose">
-          {felnottkepzesLongIntro.paragraphs.map((p) => (
+      <PageSection tone="graphite" label={felnottkepzesKeyMessage.label} accent>
+        <div className="felnottkepzes-key-message">
+          <h2 className="felnottkepzes-key-message__title">{felnottkepzesKeyMessage.title}</h2>
+          <blockquote className="felnottkepzes-key-message__quote">
+            {felnottkepzesKeyMessage.text}
+          </blockquote>
+        </div>
+      </PageSection>
+
+      <PageSection tone="warm-white" label="Miért érdemes befektetni?" title="Kompetenciafejlesztés a szervezeti teljesítményért" accent>
+        <div className="page-prose felnottkepzes-intro">
+          {felnottkepzesCredentials.paragraphs.map((p) => (
             <p key={p.slice(0, 30)}>{p}</p>
           ))}
         </div>
@@ -47,34 +59,32 @@ export default function FelnottkepzesPage() {
       </PageSection>
 
       <PageSection tone="warm-white" label="Képzési területek" title="Főbb képzési területeink" accent>
-        <StaggerGrid className="felnottkepzes-categories">
-          {felnottkepzesCategories.map((cat) => (
-            <StaggerItem key={cat.title} className="felnottkepzes-categories__item">
-              <div>
-                <h3>{cat.title}</h3>
-                <p>{cat.text}</p>
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerGrid>
+        <TrainingAreas categories={felnottkepzesCategories} />
       </PageSection>
 
-      <PageSection tone="stone" label="Programok" title="Referencia képzéseink">
-        <div className="felnottkepzes-programmes">
-          {felnottkepzesProgrammeGroups.map((group) => (
-            <div key={group.title} className="felnottkepzes-programmes__group">
-              <h3>{group.title}</h3>
-              <ul>
-                {group.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+      <div className="page-divider" aria-hidden="true">
+        <span className="page-divider__mark" />
+      </div>
+
+      <PageSection
+        tone="stone"
+        label={felnottkepzesProcess.label}
+        title={felnottkepzesProcess.title}
+        lead={felnottkepzesProcess.lead}
+        accent
+      >
+        <TrainingProcess process={felnottkepzesProcess} />
       </PageSection>
 
-      <PageSection tone="warm-white" label="Kapcsolat" title="Elérhetőség">
+      <PageSection tone="warm-white" label="Programok" title="Referencia képzéseink" accent>
+        <TrainingProgrammes
+          groups={felnottkepzesProgrammeGroups}
+          ctaLabel={felnottkepzesProgrammeCta.label}
+          ctaLink={felnottkepzesProgrammeCta.link}
+        />
+      </PageSection>
+
+      <PageSection tone="stone" label="Kapcsolat" title="Elérhetőség">
         <div className="felnottkepzes-contact page-prose">
           <div>
             <h3>{felnottkepzesContact.customerService.title}</h3>
@@ -92,6 +102,15 @@ export default function FelnottkepzesPage() {
             </p>
           </div>
         </div>
+      </PageSection>
+
+      <PageSection tone="green-forest">
+        <PageCta
+          title={felnottkepzesCta.title}
+          text={felnottkepzesCta.text}
+          cta={felnottkepzesCta.cta}
+          link={felnottkepzesCta.link}
+        />
       </PageSection>
     </div>
   );

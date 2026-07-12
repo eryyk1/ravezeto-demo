@@ -4,8 +4,12 @@
   align-items: start;
 }
 
+.rolunk-story--editorial {
+  max-width: 44rem;
+}
+
 @media (min-width: 960px) {
-  .rolunk-story {
+  .rolunk-story:not(.rolunk-story--editorial) {
     grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
   }
 }

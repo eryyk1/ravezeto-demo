@@ -28,7 +28,7 @@ export default function RolunkPage() {
       />
 
       <PageSection tone="warm-white" label={rolunkStory.label} title={rolunkStory.title} accent>
-        <div className="rolunk-story">
+        <div className="rolunk-story rolunk-story--editorial">
           <div className="rolunk-story__prose page-prose">
             <p className="rolunk-story__pull">{rolunkStory.pullQuote}</p>
             {rolunkStory.paragraphs.map((paragraph) => (
@@ -39,14 +39,6 @@ export default function RolunkPage() {
               <p className="rolunk-story__note">Gyorsabban, erősebben, magasabbra.</p>
             </aside>
           </div>
-          <figure className="rolunk-story__figure">
-            <img
-              src={rolunkStory.image}
-              alt={rolunkStory.imageAlt}
-              loading="lazy"
-              decoding="async"
-            />
-          </figure>
         </div>
       </PageSection>
 
