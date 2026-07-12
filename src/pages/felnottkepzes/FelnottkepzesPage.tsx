@@ -43,7 +43,7 @@ export default function FelnottkepzesPage() {
       </PageSection>
 
       <PageSection tone="stone">
-        <p className="page-section__lead">{felnottkepzesMotto}</p>
+        <blockquote className="felnottkepzes-motto">{felnottkepzesMotto}</blockquote>
       </PageSection>
 
       <PageSection tone="warm-white" label="Képzési területek" title="Főbb képzési területeink" accent>

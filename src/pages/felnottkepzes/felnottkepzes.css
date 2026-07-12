@@ -7,6 +7,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
+  margin-top: 1.75rem;
 }
 
 .felnottkepzes-reg__badge {
@@ -19,6 +20,22 @@
   background: var(--white-warm);
   border: 1px solid rgba(27, 94, 32, 0.12);
   border-radius: var(--radius-pill);
+}
+
+.felnottkepzes-motto {
+  margin: 0;
+  padding: 1.75rem 2rem;
+  max-width: 52rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--white-warm);
+  border: 1px solid rgba(27, 94, 32, 0.1);
+  border-left: 3px solid var(--green-brand);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  box-shadow: var(--shadow-sm);
 }
 
 .felnottkepzes-journey {
@@ -97,26 +114,19 @@
 
 .felnottkepzes-categories__item {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  gap: 0;
   align-items: start;
   padding: 1.625rem;
   background: var(--white-warm);
   border: 1px solid rgba(27, 94, 32, 0.08);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
-  transition: box-shadow 0.35s ease, transform 0.35s var(--ease-premium);
-}
-
-.felnottkepzes-categories__item:hover {
-  box-shadow: var(--shadow-card);
-  transform: translateY(-2px);
 }
 
 .felnottkepzes-categories__item img {
   width: 56px;
   height: 56px;
-  opacity: 0.88;
 }
 
 .felnottkepzes-categories__item h3 {
@@ -144,42 +154,93 @@
   background: var(--white-warm);
 }
 
-.felnottkepzes-programmes__row {
-  display: grid;
-  grid-template-columns: 2.5rem 1fr auto;
-  gap: 1rem;
-  align-items: center;
-  padding: 1.125rem 1.375rem;
-  border-bottom: 1px solid rgba(27, 94, 32, 0.06);
-  transition: background 0.25s ease;
+.felnottkepzes-programmes__group {
+  padding: 1.5rem 1.75rem;
+  border-bottom: 1px solid rgba(27, 94, 32, 0.08);
 }
 
-.felnottkepzes-programmes__row:last-child {
+.felnottkepzes-programmes__group:last-child {
   border-bottom: none;
 }
 
-.felnottkepzes-programmes__row:hover {
-  background: rgba(46, 125, 50, 0.04);
-}
-
-.felnottkepzes-programmes__num {
+.felnottkepzes-programmes__group h3 {
+  margin: 0 0 1rem;
   font-family: var(--font-ui);
-  font-size: 0.6875rem;
+  font-size: 0.8125rem;
   font-weight: 700;
-  color: var(--green-brand);
-  opacity: 0.7;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--green-forest);
 }
 
-.felnottkepzes-programmes__title {
+.felnottkepzes-programmes__group ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.625rem;
+}
+
+.felnottkepzes-programmes__group li {
+  position: relative;
+  padding-left: 1.125rem;
   font-size: 0.9375rem;
-  color: var(--text-primary);
+  line-height: 1.55;
+  color: var(--text-secondary);
 }
 
-.felnottkepzes-programmes__hours {
+.felnottkepzes-programmes__group li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green-brand);
+}
+
+.felnottkepzes-contact {
+  display: grid;
+  gap: 2rem;
+  max-width: 52rem;
+}
+
+@media (min-width: 768px) {
+  .felnottkepzes-contact {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.felnottkepzes-contact > div {
+  padding: 1.5rem 1.625rem;
+  background: var(--white-warm);
+  border: 1px solid rgba(27, 94, 32, 0.08);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.felnottkepzes-contact h3 {
+  margin: 0 0 0.875rem;
   font-family: var(--font-ui);
   font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--green-forest);
-  white-space: nowrap;
+}
+
+.felnottkepzes-contact p {
+  margin: 0 0 0.5rem;
+}
+
+.felnottkepzes-contact a {
+  color: var(--green-brand);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.felnottkepzes-contact a:hover {
+  text-decoration: underline;
 }

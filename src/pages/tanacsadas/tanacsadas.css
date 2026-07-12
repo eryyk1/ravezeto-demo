@@ -4,89 +4,46 @@
   max-width: 52rem;
 }
 
-.tanacsadas-framework {
-  padding-block: clamp(3rem, 6vw, 4.5rem);
-}
-
-.tanacsadas-framework__title {
-  margin: 0.75rem 0 2rem;
-  font-family: var(--font-display);
-  font-size: clamp(1.75rem, 3vw, 2.375rem);
-  font-weight: 600;
-  color: var(--text-on-green);
-}
-
-.tanacsadas-framework__diagram {
-  margin-top: 2.5rem;
-  display: flex;
-  justify-content: center;
-  opacity: 0.85;
-}
-
-.tanacsadas-area__grid {
-  display: grid;
-  gap: clamp(2rem, 4vw, 3.5rem);
-  align-items: center;
-}
-
-@media (min-width: 900px) {
-  .tanacsadas-area__grid {
-    grid-template-columns: 1fr 0.9fr;
-  }
-
-  .tanacsadas-area__grid--reverse {
-    direction: rtl;
-  }
-
-  .tanacsadas-area__grid--reverse > * {
-    direction: ltr;
-  }
-}
-
-.tanacsadas-area__copy {
-  position: relative;
-}
-
-.tanacsadas-area__index {
-  position: absolute;
-  top: -0.5rem;
-  right: 0;
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 6vw, 4.5rem);
-  font-weight: 600;
-  line-height: 1;
-  color: rgba(27, 94, 32, 0.06);
-  pointer-events: none;
-  user-select: none;
-}
-
-.tanacsadas-area__visual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: clamp(2rem, 4vw, 3rem);
-  background: var(--white-warm);
-  border: 1px solid rgba(27, 94, 32, 0.08);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-  transition: box-shadow 0.4s ease, transform 0.4s var(--ease-premium);
-}
-
-.tanacsadas-area__visual:hover {
-  box-shadow: var(--shadow-card-hover);
-  transform: translateY(-2px);
-}
-
-.tanacsadas-area__visual img {
-  width: min(100%, 240px);
-  height: auto;
-  opacity: 0.92;
-}
-
 .tanacsadas-culture {
   max-width: 52rem;
 }
 
-.tanacsadas-culture p {
-  color: rgba(247, 246, 242, 0.85);
+.tanacsadas-culture__block + .tanacsadas-culture__block {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(27, 94, 32, 0.1);
+}
+
+.tanacsadas-culture__block h3 {
+  margin: 0 0 0.875rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+.tanacsadas-culture__block p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.tanacsadas-culture__block p + p {
+  margin-top: 1rem;
+}
+
+.tanacsadas-motto {
+  margin: 0;
+  padding: 1.75rem 2rem;
+  max-width: 52rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--stone-50);
+  border: 1px solid rgba(27, 94, 32, 0.1);
+  border-left: 3px solid var(--green-brand);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  box-shadow: var(--shadow-sm);
 }

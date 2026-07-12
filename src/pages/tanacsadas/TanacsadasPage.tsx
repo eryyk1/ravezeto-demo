@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom';
 import ConsultingFramework from '../../components/consulting/ConsultingFramework';
 import InnerPageHero from '../../components/pages/InnerPageHero';
 import PageSection from '../../components/pages/PageSection';
-import SectionLabel from '../../components/typography/SectionLabel';
 import {
   tanacsadasCoaching,
   tanacsadasCultureSections,
@@ -11,6 +10,7 @@ import {
   tanacsadasMotto,
   tanacsadasQuote,
 } from '../../content/tanacsadas';
+import { tanacsadasFramework } from '../../content/tanacsadasFramework';
 import './tanacsadas.css';
 
 export default function TanacsadasPage() {
@@ -46,7 +46,7 @@ export default function TanacsadasPage() {
       <PageSection tone="stone" label="Szervezetfejlesztés" accent>
         <div className="tanacsadas-culture page-prose">
           {tanacsadasCultureSections.map((section) => (
-            <div key={section.title}>
+            <div key={section.title} className="tanacsadas-culture__block">
               <h3>{section.title}</h3>
               {section.paragraphs.map((p) => (
                 <p key={p.slice(0, 30)}>{p}</p>
@@ -57,19 +57,30 @@ export default function TanacsadasPage() {
       </PageSection>
 
       <PageSection tone="warm-white">
-        <p className="page-section__lead">{tanacsadasMotto}</p>
+        <blockquote className="tanacsadas-motto">{tanacsadasMotto}</blockquote>
       </PageSection>
 
-      <div id="valtozasmenedzsment">
+      <PageSection
+        tone="graphite"
+        label={tanacsadasFramework.label}
+        title={tanacsadasFramework.title}
+        lead={tanacsadasFramework.intro}
+        accent
+        id="valtozasmenedzsment"
+      >
         <ConsultingFramework />
-      </div>
+      </PageSection>
 
-      <PageSection tone="stone" id="coaching">
-        <SectionLabel>Coaching</SectionLabel>
-        <h2 className="page-section__title">{tanacsadasCoaching.title}</h2>
+      <PageSection
+        tone="stone"
+        label="Coaching"
+        title={tanacsadasCoaching.title}
+        accent
+        id="coaching"
+      >
         <div className="tanacsadas-culture page-prose">
           {tanacsadasCoaching.sections.map((section) => (
-            <div key={section.heading}>
+            <div key={section.heading} className="tanacsadas-culture__block">
               <h3>{section.heading}</h3>
               <p>{section.text}</p>
             </div>

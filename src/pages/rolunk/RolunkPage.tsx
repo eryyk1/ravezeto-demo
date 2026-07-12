@@ -30,20 +30,17 @@ export default function RolunkPage() {
       <RolunkBeliefs />
 
       <PageSection tone="warm-white" label={rolunkTeam.label} title={rolunkTeam.title} accent>
-        <StaggerGrid className="rolunk-team">
+        <div className="rolunk-team">
           {rolunkTeam.members.map((member) => (
-            <StaggerItem
-              key={member.id}
-              className={`rolunk-team__card${member.featured ? ' rolunk-team__card--featured' : ''}`}
-            >
+            <article key={member.id} className="rolunk-team__card">
               <img src={member.portrait} alt={member.name} className="rolunk-team__photo" loading="lazy" />
               <div className="rolunk-team__body">
                 <h3>{member.name}</h3>
                 <p>{member.bio}</p>
               </div>
-            </StaggerItem>
+            </article>
           ))}
-        </StaggerGrid>
+        </div>
       </PageSection>
 
       <PageSection tone="green-forest" label="Ügyfeleink" title="Ügyfeleink mondták" accent>

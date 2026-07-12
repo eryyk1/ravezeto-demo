@@ -257,13 +257,12 @@
     grid-template-columns: 1fr;
   }
 
-  .rolunk-team__card,
-  .rolunk-team__card--featured {
-    grid-column: span 1;
+  .rolunk-team__card {
+    max-width: 100%;
   }
 
-  .rolunk-team__card--featured .rolunk-team__photo {
-    aspect-ratio: 4 / 5;
+  .rolunk-team__photo {
+    height: 260px;
   }
 
   .rolunk-testimonials {

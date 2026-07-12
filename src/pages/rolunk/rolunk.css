@@ -104,52 +104,64 @@
   color: var(--text-secondary);
 }
 
-/* Team masonry */
+/* Team */
 .rolunk-team {
   display: grid;
-  gap: clamp(1.25rem, 2.5vw, 1.75rem);
-  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+@media (min-width: 640px) {
+  .rolunk-team {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
 }
 
 @media (min-width: 1024px) {
   .rolunk-team {
-    grid-template-columns: repeat(6, 1fr);
-  }
-
-  .rolunk-team__card {
-    grid-column: span 2;
-  }
-
-  .rolunk-team__card--featured {
-    grid-column: span 3;
-    grid-row: span 1;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.75rem;
+    max-width: 72rem;
+    margin-inline: auto;
   }
 }
 
 .rolunk-team__card {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 360px;
+  height: 100%;
   background: var(--white-warm);
   border: 1px solid rgba(27, 94, 32, 0.08);
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-card);
-  transition:
-    box-shadow 0.45s var(--ease-premium),
-    transform 0.45s var(--ease-premium);
-}
-
-.rolunk-team__card:hover {
-  box-shadow: var(--shadow-card-hover);
-  transform: translateY(-4px);
 }
 
 .rolunk-team__photo {
   width: 100%;
+  height: 280px;
+  max-height: 320px;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: top center;
-  background: var(--green-forest);
+  background: var(--stone-100);
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .rolunk-team__photo {
+    height: 300px;
+  }
+}
+
+@media (max-width: 639px) {
+  .rolunk-team__photo {
+    height: 260px;
+  }
 }
 
 .rolunk-values__figure {
@@ -164,6 +176,9 @@
 }
 
 .rolunk-team__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   padding: 1.375rem 1.5rem 1.625rem;
 }
 

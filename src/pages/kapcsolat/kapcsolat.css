@@ -27,7 +27,7 @@
 
 @media (min-width: 1100px) {
   .kapcsolat-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -37,12 +37,6 @@
   border: 1px solid rgba(27, 94, 32, 0.08);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
-  transition: box-shadow 0.35s ease, transform 0.35s var(--ease-premium);
-}
-
-.kapcsolat-card:hover {
-  box-shadow: var(--shadow-card);
-  transform: translateY(-2px);
 }
 
 .kapcsolat-card h2 {
@@ -77,11 +71,8 @@
   gap: clamp(2rem, 4vw, 3rem);
 }
 
-@media (min-width: 960px) {
-  .kapcsolat-form-layout {
-    grid-template-columns: 0.9fr 1.1fr;
-    align-items: start;
-  }
+.kapcsolat-form {
+  max-width: 40rem;
 }
 
 .kapcsolat-steps {
