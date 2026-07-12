@@ -58,12 +58,3 @@ export const teamMembers: TeamMember[] = [
     portraitPosition: 'center 22%',
   },
 ];
-
-/** Removed from live site (still in colleagues CPT only — not displayed) */
-export const teamMembersRemoved = [
-  'Duleba Marianna (replaced by Berta Anikó on live site)',
-  'Halász Krisztina',
-  'Mázásné Dinnyés Hajnalka',
-  'Molnár Zsolt',
-  'Dr. Szalay Árpád',
-] as const;

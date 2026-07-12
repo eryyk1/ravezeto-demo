@@ -11,7 +11,7 @@ export default function HomeFooter() {
       <div className="content-wrap home-footer__main">
         <div className="home-footer__brand">
           <Link to="/" className="home-footer__logo">
-            <img src="/assets/logo.png" alt="Rávezető" width={200} height={40} />
+            <img src="/assets/logo.svg" alt="Rávezető" width={200} height={40} />
           </Link>
           <p className="home-footer__tagline">{company.tagline}</p>
         </div>
@@ -39,7 +39,7 @@ export default function HomeFooter() {
           <address className="home-footer__address">
             <a href={`mailto:${company.email}`}>{company.email}</a>
             <br />
-            <a href={`tel:${company.phone.replace(/\s/g, '')}`}>{company.phone}</a>
+            <a href={`tel:${company.phoneTel}`}>{company.phone}</a>
             <br />
             {company.address}
           </address>

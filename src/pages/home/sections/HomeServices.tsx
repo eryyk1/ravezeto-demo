@@ -37,7 +37,7 @@ export default function HomeServices() {
             >
               <Link to={service.link} className="home-services__card">
                 <span className="home-services__icon">
-                  <img src={service.icon} alt="" width={36} height={36} loading="lazy" />
+                  <img src={service.icon} alt="" width={36} height={36} loading="lazy" aria-hidden="true" />
                 </span>
                 <h3 className="home-services__name">{service.title}</h3>
                 <p className="home-services__text">{service.text}</p>

@@ -1,4 +1,5 @@
 import { Outlet, useLocation } from 'react-router-dom';
+import PageMetaManager from '../seo/PageMetaManager';
 import SiteHeader from './SiteHeader';
 import SiteFooter from './SiteFooter';
 
@@ -8,6 +9,7 @@ export default function Layout() {
 
   return (
     <>
+      <PageMetaManager />
       <a href="#main-content" className="skip-link">
         Ugrás a tartalomhoz
       </a>

@@ -1,0 +1,66 @@
+.jogi-page__body {
+  padding-block: clamp(3rem, 8vw, 5rem);
+}
+
+.jogi-page__docs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  max-width: 40rem;
+}
+
+.jogi-page__doc-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgba(45, 90, 61, 0.15);
+  border-radius: 4px;
+  background: var(--warm-white);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.jogi-page__doc-link:hover {
+  border-color: var(--green-primary);
+  box-shadow: 0 4px 20px rgba(45, 90, 61, 0.08);
+}
+
+.jogi-page__doc-label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--green-deep);
+}
+
+.jogi-page__doc-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.jogi-page__impresszum {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(45, 90, 61, 0.12);
+  max-width: 40rem;
+}
+
+.jogi-page__impresszum h2 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  margin: 0 0 1rem;
+  color: var(--green-deep);
+}
+
+.jogi-page__impresszum p {
+  margin: 0;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.jogi-page__impresszum a {
+  color: var(--green-primary);
+}

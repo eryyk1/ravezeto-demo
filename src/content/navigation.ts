@@ -3,7 +3,7 @@ export type NavItem = {
   path: string;
 };
 
-/** Primary navigation — mockup order */
+/** Primary navigation */
 export const primaryNav: NavItem[] = [
   { label: 'Rólunk', path: '/rolunk' },
   { label: 'Tanácsadás', path: '/tanacsadas' },
@@ -17,11 +17,8 @@ export const primaryNav: NavItem[] = [
 export const footerNav = {
   services: [
     { label: 'Szervezetfejlesztés', path: '/tanacsadas/szervezetfejlesztes' },
-    { label: 'Vezetőfejlesztés', path: '/tanacsadas/vezetofejlesztes' },
-    { label: 'HR fejlesztés', path: '/tanacsadas/hr-fejlesztes' },
-    { label: 'Projektmenedzsment', path: '/tanacsadas/projektmenedzsment' },
+    { label: 'Változásmenedzsment', path: '/tanacsadas/valtozasmenedzsment' },
     { label: 'Coaching', path: '/tanacsadas/coaching' },
-    { label: 'Stratégia', path: '/tanacsadas/strategia' },
   ],
   company: [
     { label: 'Rólunk', path: '/rolunk' },

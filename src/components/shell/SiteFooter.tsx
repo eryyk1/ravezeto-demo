@@ -9,7 +9,7 @@ export default function SiteFooter() {
       <div className="site-footer__inner content-wrap">
         <div className="site-footer__brand">
           <Link to="/" className="site-footer__logo">
-            <img src="/assets/logo.png" alt="Rávezető" width={180} height={36} />
+            <img src="/assets/logo.svg" alt="Rávezető" width={180} height={36} />
           </Link>
           <p className="site-footer__tagline">{company.tagline}</p>
         </div>
@@ -41,7 +41,7 @@ export default function SiteFooter() {
           <address className="site-footer__address">
             {company.address}
             <br />
-            <a href={`tel:${company.phone.replace(/\s/g, '')}`}>{company.phone}</a>
+            <a href={`tel:${company.phoneTel}`}>{company.phone}</a>
             <br />
             <a href={`mailto:${company.email}`}>{company.email}</a>
           </address>

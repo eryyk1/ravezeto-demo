@@ -9,7 +9,6 @@ import HomeMentally from './sections/HomeMentally';
 import HomeFooter from '../../components/home/HomeFooter';
 import './home.css';
 
-/** Homepage — reference mockup blueprint */
 export default function HomePage() {
   return (
     <div className="home-page">

@@ -1,0 +1,35 @@
+{
+  "redirects": [
+    { "source": "/fooldal", "destination": "/", "permanent": true },
+    { "source": "/fooldal/", "destination": "/", "permanent": true },
+    { "source": "/fooldal-2-2", "destination": "/", "permanent": true },
+    { "source": "/fooldal-2-2/", "destination": "/", "permanent": true },
+    { "source": "/csapatunk", "destination": "/rolunk", "permanent": true },
+    { "source": "/csapatunk/", "destination": "/rolunk", "permanent": true },
+    { "source": "/magunkrol", "destination": "/rolunk", "permanent": true },
+    { "source": "/magunkrol/", "destination": "/rolunk", "permanent": true },
+    { "source": "/munkatarsaink", "destination": "/rolunk", "permanent": true },
+    { "source": "/munkatarsaink/", "destination": "/rolunk", "permanent": true },
+    { "source": "/szolgaltatasaink", "destination": "/tanacsadas", "permanent": true },
+    { "source": "/szolgaltatasaink/", "destination": "/tanacsadas", "permanent": true },
+    { "source": "/szolgaltatasok", "destination": "/tanacsadas", "permanent": true },
+    { "source": "/szolgaltatasok/", "destination": "/tanacsadas", "permanent": true },
+    { "source": "/felnottkepzesek", "destination": "/felnottkepzes", "permanent": true },
+    { "source": "/felnottkepzesek/", "destination": "/felnottkepzes", "permanent": true },
+    { "source": "/referenciaink", "destination": "/referenciak", "permanent": true },
+    { "source": "/referenciaink/", "destination": "/referenciak", "permanent": true },
+    { "source": "/referenciaink-2", "destination": "/referenciak", "permanent": true },
+    { "source": "/referenciaink-2/", "destination": "/referenciak", "permanent": true },
+    { "source": "/kapcsolatok", "destination": "/kapcsolat", "permanent": true },
+    { "source": "/kapcsolatok/", "destination": "/kapcsolat", "permanent": true },
+    { "source": "/impresszum", "destination": "/jogi/impresszum", "permanent": true },
+    { "source": "/impresszum/", "destination": "/jogi/impresszum", "permanent": true },
+    { "source": "/tajekoztato-cookie-k-hasznalatarol", "destination": "/jogi/cookie", "permanent": true },
+    { "source": "/tajekoztato-cookie-k-hasznalatarol/", "destination": "/jogi/cookie", "permanent": true },
+    { "source": "/wp-content/uploads/2025/03/Adatvedelmi_2025.pdf", "destination": "/assets/documents/Adatvedelmi_2025.pdf", "permanent": true },
+    { "source": "/wp-content/uploads/2018/08/GDPR_Kapcsolatok.pdf", "destination": "/assets/documents/GDPR_Kapcsolatok.pdf", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/((?!assets/).*)", "destination": "/index.html" }
+  ]
+}

@@ -3,6 +3,7 @@ export const company = {
   tagline: 'Változásokat vezetünk, együtt!',
   address: '1146 Budapest, Izsó u. 7. 1/3.',
   phone: '+36 70/513 4128',
+  phoneTel: '+36705134128',
   email: 'info@ravezeto.hu',
   trainingEmail: 'kepzes@ravezeto.hu',
   website: 'www.ravezeto.hu',

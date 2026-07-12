@@ -132,7 +132,7 @@ export default function HomeHero() {
                     whileHover={reduced ? undefined : { scale: 1.08, y: -1 }}
                     transition={{ duration: 0.25, ease }}
                   >
-                    <img src={point.icon} alt="" width={28} height={28} />
+                    <img src={point.icon} alt="" width={28} height={28} aria-hidden="true" />
                   </motion.span>
                   <span className="home-hero__trust-label">{point.label}</span>
                 </motion.li>
