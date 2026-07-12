@@ -1,0 +1,208 @@
+.reference-portfolio {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.reference-portfolio__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.25rem 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(27, 94, 32, 0.12);
+}
+
+.reference-portfolio__year {
+  display: block;
+  margin-bottom: 0.375rem;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--green-brand);
+}
+
+.reference-portfolio__label {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.reference-portfolio__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.reference-portfolio__filter {
+  padding: 0.5625rem 1rem;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: var(--white-warm);
+  border: 1px solid rgba(27, 94, 32, 0.12);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.reference-portfolio__filter:hover {
+  color: var(--green-forest);
+  border-color: rgba(46, 125, 50, 0.28);
+  transform: translateY(-1px);
+}
+
+.reference-portfolio__filter--active {
+  color: var(--text-on-green);
+  background: var(--green-forest);
+  border-color: var(--green-forest);
+}
+
+.reference-portfolio__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+.reference-portfolio__item {
+  display: grid;
+  gap: 0.75rem;
+  justify-items: center;
+  padding: clamp(1.5rem, 3vw, 2rem) clamp(1.25rem, 2.5vw, 1.75rem);
+  min-height: 11.5rem;
+  background: var(--white-warm);
+  border: 1px solid rgba(27, 94, 32, 0.08);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.reference-portfolio__item:hover {
+  box-shadow: var(--shadow-card);
+  transform: translateY(-3px);
+}
+
+.reference-portfolio__logo {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 7rem;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border: 1px solid rgba(27, 94, 32, 0.06);
+  border-radius: var(--radius-md);
+}
+
+.reference-portfolio__logo img {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  max-height: 5.75rem;
+  object-fit: contain;
+}
+
+.reference-portfolio__name {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.reference-portfolio__badge {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--green-forest);
+}
+
+@media (min-width: 1024px) {
+  .referenciak-page .reference-portfolio__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem;
+  }
+
+  .referenciak-page .reference-portfolio__item {
+    min-height: 12.5rem;
+  }
+
+  .referenciak-page .reference-portfolio__logo {
+    min-height: 7.5rem;
+  }
+
+  .referenciak-page .reference-portfolio__logo img {
+    max-height: 6.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .reference-portfolio__head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .referenciak-page .reference-portfolio__filters {
+    width: 100%;
+  }
+
+  .referenciak-page .reference-portfolio__filter {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  .referenciak-page .reference-portfolio__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .referenciak-page .reference-portfolio__item {
+    min-height: 10rem;
+    padding: 1.25rem 1rem;
+  }
+
+  .referenciak-page .reference-portfolio__logo {
+    min-height: 5.5rem;
+    padding: 0.875rem 1rem;
+  }
+
+  .referenciak-page .reference-portfolio__logo img {
+    max-height: 4.5rem;
+  }
+
+  .referenciak-page .reference-featured__logo {
+    min-height: 6rem;
+    padding: 1rem 1.125rem;
+  }
+
+  .referenciak-page .reference-featured__logo img {
+    max-height: 4.5rem;
+  }
+}
+
+@media (max-width: 359px) {
+  .referenciak-page .reference-portfolio__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .referenciak-page .reference-quotes__item blockquote,
+  .referenciak-page .reference-portfolio__label {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+}
