@@ -1,12 +1,12 @@
 .rolunk-story {
   display: grid;
   gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: start;
 }
 
 @media (min-width: 960px) {
   .rolunk-story {
-    grid-template-columns: 1.4fr 0.6fr;
-    align-items: start;
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
   }
 }
 
@@ -14,22 +14,32 @@
   font-size: clamp(1.0625rem, 1.4vw, 1.125rem);
 }
 
-.rolunk-story__prose p:first-child {
-  font-size: clamp(1.125rem, 1.6vw, 1.3125rem);
+.rolunk-story__pull {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 1.55;
+  font-weight: 600;
+  color: var(--green-forest);
+}
+
+.rolunk-story__prose p:not(.rolunk-story__pull) {
+  margin: 0 0 1.25rem;
   line-height: 1.75;
-  color: var(--text-primary);
+  color: var(--text-secondary);
 }
 
 .rolunk-story__aside {
+  margin-top: 1.5rem;
   padding: clamp(1.5rem, 3vw, 2rem);
-  background: var(--white-warm);
+  background: var(--stone-100);
   border: 1px solid rgba(27, 94, 32, 0.1);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-card);
+  border-left: 3px solid var(--green-brand);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
 }
 
 .rolunk-story__motto {
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.5rem;
   font-family: var(--font-display);
   font-size: clamp(1.375rem, 2.5vw, 1.75rem);
   font-weight: 600;
@@ -44,64 +54,22 @@
   color: var(--text-secondary);
 }
 
-/* Timeline */
-.rolunk-timeline {
-  list-style: none;
+.rolunk-story__figure {
   margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 0;
-  max-width: 52rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  max-width: 340px;
+  margin-inline: auto;
+  box-shadow: var(--shadow-card);
 }
 
-.rolunk-timeline__item {
-  display: grid;
-  grid-template-columns: 5.5rem 1fr;
-  gap: 1.5rem;
-  padding: 1.75rem 0;
-  border-bottom: 1px solid rgba(27, 94, 32, 0.08);
-  position: relative;
-}
-
-.rolunk-timeline__item:last-child {
-  border-bottom: none;
-}
-
-.rolunk-timeline__item::before {
-  content: '';
-  position: absolute;
-  left: 5.5rem;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(180deg, var(--green-brand), rgba(46, 125, 50, 0.15));
-  transform: translateX(0.75rem);
-  opacity: 0.35;
-}
-
-.rolunk-timeline__year {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
-  font-weight: 600;
-  color: var(--green-brand);
-  line-height: 1;
-}
-
-.rolunk-timeline__item h3 {
-  margin: 0 0 0.5rem;
-  font-family: var(--font-ui);
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-primary);
-}
-
-.rolunk-timeline__item p {
-  margin: 0;
-  font-size: 0.9375rem;
-  line-height: 1.65;
-  color: var(--text-secondary);
+.rolunk-story__figure img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
 }
 
 /* Team */
@@ -123,7 +91,7 @@
   .rolunk-team {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.75rem;
-    max-width: 72rem;
+    max-width: 68rem;
     margin-inline: auto;
   }
 }
@@ -132,19 +100,24 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 360px;
+  max-width: 320px;
   height: 100%;
   background: var(--white-warm);
   border: 1px solid rgba(27, 94, 32, 0.08);
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-card);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.rolunk-team__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
 }
 
 .rolunk-team__photo {
   width: 100%;
   height: 280px;
-  max-height: 320px;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: top center;
@@ -161,18 +134,8 @@
 @media (max-width: 639px) {
   .rolunk-team__photo {
     height: 260px;
+    max-height: 280px;
   }
-}
-
-.rolunk-values__figure {
-  margin: 0;
-  max-width: 42rem;
-}
-
-.rolunk-values__figure img {
-  display: block;
-  width: 100%;
-  height: auto;
 }
 
 .rolunk-team__body {
@@ -185,7 +148,7 @@
 .rolunk-team__body h3 {
   margin: 0 0 0.625rem;
   font-family: var(--font-display);
-  font-size: 1.3125rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--text-primary);
 }
@@ -197,101 +160,17 @@
   color: var(--text-secondary);
 }
 
-/* Values */
-.rolunk-values {
-  display: grid;
-  gap: 1.25rem;
+.rolunk-closing {
+  max-width: 44rem;
+  margin-inline: auto;
+  text-align: center;
 }
 
-@media (min-width: 768px) {
-  .rolunk-values {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
+/* CTA on warm-white needs dark text */
+.rolunk-page .page-section-shell--warm-white .page-cta__title {
+  color: var(--text-primary);
 }
 
-@media (min-width: 1100px) {
-  .rolunk-values {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.rolunk-values__item {
-  padding: 1.625rem 1.75rem;
-  background: var(--white-warm);
-  border: 1px solid rgba(27, 94, 32, 0.08);
-  border-left: 3px solid var(--green-brand);
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow 0.35s ease;
-}
-
-.rolunk-values__item:hover {
-  box-shadow: var(--shadow-card);
-}
-
-.rolunk-values__item h3 {
-  margin: 0 0 0.625rem;
-  font-family: var(--font-ui);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--green-forest);
-  line-height: 1.4;
-}
-
-.rolunk-values__item p {
-  margin: 0;
-  font-size: 0.9375rem;
-  line-height: 1.65;
+.rolunk-page .page-section-shell--warm-white .page-cta__text {
   color: var(--text-secondary);
-}
-
-/* Testimonials */
-.rolunk-testimonials {
-  display: grid;
-  gap: 1.5rem;
-}
-
-@media (min-width: 960px) {
-  .rolunk-testimonials {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.rolunk-testimonials__item {
-  margin: 0;
-  padding: 1.75rem;
-  background: rgba(12, 38, 16, 0.4);
-  border: 1px solid rgba(129, 199, 132, 0.18);
-  border-radius: var(--radius-lg);
-  transition: border-color 0.35s ease, background 0.35s ease;
-}
-
-.rolunk-testimonials__item:hover {
-  background: rgba(12, 38, 16, 0.55);
-  border-color: rgba(129, 199, 132, 0.3);
-}
-
-.rolunk-testimonials__item blockquote {
-  margin: 0 0 1.125rem;
-  font-family: var(--font-display);
-  font-size: 1.0625rem;
-  line-height: 1.55;
-  font-style: italic;
-  color: rgba(247, 246, 242, 0.92);
-}
-
-.rolunk-testimonials__item footer {
-  display: flex;
-  flex-direction: column;
-  gap: 0.125rem;
-  font-size: 0.8125rem;
-  color: rgba(247, 246, 242, 0.65);
-}
-
-.rolunk-testimonials__item strong {
-  color: var(--green-light);
-  font-weight: 600;
 }

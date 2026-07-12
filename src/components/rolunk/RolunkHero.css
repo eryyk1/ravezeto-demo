@@ -1,0 +1,74 @@
+.rolunk-hero {
+  position: relative;
+  padding-block: calc(var(--header-height) + clamp(2rem, 5vw, 3.5rem)) clamp(3rem, 6vw, 4.5rem);
+  color: var(--text-on-green);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.rolunk-hero__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 65% at 12% 55%, rgba(76, 175, 80, 0.14) 0%, transparent 58%),
+    radial-gradient(ellipse 50% 55% at 92% 20%, rgba(129, 199, 132, 0.1) 0%, transparent 52%),
+    linear-gradient(155deg, #061208 0%, #0a2410 42%, #0f3312 100%);
+}
+
+.rolunk-hero__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(2rem, 4vw, 3rem);
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .rolunk-hero__grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: clamp(2.5rem, 5vw, 4rem);
+  }
+}
+
+.rolunk-hero__copy {
+  max-width: 36rem;
+}
+
+.rolunk-hero__intro {
+  margin: 1.25rem 0 0;
+  max-width: 48ch;
+  font-size: clamp(1.0625rem, 1.4vw, 1.1875rem);
+  line-height: 1.7;
+  color: rgba(247, 246, 242, 0.8);
+}
+
+.rolunk-hero__media {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(129, 199, 132, 0.2);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28);
+  aspect-ratio: 4 / 3;
+  max-height: clamp(240px, 42vw, 420px);
+}
+
+.rolunk-hero__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+@media (max-width: 959px) {
+  .rolunk-hero__media {
+    max-width: 28rem;
+    margin-inline: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rolunk-hero__bg {
+    animation: none;
+  }
+}
