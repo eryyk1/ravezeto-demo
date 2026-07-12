@@ -25,6 +25,7 @@ export const mentallyImages = {
 
 export const rolunkImages = {
   values: themeImage('ertekeink.png'),
+  story: themeImage('section1_back.png'),
 } as const;
 
 export const euBranding = {

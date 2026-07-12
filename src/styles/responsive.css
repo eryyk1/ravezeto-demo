@@ -255,47 +255,20 @@
 
 /* ── Tanácsadás ── */
 @media (max-width: 1023px) {
-  .change-framework__track {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem 1.5rem;
-  }
-
-  .change-framework__progress {
-    display: none;
-  }
-}
-
-@media (max-width: 767px) {
-  .tanacsadas-framework {
-    padding-block: 2rem;
-  }
-
-  .tanacsadas-framework__title {
-    font-size: clamp(1.375rem, 5vw, 1.75rem);
-  }
-
-  .tanacsadas-framework__diagram {
+  .change-framework__svg {
     max-width: 100%;
-    overflow: hidden;
-  }
-
-  .tanacsadas-area__index {
-    font-size: clamp(2rem, 14vw, 3rem);
-    opacity: 0.45;
-  }
-
-  .tanacsadas-area__visual {
-    padding: 1.25rem;
-  }
-
-  .tanacsadas-area__grid {
-    gap: 1.5rem;
   }
 }
 
 @media (max-width: 639px) {
-  .tanacsadas-area__index {
-    display: none;
+  .consulting-services__visual {
+    padding: 1.25rem;
+  }
+
+  .change-framework__tabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
   }
 }
 

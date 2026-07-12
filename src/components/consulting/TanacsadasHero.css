@@ -1,0 +1,99 @@
+.tanacsadas-hero {
+  position: relative;
+  padding-block: calc(var(--header-height) + clamp(2rem, 5vw, 3.5rem)) clamp(3rem, 6vw, 4.5rem);
+  color: var(--text-on-green);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.tanacsadas-hero__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 70% at 78% 28%, rgba(76, 175, 80, 0.14) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 55% at 8% 62%, rgba(46, 125, 50, 0.12) 0%, transparent 52%),
+    linear-gradient(168deg, #040a06 0%, #081408 42%, #0a2410 100%);
+  animation: tanacsadas-hero-shift 48s ease-in-out infinite alternate;
+}
+
+.tanacsadas-hero__grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  background:
+    repeating-linear-gradient(
+      -14deg,
+      transparent,
+      transparent 56px,
+      rgba(129, 199, 132, 0.03) 56px,
+      rgba(129, 199, 132, 0.03) 57px
+    );
+  pointer-events: none;
+}
+
+.tanacsadas-hero__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(2rem, 4vw, 3rem);
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .tanacsadas-hero__grid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(2.5rem, 5vw, 4rem);
+  }
+}
+
+.tanacsadas-hero__copy {
+  max-width: 38rem;
+}
+
+.tanacsadas-hero__intro {
+  margin: 1.25rem 0 0;
+  max-width: 50ch;
+  font-size: clamp(1.0625rem, 1.4vw, 1.1875rem);
+  line-height: 1.7;
+  color: rgba(247, 246, 242, 0.8);
+}
+
+.tanacsadas-hero__media {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(129, 199, 132, 0.2);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.3);
+  aspect-ratio: 4 / 3;
+  max-height: clamp(240px, 42vw, 420px);
+}
+
+.tanacsadas-hero__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+@media (max-width: 959px) {
+  .tanacsadas-hero__media {
+    max-width: 28rem;
+    margin-inline: auto;
+  }
+}
+
+@keyframes tanacsadas-hero-shift {
+  from {
+    filter: brightness(0.97);
+  }
+  to {
+    filter: brightness(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tanacsadas-hero__bg {
+    animation: none;
+  }
+}

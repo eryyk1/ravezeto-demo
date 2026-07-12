@@ -1,39 +1,39 @@
-/** Consulting framework — live https://www.ravezeto.hu/tanacsadas/ services only */
+/** Change framework layers — live https://www.ravezeto.hu/tanacsadas/ */
 
 export const tanacsadasFramework = {
-  label: 'Megközelítésünk',
-  title: 'A változás útja velünk',
+  label: 'Változás keretrendszere',
+  title: 'Rétegzett átalakulási modell',
   intro:
-    'Emberközpontú tanácsadási folyamatunk a szervezeti kultúrától a vezetői támogatásig — lépésről lépésre, közös munkával.',
-  steps: [
+    'A szervezeti kultúrától a vezetői támogatásig — összekapcsolt fázisokban, közös munkával.',
+  layers: [
     {
       id: 'kultura',
-      step: '01',
+      depth: 1,
       title: 'Szervezeti kultúra',
-      subtitle: 'A sikeres változás alapja',
+      tagline: 'A sikeres változás alapja',
       summary:
-        'Meggyőződésünk, hogy egyetlen szervezetfejlesztés sem lehet sikeres a változást értő és támogató munkatársak nélkül.',
+        'Egyetlen szervezetfejlesztés sem lehet sikeres a változást értő és támogató munkatársak nélkül.',
       detail:
         'Ha a szervezeti kultúra nem változik, nincs esély a stratégia sikeres végrehajtására.',
     },
     {
       id: 'kozosmunka',
-      step: '02',
+      depth: 2,
       title: 'Közös munka',
-      subtitle: 'Tartós eredmény',
+      tagline: 'Folyamatalapú megközelítés',
       summary:
-        'Folyamatalapú, emberközpontú megközelítés — nem kész megoldásokat kínálunk, hanem szoros csapatmunkában támogatjuk partnereinket.',
+        'Nem kész megoldásokat kínálunk — az eredmények a tanácsadási folyamat során, közös munkával születnek meg.',
       detail:
-        'Az eredmények a tanácsadási folyamat során, közös munkával születnek meg.',
+        'Ügyfeleink mellett állunk a tervezéstől a megvalósításig.',
     },
     {
       id: 'valtozas',
-      step: '03',
+      depth: 3,
       title: 'Változásmenedzsment',
-      subtitle: 'Stratégiai támogatás',
+      tagline: 'Stratégiai összehangolás',
       summary:
         'A gyorsan változó környezetben a stratégiai gondolkodás és a szervezeti kultúra összehangolása kulcsfontosságú.',
-      pillars: [
+      spokes: [
         'A változások stratégiai tervezésére',
         'A változást támogató munkatársak felkészítésére',
         'A szervezeti együttműködés fejlesztésére',
@@ -42,13 +42,13 @@ export const tanacsadasFramework = {
     },
     {
       id: 'coaching',
-      step: '04',
+      depth: 4,
       title: 'Üzleti edzés, coaching',
-      subtitle: 'Vezetői támogatás',
+      tagline: 'Vezetői támogatás',
       summary:
-        'Nemcsak „magányos” vezetőknek — szervezeti tapasztalattal rendelkező coachok támogatják a kritikus döntéseket.',
+        'Szervezeti tapasztalattal rendelkező coachok támogatják a kritikus döntéseket és a vezetői fejlődést.',
       detail:
-        'Egyedi megközelítéssel, közös elemzéssel és visszacsatolással fejlesztjük a vezetői kompetenciákat.',
+        'Egyedi megközelítéssel, közös elemzéssel és visszacsatolással.',
     },
   ],
 } as const;

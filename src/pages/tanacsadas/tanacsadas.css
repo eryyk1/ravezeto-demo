@@ -4,36 +4,8 @@
   max-width: 52rem;
 }
 
-.tanacsadas-culture {
-  max-width: 52rem;
-}
-
-.tanacsadas-culture__block + .tanacsadas-culture__block {
-  margin-top: 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(27, 94, 32, 0.1);
-}
-
-.tanacsadas-culture__block h3 {
-  margin: 0 0 0.875rem;
-  font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
-  font-weight: 600;
-  line-height: 1.3;
-  color: var(--text-primary);
-}
-
-.tanacsadas-culture__block p {
-  margin: 0;
-  color: var(--text-secondary);
-}
-
-.tanacsadas-culture__block p + p {
-  margin-top: 1rem;
-}
-
 .tanacsadas-motto {
-  margin: 0;
+  margin: 0 auto;
   padding: 1.75rem 2rem;
   max-width: 52rem;
   font-family: var(--font-display);
@@ -46,4 +18,12 @@
   border-left: 3px solid var(--green-brand);
   border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
   box-shadow: var(--shadow-sm);
+}
+
+.tanacsadas-page .page-section-shell--warm-white .page-cta__title {
+  color: var(--text-primary);
+}
+
+.tanacsadas-page .page-section-shell--warm-white .page-cta__text {
+  color: var(--text-secondary);
 }
