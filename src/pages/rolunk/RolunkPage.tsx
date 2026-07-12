@@ -1,5 +1,6 @@
 import InnerPageHero from '../../components/pages/InnerPageHero';
 import PageSection from '../../components/pages/PageSection';
+import RolunkBeliefs from '../../components/rolunk/RolunkBeliefs';
 import { StaggerGrid, StaggerItem } from '../../components/pages/StaggerReveal';
 import {
   rolunkClosing,
@@ -7,7 +8,6 @@ import {
   rolunkStory,
   rolunkTeam,
   rolunkTestimonials,
-  rolunkValues,
 } from '../../content/rolunk';
 import './rolunk.css';
 
@@ -27,15 +27,7 @@ export default function RolunkPage() {
         </div>
       </PageSection>
 
-      <div className="page-divider" aria-hidden="true">
-        <span className="page-divider__mark" />
-      </div>
-
-      <PageSection tone="stone" label={rolunkValues.label} title={rolunkValues.title}>
-        <figure className="rolunk-values__figure">
-          <img src={rolunkValues.image} alt="" loading="lazy" />
-        </figure>
-      </PageSection>
+      <RolunkBeliefs />
 
       <PageSection tone="warm-white" label={rolunkTeam.label} title={rolunkTeam.title} accent>
         <StaggerGrid className="rolunk-team">

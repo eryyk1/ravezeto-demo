@@ -1,191 +1,64 @@
-.mentally-thoughts-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+@import '../../components/home/PremiumButton.css';
+
+.mentally-landing {
+  padding: clamp(3.5rem, 7vw, 6rem) 0;
+  background: linear-gradient(180deg, var(--white-warm) 0%, var(--stone-50) 100%);
+}
+
+.mentally-landing__inner {
   display: grid;
-  gap: 0.875rem;
-  max-width: 44rem;
-}
-
-.mentally-thoughts-list li {
-  position: relative;
-  padding: 1.125rem 1.375rem 1.125rem 1.625rem;
-  font-size: 1rem;
-  line-height: 1.55;
-  color: rgba(247, 246, 242, 0.88);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(129, 199, 132, 0.15);
-  border-radius: var(--radius-sm);
-  animation: mentally-fade-in 0.6s var(--ease-premium) both;
-  animation-delay: calc(var(--i, 0) * 0.08s);
-}
-
-.mentally-thoughts-list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: var(--green-light);
-  border-radius: 3px 0 0 3px;
-}
-
-@keyframes mentally-fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.mentally-product__image {
-  width: 100%;
-  max-width: 28rem;
-  height: auto;
-  margin: 0 auto;
-  display: block;
-}
-
-.mentally-section__image {
-  display: block;
-  width: min(100%, 52rem);
-  height: auto;
-  margin: 0 auto;
-  border-radius: var(--radius-md);
+  gap: clamp(2.5rem, 5vw, 4rem);
+  align-items: center;
 }
 
 @media (min-width: 900px) {
-  .mentally-product {
-    grid-template-columns: 1fr 1fr;
+  .mentally-landing__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: clamp(3rem, 6vw, 5rem);
   }
 }
 
-.mentally-product__visual {
-  position: relative;
+.mentally-landing__visual {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
-  padding: 2rem;
+  justify-content: center;
+  padding: clamp(2rem, 4vw, 3rem);
   background: linear-gradient(165deg, #0a2410 0%, #0f3312 100%);
   border: 1px solid rgba(129, 199, 132, 0.2);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
 }
 
-.mentally-product__visual > img {
-  width: min(100%, 180px);
+.mentally-landing__image {
+  width: min(100%, 280px);
   height: auto;
 }
 
-.mentally-product__dashboard {
-  width: 100%;
-  max-width: 320px;
-  padding: 1rem;
-  background: rgba(7, 21, 9, 0.6);
-  border: 1px solid rgba(129, 199, 132, 0.15);
-  border-radius: var(--radius-md);
-}
-
-.mentally-product__dash-header {
-  display: flex;
-  gap: 0.375rem;
-  margin-bottom: 1rem;
-}
-
-.mentally-product__dash-header span {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(129, 199, 132, 0.35);
-}
-
-.mentally-product__dash-body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.625rem;
-}
-
-.mentally-product__dash-bar {
-  height: 6px;
-  width: var(--w, 60%);
-  background: linear-gradient(90deg, var(--green-brand), var(--green-light));
-  border-radius: 3px;
-  opacity: 0.85;
-}
-
-.mentally-flow {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.625rem;
-  margin-top: 1.5rem;
-  font-family: var(--font-ui);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--green-forest);
-}
-
-.mentally-flow span[aria-hidden] {
-  color: var(--green-brand);
-  opacity: 0.6;
-}
-
-.mentally-features {
-  display: grid;
-  gap: 1.25rem;
-}
-
-@media (min-width: 768px) {
-  .mentally-features {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.mentally-features__item {
-  padding: 1.625rem;
-  background: var(--white-warm);
-  border: 1px solid rgba(27, 94, 32, 0.08);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow 0.35s ease, transform 0.35s var(--ease-premium);
-}
-
-.mentally-features__item:hover {
-  box-shadow: var(--shadow-card);
-  transform: translateY(-2px);
-}
-
-.mentally-features__item img {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 1rem;
-  opacity: 0.9;
-}
-
-.mentally-features__item h3 {
-  margin: 0 0 0.5rem;
+.mentally-landing__title {
+  margin: 0.75rem 0 1.25rem;
   font-family: var(--font-display);
-  font-size: 1.1875rem;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
   font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   color: var(--text-primary);
 }
 
-.mentally-features__item p {
-  margin: 0;
-  font-size: 0.9375rem;
-  line-height: 1.65;
+.mentally-landing__description {
+  margin: 0 0 2rem;
+  max-width: 36rem;
+  font-size: clamp(1rem, 1.6vw, 1.125rem);
+  line-height: 1.7;
   color: var(--text-secondary);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .mentally-thoughts-list li {
-    animation: none;
+.mentally-landing__cta {
+  display: inline-flex;
+}
+
+@media (max-width: 899px) {
+  .mentally-landing__cta {
+    width: 100%;
+    justify-content: center;
   }
 }

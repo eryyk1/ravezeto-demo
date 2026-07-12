@@ -1,19 +1,15 @@
+import { motion } from 'framer-motion';
 import InnerPageHero from '../../components/pages/InnerPageHero';
-import PageCta from '../../components/pages/PageCta';
-import PageSection from '../../components/pages/PageSection';
-import SectionShell from '../../components/shell/SectionShell';
-import {
-  mentallyCta,
-  mentallyHero,
-  mentallyProduct,
-  mentallyProductImage,
-  mentallySections,
-  mentallyThoughts,
-  mentallyThoughtsIntro,
-} from '../../content/mentally';
+import SectionLabel from '../../components/typography/SectionLabel';
+import { useReducedMotion } from '../../hooks/useReducedMotion';
+import { mentallyHero, mentallyLanding } from '../../content/mentally';
 import './mentally.css';
 
+const ease = [0.22, 1, 0.36, 1] as const;
+
 export default function MentallyPage() {
+  const reduced = useReducedMotion();
+
   return (
     <div className="page mentally-page">
       <InnerPageHero
@@ -24,61 +20,50 @@ export default function MentallyPage() {
         accent="product"
       />
 
-      <PageSection tone="warm-white" label={mentallyProduct.title} accent>
-        <div className="mentally-product">
-          <img
-            src={mentallyProductImage}
-            alt="Mentally termék"
-            className="mentally-product__image"
-            loading="lazy"
-          />
-          <div className="mentally-product__copy">
-            {mentallyProduct.paragraphs.map((p) => (
-              <p key={p.slice(0, 30)} className="page-section__lead">
-                {p}
-              </p>
-            ))}
-          </div>
+      <section className="mentally-landing" aria-labelledby="mentally-landing-title">
+        <div className="content-wrap mentally-landing__inner">
+          <motion.div
+            className="mentally-landing__visual"
+            initial={reduced ? false : { opacity: 0, scale: 0.96 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: '-10%' }}
+            transition={{ duration: 0.7, ease }}
+          >
+            <img
+              src={mentallyLanding.image}
+              alt="Mentally"
+              className="mentally-landing__image"
+              loading="lazy"
+            />
+          </motion.div>
+
+          <motion.div
+            className="mentally-landing__copy"
+            initial={reduced ? false : { opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-10%' }}
+            transition={{ duration: 0.7, delay: 0.1, ease }}
+          >
+            <SectionLabel>{mentallyLanding.eyebrow}</SectionLabel>
+            <h2 id="mentally-landing-title" className="mentally-landing__title">
+              {mentallyLanding.title}
+            </h2>
+            <p className="mentally-landing__description">{mentallyLanding.description}</p>
+            <a
+              href={mentallyLanding.ctaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="premium-btn premium-btn--solid mentally-landing__cta"
+            >
+              <span className="premium-btn__shine" aria-hidden="true" />
+              <span className="premium-btn__label">{mentallyLanding.cta}</span>
+              <span className="premium-btn__arrow" aria-hidden="true">
+                ↗
+              </span>
+            </a>
+          </motion.div>
         </div>
-      </PageSection>
-
-      <PageSection tone="graphite" title={mentallyThoughtsIntro} accent>
-        <ul className="mentally-thoughts-list">
-          {mentallyThoughts.map((thought, i) => (
-            <li key={thought} style={{ ['--i' as string]: i }}>
-              {thought}
-            </li>
-          ))}
-        </ul>
-      </PageSection>
-
-      {mentallySections.map((section) => (
-        <PageSection
-          key={section.label}
-          tone="stone"
-          label={section.label}
-          title={section.title || undefined}
-          accent
-        >
-          <img
-            src={section.image}
-            alt={section.title || section.label}
-            className="mentally-section__image"
-            loading="lazy"
-          />
-        </PageSection>
-      ))}
-
-      <SectionShell tone="green-deep">
-        <div className="content-wrap">
-          <PageCta
-            title={mentallyCta.title}
-            text={mentallyCta.text}
-            cta={mentallyCta.cta}
-            link={mentallyCta.link}
-          />
-        </div>
-      </SectionShell>
+      </section>
     </div>
   );
 }

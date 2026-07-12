@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import ConsultingFramework from '../../components/consulting/ConsultingFramework';
 import InnerPageHero from '../../components/pages/InnerPageHero';
 import PageSection from '../../components/pages/PageSection';
 import SectionLabel from '../../components/typography/SectionLabel';
 import {
-  tanacsadasChangeManagement,
   tanacsadasCoaching,
   tanacsadasCultureSections,
   tanacsadasHero,
@@ -60,24 +60,11 @@ export default function TanacsadasPage() {
         <p className="page-section__lead">{tanacsadasMotto}</p>
       </PageSection>
 
-      <PageSection
-        tone="stone"
-        label={tanacsadasChangeManagement.label}
-        title={tanacsadasChangeManagement.title}
-        accent
-        id="valtozasmenedzsment"
-      >
-        <div className="tanacsadas-culture page-prose">
-          <p>{tanacsadasChangeManagement.intro}</p>
-          <ul>
-            {tanacsadasChangeManagement.pillars.map((pillar) => (
-              <li key={pillar}>{pillar}</li>
-            ))}
-          </ul>
-        </div>
-      </PageSection>
+      <div id="valtozasmenedzsment">
+        <ConsultingFramework />
+      </div>
 
-      <PageSection tone="warm-white" id="coaching">
+      <PageSection tone="stone" id="coaching">
         <SectionLabel>Coaching</SectionLabel>
         <h2 className="page-section__title">{tanacsadasCoaching.title}</h2>
         <div className="tanacsadas-culture page-prose">

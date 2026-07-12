@@ -1,16 +1,19 @@
-/** /palyazatok — source: live https://www.ravezeto.hu/palyazatok/ + homepage section3 */
+/** /palyazatok — grants page content */
 
 import { euBranding } from '../data/media';
 
 export const palyazatokHero = {
   label: 'Pályázatok',
   title: 'Pályázatok',
-  intro:
-    'Fejlesszük közösen vállalatát pályázati forrásokból!\n\nA Rávezető minősített szervezetfejlesztő és képzési szolgáltatóként számtalan vállalati kihívásban tud segíteni Önnek.',
+  intro: '',
 } as const;
+
+export const palyazatokNoOpenGrants =
+  'Jelenleg nincs olyan nyitott pályázati lehetőség, amelyben együtt tudnánk működni. Amennyiben új lehetőség nyílik, ezen az oldalon tájékoztatjuk partnereinket.';
 
 export const palyazatokConsulting = {
   label: 'Tanácsadási tevékenységeink',
+  title: 'Nemzetközi és uniós projektek',
   paragraphs: [
     'Fejlesztésben gondolkodom, projektkeretben? Uniós forrásból?',
     'A munkaszervezetek egyedi fejlesztési céljaikat projektek keretében érik el. A hiányzó, vagy nem elég fejlett szabályozás, a projekt logikától eltérő szervezeti kultúra, a felkészült menedzserek hiánya akadályt képezhet a sikeres megvalósításban.',
@@ -18,15 +21,6 @@ export const palyazatokConsulting = {
     'Évtizedes tapasztalattal rendelkezünk EU-forrásból (ÁROP, TÁMOP) megvalósuló humánerőforrás- és közigazgatás-fejlesztési projektek, komplex fejlesztési programok tervezésében, menedzsmentjében.',
   ],
 } as const;
-
-export const palyazatokProjects = [
-  {
-    title: 'GINOP Plusz 3.2.1-21',
-    subtitle:
-      '„A munkavállalók és vállalatok alkalmazkodóképességének és termelékenységének javítása a munkaerő fejlesztésén keresztül”',
-    link: 'https://www.ravezeto.hu/ginop-plusz-3-2-1-21/',
-  },
-] as const;
 
 export const palyazatokEu = {
   image: euBranding.szechenyiBanner,
