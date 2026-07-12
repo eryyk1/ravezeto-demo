@@ -1,23 +1,16 @@
 import InnerPageHero from '../../components/pages/InnerPageHero';
-import PageCta from '../../components/pages/PageCta';
 import PageSection from '../../components/pages/PageSection';
-import SectionShell from '../../components/shell/SectionShell';
 import { StaggerGrid, StaggerItem } from '../../components/pages/StaggerReveal';
 import {
   felnottkepzesCategories,
+  felnottkepzesContact,
   felnottkepzesHero,
-  felnottkepzesIntro,
-  felnottkepzesProgrammes,
+  felnottkepzesLongIntro,
+  felnottkepzesMotto,
+  felnottkepzesProgrammeGroups,
   felnottkepzesReg,
 } from '../../content/felnottkepzes';
 import './felnottkepzes.css';
-
-const journeySteps = [
-  { step: '01', title: 'Igényfelmérés', text: 'Ügyfél igényeinek és tudásszintjének felmérése.' },
-  { step: '02', title: 'Programtervezés', text: 'Személyre és szervezetre szabott képzési terv.' },
-  { step: '03', title: 'Képzés', text: 'Minőségi, interaktív oktatás tapasztalt trénerekkel.' },
-  { step: '04', title: 'Értékelés', text: 'Visszajelzés, tanúsítvány, továbbfejlesztési javaslatok.' },
-] as const;
 
 export default function FelnottkepzesPage() {
   return (
@@ -29,8 +22,17 @@ export default function FelnottkepzesPage() {
         accent="education"
       />
 
-      <PageSection tone="warm-white" accent>
-        <p className="page-section__lead felnottkepzes-intro">{felnottkepzesIntro}</p>
+      <PageSection
+        tone="warm-white"
+        label={felnottkepzesLongIntro.label}
+        title={felnottkepzesLongIntro.title}
+        accent
+      >
+        <div className="page-prose">
+          {felnottkepzesLongIntro.paragraphs.map((p) => (
+            <p key={p.slice(0, 30)}>{p}</p>
+          ))}
+        </div>
         <div className="felnottkepzes-reg">
           {Object.values(felnottkepzesReg).map((line) => (
             <span key={line} className="felnottkepzes-reg__badge">
@@ -40,25 +42,14 @@ export default function FelnottkepzesPage() {
         </div>
       </PageSection>
 
-      <PageSection tone="stone" label="Tanulási út" title="A képzési folyamat">
-        <ol className="felnottkepzes-journey">
-          {journeySteps.map((s) => (
-            <li key={s.step}>
-              <span className="felnottkepzes-journey__step">{s.step}</span>
-              <div>
-                <h3>{s.title}</h3>
-                <p>{s.text}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
+      <PageSection tone="stone">
+        <p className="page-section__lead">{felnottkepzesMotto}</p>
       </PageSection>
 
       <PageSection tone="warm-white" label="Képzési területek" title="Főbb képzési területeink" accent>
         <StaggerGrid className="felnottkepzes-categories">
           {felnottkepzesCategories.map((cat) => (
             <StaggerItem key={cat.title} className="felnottkepzes-categories__item">
-              <img src={cat.illustration} alt="" aria-hidden="true" />
               <div>
                 <h3>{cat.title}</h3>
                 <p>{cat.text}</p>
@@ -70,26 +61,38 @@ export default function FelnottkepzesPage() {
 
       <PageSection tone="stone" label="Programok" title="Referencia képzéseink">
         <div className="felnottkepzes-programmes">
-          {felnottkepzesProgrammes.map((prog, i) => (
-            <div key={prog.title} className="felnottkepzes-programmes__row">
-              <span className="felnottkepzes-programmes__num">{String(i + 1).padStart(2, '0')}</span>
-              <span className="felnottkepzes-programmes__title">{prog.title}</span>
-              <span className="felnottkepzes-programmes__hours">{prog.hours}</span>
+          {felnottkepzesProgrammeGroups.map((group) => (
+            <div key={group.title} className="felnottkepzes-programmes__group">
+              <h3>{group.title}</h3>
+              <ul>
+                {group.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
       </PageSection>
 
-      <SectionShell tone="green-deep">
-        <div className="content-wrap">
-          <PageCta
-            title="Kérjen ajánlatot képzésre"
-            text="Szervezetre szabott, minőségi felnőttképzési programok."
-            cta="Kapcsolatfelvétel"
-            link="/kapcsolat"
-          />
+      <PageSection tone="warm-white" label="Kapcsolat" title="Elérhetőség">
+        <div className="felnottkepzes-contact page-prose">
+          <div>
+            <h3>{felnottkepzesContact.customerService.title}</h3>
+            <p>{felnottkepzesContact.customerService.address}</p>
+            <p>{felnottkepzesContact.customerService.hours}</p>
+          </div>
+          <div>
+            <h3>{felnottkepzesContact.office.title}</h3>
+            <p>
+              <a href={felnottkepzesContact.office.mapUrl} target="_blank" rel="noreferrer">
+                {felnottkepzesContact.office.address}
+                <br />
+                {felnottkepzesContact.office.note}
+              </a>
+            </p>
+          </div>
         </div>
-      </SectionShell>
+      </PageSection>
     </div>
   );
 }

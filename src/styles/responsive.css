@@ -263,7 +263,7 @@
   }
 
   .rolunk-team__card--featured .rolunk-team__photo {
-    aspect-ratio: 1;
+    aspect-ratio: 4 / 5;
   }
 
   .rolunk-testimonials {
@@ -403,23 +403,23 @@
 
 @media (max-width: 639px) {
   .referenciak-logo-wall {
-    grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
-    gap: 0.625rem;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.875rem;
   }
 
   .referenciak-logo-wall__item {
-    padding: 0.75rem 0.5rem;
-    min-height: 64px;
+    padding: 1rem 0.75rem;
+    min-height: 88px;
   }
 
   .referenciak-partners {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 0.625rem;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.875rem;
   }
 
   .referenciak-partners__item {
-    padding: 0.875rem 0.625rem;
-    min-height: 72px;
+    padding: 1rem 0.75rem;
+    min-height: 88px;
   }
 }
 

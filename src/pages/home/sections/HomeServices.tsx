@@ -17,8 +17,12 @@ export default function HomeServices() {
         <header className="home-section-head">
           <h2 className="home-section-head__title">
             {homeServicesIntro.title}
-            <br />
-            {homeServicesIntro.titleLine2}
+            {homeServicesIntro.titleLine2 ? (
+              <>
+                <br />
+                {homeServicesIntro.titleLine2}
+              </>
+            ) : null}
           </h2>
         </header>
 

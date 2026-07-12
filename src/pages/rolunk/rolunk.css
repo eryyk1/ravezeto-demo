@@ -124,10 +124,6 @@
     grid-column: span 3;
     grid-row: span 1;
   }
-
-  .rolunk-team__card--featured .rolunk-team__photo {
-    aspect-ratio: 4 / 3;
-  }
 }
 
 .rolunk-team__card {
@@ -150,10 +146,21 @@
 
 .rolunk-team__photo {
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: top center;
   background: var(--green-forest);
+}
+
+.rolunk-values__figure {
+  margin: 0;
+  max-width: 42rem;
+}
+
+.rolunk-values__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .rolunk-team__body {

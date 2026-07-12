@@ -2,11 +2,11 @@ import InnerPageHero from '../../components/pages/InnerPageHero';
 import PageSection from '../../components/pages/PageSection';
 import { StaggerGrid, StaggerItem } from '../../components/pages/StaggerReveal';
 import {
+  rolunkClosing,
   rolunkHero,
   rolunkStory,
   rolunkTeam,
   rolunkTestimonials,
-  rolunkTimeline,
   rolunkValues,
 } from '../../content/rolunk';
 import './rolunk.css';
@@ -22,18 +22,8 @@ export default function RolunkPage() {
       />
 
       <PageSection tone="warm-white" label={rolunkStory.label} title={rolunkStory.title} accent>
-        <div className="rolunk-story">
-          <div className="rolunk-story__prose page-prose">
-            {rolunkStory.paragraphs.map((p) => (
-              <p key={p.slice(0, 24)}>{p}</p>
-            ))}
-          </div>
-          <aside className="rolunk-story__aside">
-            <p className="rolunk-story__motto">Citius · Altius · Fortius</p>
-            <p className="rolunk-story__note">
-              Emberközpontú szervezetfejlesztés — közös gondolkodással, elhivatott szakemberekkel.
-            </p>
-          </aside>
+        <div className="rolunk-story__prose page-prose">
+          <p>{rolunkStory.paragraph}</p>
         </div>
       </PageSection>
 
@@ -41,27 +31,13 @@ export default function RolunkPage() {
         <span className="page-divider__mark" />
       </div>
 
-      <PageSection tone="stone" label="Történet" title="Kulcsfontosságú mérföldkövek">
-        <ol className="rolunk-timeline">
-          {rolunkTimeline.map((item) => (
-            <li key={item.year} className="rolunk-timeline__item">
-              <span className="rolunk-timeline__year">{item.year}</span>
-              <div>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
+      <PageSection tone="stone" label={rolunkValues.label} title={rolunkValues.title}>
+        <figure className="rolunk-values__figure">
+          <img src={rolunkValues.image} alt="" loading="lazy" />
+        </figure>
       </PageSection>
 
-      <PageSection
-        tone="warm-white"
-        label={rolunkTeam.label}
-        title={rolunkTeam.title}
-        lead={rolunkTeam.intro}
-        accent
-      >
+      <PageSection tone="warm-white" label={rolunkTeam.label} title={rolunkTeam.title} accent>
         <StaggerGrid className="rolunk-team">
           {rolunkTeam.members.map((member) => (
             <StaggerItem
@@ -78,18 +54,7 @@ export default function RolunkPage() {
         </StaggerGrid>
       </PageSection>
 
-      <PageSection tone="stone" label={rolunkValues.label} title={rolunkValues.title}>
-        <StaggerGrid className="rolunk-values">
-          {rolunkValues.items.map((item) => (
-            <StaggerItem key={item.title} className="rolunk-values__item">
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </StaggerItem>
-          ))}
-        </StaggerGrid>
-      </PageSection>
-
-      <PageSection tone="green-forest" title="Partnereink mondták" accent>
+      <PageSection tone="green-forest" label="Ügyfeleink" title="Ügyfeleink mondták" accent>
         <StaggerGrid className="rolunk-testimonials">
           {rolunkTestimonials.map((t) => (
             <StaggerItem key={t.author} className="rolunk-testimonials__item">
@@ -101,6 +66,10 @@ export default function RolunkPage() {
             </StaggerItem>
           ))}
         </StaggerGrid>
+      </PageSection>
+
+      <PageSection tone="stone">
+        <p className="page-section__lead">{rolunkClosing}</p>
       </PageSection>
     </div>
   );

@@ -42,10 +42,20 @@
   }
 }
 
-.mentally-product {
-  display: grid;
-  gap: clamp(2rem, 4vw, 3rem);
-  align-items: center;
+.mentally-product__image {
+  width: 100%;
+  max-width: 28rem;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+.mentally-section__image {
+  display: block;
+  width: min(100%, 52rem);
+  height: auto;
+  margin: 0 auto;
+  border-radius: var(--radius-md);
 }
 
 @media (min-width: 900px) {

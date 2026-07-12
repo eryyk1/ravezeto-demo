@@ -1,4 +1,4 @@
-/** /kapcsolat — backup: template_kapcsolatok.php + company data */
+/** /kapcsolat — source: live https://www.ravezeto.hu/kapcsolatok/ */
 
 import { company } from './company';
 
@@ -11,56 +11,32 @@ export const kapcsolatHero = {
 export const kapcsolatDetails = [
   {
     title: 'Ügyfélszolgálat',
-    lines: [company.address, 'H–P: 9.00–16.00'],
+    lines: [company.address, 'H-P: 9.00-16.00'],
   },
   {
     title: 'Irodánk',
     lines: [company.address, '6. kapucsengő'],
-  },
-  {
-    title: 'Elérhetőségek',
-    lines: [company.phone, company.email, company.website],
     links: [
-      { label: company.phone, href: `tel:${company.phone.replace(/\s/g, '')}` },
-      { label: company.email, href: `mailto:${company.email}` },
+      {
+        label: company.address,
+        href: 'https://www.google.com/maps/search/1146+Budapest,+Izs%C3%B3+u.+7.+1%2F3./@47.5082165,19.0917401,200m/data=!3m1!1e3',
+      },
     ],
   },
   {
-    title: 'Felnőttképzés',
-    lines: [company.trainingReg, `E-mail: ${company.trainingEmail}`],
-    links: [{ label: company.trainingEmail, href: `mailto:${company.trainingEmail}` }],
+    title: 'Telefonszám',
+    lines: [company.phone],
+    links: [{ label: company.phone, href: `tel:${company.phone.replace(/\s/g, '')}` }],
   },
 ] as const;
 
 export const kapcsolatForm = {
-  title: 'Írjon nekünk',
-  intro:
-    'Kérjen ajánlatot tanácsadásra, képzésre vagy a Mentally termékre. Munkatársaink 1–2 munkanapon belül válaszolnak.',
+  title: 'Üzenet',
   fields: [
-    { name: 'name', label: 'Név', type: 'text', required: true },
-    { name: 'email', label: 'E-mail', type: 'email', required: true },
-    { name: 'phone', label: 'Telefon', type: 'tel', required: false },
-    { name: 'subject', label: 'Tárgy', type: 'text', required: true },
-    { name: 'message', label: 'Üzenet', type: 'textarea', required: true },
+    { name: 'name', label: 'Név', type: 'text', required: true, placeholder: 'Név *' },
+    { name: 'email', label: 'Email cím', type: 'email', required: true, placeholder: 'Email cím *' },
+    { name: 'message', label: 'Üzenet', type: 'textarea', required: true, placeholder: 'Üzenet *' },
   ],
-  submit: 'Üzenet küldése',
-  action: 'https://formspree.io/f/YOUR_FORM_ID',
-} as const;
-
-export const kapcsolatMap = {
-  title: 'Hol talál minket',
-  address: company.address,
-  embedUrl:
-    'https://maps.google.com/maps?q=1146+Budapest+Izs%C3%B3+u.+7.&output=embed',
-} as const;
-
-export const kapcsolatImpresszum = {
-  title: 'Impresszum',
-  lines: [
-    `Cégnév: ${company.name}`,
-    `Székhely: ${company.address}`,
-    `Telefon: ${company.phone}`,
-    `E-mail: ${company.email}`,
-    `Web: ${company.website}`,
-  ],
+  submit: 'Küldés',
+  action: 'https://ravezeto.hu/wp-admin/admin-ajax.php',
 } as const;

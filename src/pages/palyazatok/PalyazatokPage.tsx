@@ -1,15 +1,12 @@
 import InnerPageHero from '../../components/pages/InnerPageHero';
-import PageCta from '../../components/pages/PageCta';
 import PageSection from '../../components/pages/PageSection';
 import SectionShell from '../../components/shell/SectionShell';
 import { StaggerGrid, StaggerItem } from '../../components/pages/StaggerReveal';
 import {
+  palyazatokConsulting,
   palyazatokEu,
   palyazatokHero,
-  palyazatokIntro,
-  palyazatokProcess,
   palyazatokProjects,
-  palyazatokServices,
 } from '../../content/palyazatok';
 import './palyazatok.css';
 
@@ -23,36 +20,28 @@ export default function PalyazatokPage() {
         accent="official"
       />
 
-      <PageSection tone="warm-white" accent>
-        <p className="page-section__lead palyazatok-intro">{palyazatokIntro}</p>
-        <ul className="palyazatok-services">
-          {palyazatokServices.map((s) => (
-            <li key={s}>{s}</li>
+      <PageSection
+        tone="warm-white"
+        label={palyazatokConsulting.label}
+        accent
+      >
+        <div className="page-prose">
+          {palyazatokConsulting.paragraphs.map((p) => (
+            <p key={p.slice(0, 30)}>{p}</p>
           ))}
-        </ul>
+        </div>
       </PageSection>
 
-      <PageSection tone="stone" label="Folyamat" title="Pályázati támogatás lépései">
-        <ol className="palyazatok-process">
-          {palyazatokProcess.map((step) => (
-            <li key={step.step}>
-              <span className="palyazatok-process__num">{step.step}</span>
-              <div>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </PageSection>
-
-      <PageSection tone="warm-white" label="Projektek" title="Támogatott projektjeink">
+      <PageSection tone="stone" label="Pályázatok" title="Aktuális pályázataink">
         <StaggerGrid className="palyazatok-projects">
           {palyazatokProjects.map((proj) => (
             <StaggerItem key={proj.title} className="palyazatok-project">
-              <h3>{proj.title}</h3>
+              <h3>
+                <a href={proj.link} target="_blank" rel="noreferrer">
+                  {proj.title}
+                </a>
+              </h3>
               <p className="palyazatok-project__sub">{proj.subtitle}</p>
-              <p>{proj.text}</p>
             </StaggerItem>
           ))}
         </StaggerGrid>
@@ -67,17 +56,6 @@ export default function PalyazatokPage() {
             loading="lazy"
           />
           <p>{palyazatokEu.text}</p>
-        </div>
-      </SectionShell>
-
-      <SectionShell tone="green-deep">
-        <div className="content-wrap">
-          <PageCta
-            title="Pályázati tanácsadás"
-            text="Beszéljük meg, hogyan tudunk segíteni uniós vagy hazai forrásból."
-            cta="Kapcsolatfelvétel"
-            link="/kapcsolat"
-          />
         </div>
       </SectionShell>
     </div>
