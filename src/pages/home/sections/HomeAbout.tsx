@@ -20,7 +20,14 @@ export default function HomeAbout() {
           viewport={{ once: true, margin: '-10%' }}
           transition={{ duration: 0.8, ease }}
         >
-          <img src={homeAbout.image} alt="" width={800} height={600} loading="lazy" />
+          <img
+            src={homeAbout.image}
+            alt="Rávezető csapat — szervezetfejlesztés"
+            width={1200}
+            height={900}
+            loading="lazy"
+            decoding="async"
+          />
           <figcaption className="home-about__overlay">
             {homeAbout.overlayLines.map((line) => (
               <span key={line}>{line}</span>

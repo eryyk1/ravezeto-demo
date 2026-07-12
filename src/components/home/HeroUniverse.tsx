@@ -24,7 +24,7 @@ const ORBITAL_RINGS = [
   { rx: 26, ry: 38, opacity: 0.06, duration: 26 },
 ] as const;
 
-const STAGE_PARTICLES = Array.from({ length: 20 }, (_, i) => ({
+const STAGE_PARTICLES = Array.from({ length: 12 }, (_, i) => ({
   id: i,
   x: 15 + ((i * 17) % 70),
   y: 12 + ((i * 23) % 76),

@@ -44,6 +44,9 @@
 .home-funding__badge img {
   width: clamp(160px, 18vw, 220px);
   height: auto;
+  max-height: 96px;
+  object-fit: contain;
+  display: block;
 }
 
 @media (max-width: 599px) {

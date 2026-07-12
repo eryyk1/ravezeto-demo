@@ -62,7 +62,6 @@
   height: 100%;
   object-fit: contain;
   object-position: right center;
-  opacity: 0.35;
 }
 
 .home-quote__boat {
@@ -71,8 +70,8 @@
   bottom: 8%;
   width: clamp(40px, 5vw, 56px);
   height: auto;
-  opacity: 0.2;
-  filter: brightness(0) saturate(100%) invert(30%) sepia(20%) saturate(800%) hue-rotate(90deg);
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(36%) sepia(18%) saturate(700%) hue-rotate(88deg);
 }
 
 @media (max-width: 767px) {

@@ -168,14 +168,7 @@
   width: 28px;
   height: 28px;
   object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(78%) sepia(14%) saturate(627%) hue-rotate(72deg) brightness(95%);
-  opacity: 0.92;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.home-hero__trust li:hover .home-hero__trust-icon img {
-  opacity: 1;
-  transform: translateY(-1px);
+  filter: brightness(0) saturate(100%) invert(82%) sepia(12%) saturate(520%) hue-rotate(72deg) brightness(102%);
 }
 
 .home-hero__trust-label {

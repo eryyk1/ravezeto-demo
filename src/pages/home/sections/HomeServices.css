@@ -42,9 +42,9 @@
 }
 
 .home-services__icon img {
-  width: 32px;
-  height: auto;
-  opacity: 0.85;
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
 }
 
 .home-services__name {

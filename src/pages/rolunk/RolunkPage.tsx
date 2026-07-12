@@ -29,6 +29,10 @@ export default function RolunkPage() {
 
       <RolunkBeliefs />
 
+      <div className="page-divider" aria-hidden="true">
+        <span className="page-divider__mark" />
+      </div>
+
       <PageSection tone="warm-white" label={rolunkTeam.label} title={rolunkTeam.title} accent>
         <div className="rolunk-team">
           {rolunkTeam.members.map((member) => (

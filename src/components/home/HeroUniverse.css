@@ -7,6 +7,7 @@
   align-items: center;
   justify-content: center;
   overflow: visible;
+  contain: layout style;
 }
 
 .hero-universe__ambient {
@@ -52,6 +53,7 @@
   aspect-ratio: 1;
   will-change: transform;
   z-index: 1;
+  transform: translateZ(0);
 }
 
 .hero-universe__ring-layer {

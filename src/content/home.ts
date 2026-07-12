@@ -1,5 +1,7 @@
 /** Homepage content — non-hero sections from live https://www.ravezeto.hu */
 
+import { euBranding, mentallyImages, themeImage } from '../data/media';
+
 export const homeHero = {
   label: 'Stratégia. Emberek. Változás.',
   headlineLines: ['Változásokat', 'vezetünk,', 'együtt!'] as const,
@@ -9,14 +11,14 @@ export const homeHero = {
   ctaPrimaryLink: '/tanacsadas',
   ctaSecondary: 'Rólunk',
   ctaSecondaryLink: '/rolunk',
-  image: '/assets/images/home/section1_back.png',
+  image: themeImage('section1_back.png'),
   fundingLabel: 'Támogatott projektjeink',
 } as const;
 
 export const homeTrustPoints = [
-  { label: 'Emberközpontú szemlélet', icon: '/assets/images/home/teamIcon.png' },
-  { label: 'Gyakorlati megoldások', icon: '/assets/images/home/chessIcon.png' },
-  { label: 'Mérhető eredmények', icon: '/assets/images/home/crownIcon.png' },
+  { label: 'Emberközpontú szemlélet', icon: themeImage('teamIcon.png') },
+  { label: 'Gyakorlati megoldások', icon: themeImage('chessIcon.png') },
+  { label: 'Mérhető eredmények', icon: themeImage('crownIcon.png') },
 ] as const;
 
 export const homeQuote = {
@@ -33,7 +35,7 @@ export const homeAbout = {
   text: 'Közösen hajlítjuk a teret, alakítjuk az egészségesebb vállalati jövőt.',
   cta: 'Bővebben',
   link: '/rolunk',
-  image: '/assets/images/home/section1_back.png',
+  image: themeImage('section1_back.png'),
 } as const;
 
 export const homeMotto =
@@ -137,8 +139,8 @@ export const homeMentally = {
   text: 'A Mentally megmutatja vállalata egészségének térképét!',
   cta: 'Bővebben',
   link: '/mentally',
-  image: '/assets/images/mentally.webp',
-  productImage: '/assets/images/mentally1_grouped.png',
+  image: mentallyImages.brand,
+  productImage: mentallyImages.product,
 } as const;
 
 export const homeContact = {
@@ -149,12 +151,12 @@ export const homeContact = {
 } as const;
 
 export const homeEuMark = {
-  image: '/assets/images/Szechenyi-2020-logo.png',
+  image: euBranding.szechenyiLogo,
   alt: 'Széchenyi 2020 — Európai Unió',
   link: '/palyazatok',
 } as const;
 
 export const homeQuoteVisual = {
-  ship: '/assets/images/home/paralax_harom_flat_rev.png',
-  boat: '/assets/images/home/boatIcon.png',
+  ship: themeImage('paralax_harom_flat_rev.png'),
+  boat: themeImage('boatIcon.png'),
 } as const;

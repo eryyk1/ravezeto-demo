@@ -38,7 +38,7 @@ export default function HomeMentally() {
           >
             <img
               src={homeMentally.productImage}
-              alt=""
+              alt="Mentally termék előnézet"
               width={640}
               height={480}
               loading="lazy"
