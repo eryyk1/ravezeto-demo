@@ -313,49 +313,28 @@
 
 /* ── Referenciák ── */
 @media (max-width: 767px) {
-  .referenciak-category__head {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.25rem;
+  .reference-featured__logo {
+    min-height: 6rem;
+    padding: 1rem 1.125rem;
   }
 
-  .referenciak-category__head img {
-    width: 56px;
-    height: 56px;
+  .reference-featured__logo img {
+    max-height: 4.5rem;
   }
 
-  .referenciak-case {
-    padding: 1.25rem;
-  }
-}
-
-@media (max-width: 639px) {
-  .referenciak-logo-wall {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 0.875rem;
+  .reference-portfolio__filters {
+    width: 100%;
   }
 
-  .referenciak-logo-wall__item {
-    padding: 1rem 0.75rem;
-    min-height: 88px;
-  }
-
-  .referenciak-partners {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 0.875rem;
-  }
-
-  .referenciak-partners__item {
-    padding: 1rem 0.75rem;
-    min-height: 88px;
+  .reference-portfolio__filter {
+    flex: 1 1 auto;
+    text-align: center;
   }
 }
 
 @media (max-width: 359px) {
-  .referenciak-logo-wall {
-    grid-template-columns: repeat(2, 1fr);
+  .reference-portfolio__grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -466,7 +445,7 @@
   .page-section__lead,
   .page-prose p,
   .rolunk-team__body p,
-  .referenciak-case p,
+  .reference-quotes__item blockquote,
   .palyazatok-project p,
   .kapcsolat-card p {
     overflow-wrap: break-word;
