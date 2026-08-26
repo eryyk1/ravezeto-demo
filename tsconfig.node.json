@@ -11,12 +11,9 @@
     "moduleDetection": "force",
     "noEmit": true,
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true,
-    "types": ["node"]
+    "allowJs": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
   },
-  "include": ["vite.config.ts", "vite.adminAuthPlugin.ts", "api/**/*.ts"]
+  "include": ["vite.config.ts", "vite.adminAuthPlugin.ts", "api/**/*.js"]
 }

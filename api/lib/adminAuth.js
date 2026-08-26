@@ -1,13 +1,6 @@
-import type { IncomingMessage, ServerResponse } from 'node:http';
-import { createHmac, timingSafeEqual } from 'node:crypto';
+import { createHmac, timingSafeEqual } from 'crypto';
 
-type JwtPayload = {
-  sub: string;
-  email: string;
-  exp: number;
-};
-
-function base64UrlEncode(value: string | Buffer) {
+function base64UrlEncode(value) {
   return Buffer.from(value)
     .toString('base64')
     .replace(/\+/g, '-')
@@ -15,12 +8,12 @@ function base64UrlEncode(value: string | Buffer) {
     .replace(/=+$/, '');
 }
 
-function base64UrlDecode(value: string) {
+function base64UrlDecode(value) {
   const padded = value + '='.repeat((4 - (value.length % 4)) % 4);
   return Buffer.from(padded.replace(/-/g, '+').replace(/_/g, '/'), 'base64').toString('utf8');
 }
 
-export function signAdminToken(payload: Omit<JwtPayload, 'exp'>, secret: string, ttlMs = 8 * 60 * 60 * 1000) {
+export function signAdminToken(payload, secret, ttlMs = 8 * 60 * 60 * 1000) {
   const header = base64UrlEncode(JSON.stringify({ alg: 'HS256', typ: 'JWT' }));
   const body = base64UrlEncode(
     JSON.stringify({
@@ -32,7 +25,7 @@ export function signAdminToken(payload: Omit<JwtPayload, 'exp'>, secret: string,
   return `${header}.${body}.${signature}`;
 }
 
-export function verifyAdminToken(token: string, secret: string): JwtPayload | null {
+export function verifyAdminToken(token, secret) {
   const parts = token.split('.');
   if (parts.length !== 3) return null;
   const [header, body, signature] = parts;
@@ -47,7 +40,7 @@ export function verifyAdminToken(token: string, secret: string): JwtPayload | nu
   }
 
   try {
-    const payload = JSON.parse(base64UrlDecode(body)) as JwtPayload;
+    const payload = JSON.parse(base64UrlDecode(body));
     if (!payload.exp || payload.exp < Date.now()) return null;
     return payload;
   } catch {
@@ -55,32 +48,11 @@ export function verifyAdminToken(token: string, secret: string): JwtPayload | nu
   }
 }
 
-export async function readJsonBody<T>(req: IncomingMessage): Promise<T> {
-  const chunks: Buffer[] = [];
-  for await (const chunk of req) {
-    chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
-  }
-  const raw = Buffer.concat(chunks).toString('utf8');
-  return JSON.parse(raw) as T;
-}
-
-export function sendJson(res: ServerResponse, status: number, body: unknown) {
-  res.statusCode = status;
-  res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.stringify(body));
-}
-
-export function getBearerToken(req: IncomingMessage): string | null {
-  const header = req.headers.authorization;
-  if (!header?.startsWith('Bearer ')) return null;
-  return header.slice(7);
-}
-
-export function getAdminSecret(): string | null {
+export function getAdminSecret() {
   return process.env.ADMIN_JWT_SECRET ?? null;
 }
 
-export function validateAdminCredentials(email: string, password: string): boolean {
+export function validateAdminCredentials(email, password) {
   const adminEmail = process.env.ADMIN_EMAIL;
   const adminPassword = process.env.ADMIN_PASSWORD;
   if (!adminEmail || !adminPassword) return false;

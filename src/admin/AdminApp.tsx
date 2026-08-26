@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { AdminUiProvider } from './context/AdminUiContext';
@@ -16,10 +17,19 @@ import PalyazatokEditPage from './pages/palyazatok/PalyazatokEditPage';
 import SectionPlaceholderPage from './pages/SectionPlaceholderPage';
 import './admin.css';
 
+function AdminBodyClass() {
+  useEffect(() => {
+    document.body.classList.add('admin-mode');
+    return () => document.body.classList.remove('admin-mode');
+  }, []);
+  return null;
+}
+
 export default function AdminApp() {
   return (
     <AuthProvider>
       <AdminUiProvider>
+        <AdminBodyClass />
         <Routes>
           <Route path="login" element={<AdminLoginPage />} />
           <Route element={<ProtectedAdminRoute />}>

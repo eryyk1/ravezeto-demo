@@ -13,7 +13,8 @@ export default function AdminLoginPage() {
 
   const redirectTo =
     (location.state as { from?: string } | null)?.from ?? '/admin/dashboard';
-  const safeRedirect = redirectTo === '/admin' || redirectTo === '/admin/' ? '/admin/dashboard' : redirectTo;
+  const safeRedirect =
+    redirectTo === '/admin' || redirectTo === '/admin/' ? '/admin/dashboard' : redirectTo;
 
   if (!loading && session) {
     return <Navigate to={safeRedirect} replace />;
@@ -34,45 +35,73 @@ export default function AdminLoginPage() {
 
   return (
     <div className="admin-login">
-      <form className="admin-login__card" onSubmit={handleSubmit}>
-        <div className="admin-login__brand">
-          <span>Rávezető</span>
-          <strong>Admin belépés</strong>
+      <div className="admin-login__bg" aria-hidden="true">
+        <div className="admin-login__grid" />
+        <div className="admin-login__glow admin-login__glow--1" />
+        <div className="admin-login__glow admin-login__glow--2" />
+      </div>
+
+      <div className="admin-login__layout">
+        <div className="admin-login__hero">
+          <div className="admin-login__hero-mark">R</div>
+          <h1>Rávezető</h1>
+          <p>Tartalomkezelő rendszer a weboldal szerkesztéséhez.</p>
         </div>
-        <p className="admin-login__intro">
-          A tartalomkezelő védett. Jelentkezzen be a weboldal szerkesztéséhez.
-        </p>
 
-        <label className="admin-field">
-          <span className="admin-field__label">Email</span>
-          <input
-            className="admin-input"
-            type="email"
-            autoComplete="username"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            required
-          />
-        </label>
+        <form className="admin-login__card" onSubmit={handleSubmit}>
+          <div className="admin-login__card-head">
+            <strong>Admin belépés</strong>
+            <span>Jelentkezzen be a folytatáshoz</span>
+          </div>
 
-        <label className="admin-field">
-          <span className="admin-field__label">Jelszó</span>
-          <input
-            className="admin-input"
-            type="password"
-            autoComplete="current-password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            required
-          />
-        </label>
+          <label className="admin-field">
+            <span className="admin-field__label">Email cím</span>
+            <input
+              className="admin-input"
+              type="email"
+              autoComplete="username"
+              placeholder="pelda@ravezeto.hu"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              required
+            />
+          </label>
 
-        {error ? <p className="admin-login__error">{error}</p> : null}
+          <label className="admin-field">
+            <span className="admin-field__label">Jelszó</span>
+            <input
+              className="admin-input"
+              type="password"
+              autoComplete="current-password"
+              placeholder="••••••••"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              required
+            />
+          </label>
 
-        <button className="admin-btn admin-btn--primary" type="submit" disabled={submitting}>
-          {submitting ? 'Bejelentkezés…' : 'Bejelentkezés'}
-        </button>
-      </form>
+          {error ? (
+            <div className="admin-login__error" role="alert">
+              {error}
+            </div>
+          ) : null}
+
+          <button
+            className="admin-btn admin-btn--primary admin-btn--block"
+            type="submit"
+            disabled={submitting}
+          >
+            {submitting ? (
+              <>
+                <span className="admin-btn__spinner" aria-hidden="true" />
+                Bejelentkezés…
+              </>
+            ) : (
+              'Bejelentkezés'
+            )}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

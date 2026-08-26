@@ -1,17 +1,45 @@
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useAdminUi } from '../context/AdminUiContext';
+import {
+  IconDashboard,
+  IconExternal,
+  IconGrant,
+  IconHandshake,
+  IconHome,
+  IconLogout,
+  IconPages,
+  IconSettings,
+  IconStar,
+  IconUsers,
+} from '../components/AdminIcons';
 
-const NAV_ITEMS = [
-  { to: '/admin/dashboard', label: 'Dashboard', end: true },
-  { to: '/admin/home', label: 'Kezdőlap' },
-  { to: '/admin/rolunk', label: 'Rólunk' },
-  { to: '/admin/szolgaltatasok', label: 'Szolgáltatások' },
-  { to: '/admin/team', label: 'Csapat' },
-  { to: '/admin/references', label: 'Referenciák' },
-  { to: '/admin/partners', label: 'Partnerek' },
-  { to: '/admin/palyazatok', label: 'Pályázatok' },
-  { to: '/admin/settings', label: 'Beállítások' },
+const NAV_SECTIONS = [
+  {
+    title: null,
+    items: [{ to: '/admin/dashboard', label: 'Dashboard', icon: IconDashboard, end: true }],
+  },
+  {
+    title: 'Weboldal',
+    items: [
+      { to: '/admin/home', label: 'Kezdőlap', icon: IconHome },
+      { to: '/admin/rolunk', label: 'Rólunk', icon: IconPages },
+      { to: '/admin/szolgaltatasok', label: 'Szolgáltatások', icon: IconPages },
+    ],
+  },
+  {
+    title: 'Tartalom',
+    items: [
+      { to: '/admin/team', label: 'Csapat', icon: IconUsers },
+      { to: '/admin/references', label: 'Referenciák', icon: IconStar },
+      { to: '/admin/partners', label: 'Partnerek', icon: IconHandshake },
+      { to: '/admin/palyazatok', label: 'Pályázatok', icon: IconGrant },
+    ],
+  },
+  {
+    title: 'Rendszer',
+    items: [{ to: '/admin/settings', label: 'Beállítások', icon: IconSettings }],
+  },
 ] as const;
 
 export default function AdminSidebar() {
@@ -27,33 +55,51 @@ export default function AdminSidebar() {
       />
       <aside className={`admin-sidebar${sidebarOpen ? ' is-open' : ''}`}>
         <div className="admin-sidebar__brand">
-          <span className="admin-sidebar__logo">Rávezető</span>
-          <span className="admin-sidebar__badge">Admin</span>
+          <div className="admin-sidebar__mark" aria-hidden="true">
+            R
+          </div>
+          <div>
+            <span className="admin-sidebar__logo">Rávezető</span>
+            <span className="admin-sidebar__badge">Tartalomkezelő</span>
+          </div>
         </div>
 
         <nav className="admin-sidebar__nav" aria-label="Admin navigáció">
-          {NAV_ITEMS.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={'end' in item ? item.end : false}
-              className={({ isActive }) =>
-                `admin-sidebar__link${isActive ? ' is-active' : ''}`
-              }
-              onClick={() => setSidebarOpen(false)}
-            >
-              {item.label}
-            </NavLink>
+          {NAV_SECTIONS.map((section) => (
+            <div className="admin-sidebar__section" key={section.title ?? 'root'}>
+              {section.title ? (
+                <div className="admin-sidebar__section-title">{section.title}</div>
+              ) : null}
+              {section.items.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <NavLink
+                    key={item.to}
+                    to={item.to}
+                    end={'end' in item ? item.end : false}
+                    className={({ isActive }) =>
+                      `admin-sidebar__link${isActive ? ' is-active' : ''}`
+                    }
+                    onClick={() => setSidebarOpen(false)}
+                  >
+                    <Icon className="admin-sidebar__icon" />
+                    <span>{item.label}</span>
+                  </NavLink>
+                );
+              })}
+            </div>
           ))}
         </nav>
 
         <div className="admin-sidebar__footer">
           <p className="admin-sidebar__user">{session?.user.email}</p>
-          <a className="admin-sidebar__link" href="/" target="_blank" rel="noreferrer">
-            Weboldal megnyitása
+          <a className="admin-sidebar__link admin-sidebar__link--muted" href="/" target="_blank" rel="noreferrer">
+            <IconExternal className="admin-sidebar__icon" />
+            <span>Weboldal megnyitása</span>
           </a>
-          <button type="button" className="admin-btn admin-btn--ghost" onClick={() => logout()}>
-            Kijelentkezés
+          <button type="button" className="admin-sidebar__logout" onClick={() => logout()}>
+            <IconLogout className="admin-sidebar__icon" />
+            <span>Kijelentkezés</span>
           </button>
         </div>
       </aside>

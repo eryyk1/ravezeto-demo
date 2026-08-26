@@ -12,7 +12,7 @@ export default function ReferencesListPage() {
         description="Ügyfél-vélemények és referencia bejegyzések kezelése."
         actions={
           <Link className="admin-btn admin-btn--primary" to="/admin/references/new">
-            Új referencia
+            + Új referencia
           </Link>
         }
       />
@@ -21,28 +21,45 @@ export default function ReferencesListPage() {
         <table className="admin-table">
           <thead>
             <tr>
-              <th>Cég / cím</th>
+              <th>Referencia</th>
               <th>Kapcsolattartó</th>
               <th>Kategória</th>
               <th>Státusz</th>
-              <th aria-label="Műveletek" />
+              <th className="admin-table__actions-head">Műveletek</th>
             </tr>
           </thead>
           <tbody>
             {references.map((reference) => (
               <tr key={reference.id}>
-                <td>{reference.title}</td>
-                <td>{reference.who}</td>
-                <td>{reference.category || '—'}</td>
-                <td>
+                <td data-label="Referencia">
+                  <div className="admin-table__person">
+                    <div className="admin-table__logo-wrap admin-table__logo-wrap--ref">
+                      {reference.logo && reference.logo.startsWith('/') ? (
+                        <img src={reference.logo} alt="" className="admin-table__logo" />
+                      ) : (
+                        <span className="admin-table__logo-fallback">{reference.title.slice(0, 2)}</span>
+                      )}
+                    </div>
+                    <div className="admin-table__person-meta">
+                      <strong>{reference.title}</strong>
+                      <span>{reference.description || reference.quotes[0]?.slice(0, 72) || '—'}</span>
+                    </div>
+                  </div>
+                </td>
+                <td data-label="Kapcsolattartó">{reference.who}</td>
+                <td data-label="Kategória">{reference.category || '—'}</td>
+                <td data-label="Státusz">
                   <span
                     className={`admin-badge${reference.active ? '' : ' admin-badge--muted'}`}
                   >
                     {reference.active ? 'Aktív' : 'Inaktív'}
                   </span>
                 </td>
-                <td>
-                  <Link className="admin-link" to={`/admin/references/${reference.id}`}>
+                <td className="admin-table__actions" data-label="Műveletek">
+                  <Link
+                    className="admin-btn admin-btn--sm admin-btn--ghost"
+                    to={`/admin/references/${reference.id}`}
+                  >
                     Szerkesztés
                   </Link>
                 </td>

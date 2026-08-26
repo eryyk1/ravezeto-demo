@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import AdminPageHeader from '../components/AdminPageHeader';
+import { IconHome, IconHandshake, IconStar, IconUsers } from '../components/AdminIcons';
 import { useSiteContent } from '../../services/content/useContent';
 
 export default function AdminDashboardPage() {
@@ -11,24 +12,28 @@ export default function AdminDashboardPage() {
       value: content.team.filter((member) => member.active).length,
       hint: `${content.team.length} összesen`,
       to: '/admin/team',
+      icon: IconUsers,
     },
     {
       title: 'Partnerek',
       value: content.partners.filter((partner) => partner.active).length,
       hint: `${content.partners.length} logó`,
       to: '/admin/partners',
+      icon: IconHandshake,
     },
     {
       title: 'Referenciák',
       value: content.references.filter((reference) => reference.active).length,
       hint: `${content.references.length} vélemény`,
       to: '/admin/references',
+      icon: IconStar,
     },
     {
       title: 'Kezdőlap',
       value: 'Szerkesztés',
       hint: content.homeHero.headlineLines.join(' '),
       to: '/admin/home',
+      icon: IconHome,
     },
   ];
 
@@ -40,13 +45,19 @@ export default function AdminDashboardPage() {
       />
 
       <div className="admin-cards">
-        {cards.map((card) => (
-          <Link key={card.to} to={card.to} className="admin-card">
-            <span className="admin-card__label">{card.title}</span>
-            <strong className="admin-card__value">{card.value}</strong>
-            <span className="admin-card__hint">{card.hint}</span>
-          </Link>
-        ))}
+        {cards.map((card) => {
+          const Icon = card.icon;
+          return (
+            <Link key={card.to} to={card.to} className="admin-card">
+              <div className="admin-card__icon-wrap">
+                <Icon className="admin-card__icon" />
+              </div>
+              <span className="admin-card__label">{card.title}</span>
+              <strong className="admin-card__value">{card.value}</strong>
+              <span className="admin-card__hint">{card.hint}</span>
+            </Link>
+          );
+        })}
       </div>
 
       <section className="admin-panel">

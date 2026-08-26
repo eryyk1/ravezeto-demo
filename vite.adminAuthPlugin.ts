@@ -5,7 +5,7 @@ import {
   signAdminToken,
   validateAdminCredentials,
   verifyAdminToken,
-} from './api/lib/adminAuth';
+} from './api/lib/adminAuth.js';
 
 function readBody(req: IncomingMessage): Promise<string> {
   return new Promise((resolve, reject) => {

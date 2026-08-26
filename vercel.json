@@ -31,5 +31,11 @@
   ],
   "rewrites": [
     { "source": "/((?!assets/|api/).*)", "destination": "/index.html" }
-  ]
+  ],
+  "functions": {
+    "api/**/*.js": {
+      "memory": 128,
+      "maxDuration": 10
+    }
+  }
 }

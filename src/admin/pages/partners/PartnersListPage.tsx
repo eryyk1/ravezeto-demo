@@ -8,11 +8,11 @@ export default function PartnersListPage() {
   return (
     <>
       <AdminPageHeader
-        title="Partnereink"
+        title="Partnerek"
         description="Partnerlogók kezelése a Referenciák és Pályázatok oldalakhoz."
         actions={
           <Link className="admin-btn admin-btn--primary" to="/admin/partners/new">
-            Új partner
+            + Új partner
           </Link>
         }
       />
@@ -22,31 +22,45 @@ export default function PartnersListPage() {
           <thead>
             <tr>
               <th>Logó</th>
-              <th>Név</th>
+              <th>Partner neve</th>
+              <th>Weboldal</th>
               <th>Sorrend</th>
               <th>Státusz</th>
-              <th aria-label="Műveletek" />
+              <th className="admin-table__actions-head">Műveletek</th>
             </tr>
           </thead>
           <tbody>
             {partners.map((partner) => (
               <tr key={partner.id}>
-                <td>
-                  {partner.logo ? (
-                    <img src={partner.logo} alt="" className="admin-table__logo" />
+                <td data-label="Logó">
+                  <div className="admin-table__logo-wrap">
+                    {partner.logo ? (
+                      <img src={partner.logo} alt="" className="admin-table__logo" />
+                    ) : (
+                      <span className="admin-table__logo-fallback">—</span>
+                    )}
+                  </div>
+                </td>
+                <td data-label="Partner neve">
+                  <strong>{partner.name}</strong>
+                </td>
+                <td data-label="Weboldal">
+                  {partner.websiteUrl ? (
+                    <a href={partner.websiteUrl} target="_blank" rel="noreferrer" className="admin-link">
+                      {partner.websiteUrl.replace(/^https?:\/\//, '')}
+                    </a>
                   ) : (
                     '—'
                   )}
                 </td>
-                <td>{partner.name}</td>
-                <td>{partner.order}</td>
-                <td>
+                <td data-label="Sorrend">{partner.order}</td>
+                <td data-label="Státusz">
                   <span className={`admin-badge${partner.active ? '' : ' admin-badge--muted'}`}>
                     {partner.active ? 'Aktív' : 'Inaktív'}
                   </span>
                 </td>
-                <td>
-                  <Link className="admin-link" to={`/admin/partners/${partner.id}`}>
+                <td className="admin-table__actions" data-label="Műveletek">
+                  <Link className="admin-btn admin-btn--sm admin-btn--ghost" to={`/admin/partners/${partner.id}`}>
                     Szerkesztés
                   </Link>
                 </td>
