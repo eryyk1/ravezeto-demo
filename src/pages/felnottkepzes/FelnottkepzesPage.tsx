@@ -1,7 +1,9 @@
 import ClientClose from '../../components/client/ClientClose';
+import ContentPhotoSlot from '../../components/client/ContentPhotoSlot';
 import GoldMark from '../../components/client/GoldMark';
 import HeroWatermark from '../../components/client/HeroWatermark';
 import ScrollReveal from '../../components/client/ScrollReveal';
+import { illustrations } from '../../data/media';
 import {
   felnottkepzesCategories,
   felnottkepzesContact,
@@ -21,14 +23,6 @@ const trainingCount = felnottkepzesProgrammeGroups.reduce(
   (sum, group) => sum + group.items.length,
   0,
 );
-
-const photoPlaceholders = [
-  '📷 tréningterem – jelenetfotó helye\n(tompított, meleg tónus)',
-  '📷 kommunikációs tréning – jelenetfotó helye',
-  '📷 vezetői tréning – jelenetfotó helye',
-  '📷 generációs workshop – jelenetfotó helye',
-  '📷 stresszkezelési tréning – jelenetfotó helye',
-];
 
 export default function FelnottkepzesPage() {
   return (
@@ -59,7 +53,10 @@ export default function FelnottkepzesPage() {
                 is.
               </p>
             </div>
-            <div className="photo-slot">{photoPlaceholders[0]}</div>
+            <ContentPhotoSlot
+              src={illustrations.innerTraining}
+              alt="Felnőttképzés és tréning"
+            />
           </ScrollReveal>
 
           <ScrollReveal className="mid">
@@ -116,7 +113,6 @@ export default function FelnottkepzesPage() {
 
           {felnottkepzesCategories.map((category, index) => {
             const flip = index % 2 === 1;
-            const photoIndex = index + 1;
 
             return (
               <ScrollReveal
@@ -124,14 +120,14 @@ export default function FelnottkepzesPage() {
                 className={`band${flip ? ' flip' : ''}`}
               >
                 {!flip ? (
-                  <div className="photo-slot">{photoPlaceholders[photoIndex]}</div>
+                  <ContentPhotoSlot src={category.visual} alt={category.title} />
                 ) : null}
                 <div>
                   <h3>{category.title}</h3>
                   <p>{category.text}</p>
                 </div>
                 {flip ? (
-                  <div className="photo-slot">{photoPlaceholders[photoIndex]}</div>
+                  <ContentPhotoSlot src={category.visual} alt={category.title} />
                 ) : null}
               </ScrollReveal>
             );

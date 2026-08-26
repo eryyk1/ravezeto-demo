@@ -1,4 +1,6 @@
+import { useMemo } from 'react';
 import ScrollReveal from '../../components/client/ScrollReveal';
+import { usePreloadImages } from '../../hooks/usePreloadImages';
 
 type LogoItem = {
   slug: string;
@@ -13,7 +15,13 @@ type LogoFlowProps = {
 function LogoCell({ item }: { item: LogoItem }) {
   return (
     <div className="cell">
-      <img src={item.logo} alt={item.name} loading="lazy" decoding="async" />
+      <img
+        src={item.logo}
+        alt={item.name}
+        loading="eager"
+        decoding="async"
+        fetchPriority="high"
+      />
     </div>
   );
 }
@@ -42,12 +50,15 @@ function LogoTrack({
 }
 
 export default function LogoFlow({ logos }: LogoFlowProps) {
+  const uniqueUrls = useMemo(() => [...new Set(logos.map((logo) => logo.logo))], [logos]);
+  const imagesReady = usePreloadImages(uniqueUrls);
+
   const midpoint = Math.ceil(logos.length / 2);
   const forward = logos.slice(0, midpoint);
   const backward = logos.slice(midpoint);
 
   return (
-    <ScrollReveal className="lg-flow">
+    <ScrollReveal className={`lg-flow${imagesReady ? ' lg-flow--ready' : ''}`}>
       <LogoTrack items={forward} />
       <LogoTrack items={backward} back ariaHidden />
     </ScrollReveal>

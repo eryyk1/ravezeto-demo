@@ -7,7 +7,7 @@ export function useScrollReveal() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const els = document.querySelectorAll('.rev, .tagrow');
+    const els = document.querySelectorAll('.rev, .tagrow, .ch-big');
 
     if (reduced) {
       els.forEach((el) => el.classList.add('in'));

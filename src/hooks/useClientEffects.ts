@@ -123,6 +123,45 @@ function setupStatCounters(reduced: boolean) {
   return () => so.disconnect();
 }
 
+function setupAureliusQuote(reduced: boolean) {
+  const au = document.getElementById('aurelius');
+  const wrap = document.querySelector('.aurelius-wrap');
+  if (!au || !wrap || au.querySelector('span')) return undefined;
+
+  const words = au.textContent?.trim().split(/\s+/) ?? [];
+  if (!words.length) return undefined;
+
+  const goldPattern = /^(változás,|megváltozik,|változásnak)$/;
+  au.innerHTML = words
+    .map((word) => {
+      const gold = goldPattern.test(word) ? 'gold' : '';
+      return `<span class="${gold}">${word}</span>`;
+    })
+    .join(' ');
+
+  const spans = [...au.querySelectorAll('span')];
+
+  const light = () => {
+    const rect = wrap.getBoundingClientRect();
+    const progress = Math.min(
+      Math.max((window.innerHeight - rect.top) / (window.innerHeight / 2 + rect.height / 2), 0),
+      1,
+    );
+    const litCount = Math.round(progress * spans.length);
+    spans.forEach((span, index) => span.classList.toggle('lit', index < litCount));
+  };
+
+  if (reduced) {
+    spans.forEach((span) => span.classList.add('lit'));
+    return undefined;
+  }
+
+  window.addEventListener('scroll', light, { passive: true });
+  light();
+
+  return () => window.removeEventListener('scroll', light);
+}
+
 function setupDocStamp(reduced: boolean) {
   const docs = document.querySelectorAll('.doc');
   if (!docs.length) return undefined;
@@ -174,12 +213,14 @@ export function useClientEffects() {
     const cleanupParallax = reduced ? undefined : setupLinesParallax();
     if (!reduced) setupGoldLineDraw();
     const cleanupCounters = setupStatCounters(reduced);
+    const cleanupAurelius = setupAureliusQuote(reduced);
     const cleanupDocStamp = setupDocStamp(reduced);
 
     return () => {
       cleanupMarks?.();
       cleanupParallax?.();
       cleanupCounters?.();
+      cleanupAurelius?.();
       cleanupDocStamp?.();
     };
   }, [reduced, pathname]);

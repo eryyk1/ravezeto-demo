@@ -131,6 +131,8 @@ export const tanacsadasSzervezetfejlesztes = {
         'Meggyőződésünk, hogy egyetlen szervezetfejlesztés sem lehet sikeres a változást értő és támogató munkatársak nélkül. Ez a szemlélet vezérel bennünket minden projektünkben.',
       ],
       photoLabel: '📷 workshop-fotó helye\n(tompított, meleg tónus)',
+      photoImage: '/assets/illustrations/illust_inner_services.svg',
+      photoAlt: 'Szervezeti kultúra és szolgáltatások',
     },
     {
       title: 'Közös munka, tartós eredmény',
@@ -139,6 +141,8 @@ export const tanacsadasSzervezetfejlesztes = {
         'Az eredmények a tanácsadási folyamat során, közös munkával születnek meg. Ügyfeleink mellett állunk a tervezéstől a megvalósításig, biztosítva a szükséges szakmai támogatást minden lépésnél.',
       ],
       photoLabel: '📷 közös munka fotója',
+      photoImage: '/assets/illustrations/illust_inner_ongoing.svg',
+      photoAlt: 'Közös munka és folyamatos együttműködés',
     },
   ],
 } as const;

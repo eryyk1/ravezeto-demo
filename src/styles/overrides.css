@@ -88,3 +88,141 @@
 .jogi-impresszum a:hover {
   color: var(--ink);
 }
+
+/* ===== Site polish: readability, photo slots, logo marquee ===== */
+
+/* Hero text over decorative lines / watermarks */
+.hero:has(.lines) .wrap,
+.hero-sub:has(.lines) .wrap,
+.hero:has(.hero-wm) .wrap,
+.hero-sub:has(.hero-wm) .wrap {
+  isolation: isolate;
+}
+
+.hero:has(.lines) h1,
+.hero-sub:has(.lines) h1,
+.hero:has(.hero-wm) h1,
+.hero-sub:has(.hero-wm) h1,
+.hero:has(.lines) .lead,
+.hero-sub:has(.lines) .lead,
+.hero:has(.hero-wm) .lead,
+.hero-sub:has(.hero-wm) .lead,
+.hero:has(.lines) .kicker,
+.hero-sub:has(.lines) .kicker,
+.hero:has(.hero-wm) .kicker,
+.hero-sub:has(.hero-wm) .kicker {
+  text-shadow:
+    0 0 28px rgba(247, 248, 240, 0.92),
+    0 1px 2px rgba(247, 248, 240, 0.75);
+}
+
+/* Aurelius quote: readable before scroll effect initializes */
+.aurelius:not(:has(span)) {
+  color: #f2f3e8;
+}
+
+.aurelius-who {
+  color: rgba(242, 243, 232, 0.72);
+}
+
+.aurelius-why {
+  color: rgba(242, 243, 232, 0.78);
+}
+
+/* Word section decorative ghost stays behind readable text */
+.word-sec .big {
+  position: relative;
+  z-index: 1;
+}
+
+.word-sec .big .ghost {
+  z-index: -1;
+  opacity: 0.35;
+}
+
+/* Slightly stronger muted text for body copy */
+.mut,
+.mid,
+.band p,
+.grid-note,
+.accent-line,
+.tst-quote,
+.close .refs {
+  color: #4a5560;
+}
+
+/* Referenciák logo marquee: preload sync + clearer logos */
+.lg-flow:not(.lg-flow--ready) .lg-track {
+  animation-play-state: paused;
+  opacity: 0;
+}
+
+.lg-flow.lg-flow--ready .lg-track {
+  opacity: 1;
+  transition: opacity 0.35s ease;
+}
+
+.lg-flow .cell img {
+  filter: grayscale(1);
+  opacity: 0.78;
+  transition: filter 0.3s, opacity 0.3s;
+}
+
+.lg-flow .cell:hover img {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+/* Remove dashed borders when real images are present */
+.photo-slot:has(img),
+.team-photo:has(img),
+.co-photo:has(img),
+.values-img:has(img) {
+  border-color: transparent;
+  background: var(--card);
+  padding: 0;
+  overflow: hidden;
+}
+
+.photo-slot:has(img) {
+  display: block;
+}
+
+.photo-slot img,
+.team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.team-photo img {
+  border-radius: inherit;
+  min-height: 100%;
+}
+
+.photo-slot:has(img[src$='.svg']) img {
+  object-fit: contain;
+  padding: 1.4rem;
+  filter: none;
+}
+
+/* Warm photo treatment only for photographic assets */
+.photo-slot:has(img:not([src$='.svg'])) img,
+.team-photo img,
+.co-photo img,
+.member .photo img {
+  filter: grayscale(0.35) sepia(0.12) saturate(0.95) contrast(0.98);
+}
+
+.member .photo:hover img,
+.co-photo:hover img {
+  filter: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lg-flow .lg-track {
+    opacity: 1 !important;
+    animation-play-state: running !important;
+  }
+}

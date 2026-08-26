@@ -30,3 +30,14 @@ export const rolunkImages = {
 export const euBranding = {
   szechenyiLogo: '/assets/images/Szechenyi-2020-logo.png',
 } as const;
+
+export const illustrations = {
+  courses: '/assets/illustrations/illust_courses.svg',
+  innerCourses: '/assets/illustrations/illust_inner_courses.svg',
+  innerTraining: '/assets/illustrations/illust_inner_traininglist.svg',
+  coaching: '/assets/illustrations/illust_coaching.svg',
+  innerHr: '/assets/illustrations/illust_inner_hrdevelopment.svg',
+  stress: '/assets/illustrations/illust_stress.svg',
+  innerServices: '/assets/illustrations/illust_inner_services.svg',
+  innerOngoing: '/assets/illustrations/illust_inner_ongoing.svg',
+} as const;

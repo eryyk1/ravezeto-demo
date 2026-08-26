@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import ClientClose from '../../components/client/ClientClose';
+import ContentPhotoSlot from '../../components/client/ContentPhotoSlot';
 import GoldMark from '../../components/client/GoldMark';
 import HeroLines from '../../components/client/HeroLines';
 import ScrollReveal from '../../components/client/ScrollReveal';
@@ -55,19 +56,16 @@ function ChangeCurve() {
   );
 }
 
-function PhotoSlot({ label }: { label: string }) {
-  const lines = label.split('\n');
-
-  return (
-    <div className="photo-slot">
-      {lines.map((line, index) => (
-        <span key={line}>
-          {line}
-          {index < lines.length - 1 && <br />}
-        </span>
-      ))}
-    </div>
-  );
+function BandPhoto({
+  image,
+  alt,
+  label,
+}: {
+  image?: string;
+  alt: string;
+  label: string;
+}) {
+  return <ContentPhotoSlot src={image} alt={alt} placeholder={label} />;
 }
 
 export default function TanacsadasPage() {
@@ -122,7 +120,11 @@ export default function TanacsadasPage() {
             {tanacsadasSzervezetfejlesztes.punch}
           </ScrollReveal>
           <ScrollReveal className="band">
-            <PhotoSlot label={tanacsadasSzervezetfejlesztes.bands[0].photoLabel} />
+            <BandPhoto
+              image={tanacsadasSzervezetfejlesztes.bands[0].photoImage}
+              alt={tanacsadasSzervezetfejlesztes.bands[0].photoAlt}
+              label={tanacsadasSzervezetfejlesztes.bands[0].photoLabel}
+            />
             <div className="btxt">
               <h3>{tanacsadasSzervezetfejlesztes.bands[0].title}</h3>
               {tanacsadasSzervezetfejlesztes.bands[0].paragraphs.map((paragraph) => (
@@ -137,7 +139,11 @@ export default function TanacsadasPage() {
                 <p key={paragraph.slice(0, 32)}>{paragraph}</p>
               ))}
             </div>
-            <PhotoSlot label={tanacsadasSzervezetfejlesztes.bands[1].photoLabel} />
+            <BandPhoto
+              image={tanacsadasSzervezetfejlesztes.bands[1].photoImage}
+              alt={tanacsadasSzervezetfejlesztes.bands[1].photoAlt}
+              label={tanacsadasSzervezetfejlesztes.bands[1].photoLabel}
+            />
           </ScrollReveal>
           <ScrollReveal as="p" className="accent-line">
             {tanacsadasMotto}
