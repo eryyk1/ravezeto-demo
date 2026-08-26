@@ -26,6 +26,7 @@ export default function AdminLoginPage() {
     (location.state as { from?: string } | null)?.from ?? '/admin/dashboard';
   const safeRedirect =
     redirectTo === '/admin' || redirectTo === '/admin/' ? '/admin/dashboard' : redirectTo;
+  const sessionExpired = Boolean((location.state as { expired?: boolean } | null)?.expired);
 
   if (!loading && session) {
     return <Navigate to={safeRedirect} replace />;
@@ -88,6 +89,12 @@ export default function AdminLoginPage() {
             <strong>Admin belépés</strong>
             <span>Jelentkezzen be a folytatáshoz</span>
           </div>
+
+          {sessionExpired ? (
+            <div className="admin-login__error" role="alert">
+              A munkamenet lejárt, kérjük jelentkezzen be újra.
+            </div>
+          ) : null}
 
           <label className="admin-field">
             <span className="admin-field__label">Email cím</span>

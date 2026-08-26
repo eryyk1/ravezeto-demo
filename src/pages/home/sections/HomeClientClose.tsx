@@ -1,7 +1,8 @@
 import ClientClose from '../../../components/client/ClientClose';
-import { homeContactClose } from '../../../content/home';
+import { useHomeContactClose } from '../../../services/content/useContent';
 
 export default function HomeClientClose() {
+  const homeContactClose = useHomeContactClose();
   return (
     <ClientClose
       kicker={homeContactClose.kicker}

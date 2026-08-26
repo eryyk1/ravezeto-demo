@@ -6,6 +6,7 @@ import {
   validateAdminCredentials,
   verifyAdminToken,
 } from './api/lib/adminAuth.js';
+import { ADMIN_SESSION_TTL_MS } from './api/lib/sessionConfig.js';
 
 function readBody(req: IncomingMessage): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -52,7 +53,7 @@ function adminAuthMiddleware() {
               return;
             }
 
-            const ttlMs = 8 * 60 * 60 * 1000;
+            const ttlMs = ADMIN_SESSION_TTL_MS;
             const expiresAt = Date.now() + ttlMs;
             const accessToken = signAdminToken({ sub: 'admin', email }, secret, ttlMs);
             json(res, 200, {

@@ -3,17 +3,17 @@ import GoldMark from '../../components/client/GoldMark';
 import HeroWatermark from '../../components/client/HeroWatermark';
 import ScrollReveal from '../../components/client/ScrollReveal';
 import {
-  referenciakCta,
-  referenciakHero,
-  referenciakStats,
-} from '../../content/referenciak';
-import { usePartners, useReferences } from '../../services/content/useContent';
+  usePartners,
+  useReferences,
+  useReferenciakPageContent,
+} from '../../services/content/useContent';
 import LogoFlow from './LogoFlow';
 import TestimonialDeck from './TestimonialDeck';
 
 export default function ReferenciakPage() {
   const partners = usePartners(true);
   const references = useReferences(true);
+  const page = useReferenciakPageContent();
   const referenceClientLogos = partners.map((partner) => ({
     slug: partner.slug,
     name: partner.name,
@@ -30,19 +30,19 @@ export default function ReferenciakPage() {
       <section className="hero">
         <HeroWatermark />
         <div className="wrap">
-          <div className="kicker">{referenciakHero.label}</div>
+          <div className="kicker">{page.hero.label}</div>
           <h1>
-            {referenciakHero.title}{' '}
-            <GoldMark>{referenciakHero.titleMark}</GoldMark>
+            {page.hero.title}{' '}
+            <GoldMark>{page.hero.titleMark}</GoldMark>
           </h1>
-          <p className="lead">{referenciakHero.lead}</p>
+          <p className="lead">{page.hero.lead}</p>
         </div>
       </section>
 
       <section className="tstats">
         <div className="wrap">
           <ScrollReveal className="grid">
-            {referenciakStats.map((stat) => (
+            {page.stats.map((stat) => (
               <div className="tstat" key={stat.label}>
                 <div
                   className="num"
@@ -78,11 +78,11 @@ export default function ReferenciakPage() {
       </section>
 
       <ClientClose
-        kicker={referenciakCta.kicker}
-        title={referenciakCta.title}
-        refsLine={referenciakCta.text}
-        btnLabel={referenciakCta.btnLabel}
-        btnTo={referenciakCta.link}
+        kicker={page.cta.kicker}
+        title={page.cta.title}
+        refsLine={page.cta.text}
+        btnLabel={page.cta.btnLabel}
+        btnTo={page.cta.link}
         showEuBand={false}
       />
     </>

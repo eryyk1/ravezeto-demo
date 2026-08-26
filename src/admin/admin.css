@@ -1141,6 +1141,211 @@ body.admin-mode .rev {
   color: var(--admin-muted);
 }
 
+/* ── Save bar / versions / activity ── */
+
+.admin-save-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 1.25rem;
+  background: var(--admin-panel);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius);
+  box-shadow: var(--admin-shadow-sm);
+}
+
+.admin-save-bar__actions {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.admin-save-bar__hint {
+  font-size: 0.92rem;
+  color: var(--admin-muted);
+}
+
+.admin-save-bar__hint--loading {
+  color: var(--admin-accent);
+}
+
+.admin-save-bar__hint--success {
+  color: #15803d;
+}
+
+.admin-save-bar__hint--dirty,
+.admin-save-bar__hint--draft {
+  color: #b45309;
+}
+
+.admin-subpanel {
+  padding: 1rem 0;
+  border-top: 1px solid var(--admin-border);
+  display: grid;
+  gap: 1rem;
+}
+
+.admin-subpanel:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.admin-subpanel h3 {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.admin-status-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.admin-status-row__meta {
+  font-size: 0.88rem;
+  color: var(--admin-muted);
+}
+
+.admin-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.admin-panel__head h2 {
+  margin: 0;
+}
+
+.admin-panel--empty p {
+  margin-top: 0.5rem;
+}
+
+.admin-activity-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.admin-activity-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--admin-border);
+  font-size: 0.94rem;
+}
+
+.admin-activity-list time {
+  color: var(--admin-muted);
+  white-space: nowrap;
+  font-size: 0.85rem;
+}
+
+.admin-version-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.admin-version-list__item {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--admin-border);
+}
+
+.admin-version-list__meta {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.admin-version-list__meta span {
+  color: var(--admin-muted);
+  font-size: 0.85rem;
+}
+
+.admin-version-list__actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.admin-version-preview {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--admin-border);
+}
+
+.admin-version-preview h3 {
+  margin: 0 0 0.85rem;
+  font-size: 1rem;
+}
+
+.admin-version-preview__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem 1.25rem;
+  margin: 0;
+}
+
+.admin-version-preview__grid dt {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--admin-muted);
+  margin-bottom: 0.2rem;
+}
+
+.admin-version-preview__grid dd {
+  margin: 0;
+  font-size: 0.94rem;
+}
+
+.admin-reorder {
+  display: inline-flex;
+  gap: 0.25rem;
+}
+
+.admin-table__reorder {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin-table__sub {
+  display: block;
+  color: var(--admin-muted);
+  font-size: 0.85rem;
+  margin-top: 0.15rem;
+}
+
+.admin-badge--warn {
+  background: rgba(180, 83, 9, 0.12);
+  color: #b45309;
+}
+
+.admin-topbar__actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
 /* ── Responsive ── */
 
 @media (max-width: 56rem) {
@@ -1243,6 +1448,27 @@ body.admin-mode .rev {
   .admin-form,
   .admin-table-wrap {
     padding: 1.2rem 1.1rem;
+  }
+
+  .admin-save-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-save-bar__actions {
+    width: 100%;
+  }
+
+  .admin-save-bar__actions .admin-btn {
+    flex: 1;
+  }
+
+  .admin-topbar__actions {
+    gap: 0.35rem;
+  }
+
+  .admin-topbar__actions .admin-badge {
+    display: none;
   }
 
   .admin-table {

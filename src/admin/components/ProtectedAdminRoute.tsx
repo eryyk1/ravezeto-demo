@@ -15,8 +15,8 @@ export default function ProtectedAdminRoute() {
     );
   }
 
-  if (!session) {
-    return <Navigate to="/admin/login" replace state={{ from: location.pathname }} />;
+  if (!session || Date.now() >= session.expiresAt) {
+    return <Navigate to="/admin/login" replace state={{ from: location.pathname, expired: !session ? false : true }} />;
   }
 
   return (

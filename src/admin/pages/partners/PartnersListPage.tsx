@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import AdminPageShell from '../../components/AdminPageShell';
-import { usePartners } from '../../../services/content/useContent';
+import { useDraftPartners } from '../../../services/content/useContent';
 
 export default function PartnersListPage() {
-  const partners = usePartners(false);
+  const partners = useDraftPartners(false);
 
   return (
     <AdminPageShell

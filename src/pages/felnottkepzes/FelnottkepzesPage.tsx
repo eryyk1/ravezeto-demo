@@ -3,25 +3,14 @@ import ContentPhotoSlot from '../../components/client/ContentPhotoSlot';
 import GoldMark from '../../components/client/GoldMark';
 import HeroWatermark from '../../components/client/HeroWatermark';
 import ScrollReveal from '../../components/client/ScrollReveal';
+import { felnottkepzesContact } from '../../content/felnottkepzes';
 import {
-  felnottkepzesCategories,
-  felnottkepzesContact,
-  felnottkepzesCredentials,
-  felnottkepzesCta,
-  felnottkepzesHero,
-  felnottkepzesKeyMessage,
-  felnottkepzesMethodTags,
-  felnottkepzesMotto,
-  felnottkepzesProcess,
-  felnottkepzesProgrammeGroups,
-} from '../../content/felnottkepzes';
+  useFelnottkepzesCategories,
+  useFelnottkepzesContent,
+  useFelnottkepzesProgrammes,
+} from '../../services/content/useContent';
 import TrainingCatalog from './TrainingCatalog';
 import './felnottkepzes.css';
-
-const trainingCount = felnottkepzesProgrammeGroups.reduce(
-  (sum, group) => sum + group.items.length,
-  0,
-);
 
 const photoPlaceholders = [
   '📷 tréningterem – jelenetfotó helye\n(tompított, meleg tónus)',
@@ -32,19 +21,27 @@ const photoPlaceholders = [
 ] as const;
 
 export default function FelnottkepzesPage() {
+  const page = useFelnottkepzesContent();
+  const felnottkepzesCategories = useFelnottkepzesCategories();
+  const felnottkepzesProgrammeGroups = useFelnottkepzesProgrammes();
+  const trainingCount = felnottkepzesProgrammeGroups.reduce(
+    (sum, group) => sum + group.items.length,
+    0,
+  );
+
   return (
     <>
       <section className="hero-sub">
         <HeroWatermark />
         <div className="wrap">
-          <div className="kicker">{felnottkepzesHero.label}</div>
+          <div className="kicker">{page.hero.label}</div>
           <h1>
-            {felnottkepzesHero.titleLead}{' '}
-            <GoldMark>{felnottkepzesHero.titleMark}</GoldMark>
+            {page.hero.titleLead}{' '}
+            <GoldMark>{page.hero.titleMark}</GoldMark>
           </h1>
           <p className="award-line">
             <span className="g">›</span>
-            {felnottkepzesHero.awardLine}
+            {page.hero.awardLine}
           </p>
         </div>
       </section>
@@ -53,10 +50,10 @@ export default function FelnottkepzesPage() {
         <div className="wrap">
           <ScrollReveal className="band flip">
             <div>
-              <h2 className="sec-t2">{felnottkepzesKeyMessage.title}.</h2>
-              <p className="mut">{felnottkepzesCredentials.paragraphs[0]}</p>
+              <h2 className="sec-t2">{page.keyMessage.title}.</h2>
+              <p className="mut">{page.credentials.paragraphs[0]}</p>
               <p className="mut" style={{ marginTop: '1rem' }}>
-                {felnottkepzesProcess.lead} Ennek szerves része a tananyagfejlesztés
+                {page.processLead} Ennek szerves része a tananyagfejlesztés
                 is.
               </p>
             </div>
@@ -64,20 +61,20 @@ export default function FelnottkepzesPage() {
           </ScrollReveal>
 
           <ScrollReveal className="mid">
-            <p>{felnottkepzesKeyMessage.text}</p>
+            <p>{page.keyMessage.text}</p>
             <ScrollReveal
               as="div"
               className="tagrow"
               aria-label="Oktatás-módszertani megoldásaink"
             >
-              {felnottkepzesMethodTags.map((tag) => (
+              {page.methodTags.map((tag) => (
                 <span key={tag} className="tag">
                   {tag}
                 </span>
               ))}
             </ScrollReveal>
             <p style={{ marginTop: '1.4rem' }}>
-              {felnottkepzesCredentials.paragraphs[2]}
+              {page.credentials.paragraphs[2]}
             </p>
           </ScrollReveal>
 
@@ -86,11 +83,11 @@ export default function FelnottkepzesPage() {
             <div className="grid">
               <div>
                 <div className="lab">Nyilvántartásba vételi számunk</div>
-                <div className="num">B/2020/001943</div>
+                <div className="num">{page.registration.replace(/^Nyilvántartásba vételi számunk:\s*/i, '')}</div>
               </div>
               <div>
                 <div className="lab">Engedélyszámunk</div>
-                <div className="num">E/2021/000106</div>
+                <div className="num">{page.license.replace(/^Engedélyszámunk:\s*/i, '')}</div>
               </div>
             </div>
             <div className="note">
@@ -102,7 +99,7 @@ export default function FelnottkepzesPage() {
 
       <section className="sec strip">
         <ScrollReveal className="wrap">
-          <p>{felnottkepzesMotto}</p>
+          <p>{page.motto}</p>
         </ScrollReveal>
       </section>
 
@@ -125,20 +122,32 @@ export default function FelnottkepzesPage() {
                 className={`band${flip ? ' flip' : ''}`}
               >
                 {!flip ? (
-                  <ContentPhotoSlot
-                    placeholder={photoPlaceholders[photoIndex]}
-                    alt={category.title}
-                  />
+                  category.image ? (
+                    <div className="photo-slot">
+                      <img src={category.image} alt={category.title} loading="lazy" decoding="async" />
+                    </div>
+                  ) : (
+                    <ContentPhotoSlot
+                      placeholder={photoPlaceholders[photoIndex]}
+                      alt={category.title}
+                    />
+                  )
                 ) : null}
                 <div>
                   <h3>{category.title}</h3>
                   <p>{category.text}</p>
                 </div>
                 {flip ? (
-                  <ContentPhotoSlot
-                    placeholder={photoPlaceholders[photoIndex]}
-                    alt={category.title}
-                  />
+                  category.image ? (
+                    <div className="photo-slot">
+                      <img src={category.image} alt={category.title} loading="lazy" decoding="async" />
+                    </div>
+                  ) : (
+                    <ContentPhotoSlot
+                      placeholder={photoPlaceholders[photoIndex]}
+                      alt={category.title}
+                    />
+                  )
                 ) : null}
               </ScrollReveal>
             );
@@ -188,10 +197,10 @@ export default function FelnottkepzesPage() {
       </section>
 
       <ClientClose
-        kicker={felnottkepzesCta.kicker}
-        title={felnottkepzesCta.title}
-        btnLabel={felnottkepzesCta.btnLabel}
-        btnTo={felnottkepzesCta.link}
+        kicker={page.close.kicker}
+        title={page.close.title}
+        btnLabel={page.close.cta}
+        btnTo={page.close.link}
       />
     </>
   );

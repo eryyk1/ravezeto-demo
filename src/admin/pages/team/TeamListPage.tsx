@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import AdminPageShell from '../../components/AdminPageShell';
-import { useTeamMembers } from '../../../services/content/useContent';
+import { useDraftTeamMembers } from '../../../services/content/useContent';
 
 export default function TeamListPage() {
-  const members = useTeamMembers(false);
+  const members = useDraftTeamMembers(false);
 
   return (
     <AdminPageShell

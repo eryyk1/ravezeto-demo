@@ -1,17 +1,18 @@
 import { Link } from 'react-router-dom';
 import ScrollReveal from '../../../components/client/ScrollReveal';
-import { homeStats, homeStatsIntro } from '../../../content/home';
+import { useHomeStats } from '../../../services/content/useContent';
 
 export default function HomeClientStats() {
+  const homeStatsContent = useHomeStats();
   return (
     <section className="panel cardp stick pC">
       <div className="wrap">
         <ScrollReveal as="div" className="kicker">
-          {homeStatsIntro.kicker}
+          {homeStatsContent.kicker}
         </ScrollReveal>
-        <ScrollReveal as="h2">{homeStatsIntro.title}</ScrollReveal>
+        <ScrollReveal as="h2">{homeStatsContent.title}</ScrollReveal>
         <ScrollReveal className="nums">
-          {homeStats.map((stat) => (
+          {homeStatsContent.items.map((stat) => (
             <div className="stat" key={stat.label}>
               <div
                 className="num"
@@ -26,9 +27,9 @@ export default function HomeClientStats() {
           ))}
         </ScrollReveal>
         <ScrollReveal as="p" className="refs">
-          {homeStatsIntro.refsText}{' '}
-          <Link to={homeStatsIntro.refsLink}>
-            {homeStatsIntro.refsCta} →
+          {homeStatsContent.refsText}{' '}
+          <Link to={homeStatsContent.refsLink}>
+            {homeStatsContent.refsCta} →
           </Link>
         </ScrollReveal>
       </div>

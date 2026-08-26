@@ -1,22 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import ClientClose from '../../components/client/ClientClose';
 import ContentPhotoSlot from '../../components/client/ContentPhotoSlot';
 import GoldMark from '../../components/client/GoldMark';
 import HeroLines from '../../components/client/HeroLines';
 import ScrollReveal from '../../components/client/ScrollReveal';
-import {
-  tanacsadasClose,
-  tanacsadasCoaching,
-  tanacsadasHero,
-  tanacsadasMotto,
-  tanacsadasQuote,
-  tanacsadasServices,
-  tanacsadasSzervezetfejlesztes,
-} from '../../content/tanacsadas';
-import { useTeamMembers } from '../../services/content/useContent';
-
-const VALID_ANCHORS = new Set<string>(tanacsadasServices.map((s) => s.id));
+import { useServices, useTanacsadasContent, useTeamMembers } from '../../services/content/useContent';
 
 function useCoachingPhoto() {
   const teamMembers = useTeamMembers(true);
@@ -59,34 +48,58 @@ function ChangeCurve() {
   );
 }
 
-function BandPhoto({ label }: { label: string }) {
+function BandPhoto({ label, photo }: { label: string; photo?: string }) {
+  if (photo) {
+    return (
+      <div className="photo-slot">
+        <img src={photo} alt="" loading="lazy" decoding="async" />
+      </div>
+    );
+  }
   return <ContentPhotoSlot placeholder={label} alt="" />;
+}
+
+function renderHeroTitle(title: string) {
+  if (title.includes('munkatársak')) {
+    const [before, after] = title.split('munkatársak');
+    return (
+      <>
+        {before}
+        <GoldMark>munkatársak</GoldMark>
+        {after}
+      </>
+    );
+  }
+  return title;
 }
 
 export default function TanacsadasPage() {
   const coachingPhoto = useCoachingPhoto();
   const { pathname } = useLocation();
+  const page = useTanacsadasContent();
+  const tanacsadasServices = useServices('tanacsadas', true);
+  const validAnchors = useMemo(
+    () => new Set<string>(tanacsadasServices.map((s) => s.id)),
+    [tanacsadasServices],
+  );
   const valtozasService = tanacsadasServices.find((s) => s.id === 'valtozasmenedzsment');
 
   useEffect(() => {
     const segment = pathname.split('/').filter(Boolean).pop();
-    if (segment && segment !== 'tanacsadas' && VALID_ANCHORS.has(segment)) {
+    if (segment && segment !== 'tanacsadas' && validAnchors.has(segment)) {
       const el = document.getElementById(segment);
       el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  }, [pathname]);
+  }, [pathname, validAnchors]);
 
   return (
     <>
       <section className="hero-sub">
         <HeroLines />
         <div className="wrap">
-          <div className="kicker">{tanacsadasHero.label}</div>
-          <h1>
-            Egyetlen szervezetfejlesztés sem lehet sikeres a változást támogató vezetők és{' '}
-            <GoldMark>munkatársak</GoldMark> nélkül.
-          </h1>
-          <p className="lead">{tanacsadasHero.intro}</p>
+          <div className="kicker">{page.hero.label}</div>
+          <h1>{renderHeroTitle(page.hero.title)}</h1>
+          <p className="lead">{page.hero.intro}</p>
         </div>
       </section>
 
@@ -95,10 +108,10 @@ export default function TanacsadasPage() {
           <div className="wrap">
             <div className="kicker aurelius-label">Kétezer éves üzenet</div>
             <p className="aurelius" id="aurelius">
-              {tanacsadasQuote.text}
+              {page.quote.text}
             </p>
-            <div className="aurelius-who">{tanacsadasQuote.author}</div>
-            <p className="aurelius-why">{tanacsadasQuote.note}</p>
+            <div className="aurelius-who">{page.quote.author}</div>
+            <p className="aurelius-why">{page.quote.note}</p>
           </div>
         </div>
       </div>
@@ -113,28 +126,34 @@ export default function TanacsadasPage() {
             </h2>
           </div>
           <ScrollReveal as="p" className="punch">
-            {tanacsadasSzervezetfejlesztes.punch}
+            {page.szervezetfejlesztes.punch}
           </ScrollReveal>
           <ScrollReveal className="band">
-            <BandPhoto label={tanacsadasSzervezetfejlesztes.bands[0].photoLabel} />
+            <BandPhoto
+              label={page.szervezetfejlesztes.bands[0].photoLabel}
+              photo={page.szervezetfejlesztes.bands[0].photo}
+            />
             <div className="btxt">
-              <h3>{tanacsadasSzervezetfejlesztes.bands[0].title}</h3>
-              {tanacsadasSzervezetfejlesztes.bands[0].paragraphs.map((paragraph) => (
+              <h3>{page.szervezetfejlesztes.bands[0].title}</h3>
+              {page.szervezetfejlesztes.bands[0].paragraphs.map((paragraph) => (
                 <p key={paragraph.slice(0, 32)}>{paragraph}</p>
               ))}
             </div>
           </ScrollReveal>
           <ScrollReveal className="band flip">
             <div className="btxt">
-              <h3>{tanacsadasSzervezetfejlesztes.bands[1].title}</h3>
-              {tanacsadasSzervezetfejlesztes.bands[1].paragraphs.map((paragraph) => (
+              <h3>{page.szervezetfejlesztes.bands[1].title}</h3>
+              {page.szervezetfejlesztes.bands[1].paragraphs.map((paragraph) => (
                 <p key={paragraph.slice(0, 32)}>{paragraph}</p>
               ))}
             </div>
-            <BandPhoto label={tanacsadasSzervezetfejlesztes.bands[1].photoLabel} />
+            <BandPhoto
+              label={page.szervezetfejlesztes.bands[1].photoLabel}
+              photo={page.szervezetfejlesztes.bands[1].photo}
+            />
           </ScrollReveal>
           <ScrollReveal as="p" className="accent-line">
-            {tanacsadasMotto}
+            {page.motto}
           </ScrollReveal>
         </div>
       </section>
@@ -176,8 +195,8 @@ export default function TanacsadasPage() {
           </div>
           <div className="co-grid">
             <ScrollReveal as="p" className="co-lead">
-              <span className="strong">{tanacsadasCoaching.leadStrong}</span>
-              {tanacsadasCoaching.leadRest}
+              <span className="strong">{page.coaching.leadStrong}</span>
+              {page.coaching.leadRest}
             </ScrollReveal>
             <ScrollReveal className="chairs">
               <div className="co-photo">
@@ -186,7 +205,7 @@ export default function TanacsadasPage() {
             </ScrollReveal>
           </div>
           <div className="duo">
-            {tanacsadasCoaching.cards.map((card) => (
+            {page.coaching.cards.map((card) => (
               <ScrollReveal as="article" className="card" key={card.title}>
                 <h3>{card.title}</h3>
                 {card.paragraphs.map((paragraph) => (
@@ -199,10 +218,10 @@ export default function TanacsadasPage() {
       </section>
 
       <ClientClose
-        kicker={tanacsadasClose.kicker}
-        title={tanacsadasClose.title}
-        btnLabel={tanacsadasClose.cta}
-        btnTo={tanacsadasClose.link}
+        kicker={page.close.kicker}
+        title={page.close.title}
+        btnLabel={page.close.cta}
+        btnTo={page.close.link}
       />
     </>
   );

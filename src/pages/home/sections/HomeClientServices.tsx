@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import ScrollReveal from '../../../components/client/ScrollReveal';
-import { homeServices, homeServicesIntro } from '../../../content/home';
+import { useHomeServices, useHomeServicesIntro } from '../../../services/content/useContent';
 
 export default function HomeClientServices() {
+  const homeServicesIntro = useHomeServicesIntro();
+  const homeServices = useHomeServices(true);
   return (
     <section className="panel cardp stick pF" id="szolgaltatasok">
       <div className="wrap">
@@ -14,7 +16,7 @@ export default function HomeClientServices() {
           </ScrollReveal>
           <ScrollReveal className="facc">
             {homeServices.map((service, index) => (
-              <details key={service.title} open={index === 0}>
+              <details key={service.id} open={index === 0}>
                 <summary>
                   <span>{service.title}</span>
                   <span className="pm">+</span>

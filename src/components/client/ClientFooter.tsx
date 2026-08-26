@@ -1,11 +1,18 @@
 import { Link } from 'react-router-dom';
-import { felnottkepzesReg } from '../../content/felnottkepzes';
-import { homeEuMark } from '../../content/home';
 import { footerNav } from '../../content/navigation';
-import { useCompanySettings } from '../../services/content/useContent';
+import {
+  useCompanySettings,
+  useEuMark,
+  useFooterContent,
+  useFelnottkepzesContent,
+} from '../../services/content/useContent';
 
 export default function ClientFooter() {
   const company = useCompanySettings();
+  const footer = useFooterContent();
+  const euMark = useEuMark();
+  const felnottkepzes = useFelnottkepzesContent();
+
   return (
     <footer>
       <div className="wrap">
@@ -38,10 +45,10 @@ export default function ClientFooter() {
           <div className="fdoc">
             <b>Cégünk felnőttképzési engedéllyel rendelkező intézmény.</b>
             <br />
-            {felnottkepzesReg.registration} · {felnottkepzesReg.license}
+            {footer.trainingReg || felnottkepzes.registration} · {felnottkepzes.license}
           </div>
           <div className="eu-slot">
-            <img src={homeEuMark.image} alt={homeEuMark.alt} onError={(e) => e.currentTarget.remove()} />
+            <img src={euMark.image} alt={euMark.alt} onError={(e) => e.currentTarget.remove()} />
             <span>Széchenyi 2020 / EU logó helye</span>
           </div>
         </div>

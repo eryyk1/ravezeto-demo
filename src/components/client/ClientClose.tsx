@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
-import { homeEuMark } from '../../content/home';
-import { useCompanySettings } from '../../services/content/useContent';
+import { useCompanySettings, useEuMark } from '../../services/content/useContent';
 import ClientFooter from './ClientFooter';
 
 function ChevTrio() {
@@ -62,6 +61,7 @@ export default function ClientClose({
   className = '',
 }: ClientCloseProps) {
   const company = useCompanySettings();
+  const euMark = useEuMark();
   const refs =
     refsLine ??
     `${company.address} · ${company.email} · ${company.phone}`;
@@ -82,7 +82,7 @@ export default function ClientClose({
         <div className="eu-band">
           <div className="wrap">
             <div className="kicker">{euKicker}</div>
-            <Link to={homeEuMark.link} className="eu-ph">
+            <Link to={euMark.link} className="eu-ph">
               Széchenyi 2020 / Európai Unió logó helye
             </Link>
           </div>

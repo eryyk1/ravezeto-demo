@@ -61,6 +61,8 @@ const PAGE_META: Record<string, Omit<PageMeta, 'canonical'>> = {
   },
 };
 
+export { PAGE_META as pageMeta };
+
 const KNOWN_PATH_PREFIXES = [
   '/',
   '/rolunk',

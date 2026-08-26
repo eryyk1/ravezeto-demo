@@ -1,7 +1,24 @@
 import { useState, type FormEvent } from 'react';
-import type { kapcsolatForm } from '../../pages/kapcsolat/kapcsolatContent';
+import { kapcsolatForm as defaultKapcsolatForm } from '../../pages/kapcsolat/kapcsolatContent';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+type FormMessages = {
+  success: string;
+  error: string;
+  required: string;
+  invalidEmail: string;
+  notConfigured: string;
+};
+
+export type KapcsolatFormConfig = {
+  title: string;
+  recipient?: string;
+  formspreeEndpoint?: string;
+  fields?: typeof defaultKapcsolatForm.fields;
+  submit?: string;
+  messages: FormMessages;
+};
 
 type FormValues = {
   name: string;
@@ -16,7 +33,7 @@ type FormErrors = Partial<Record<keyof FormValues, string>>;
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error';
 
 type KapcsolatFormProps = {
-  config: typeof kapcsolatForm;
+  config: KapcsolatFormConfig;
 };
 
 const emptyValues: FormValues = {
@@ -27,7 +44,7 @@ const emptyValues: FormValues = {
   website: '',
 };
 
-function validate(values: FormValues, messages: typeof kapcsolatForm.messages): FormErrors {
+function validate(values: FormValues, messages: FormMessages): FormErrors {
   const errors: FormErrors = {};
 
   if (!values.name.trim()) {
@@ -48,6 +65,9 @@ function validate(values: FormValues, messages: typeof kapcsolatForm.messages): 
 }
 
 export default function KapcsolatForm({ config }: KapcsolatFormProps) {
+  const fields = config.fields ?? defaultKapcsolatForm.fields;
+  const submitLabel = config.submit ?? defaultKapcsolatForm.submit;
+  const recipient = config.recipient ?? defaultKapcsolatForm.recipient;
   const [values, setValues] = useState<FormValues>(emptyValues);
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
@@ -105,7 +125,7 @@ export default function KapcsolatForm({ config }: KapcsolatFormProps) {
           phone: values.phone.trim() || undefined,
           message: values.message.trim(),
           _replyto: values.email.trim(),
-          _subject: `Kapcsolatfelvétel — ${config.recipient}`,
+          _subject: `Kapcsolatfelvétel — ${recipient}`,
         }),
       });
 
@@ -140,7 +160,7 @@ export default function KapcsolatForm({ config }: KapcsolatFormProps) {
 
       <div className="field">
         <label htmlFor="kapcsolat-nev">
-          {config.fields.name.label} *
+          {fields.name.label} *
         </label>
         <input
           type="text"
@@ -184,7 +204,7 @@ export default function KapcsolatForm({ config }: KapcsolatFormProps) {
 
       <div className="field">
         <label htmlFor="kapcsolat-uzenet">
-          {config.fields.message.label} *
+          {fields.message.label} *
         </label>
         <textarea
           id="kapcsolat-uzenet"
@@ -204,7 +224,7 @@ export default function KapcsolatForm({ config }: KapcsolatFormProps) {
       </div>
 
       <button type="submit" className="btn" disabled={submitState === 'submitting'}>
-        {submitState === 'submitting' ? 'Küldés…' : `${config.submit} →`}
+        {submitState === 'submitting' ? 'Küldés…' : `${submitLabel} →`}
       </button>
 
       {statusMessage && (

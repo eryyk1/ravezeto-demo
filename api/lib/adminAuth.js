@@ -1,4 +1,5 @@
 import { createHmac, timingSafeEqual } from 'crypto';
+import { ADMIN_SESSION_TTL_MS } from './sessionConfig.js';
 
 function base64UrlEncode(value) {
   return Buffer.from(value)
@@ -13,7 +14,7 @@ function base64UrlDecode(value) {
   return Buffer.from(padded.replace(/-/g, '+').replace(/_/g, '/'), 'base64').toString('utf8');
 }
 
-export function signAdminToken(payload, secret, ttlMs = 8 * 60 * 60 * 1000) {
+export function signAdminToken(payload, secret, ttlMs = ADMIN_SESSION_TTL_MS) {
   const header = base64UrlEncode(JSON.stringify({ alg: 'HS256', typ: 'JWT' }));
   const body = base64UrlEncode(
     JSON.stringify({

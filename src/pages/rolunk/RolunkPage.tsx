@@ -1,14 +1,7 @@
 import ClientClose from '../../components/client/ClientClose';
 import GoldMark from '../../components/client/GoldMark';
 import ScrollReveal from '../../components/client/ScrollReveal';
-import {
-  rolunkClose,
-  rolunkClosing,
-  rolunkHero,
-  rolunkStory,
-  rolunkValues,
-} from '../../content/rolunk';
-import { useTeamMembers } from '../../services/content/useContent';
+import { useRolunkContent, useTeamMembers } from '../../services/content/useContent';
 
 function MottoArt() {
   return (
@@ -24,6 +17,8 @@ function MottoArt() {
 
 export default function RolunkPage() {
   const teamMembers = useTeamMembers(true);
+  const { hero: rolunkHero, story: rolunkStory, values: rolunkValues, closing: rolunkClosing, close: rolunkClose } =
+    useRolunkContent();
   const mottoParagraph = [rolunkStory.pullQuote, ...rolunkStory.paragraphs].join(' ');
 
   return (
@@ -32,7 +27,7 @@ export default function RolunkPage() {
         <div className="wrap">
           <div className="kicker">{rolunkHero.label}</div>
           <h1>
-            Gyorsabban, erősebben, <GoldMark>magasabbra!</GoldMark>
+            {rolunkHero.title} <GoldMark>{rolunkHero.titleMark}</GoldMark>
           </h1>
           <p className="lead">{rolunkHero.intro}</p>
         </div>

@@ -1,7 +1,8 @@
 import ScrollReveal from '../../../components/client/ScrollReveal';
-import { homeReasons } from '../../../content/home';
+import { useHomeReasons } from '../../../services/content/useContent';
 
 export default function HomeClientReasons() {
+  const homeReasons = useHomeReasons();
   return (
     <section className="cardp c-hatok">
       <div className="hatok-intro">

@@ -33,12 +33,16 @@ const NAV_SECTIONS = [
       { to: '/admin/team', label: 'Csapat', icon: IconUsers },
       { to: '/admin/references', label: 'Referenciák', icon: IconStar },
       { to: '/admin/partners', label: 'Partnerek', icon: IconHandshake },
+      { to: '/admin/kapcsolat', label: 'Kapcsolat', icon: IconPages },
       { to: '/admin/palyazatok', label: 'Pályázatok', icon: IconGrant },
     ],
   },
   {
     title: 'Rendszer',
-    items: [{ to: '/admin/settings', label: 'Beállítások', icon: IconSettings }],
+    items: [
+      { to: '/admin/verziok', label: 'Verzióelőzmények', icon: IconPages },
+      { to: '/admin/settings', label: 'Beállítások', icon: IconSettings },
+    ],
   },
 ] as const;
 

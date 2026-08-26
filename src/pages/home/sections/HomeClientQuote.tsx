@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import ScrollReveal from '../../../components/client/ScrollReveal';
-import { homeQuote } from '../../../content/home';
+import { useHomeQuote } from '../../../services/content/useContent';
 
 export default function HomeClientQuote() {
+  const homeQuote = useHomeQuote();
   return (
     <section className="quote cardp stick c-quote">
       <ScrollReveal className="wrap">

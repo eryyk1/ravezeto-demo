@@ -1,12 +1,63 @@
 import { company } from '../../content/company';
-import { homeHero } from '../../content/home';
-import { referenceClientLogos } from '../../content/partners';
-import { referenciakTestimonials } from '../../content/referenciak';
-import { teamMembers as legacyTeam } from '../../content/team';
 import {
+  homeContactClose,
+  homeEuMark,
+  homeHero,
+  homeQuote,
+  homeReasons,
+  homeServices,
+  homeServicesIntro,
+  homeStats,
+  homeStatsIntro,
+} from '../../content/home';
+import {
+  felnottkepzesCategories,
+  felnottkepzesCredentials,
+  felnottkepzesCta,
+  felnottkepzesHero,
+  felnottkepzesKeyMessage,
+  felnottkepzesMethodTags,
+  felnottkepzesMotto,
+  felnottkepzesProcess,
+  felnottkepzesProgrammeGroups,
+  felnottkepzesReg,
+} from '../../content/felnottkepzes';
+import { referenceClientLogos } from '../../content/partners';
+import {
+  referenciakCta,
+  referenciakHero,
+  referenciakStats,
+  referenciakTestimonials,
+} from '../../content/referenciak';
+import {
+  rolunkClose,
+  rolunkClosing,
+  rolunkHero,
+  rolunkStory,
+  rolunkValues,
+} from '../../content/rolunk';
+import {
+  tanacsadasClose,
+  tanacsadasCoaching,
+  tanacsadasHero,
+  tanacsadasMotto,
+  tanacsadasQuote,
+  tanacsadasServices,
+  tanacsadasSzervezetfejlesztes,
+} from '../../content/tanacsadas';
+import { teamMembers as legacyTeam } from '../../content/team';
+import { kapcsolatForm, kapcsolatHero } from '../../pages/kapcsolat/kapcsolatContent';
+import {
+  palyazatokAbout,
+  palyazatokContact,
   palyazatokDeadline,
+  palyazatokFacts,
+  palyazatokForm,
   palyazatokHero,
+  palyazatokSteps,
+  palyazatokTopics,
 } from '../../pages/palyazatok/palyazatokContent';
+import { pageMeta } from '../../seo/pageMeta';
 import type { SiteContent } from './types';
 
 function slugify(text: string): string {
@@ -20,7 +71,7 @@ function slugify(text: string): string {
 
 export function createDefaultContent(): SiteContent {
   return {
-    version: 1,
+    schemaVersion: 2,
     company: {
       name: company.name,
       tagline: company.tagline,
@@ -40,6 +91,193 @@ export function createDefaultContent(): SiteContent {
       ctaSecondary: homeHero.ctaSecondary,
       ctaSecondaryLink: homeHero.ctaSecondaryLink,
     },
+    homeQuote: {
+      text: homeQuote.text,
+      author: homeQuote.author,
+      context: homeQuote.context,
+      teamLine: homeQuote.teamLine,
+      teamLink: homeQuote.teamLink,
+      teamCta: homeQuote.teamCta,
+    },
+    homeReasons: {
+      title: homeReasons.title,
+      intro: homeReasons.intro,
+      items: homeReasons.items.map((item) => ({ ...item })),
+    },
+    homeServicesIntro: {
+      kicker: homeServicesIntro.kicker,
+      title: homeServicesIntro.title,
+      intro: homeServicesIntro.intro,
+    },
+    homeServices: homeServices.map((service, index) => ({
+      id: slugify(service.title),
+      title: service.title,
+      text: service.text,
+      link: service.link,
+      cta: service.cta,
+      external: service.external,
+      icon: service.icon,
+      order: index + 1,
+      active: true,
+    })),
+    homeStats: {
+      kicker: homeStatsIntro.kicker,
+      title: homeStatsIntro.title,
+      refsText: homeStatsIntro.refsText,
+      refsLink: homeStatsIntro.refsLink,
+      refsCta: homeStatsIntro.refsCta,
+      items: homeStats.map((stat) => ({ ...stat })),
+    },
+    homeContactClose: { ...homeContactClose },
+    rolunk: {
+      hero: {
+        label: rolunkHero.label,
+        title: 'Gyorsabban, erősebben,',
+        titleMark: 'magasabbra!',
+        intro: rolunkHero.intro,
+        image: rolunkHero.image,
+        imageAlt: rolunkHero.imageAlt,
+      },
+      story: {
+        pullQuote: rolunkStory.pullQuote,
+        paragraphs: [...rolunkStory.paragraphs],
+        motto: rolunkStory.motto,
+      },
+      values: {
+        label: rolunkValues.label,
+        title: rolunkValues.title,
+        image: rolunkValues.image,
+        labels: [...rolunkValues.labels],
+      },
+      closing: rolunkClosing,
+      close: { ...rolunkClose },
+    },
+    tanacsadas: {
+      hero: {
+        label: tanacsadasHero.label,
+        title: tanacsadasHero.title,
+        intro: tanacsadasHero.intro,
+        image: tanacsadasHero.image,
+        imageAlt: tanacsadasHero.imageAlt,
+      },
+      quote: { ...tanacsadasQuote },
+      motto: tanacsadasMotto,
+      szervezetfejlesztes: {
+        punch: tanacsadasSzervezetfejlesztes.punch,
+        bands: tanacsadasSzervezetfejlesztes.bands.map((band) => ({
+          title: band.title,
+          paragraphs: [...band.paragraphs],
+          photoLabel: band.photoLabel,
+          photo: '',
+        })),
+      },
+      coaching: {
+        leadStrong: tanacsadasCoaching.leadStrong,
+        leadRest: tanacsadasCoaching.leadRest,
+        cards: tanacsadasCoaching.cards.map((card) => ({
+          title: card.title,
+          paragraphs: [...card.paragraphs],
+        })),
+      },
+      close: { ...tanacsadasClose },
+    },
+    services: tanacsadasServices.map((service, index) => ({
+      id: service.id,
+      slug: service.id,
+      section: 'tanacsadas' as const,
+      index: service.index,
+      label: service.label,
+      title: service.title,
+      intro: service.intro,
+      detail: 'detail' in service ? service.detail : undefined,
+      problems: [...service.problems],
+      cta: service.cta,
+      link: service.link,
+      visual: service.visual,
+      image: '',
+      order: index + 1,
+      active: true,
+    })),
+    felnottkepzes: {
+      hero: {
+        label: felnottkepzesHero.label,
+        titleLead: felnottkepzesHero.titleLead,
+        titleMark: felnottkepzesHero.titleMark,
+        awardLine: felnottkepzesHero.awardLine,
+        image: felnottkepzesHero.image,
+        imageAlt: felnottkepzesHero.imageAlt,
+      },
+      methodTags: [...felnottkepzesMethodTags],
+      keyMessage: {
+        label: felnottkepzesKeyMessage.label,
+        title: felnottkepzesKeyMessage.title,
+        text: felnottkepzesKeyMessage.text,
+      },
+      credentials: {
+        paragraphs: [...felnottkepzesCredentials.paragraphs],
+      },
+      registration: felnottkepzesReg.registration,
+      license: felnottkepzesReg.license,
+      motto: felnottkepzesMotto,
+      processLead: felnottkepzesProcess.lead,
+      close: {
+        kicker: felnottkepzesCta.kicker,
+        title: felnottkepzesCta.title,
+        cta: felnottkepzesCta.btnLabel,
+        link: felnottkepzesCta.link,
+      },
+    },
+    felnottkepzesCategories: felnottkepzesCategories.map((cat, index) => ({
+      id: cat.id,
+      index: cat.index,
+      title: cat.title,
+      text: cat.text,
+      visual: cat.visual,
+      image: '',
+      order: index + 1,
+      active: true,
+    })),
+    felnottkepzesProgrammes: felnottkepzesProgrammeGroups.map((group, index) => ({
+      id: group.id,
+      tab: group.tab,
+      index: group.index,
+      title: group.title,
+      items: group.items.map((item) => ({ ...item })),
+      order: index + 1,
+      active: true,
+    })),
+    referenciakPage: {
+      hero: { ...referenciakHero },
+      stats: referenciakStats.map((stat) => ({ ...stat })),
+      cta: {
+        kicker: referenciakCta.kicker,
+        title: referenciakCta.title,
+        text: referenciakCta.text,
+        btnLabel: referenciakCta.btnLabel,
+        link: referenciakCta.link,
+      },
+    },
+    kapcsolat: {
+      hero: {
+        label: kapcsolatHero.label,
+        title: kapcsolatHero.title.replace('\n', ' '),
+        intro: kapcsolatHero.intro,
+      },
+      mapEmbed: company.mapEmbed,
+      mapsSearch: company.mapsSearch,
+      doorbellNote: '6. kapucsengő',
+      formTitle: kapcsolatForm.title,
+      formMessages: { ...kapcsolatForm.messages },
+    },
+    footer: {
+      trainingReg: company.trainingReg,
+      euMark: { ...homeEuMark },
+    },
+    seo: Object.entries(pageMeta).map(([path, meta]) => ({
+      path,
+      title: meta.title,
+      description: meta.description,
+    })),
     team: legacyTeam.map((member, index) => ({
       id: String(member.id),
       name: member.name,
@@ -76,8 +314,45 @@ export function createDefaultContent(): SiteContent {
       q2Lead: palyazatokHero.q2Lead,
       q2Mark: palyazatokHero.q2Mark,
       lead: palyazatokHero.lead,
+      heroCta: palyazatokHero.cta,
       deadlineKicker: palyazatokDeadline.kicker,
+      deadlineLabel: palyazatokDeadline.label,
       deadlineDate: palyazatokDeadline.date,
+      topicsLabel: palyazatokTopics.label,
+      topicsTitle: palyazatokTopics.title,
+      topics: palyazatokTopics.cards.map((card) => ({
+        id: card.id,
+        title: card.title,
+        text: 'text' in card ? card.text : undefined,
+        items: 'items' in card ? [...card.items] : undefined,
+      })),
+      factsLabel: palyazatokFacts.label,
+      factsTitle: palyazatokFacts.title,
+      facts: palyazatokFacts.items.map((fact) => ({
+        id: fact.id,
+        symbol: 'symbol' in fact ? fact.symbol : undefined,
+        value: 'value' in fact ? fact.value : undefined,
+        suffix: 'suffix' in fact ? fact.suffix : undefined,
+        text: fact.text,
+        highlight: 'highlight' in fact ? fact.highlight : undefined,
+      })),
+      aboutText: palyazatokAbout.text,
+      aboutLinkLabel: palyazatokAbout.linkLabel,
+      aboutLink: palyazatokAbout.link,
+      stepsLabel: palyazatokSteps.label,
+      stepsTitle: palyazatokSteps.title,
+      steps: [...palyazatokSteps.steps],
+      contactName: palyazatokContact.name,
+      contactRole: palyazatokContact.role,
+      contactPortrait: palyazatokContact.portrait,
+      contactEmail: palyazatokContact.email,
+      contactPhone: palyazatokContact.phone,
+      contactPhoneTel: palyazatokContact.phoneTel,
+      formTitle: palyazatokForm.title,
+      formPrivacyText: palyazatokForm.privacyText,
+      formPrivacyLink: palyazatokForm.privacyLink,
+      formPrivacyLinkLabel: palyazatokForm.privacyLinkLabel,
+      formSubmit: palyazatokForm.submit,
       active: true,
     },
   };

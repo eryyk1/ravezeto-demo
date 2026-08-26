@@ -1,12 +1,12 @@
+import { useEffect, useState } from 'react';
 import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useMemo,
-  useState,
   type ReactNode,
 } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { authService } from '../../services/auth/authService';
 import type { AuthSession } from '../../services/auth/types';
 
@@ -36,16 +36,37 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
+  const logout = useCallback(async () => {
+    await authService.logout();
+    setSession(null);
+  }, []);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!session) return;
+
+    const expireIfNeeded = () => {
+      if (Date.now() >= session.expiresAt) {
+        void logout().then(() => {
+          navigate('/admin/login', {
+            replace: true,
+            state: { expired: true },
+          });
+        });
+      }
+    };
+
+    expireIfNeeded();
+    const timer = window.setInterval(expireIfNeeded, 30_000);
+    return () => window.clearInterval(timer);
+  }, [session, logout, navigate]);
+
   const login = useCallback(async (email: string, password: string) => {
     const result = await authService.login(email, password);
     if (!result.ok) return result.error;
     setSession(result.session);
     return null;
-  }, []);
-
-  const logout = useCallback(async () => {
-    await authService.logout();
-    setSession(null);
   }, []);
 
   const value = useMemo(

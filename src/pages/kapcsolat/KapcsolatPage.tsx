@@ -3,9 +3,9 @@ import ClientFooter from '../../components/client/ClientFooter';
 import GoldMark from '../../components/client/GoldMark';
 import ScrollReveal from '../../components/client/ScrollReveal';
 import { company as staticCompany } from '../../content/company';
-import { useCompanySettings } from '../../services/content/useContent';
+import { useCompanySettings, useKapcsolatContent } from '../../services/content/useContent';
 import KapcsolatForm from '../../components/kapcsolat/KapcsolatForm';
-import { kapcsolatForm, kapcsolatHero } from './kapcsolatContent';
+import { kapcsolatForm as kapcsolatFormDefaults } from './kapcsolatContent';
 
 function HeroWatermark() {
   return (
@@ -24,18 +24,30 @@ function HeroWatermark() {
 
 export default function KapcsolatPage() {
   const cmsCompany = useCompanySettings();
-  const company = { ...staticCompany, ...cmsCompany };
+  const kapcsolat = useKapcsolatContent();
+  const company = {
+    ...staticCompany,
+    ...cmsCompany,
+    mapEmbed: kapcsolat.mapEmbed,
+    mapsSearch: kapcsolat.mapsSearch,
+  };
 
   return (
     <>
       <section className="hero">
         <HeroWatermark />
         <div className="wrap">
-          <div className="kicker anim">Kapcsolat · Írjon nekünk</div>
+          <div className="kicker anim">{kapcsolat.hero.label}</div>
           <h1 className="anim">
-            Keressen minket <GoldMark>bizalommal</GoldMark> az alábbi elérhetőségeinken!
+            {kapcsolat.hero.title.includes('bizalommal') ? (
+              <>
+                Keressen minket <GoldMark>bizalommal</GoldMark> az alábbi elérhetőségeinken!
+              </>
+            ) : (
+              kapcsolat.hero.title
+            )}
           </h1>
-          <p className="lead anim">{kapcsolatHero.intro}</p>
+          <p className="lead anim">{kapcsolat.hero.intro}</p>
         </div>
       </section>
 
@@ -73,7 +85,7 @@ export default function KapcsolatPage() {
           <ScrollReveal className="crow">
             <div className="ck">Irodánk</div>
             <div className="cbody">
-              <strong>{company.address}</strong> · 6. kapucsengő
+              <strong>{company.address}</strong> · {kapcsolat.doorbellNote}
               <br />
               <a href={company.mapsSearch} target="_blank" rel="noopener noreferrer">
                 Útvonaltervezés Google Térképen →
@@ -86,9 +98,15 @@ export default function KapcsolatPage() {
       <section className="msg">
         <div className="wrap">
           <ScrollReveal className="mgrid">
-            <h2>{kapcsolatForm.title}</h2>
+            <h2>{kapcsolat.formTitle}</h2>
             <div>
-              <KapcsolatForm config={kapcsolatForm} />
+              <KapcsolatForm
+                config={{
+                  ...kapcsolatFormDefaults,
+                  title: kapcsolat.formTitle,
+                  messages: kapcsolat.formMessages,
+                }}
+              />
               <p className="fnote">
                 Ennek az űrlapnak a kitöltésével hozzájárul, hogy a weblap eltárolja és felhasználja a
                 megadott adatokat. <Link to="/jogi/adatvedelem">Adatkezelési szabályzat</Link>
