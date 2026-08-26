@@ -93,10 +93,27 @@ export function adminAuthDevPlugin(): Plugin {
   return {
     name: 'admin-auth-dev-api',
     configureServer(server) {
+      logAdminAuthStatus();
       server.middlewares.use(adminAuthMiddleware());
     },
     configurePreviewServer(server) {
+      logAdminAuthStatus();
       server.middlewares.use(adminAuthMiddleware());
     },
   };
+}
+
+function logAdminAuthStatus() {
+  const hasEmail = Boolean(process.env.ADMIN_EMAIL);
+  const hasPassword = Boolean(process.env.ADMIN_PASSWORD);
+  const hasSecret = Boolean(getAdminSecret());
+
+  if (hasEmail && hasPassword && hasSecret) {
+    console.log(`[admin-auth] Local admin login configured for ${process.env.ADMIN_EMAIL}`);
+    return;
+  }
+
+  console.warn(
+    '[admin-auth] Missing ADMIN_EMAIL, ADMIN_PASSWORD, or ADMIN_JWT_SECRET. Create .env.local and restart the dev server.',
+  );
 }
