@@ -5,6 +5,7 @@ import GoldMark from '../../components/client/GoldMark';
 import HeroWatermark from '../../components/client/HeroWatermark';
 import ScrollReveal from '../../components/client/ScrollReveal';
 import PalyazatokForm from './PalyazatokForm';
+import PalyazatokPartners from './PalyazatokPartners';
 import {
   palyazatokAbout,
   palyazatokContact,
@@ -167,14 +168,13 @@ export default function PalyazatokPage() {
 
       <section className="sec">
         <div className="wrap">
-          <ScrollReveal className="partners">
-            <span className="pl">{palyazatokPartners.label}</span>
-            {partnerLogos.map((partner) => (
-              <div className="lph partner-logo" key={partner.slug}>
-                <img src={partner.logo} alt={partner.name} loading="eager" decoding="async" />
-              </div>
-            ))}
-            <Link to={palyazatokPartners.link}>{palyazatokPartners.linkLabel}</Link>
+          <ScrollReveal>
+            <PalyazatokPartners
+              partners={partnerLogos}
+              label={palyazatokPartners.label}
+              referenciakLink={palyazatokPartners.link}
+              referenciakLabel={palyazatokPartners.linkLabel}
+            />
           </ScrollReveal>
         </div>
       </section>

@@ -16,10 +16,226 @@
   margin-block: 0;
 }
 
+/* Együttműködő partnereink — logo tile grid */
+.paly-partners {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.paly-partners__label {
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--oliva-text);
+}
+
+.paly-partners__grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
+.paly-partners__card {
+  aspect-ratio: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem;
+  background: var(--card);
+  border: 1px solid var(--hair);
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 14px rgba(45, 52, 54, 0.06);
+  overflow: hidden;
+}
+
+.paly-partners__card img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.paly-partners__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+}
+
+.paly-partners__more {
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  padding: 0.62rem 1.45rem;
+  border: 1.5px solid var(--oliva-s);
+  border-radius: 2rem;
+  color: var(--oliva-s);
+  background: var(--card);
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.paly-partners__more:hover {
+  background: var(--oliva-s);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.paly-partners__ref-link {
+  color: var(--oliva-text);
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 800;
+  font-size: 0.92rem;
+  white-space: nowrap;
+}
+
+.paly-partners__ref-link:hover {
+  color: var(--ink);
+}
+
+/* Modal — all partners */
+.paly-partners-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.paly-partners-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  background: rgba(43, 42, 39, 0.52);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+}
+
+.paly-partners-modal__panel {
+  position: relative;
+  z-index: 1;
+  width: min(56rem, 100%);
+  max-height: min(86vh, 52rem);
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--hair);
+  border-radius: 1.1rem;
+  box-shadow: 0 24px 64px rgba(45, 52, 54, 0.18);
+  overflow: hidden;
+}
+
+.paly-partners-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem 1rem;
+  border-bottom: 1px solid var(--hair);
+  flex-shrink: 0;
+}
+
+.paly-partners-modal__title {
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.25;
+  color: var(--ink);
+  margin: 0;
+}
+
+.paly-partners-modal__close {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--hair);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--muted);
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.paly-partners-modal__close:hover {
+  color: var(--ink);
+  border-color: var(--oliva-s);
+  background: #fff;
+}
+
+.paly-partners__grid--modal {
+  padding: 1.35rem 1.5rem 1.6rem;
+  overflow-y: auto;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+@media (max-width: 56rem) {
+  .paly-partners__grid,
+  .paly-partners__grid--modal {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 40rem) {
+  .paly-partners__grid,
+  .paly-partners__grid--modal {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+
+  .paly-partners__card {
+    padding: 0.9rem;
+  }
+
+  .paly-partners-modal {
+    padding: 0.75rem;
+  }
+
+  .paly-partners-modal__panel {
+    max-height: 92vh;
+  }
+
+  .paly-partners__grid--modal {
+    padding: 1rem 1rem 1.25rem;
+  }
+}
+
 @media (max-width: 767px) {
   .palyazatok-page .palyazatok-consulting p {
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .paly-partners__more {
+    transition: none;
+  }
+
+  .paly-partners__more:hover {
+    transform: none;
   }
 }
