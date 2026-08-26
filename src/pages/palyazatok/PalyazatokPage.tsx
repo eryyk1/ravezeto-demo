@@ -1,24 +1,57 @@
+import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import ClientClose from '../../components/client/ClientClose';
+import ClientFooter from '../../components/client/ClientFooter';
 import GoldMark from '../../components/client/GoldMark';
+import HeroWatermark from '../../components/client/HeroWatermark';
 import ScrollReveal from '../../components/client/ScrollReveal';
+import PalyazatokForm from './PalyazatokForm';
 import {
-  palyazatokConsulting,
+  palyazatokAbout,
+  palyazatokContact,
+  palyazatokDeadline,
+  palyazatokFacts,
   palyazatokHero,
-  palyazatokInternational,
-  palyazatokStatusMessage,
+  palyazatokPartners,
+  palyazatokSteps,
+  palyazatokTopics,
 } from './palyazatokContent';
 
-function HeroWatermark() {
+function KontaktChevron() {
   return (
-    <svg className="hero-wm" viewBox="0 0 100 120" aria-hidden="true">
+    <svg className="k-chev" viewBox="0 0 100 120" aria-hidden="true">
       <path
         d="M14 8 L78 60 L14 112"
         fill="none"
         stroke="currentColor"
-        strokeWidth="10"
+        strokeWidth="14"
         strokeLinecap="round"
         strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function KontaktCrown() {
+  return (
+    <svg className="kc-crown" viewBox="0 0 64 42" aria-hidden="true">
+      <path
+        d="M10 30 L17 13 L25 26 L32 8 L39 26 L47 13 L54 30 Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.6"
+        strokeLinejoin="round"
+      />
+      <path d="M13 36 H51" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function DeadlineCircle() {
+  return (
+    <svg viewBox="0 0 220 70" preserveAspectRatio="none" aria-hidden="true">
+      <path
+        d="M14,36 C22,12 192,6 208,28 C220,50 156,66 62,62 C30,60 10,50 16,36"
+        pathLength={300}
       />
     </svg>
   );
@@ -32,16 +65,16 @@ export default function PalyazatokPage() {
         <div className="wrap">
           <div className="kicker">{palyazatokHero.label}</div>
           <h1>
-            <span className="q1">Fejlesztésben gondolkodik, projektkeretben?</span>
+            <span className="q1">{palyazatokHero.q1}</span>
             <span className="q2">
-              Uniós forrásból is segítünk — <GoldMark>együtt</GoldMark> a sikerig.
+              {palyazatokHero.q2Lead} <GoldMark>{palyazatokHero.q2Mark}</GoldMark>
             </span>
           </h1>
-          <p className="lead anim">Pályázati és nemzetközi projekt-támogatás tapasztalt szakemberekkel.</p>
+          <p className="lead anim">{palyazatokHero.lead}</p>
           <div className="cta-row anim">
-            <Link to="/kapcsolat" className="btn">
-              Lépjen velünk kapcsolatba!
-            </Link>
+            <a className="btn" href="#urlap">
+              {palyazatokHero.cta}
+            </a>
           </div>
         </div>
       </section>
@@ -49,60 +82,153 @@ export default function PalyazatokPage() {
       <section className="deadline-sec">
         <div className="wrap">
           <ScrollReveal className="deadline">
-            <span className="k">Aktuális helyzet</span>
-            <b>{palyazatokStatusMessage}</b>
+            <span className="k">{palyazatokDeadline.kicker}</span>
+            <b>
+              {palyazatokDeadline.label}{' '}
+              <span className="circ">
+                {palyazatokDeadline.date}
+                <DeadlineCircle />
+              </span>
+            </b>
           </ScrollReveal>
         </div>
       </section>
 
       <section className="sec">
         <div className="wrap">
-          <ScrollReveal className="head">
-            <div className="kicker">{palyazatokConsulting.label}</div>
-            <h2>{palyazatokConsulting.title}</h2>
+          <ScrollReveal as="div" className="head">
+            <div className="kicker">{palyazatokTopics.label}</div>
+            <h2>{palyazatokTopics.title}</h2>
           </ScrollReveal>
-          <div className="about">
-            {palyazatokConsulting.paragraphs.map((paragraph) => (
-              <ScrollReveal as="p" key={paragraph.slice(0, 32)}>
-                {paragraph}
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="sec">
-        <div className="wrap">
-          <ScrollReveal className="head">
-            <div className="kicker">{palyazatokInternational.label}</div>
-            <h2>{palyazatokInternational.title}</h2>
-          </ScrollReveal>
-          <div className="cards3">
-            {palyazatokInternational.projects.map((project, index) => (
-              <ScrollReveal key={project.id} className="tcard">
+          <ScrollReveal className="cards3">
+            {palyazatokTopics.cards.map((card, index) => (
+              <article className="tcard" key={card.id}>
                 <div className="idx">{String(index + 1).padStart(2, '0')}</div>
-                <h3>{project.title}</h3>
-                {'period' in project && project.period && <p>{project.period}</p>}
-                {'description' in project && project.description && <p>{project.description}</p>}
-                {'activities' in project && project.activities && (
+                <h3>{card.title}</h3>
+                {'text' in card && card.text ? <p>{card.text}</p> : null}
+                {'items' in card && card.items ? (
                   <ul>
-                    {project.activities.map((activity) => (
-                      <li key={activity}>{activity}</li>
+                    {card.items.map((item) => (
+                      <li key={item}>{item}</li>
                     ))}
                   </ul>
-                )}
-              </ScrollReveal>
+                ) : null}
+              </article>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      <ClientClose
-        kicker="Pályázatok"
-        title="Kérdése van a pályázati lehetőségekről?"
-        btnLabel="Kapcsolatfelvétel"
-        btnTo="/kapcsolat"
-      />
+      <section className="sec">
+        <div className="wrap">
+          <ScrollReveal as="div" className="head">
+            <div className="kicker">{palyazatokFacts.label}</div>
+            <h2>{palyazatokFacts.title}</h2>
+          </ScrollReveal>
+          <ScrollReveal className="facts">
+            {palyazatokFacts.items.map((fact) => (
+              <div className={`fact${'highlight' in fact && fact.highlight ? ' hl' : ''}`} key={fact.id}>
+                {'value' in fact && fact.value !== undefined ? (
+                  <div className="big" data-t={fact.value} data-s={fact.suffix}>
+                    {fact.value}
+                    {fact.suffix}
+                  </div>
+                ) : (
+                  <div className="big">{fact.symbol}</div>
+                )}
+                <p>{fact.text}</p>
+              </div>
+            ))}
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <section className="sec">
+        <div className="wrap">
+          <ScrollReveal className="about">
+            <p>{palyazatokAbout.text}</p>
+            <Link to={palyazatokAbout.link}>{palyazatokAbout.linkLabel}</Link>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <section className="sec">
+        <div className="wrap">
+          <ScrollReveal className="partners">
+            <span className="pl">{palyazatokPartners.label}</span>
+            {palyazatokPartners.logos.map((partner) => (
+              <div className="lph partner-logo" key={partner.slug}>
+                <img src={partner.logo} alt={partner.name} loading="eager" decoding="async" />
+              </div>
+            ))}
+            <Link to={palyazatokPartners.link}>{palyazatokPartners.linkLabel}</Link>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <section className="sec">
+        <div className="wrap">
+          <ScrollReveal as="div" className="head">
+            <div className="kicker">{palyazatokSteps.label}</div>
+            <h2>{palyazatokSteps.title}</h2>
+          </ScrollReveal>
+          <ScrollReveal className="steps">
+            {palyazatokSteps.steps.map((step, index) => (
+              <Fragment key={step.slice(0, 24)}>
+                {index > 0 ? (
+                  <div className="ssep" aria-hidden="true" key={`sep-${index}`}>
+                    &gt;
+                  </div>
+                ) : null}
+                <div className="step" key={step.slice(0, 24)}>
+                  <div className="idx">{String(index + 1).padStart(2, '0')}</div>
+                  <p>{step}</p>
+                </div>
+              </Fragment>
+            ))}
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <section className="sec" id="urlap">
+        <div className="wrap">
+          <ScrollReveal className="duo">
+            <div className="kontakt">
+              <KontaktChevron />
+              <KontaktCrown />
+              <div className="kc">
+                <span className="l1">Keep calm</span>
+                <span className="l2">and</span>
+                <span className="l1">
+                  call <b>Rávezető</b>
+                </span>
+              </div>
+              <div className="pwrap">
+                <img
+                  src={palyazatokContact.portrait}
+                  alt={`${palyazatokContact.name} portréja`}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div>
+                <h2>{palyazatokContact.name}</h2>
+                <div className="role">{palyazatokContact.role}</div>
+              </div>
+              <div className="elms">
+                E-mail:{' '}
+                <a href={`mailto:${palyazatokContact.email}`}>{palyazatokContact.email}</a>
+                <br />
+                Telefon:{' '}
+                <a href={`tel:${palyazatokContact.phoneTel}`}>{palyazatokContact.phone}</a>
+              </div>
+            </div>
+            <PalyazatokForm />
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <ClientFooter />
     </>
   );
 }

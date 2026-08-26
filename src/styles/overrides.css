@@ -69,7 +69,7 @@
 }
 
 .jogi-doc-list span {
-  color: var(--muted);
+  color: #4a5560;
   font-size: 0.92rem;
 }
 
@@ -89,7 +89,38 @@
   color: var(--ink);
 }
 
-/* ===== Site polish: readability, photo slots, logo marquee ===== */
+/* ===== Readability & polish overrides ===== */
+
+/* Light sections — stronger body text */
+.mut,
+.mid,
+.band p,
+.accent-line,
+.tst-quote,
+.close .refs,
+.grid-note,
+.body-copy,
+.info p,
+.tcard p,
+.tcard ul,
+.fact p:not(.hl p),
+.field label,
+.privacy,
+.quote .why,
+.quote .team-line,
+.word-sec p,
+.tstat .lab,
+.sub,
+.tagrow .tag,
+.photo-slot {
+  color: #4a5560;
+}
+
+.hero .lead,
+.hero-sub .lead,
+.hero-sub .award-line {
+  color: #4a5560;
+}
 
 /* Hero text over decorative lines / watermarks */
 .hero:has(.lines) .wrap,
@@ -110,61 +141,181 @@
 .hero:has(.lines) .kicker,
 .hero-sub:has(.lines) .kicker,
 .hero:has(.hero-wm) .kicker,
-.hero-sub:has(.hero-wm) .kicker {
+.hero-sub:has(.hero-wm) .kicker,
+.hero:has(.hero-wm) .award-line,
+.hero-sub:has(.hero-wm) .award-line {
   text-shadow:
     0 0 28px rgba(247, 248, 240, 0.92),
     0 1px 2px rgba(247, 248, 240, 0.75);
 }
 
-/* Aurelius quote: readable before scroll effect initializes */
+/* Dark sections — minimum contrast on olive-d backgrounds */
+.motto-sec .kicker,
+.pC .kicker,
+.sec-t3 .kicker,
+.aurelius-label,
+.doc .toplab {
+  color: rgba(242, 243, 232, 0.86);
+}
+
+.motto .latin,
+.motto p,
+.pC h2,
+.pC .refs,
+.pC .refs a,
+.stat .num,
+.sec-t3 .sec-t,
+.doc .num,
+.doc .note {
+  color: #f2f3e8;
+}
+
+.stat .lab,
+.pC .refs {
+  color: rgba(242, 243, 232, 0.84);
+}
+
+.pC .refs a {
+  color: var(--gold);
+}
+
+.pC .refs a:hover {
+  color: #fff;
+}
+
+/* Aurelius quote block */
 .aurelius:not(:has(span)) {
   color: #f2f3e8;
 }
 
+.aurelius span:not(.lit) {
+  color: rgba(242, 243, 232, 0.58);
+}
+
+.aurelius span.lit {
+  color: #f2f3e8;
+}
+
+.aurelius span.gold.lit {
+  color: var(--gold);
+}
+
 .aurelius-who {
-  color: rgba(242, 243, 232, 0.72);
+  color: rgba(242, 243, 232, 0.82);
+  font-size: 0.72rem;
 }
 
 .aurelius-why {
+  color: rgba(242, 243, 232, 0.88);
+}
+
+/* Testimonials on dark band */
+.tst-quote {
+  color: rgba(242, 243, 232, 0.9);
+}
+
+.tst-who {
+  color: var(--gold);
+}
+
+.tst-logo {
+  color: rgba(242, 243, 232, 0.68);
+}
+
+.tst-logo.on {
+  color: #f2f3e8;
+}
+
+/* Footer */
+footer,
+footer a,
+footer .tag,
+footer .fdoc {
+  color: rgba(242, 243, 232, 0.88);
+}
+
+footer a:hover {
+  color: #f2f3e8;
+}
+
+footer .fdoc b {
+  color: #f2f3e8;
+}
+
+footer .eu-slot span {
   color: rgba(242, 243, 232, 0.78);
 }
 
-/* Word section decorative ghost stays behind readable text */
+/* Kontakt card (Pályázatok) */
+.kontakt,
+.kontakt h2 {
+  color: #f2f3e8;
+}
+
+.kontakt .kc .l2 {
+  color: rgba(242, 243, 232, 0.78);
+}
+
+.kontakt .elms {
+  color: rgba(242, 243, 232, 0.9);
+}
+
+.kontakt .elms a {
+  color: var(--gold);
+}
+
+.kontakt .elms a:hover {
+  color: #fff;
+}
+
+/* Doc block labels on dark card */
+.doc .lab {
+  color: rgba(242, 243, 232, 0.78);
+}
+
+/* Word section decorative ghost */
 .word-sec .big {
   position: relative;
   z-index: 1;
+  color: var(--ink);
 }
 
 .word-sec .big .ghost {
   z-index: -1;
-  opacity: 0.35;
+  opacity: 0.28;
 }
 
-/* Slightly stronger muted text for body copy */
-.mut,
-.mid,
-.band p,
-.grid-note,
-.accent-line,
-.tst-quote,
-.close .refs {
-  color: #4a5560;
+.word-sec .rest {
+  color: var(--oliva-text);
 }
 
-/* Referenciák logo marquee: preload sync + clearer logos */
+/* Referenciák logo marquee */
+.lg-flow {
+  min-height: 6.5rem;
+  position: relative;
+}
+
+.lg-flow__preload {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .lg-flow:not(.lg-flow--ready) .lg-track {
   animation-play-state: paused;
-  opacity: 0;
+  visibility: hidden;
 }
 
 .lg-flow.lg-flow--ready .lg-track {
-  opacity: 1;
-  transition: opacity 0.35s ease;
+  visibility: visible;
 }
 
 .lg-flow .cell img {
   filter: grayscale(1);
-  opacity: 0.78;
+  opacity: 0.88;
   transition: filter 0.3s, opacity 0.3s;
 }
 
@@ -173,11 +324,12 @@
   opacity: 1;
 }
 
-/* Remove dashed borders when real images are present */
+/* Photo slots: remove dashed border only when a real image is present */
 .photo-slot:has(img),
 .team-photo:has(img),
 .co-photo:has(img),
-.values-img:has(img) {
+.values-img:has(img),
+.partners .partner-logo:has(img) {
   border-color: transparent;
   background: var(--card);
   padding: 0;
@@ -207,7 +359,6 @@
   filter: none;
 }
 
-/* Warm photo treatment only for photographic assets */
 .photo-slot:has(img:not([src$='.svg'])) img,
 .team-photo img,
 .co-photo img,
@@ -220,9 +371,47 @@
   filter: none;
 }
 
+/* Pályázatok partner logos */
+.partners .partner-logo:has(img) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.25rem;
+  min-width: 7rem;
+  min-height: 3.2rem;
+}
+
+.partners .partner-logo img {
+  max-height: 2.2rem;
+  max-width: 7.5rem;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: none;
+}
+
+/* VM curve labels on light background */
+.vmcurve .cn {
+  fill: var(--oliva-s);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .lg-flow .lg-track {
-    opacity: 1 !important;
+    visibility: visible !important;
     animation-play-state: running !important;
+  }
+
+  .hero h1 .q1,
+  .hero h1 .q2,
+  .hero .anim,
+  .rev,
+  .ch-big {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .aurelius span {
+    color: #f2f3e8 !important;
   }
 }

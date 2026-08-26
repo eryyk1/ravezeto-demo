@@ -6,7 +6,6 @@ import { referenceClientLogos } from '../../content/partners';
 import {
   referenciakCta,
   referenciakHero,
-  referenciakLogoNote,
   referenciakStats,
   referenciakTestimonials,
 } from '../../content/referenciak';
@@ -51,9 +50,6 @@ export default function ReferenciakPage() {
       <section className="sec">
         <div className="wrap">
           <LogoFlow logos={referenceClientLogos} />
-          <ScrollReveal as="p" className="grid-note">
-            {referenciakLogoNote}
-          </ScrollReveal>
         </div>
       </section>
 

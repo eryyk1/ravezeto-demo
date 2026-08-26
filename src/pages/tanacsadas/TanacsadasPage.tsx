@@ -56,16 +56,8 @@ function ChangeCurve() {
   );
 }
 
-function BandPhoto({
-  image,
-  alt,
-  label,
-}: {
-  image?: string;
-  alt: string;
-  label: string;
-}) {
-  return <ContentPhotoSlot src={image} alt={alt} placeholder={label} />;
+function BandPhoto({ label }: { label: string }) {
+  return <ContentPhotoSlot placeholder={label} alt="" />;
 }
 
 export default function TanacsadasPage() {
@@ -120,11 +112,7 @@ export default function TanacsadasPage() {
             {tanacsadasSzervezetfejlesztes.punch}
           </ScrollReveal>
           <ScrollReveal className="band">
-            <BandPhoto
-              image={tanacsadasSzervezetfejlesztes.bands[0].photoImage}
-              alt={tanacsadasSzervezetfejlesztes.bands[0].photoAlt}
-              label={tanacsadasSzervezetfejlesztes.bands[0].photoLabel}
-            />
+            <BandPhoto label={tanacsadasSzervezetfejlesztes.bands[0].photoLabel} />
             <div className="btxt">
               <h3>{tanacsadasSzervezetfejlesztes.bands[0].title}</h3>
               {tanacsadasSzervezetfejlesztes.bands[0].paragraphs.map((paragraph) => (
@@ -139,11 +127,7 @@ export default function TanacsadasPage() {
                 <p key={paragraph.slice(0, 32)}>{paragraph}</p>
               ))}
             </div>
-            <BandPhoto
-              image={tanacsadasSzervezetfejlesztes.bands[1].photoImage}
-              alt={tanacsadasSzervezetfejlesztes.bands[1].photoAlt}
-              label={tanacsadasSzervezetfejlesztes.bands[1].photoLabel}
-            />
+            <BandPhoto label={tanacsadasSzervezetfejlesztes.bands[1].photoLabel} />
           </ScrollReveal>
           <ScrollReveal as="p" className="accent-line">
             {tanacsadasMotto}

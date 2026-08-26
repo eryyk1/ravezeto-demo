@@ -1,6 +1,6 @@
 type ContentPhotoSlotProps = {
   src?: string;
-  alt: string;
+  alt?: string;
   placeholder?: string;
 };
 
@@ -8,7 +8,7 @@ export default function ContentPhotoSlot({ src, alt, placeholder }: ContentPhoto
   if (src) {
     return (
       <div className="photo-slot">
-        <img src={src} alt={alt} loading="lazy" decoding="async" />
+        <img src={src} alt={alt ?? ''} loading="lazy" decoding="async" />
       </div>
     );
   }

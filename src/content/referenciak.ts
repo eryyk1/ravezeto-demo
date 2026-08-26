@@ -15,9 +15,6 @@ export const referenciakStats = [
   { value: 3500, suffix: '+', label: 'résztvevő a képzéseinken' },
 ] as const;
 
-export const referenciakLogoNote =
-  'Partnereink logói a fenti folyamban jelennek meg – fölé húzva az egeret megáll a animáció.';
-
 export const referenciakTestimonials = [
   {
     logo: 'Smart Digital',

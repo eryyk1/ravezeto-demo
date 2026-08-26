@@ -1,54 +1,114 @@
 /**
- * Grants page content — source: live https://www.ravezeto.hu/palyazatok/
- * International projects: references CPT „Nemzetközi projektek” (live site content)
+ * Pályázatok page — source: client-reference/palyazatok.html (GINOP Plusz 3.2.1-21)
  */
 
+import { referenceClientLogos } from '../../content/partners';
+import { teamPhotos2025 } from '../../data/media';
+
 export const palyazatokHero = {
-  label: 'Pályázatok',
-  title: 'Pályázatok',
+  label: 'Pályázatok · GINOP Plusz 3.2.1-21',
+  q1: 'Mi van, ha képzem a munkavállalóimat és elmennek?',
+  q2Lead: 'Ok, de mi van akkor, ha nem képzem és',
+  q2Mark: 'maradnak?!',
+  lead: 'Támogatott képzések az Év Trénere díj nyerteseivel!',
+  cta: 'Lépjen velünk kapcsolatba!',
 } as const;
 
-export const palyazatokStatusMessage =
-  'Jelenleg nincs olyan nyitott pályázati lehetőség, amelyben együtt tudnánk működni. Amennyiben új lehetőség nyílik, ezen az oldalon tájékoztatjuk partnereinket.';
-
-export const palyazatokConsulting = {
-  label: 'Tanácsadási tevékenységeink',
-  title: 'Nemzetközi és uniós projektek',
-  paragraphs: [
-    'Fejlesztésben gondolkodom, projektkeretben? Uniós forrásból?',
-    'A munkaszervezetek egyedi fejlesztési céljaikat projektek keretében érik el. A hiányzó, vagy nem elég fejlett szabályozás, a projekt logikától eltérő szervezeti kultúra, a felkészült menedzserek hiánya akadályt képezhet a sikeres megvalósításban.',
-    'A „hagyományos” projekt menedzsment módszertanok alkalmazása mellett támogatjuk ügyfeleinket a komplex vagy nem jól definiálható projektek megvalósítását szolgáló iteratív, agilis projektmenedzsment módszerek bevezetésében is. Támogatjuk a szervezetet a felkészülésben, a szabályozás kialakításában, de igény szerint átvállaljuk a részletes tervezési és menedzsment feladatokat is.',
-    'Évtizedes tapasztalattal rendelkezünk EU-forrásból (ÁROP, TÁMOP) megvalósuló humánerőforrás- és közigazgatás-fejlesztési projektek, komplex fejlesztési programok tervezésében, menedzsmentjében.',
-  ],
+export const palyazatokDeadline = {
+  kicker: 'Az új felhívás megjelent!',
+  label: 'Benyújtás:',
+  date: '2026. május 31.',
 } as const;
 
-export const palyazatokInternational = {
-  label: 'Nemzetközi projektek',
-  title: 'Nemzetközi projektek',
-  visual: '/assets/illustrations/illust_inner_international.svg',
-  projects: [
+export const palyazatokTopics = {
+  label: 'Támogatott képzési témák',
+  title: 'Miben fejlődhet a csapata?',
+  cards: [
     {
-      id: 'ess-georgia',
-      title: 'ESS Grúzia',
-      period: '2015–2016',
-      description:
-        'Eastern Partnership Integration and Cooperation (EaPIC) 2013, GE/20 Capacity Building of the Employment Support Services (ESS) in Georgia (2015-2016)',
+      id: 'vezetoi',
+      title: 'Vezetői kompetenciák fejlesztése',
+      text: 'A XXI. századi vezető ismérvei',
     },
     {
-      id: 'croatia-admin',
-      title: 'Horvát Közigazgatási Minisztérium (Ministarstvo Uprave)',
-      period: '2014',
-      activities: [
-        '„Modernising Public Administration with EU Structural and Investment Funds” – Workshop (2014)',
-        'Turning strategies into practice: European Structural and Investment Funds project management – practical experience on project implementation – Workshop (2014)',
+      id: 'kommunikacio',
+      title: 'Bontsa le a munkahelyi kommunikációs gátakat',
+      items: [
+        'Generációk között',
+        'Ügyfelekkel',
+        'Munkatársakkal',
+        'Vezető és beosztott között',
       ],
     },
     {
-      id: 'croatia-justice',
-      title: 'Horvát Igazságügyi Minisztérium (Ministarstvo Pravosuda)',
-      period: '2014',
-      description:
-        '„Planning European Structural and Investment Funds key projects in the field of justice” – Workshop (2014)',
+      id: 'stressz',
+      title: 'Nagy a nyomás, a munkahelyi stressz?',
+      text: 'Ismerjen meg stresszkezelési technikákat',
     },
   ],
+} as const;
+
+export const palyazatokFacts = {
+  label: 'GINOP Plusz 3.2.1-21',
+  title: 'Pályázati tények',
+  items: [
+    { id: 'meret', symbol: '›', text: 'Mikro-, kis-, közép- és nagyvállalatok' },
+    { id: 'bp', symbol: '›', text: 'Budapesti székhellyel rendelkező cégek is' },
+    { id: 'tamogatas', value: 70, suffix: '%', text: 'akár 70%-os képzési- és bértámogatás', highlight: true },
+    { id: 'eloleg', value: 50, suffix: '%', text: '50% előleg igényelhető', highlight: true },
+  ],
+} as const;
+
+export const palyazatokAbout = {
+  text:
+    'A Rávezető 2008 óta működő tanácsadó vállalat, 2014 óta engedéllyel rendelkező felnőttképző intézmény, kompetenciafejlesztési fókusszal.',
+  linkLabel: 'Tudjon meg többet rólunk! →',
+  link: '/rolunk',
+} as const;
+
+const partnerSlugs = ['ref14', 'ref16', 'ref22', 'ref9'] as const;
+
+export const palyazatokPartners = {
+  label: 'Együttműködő partnereink:',
+  linkLabel: 'További referenciák →',
+  link: '/referenciak',
+  logos: partnerSlugs
+    .map((slug) => referenceClientLogos.find((logo) => logo.slug === slug))
+    .filter((logo): logo is (typeof referenceClientLogos)[number] => Boolean(logo)),
+} as const;
+
+export const palyazatokSteps = {
+  label: 'Hogyan segítünk?',
+  title: 'Díjmentes konzultációval indulunk',
+  steps: [
+    'Díjmentes konzultáció,',
+    'ami alapján segítünk összeállítani a cégre szabott képzési portfólióját,',
+    'és végigkísérjük a benyújtás és a megvalósítás során!',
+  ],
+} as const;
+
+export const palyazatokContact = {
+  name: 'Berta Anikó',
+  role: 'Projektmenedzser',
+  portrait: teamPhotos2025['berta-aniko'],
+  email: 'kepzes@ravezeto.hu',
+  phone: '+36 70/513 4128',
+  phoneTel: '+36705134128',
+} as const;
+
+export const palyazatokForm = {
+  title: 'Lépjen velünk kapcsolatba!',
+  formspreeEndpoint: import.meta.env.VITE_FORMSPREE_CONTACT as string | undefined,
+  privacyText:
+    'Ennek az űrlapnak a kitöltésével hozzájárul, hogy a weblap eltárolja és felhasználja a megadott adatokat.',
+  privacyLink: '/adatvedelem',
+  privacyLinkLabel: 'Adatkezelési szabályzat',
+  submit: 'Küldés →',
+  messages: {
+    success: 'Köszönjük! Hamarosan felvesszük Önnel a kapcsolatot.',
+    error: 'Hiba történt. Kérjük próbálja újra később.',
+    required: 'Ez a mező kötelező.',
+    invalidEmail: 'Érvénytelen e-mail cím.',
+    notConfigured:
+      'Az űrlap jelenleg nincs konfigurálva. Kérjük írjon közvetlenül a kepzes@ravezeto.hu címre.',
+  },
 } as const;

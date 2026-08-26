@@ -59,6 +59,11 @@ export default function LogoFlow({ logos }: LogoFlowProps) {
 
   return (
     <ScrollReveal className={`lg-flow${imagesReady ? ' lg-flow--ready' : ''}`}>
+      <div className="lg-flow__preload" aria-hidden="true">
+        {uniqueUrls.map((url) => (
+          <img key={url} src={url} alt="" decoding="async" fetchPriority="high" />
+        ))}
+      </div>
       <LogoTrack items={forward} />
       <LogoTrack items={backward} back ariaHidden />
     </ScrollReveal>
