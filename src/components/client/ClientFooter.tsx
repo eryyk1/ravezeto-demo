@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
-import { company } from '../../content/company';
 import { felnottkepzesReg } from '../../content/felnottkepzes';
 import { homeEuMark } from '../../content/home';
 import { footerNav } from '../../content/navigation';
+import { useCompanySettings } from '../../services/content/useContent';
 
 export default function ClientFooter() {
+  const company = useCompanySettings();
   return (
     <footer>
       <div className="wrap">

@@ -15,6 +15,7 @@ import {
   palyazatokSteps,
   palyazatokTopics,
 } from './palyazatokContent';
+import { usePartners, usePalyazatokSettings } from '../../services/content/useContent';
 
 function KontaktChevron() {
   return (
@@ -58,19 +59,31 @@ function DeadlineCircle() {
 }
 
 export default function PalyazatokPage() {
+  const cms = usePalyazatokSettings();
+  const cmsPartners = usePartners(true);
+  const partnerLogos =
+    cmsPartners.length > 0
+      ? cmsPartners.map((partner) => ({
+          slug: partner.slug,
+          name: partner.name,
+          logo: partner.logo,
+        }))
+      : palyazatokPartners.logos;
+
   return (
     <>
       <section className="hero">
         <HeroWatermark />
         <div className="wrap">
-          <div className="kicker">{palyazatokHero.label}</div>
+          <div className="kicker">{cms.heroLabel || palyazatokHero.label}</div>
           <h1>
-            <span className="q1">{palyazatokHero.q1}</span>
+            <span className="q1">{cms.q1 || palyazatokHero.q1}</span>
             <span className="q2">
-              {palyazatokHero.q2Lead} <GoldMark>{palyazatokHero.q2Mark}</GoldMark>
+              {cms.q2Lead || palyazatokHero.q2Lead}{' '}
+              <GoldMark>{cms.q2Mark || palyazatokHero.q2Mark}</GoldMark>
             </span>
           </h1>
-          <p className="lead anim">{palyazatokHero.lead}</p>
+          <p className="lead anim">{cms.lead || palyazatokHero.lead}</p>
           <div className="cta-row anim">
             <a className="btn" href="#urlap">
               {palyazatokHero.cta}
@@ -82,11 +95,11 @@ export default function PalyazatokPage() {
       <section className="deadline-sec">
         <div className="wrap">
           <ScrollReveal className="deadline">
-            <span className="k">{palyazatokDeadline.kicker}</span>
+            <span className="k">{cms.deadlineKicker || palyazatokDeadline.kicker}</span>
             <b>
               {palyazatokDeadline.label}{' '}
               <span className="circ">
-                {palyazatokDeadline.date}
+                {cms.deadlineDate || palyazatokDeadline.date}
                 <DeadlineCircle />
               </span>
             </b>
@@ -156,7 +169,7 @@ export default function PalyazatokPage() {
         <div className="wrap">
           <ScrollReveal className="partners">
             <span className="pl">{palyazatokPartners.label}</span>
-            {palyazatokPartners.logos.map((partner) => (
+            {partnerLogos.map((partner) => (
               <div className="lph partner-logo" key={partner.slug}>
                 <img src={partner.logo} alt={partner.name} loading="eager" decoding="async" />
               </div>

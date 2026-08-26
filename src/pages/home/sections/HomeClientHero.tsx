@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import GoldMark from '../../../components/client/GoldMark';
 import HeroLines from '../../../components/client/HeroLines';
-import { homeHero } from '../../../content/home';
+import { useHomeHero } from '../../../services/content/useContent';
 
 export default function HomeClientHero() {
+  const homeHero = useHomeHero();
   const [w1, w2, w3] = homeHero.headlineLines;
 
   return (

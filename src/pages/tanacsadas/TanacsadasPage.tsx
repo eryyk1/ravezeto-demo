@@ -14,11 +14,14 @@ import {
   tanacsadasServices,
   tanacsadasSzervezetfejlesztes,
 } from '../../content/tanacsadas';
-import { teamMembers } from '../../content/team';
+import { useTeamMembers } from '../../services/content/useContent';
 
 const VALID_ANCHORS = new Set<string>(tanacsadasServices.map((s) => s.id));
 
-const coachingPhoto = teamMembers.find((m) => m.featured)?.portrait ?? teamMembers[0].portrait;
+function useCoachingPhoto() {
+  const teamMembers = useTeamMembers(true);
+  return teamMembers.find((m) => m.featured)?.portrait ?? teamMembers[0]?.portrait ?? '';
+}
 
 function ChangeCurve() {
   return (
@@ -61,6 +64,7 @@ function BandPhoto({ label }: { label: string }) {
 }
 
 export default function TanacsadasPage() {
+  const coachingPhoto = useCoachingPhoto();
   const { pathname } = useLocation();
   const valtozasService = tanacsadasServices.find((s) => s.id === 'valtozasmenedzsment');
 

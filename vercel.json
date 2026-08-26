@@ -30,6 +30,6 @@
     { "source": "/wp-content/uploads/2018/08/GDPR_Kapcsolatok.pdf", "destination": "/assets/documents/GDPR_Kapcsolatok.pdf", "permanent": true }
   ],
   "rewrites": [
-    { "source": "/((?!assets/).*)", "destination": "/index.html" }
+    { "source": "/((?!assets/|api/).*)", "destination": "/index.html" }
   ]
 }

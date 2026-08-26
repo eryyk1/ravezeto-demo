@@ -6,9 +6,9 @@ import {
   rolunkClosing,
   rolunkHero,
   rolunkStory,
-  rolunkTeam,
   rolunkValues,
 } from '../../content/rolunk';
+import { useTeamMembers } from '../../services/content/useContent';
 
 function MottoArt() {
   return (
@@ -23,6 +23,7 @@ function MottoArt() {
 }
 
 export default function RolunkPage() {
+  const teamMembers = useTeamMembers(true);
   const mottoParagraph = [rolunkStory.pullQuote, ...rolunkStory.paragraphs].join(' ');
 
   return (
@@ -57,10 +58,10 @@ export default function RolunkPage() {
       <section className="sec">
         <div className="wrap">
           <ScrollReveal as="h2" className="sec-t">
-            {rolunkTeam.title}
+            Csapatunk
           </ScrollReveal>
           <div className="team-grid">
-            {rolunkTeam.members.map((member) => (
+            {teamMembers.map((member) => (
               <ScrollReveal as="article" className="member" key={member.id}>
                 <div className="photo">
                   <img

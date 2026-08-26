@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { company } from '../../content/company';
 import { homeEuMark } from '../../content/home';
+import { useCompanySettings } from '../../services/content/useContent';
 import ClientFooter from './ClientFooter';
 
 function ChevTrio() {
@@ -61,6 +61,7 @@ export default function ClientClose({
   showFooter = true,
   className = '',
 }: ClientCloseProps) {
+  const company = useCompanySettings();
   const refs =
     refsLine ??
     `${company.address} · ${company.email} · ${company.phone}`;

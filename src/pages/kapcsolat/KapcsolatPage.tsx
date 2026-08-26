@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import ClientFooter from '../../components/client/ClientFooter';
 import GoldMark from '../../components/client/GoldMark';
 import ScrollReveal from '../../components/client/ScrollReveal';
-import { company } from '../../content/company';
+import { company as staticCompany } from '../../content/company';
+import { useCompanySettings } from '../../services/content/useContent';
 import KapcsolatForm from '../../components/kapcsolat/KapcsolatForm';
 import { kapcsolatForm, kapcsolatHero } from './kapcsolatContent';
 
@@ -22,6 +23,9 @@ function HeroWatermark() {
 }
 
 export default function KapcsolatPage() {
+  const cmsCompany = useCompanySettings();
+  const company = { ...staticCompany, ...cmsCompany };
+
   return (
     <>
       <section className="hero">

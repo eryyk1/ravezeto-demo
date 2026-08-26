@@ -2,17 +2,29 @@ import ClientClose from '../../components/client/ClientClose';
 import GoldMark from '../../components/client/GoldMark';
 import HeroWatermark from '../../components/client/HeroWatermark';
 import ScrollReveal from '../../components/client/ScrollReveal';
-import { referenceClientLogos } from '../../content/partners';
 import {
   referenciakCta,
   referenciakHero,
   referenciakStats,
-  referenciakTestimonials,
 } from '../../content/referenciak';
+import { usePartners, useReferences } from '../../services/content/useContent';
 import LogoFlow from './LogoFlow';
 import TestimonialDeck from './TestimonialDeck';
 
 export default function ReferenciakPage() {
+  const partners = usePartners(true);
+  const references = useReferences(true);
+  const referenceClientLogos = partners.map((partner) => ({
+    slug: partner.slug,
+    name: partner.name,
+    logo: partner.logo,
+  }));
+  const referenciakTestimonials = references.map((reference) => ({
+    logo: reference.logo || reference.title,
+    who: reference.who,
+    quotes: reference.quotes,
+  }));
+
   return (
     <>
       <section className="hero">
