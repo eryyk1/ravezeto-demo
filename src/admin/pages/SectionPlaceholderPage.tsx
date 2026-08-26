@@ -1,4 +1,4 @@
-import AdminPageHeader from '../components/AdminPageHeader';
+import AdminPageShell from '../components/AdminPageShell';
 
 type SectionPlaceholderPageProps = {
   title: string;
@@ -10,15 +10,14 @@ export default function SectionPlaceholderPage({
   description,
 }: SectionPlaceholderPageProps) {
   return (
-    <>
-      <AdminPageHeader title={title} description={description} />
+    <AdminPageShell title={title} description={description}>
       <section className="admin-panel">
-        <p>
+        <p className="admin-panel__lead">
           Ez a szekció a tartalomkezelő első verziójában még csak előkészítve van. A
           legfontosabb adatok (csapat, partnerek, referenciák, kezdőlap hero, beállítások,
           pályázatok szövegek) már szerkeszthetők.
         </p>
       </section>
-    </>
+    </AdminPageShell>
   );
 }

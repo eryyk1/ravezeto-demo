@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import AdminField from '../../components/AdminField';
-import AdminPageHeader from '../../components/AdminPageHeader';
+import AdminPageShell from '../../components/AdminPageShell';
 import { useAdminUi } from '../../context/AdminUiContext';
 import { contentService } from '../../../services/content/store';
 import { useHomeHero } from '../../../services/content/useContent';
@@ -17,11 +17,10 @@ export default function HomeEditPage() {
   }
 
   return (
-    <>
-      <AdminPageHeader
-        title="Kezdőlap"
-        description="A főoldal hero szekció címe, szövege és gombjai."
-      />
+    <AdminPageShell
+      title="Kezdőlap"
+      description="A főoldal hero szekció címe, szövege és gombjai."
+    >
 
       <form className="admin-form" onSubmit={handleSave}>
         <AdminField label="Felső címke" htmlFor="hero-label">
@@ -101,6 +100,6 @@ export default function HomeEditPage() {
           </button>
         </div>
       </form>
-    </>
+    </AdminPageShell>
   );
 }

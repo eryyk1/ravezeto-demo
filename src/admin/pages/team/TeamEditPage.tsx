@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import AdminField from '../../components/AdminField';
-import AdminPageHeader from '../../components/AdminPageHeader';
+import AdminPageShell from '../../components/AdminPageShell';
 import ImageField from '../../components/ImageField';
 import { useAdminUi } from '../../context/AdminUiContext';
 import { createId, teamService } from '../../../services/content/store';
@@ -75,16 +75,15 @@ export default function TeamEditPage() {
   }
 
   return (
-    <>
-      <AdminPageHeader
-        title={isNew ? 'Új csapattag' : form.name}
-        description="Csapattag adatainak szerkesztése."
-        actions={
-          <Link className="admin-btn admin-btn--ghost" to="/admin/team">
-            Vissza
-          </Link>
-        }
-      />
+    <AdminPageShell
+      title={isNew ? 'Új csapattag' : form.name}
+      description="Csapattag adatainak szerkesztése."
+      actions={
+        <Link className="admin-btn admin-btn--ghost" to="/admin/team">
+          Vissza
+        </Link>
+      }
+    >
 
       <form className="admin-form" onSubmit={handleSave}>
         <div className="admin-form__grid">
@@ -175,6 +174,6 @@ export default function TeamEditPage() {
           ) : null}
         </div>
       </form>
-    </>
+    </AdminPageShell>
   );
 }

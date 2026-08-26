@@ -1,21 +1,20 @@
 import { Link } from 'react-router-dom';
-import AdminPageHeader from '../../components/AdminPageHeader';
+import AdminPageShell from '../../components/AdminPageShell';
 import { useTeamMembers } from '../../../services/content/useContent';
 
 export default function TeamListPage() {
   const members = useTeamMembers(false);
 
   return (
-    <>
-      <AdminPageHeader
-        title="Csapat"
-        description="Csapattagok neve, pozíciója, leírása és profilképe."
-        actions={
-          <Link className="admin-btn admin-btn--primary" to="/admin/team/new">
-            + Új tag
-          </Link>
-        }
-      />
+    <AdminPageShell
+      title="Csapat"
+      description="Csapattagok neve, pozíciója, leírása és profilképe."
+      actions={
+        <Link className="admin-btn admin-btn--primary" to="/admin/team/new">
+          + Új tag
+        </Link>
+      }
+    >
 
       <div className="admin-table-wrap">
         <table className="admin-table">
@@ -63,6 +62,6 @@ export default function TeamListPage() {
           </tbody>
         </table>
       </div>
-    </>
+    </AdminPageShell>
   );
 }

@@ -61,13 +61,14 @@ export default function AdminSidebar() {
       />
       <aside className={`admin-sidebar${sidebarOpen ? ' is-open' : ''}`}>
         <div className="admin-sidebar__brand">
-          <div className="admin-sidebar__mark" aria-hidden="true">
-            R
-          </div>
-          <div>
-            <span className="admin-sidebar__logo">Rávezető</span>
-            <span className="admin-sidebar__badge">Tartalomkezelő</span>
-          </div>
+          <img
+            className="admin-sidebar__logo-img"
+            src="/assets/logo.svg"
+            alt="Rávezető"
+            width={132}
+            height={26}
+          />
+          <span className="admin-sidebar__badge">Tartalomkezelő</span>
         </div>
 
         <nav className="admin-sidebar__nav" aria-label="Admin navigáció">

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import AdminField from '../../components/AdminField';
-import AdminPageHeader from '../../components/AdminPageHeader';
+import AdminPageShell from '../../components/AdminPageShell';
 import { useAdminUi } from '../../context/AdminUiContext';
 import { contentService, contentStore } from '../../../services/content/store';
 import { useCompanySettings } from '../../../services/content/useContent';
@@ -25,11 +25,10 @@ export default function SettingsPage() {
   }
 
   return (
-    <>
-      <AdminPageHeader
-        title="Beállítások"
-        description="Cégadatok és globális weboldal-beállítások."
-      />
+    <AdminPageShell
+      title="Beállítások"
+      description="Cégadatok és globális weboldal-beállítások."
+    >
 
       <form className="admin-form" onSubmit={handleSave}>
         <div className="admin-form__grid">
@@ -112,6 +111,6 @@ export default function SettingsPage() {
           </button>
         </div>
       </form>
-    </>
+    </AdminPageShell>
   );
 }

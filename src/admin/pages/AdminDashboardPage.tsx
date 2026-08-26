@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import AdminPageHeader from '../components/AdminPageHeader';
+import AdminPageShell from '../components/AdminPageShell';
 import { IconHome, IconHandshake, IconStar, IconUsers } from '../components/AdminIcons';
 import { useSiteContent } from '../../services/content/useContent';
 
@@ -38,11 +38,10 @@ export default function AdminDashboardPage() {
   ];
 
   return (
-    <>
-      <AdminPageHeader
-        title="Dashboard"
-        description="Üdvözöljük a Rávezető tartalomkezelő felületén. Itt szerkesztheti a weboldal fő tartalmait."
-      />
+    <AdminPageShell
+      title="Dashboard"
+      description="Üdvözöljük a Rávezető tartalomkezelő felületén. Itt szerkesztheti a weboldal fő tartalmait."
+    >
 
       <div className="admin-cards">
         {cards.map((card) => {
@@ -68,6 +67,6 @@ export default function AdminDashboardPage() {
           <li>A képeket URL-lel vagy feltöltéssel adhatja meg. Nagyobb méretű fájlokhoz később Supabase Storage ajánlott.</li>
         </ul>
       </section>
-    </>
+    </AdminPageShell>
   );
 }

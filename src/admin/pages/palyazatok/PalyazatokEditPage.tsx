@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import AdminField from '../../components/AdminField';
-import AdminPageHeader from '../../components/AdminPageHeader';
+import AdminPageShell from '../../components/AdminPageShell';
 import { useAdminUi } from '../../context/AdminUiContext';
 import { contentService } from '../../../services/content/store';
 import { usePalyazatokSettings } from '../../../services/content/useContent';
@@ -17,11 +17,10 @@ export default function PalyazatokEditPage() {
   }
 
   return (
-    <>
-      <AdminPageHeader
-        title="Pályázatok"
-        description="A Pályázatok oldal fő szövegei. A publikus oldal elrendezése változatlan marad."
-      />
+    <AdminPageShell
+      title="Pályázatok"
+      description="A Pályázatok oldal fő szövegei. A publikus oldal elrendezése változatlan marad."
+    >
 
       <form className="admin-form" onSubmit={handleSave}>
         <AdminField label="Hero címke" htmlFor="paly-label">
@@ -92,6 +91,6 @@ export default function PalyazatokEditPage() {
           </button>
         </div>
       </form>
-    </>
+    </AdminPageShell>
   );
 }

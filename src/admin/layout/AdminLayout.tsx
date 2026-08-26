@@ -14,7 +14,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
     <div className="admin-shell">
       <AdminSidebar />
       <div className="admin-main">
-        <header className="admin-topbar">
+        <div className="admin-topbar">
           <button
             type="button"
             className="admin-topbar__menu"
@@ -24,7 +24,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
             ☰
           </button>
           <div className="admin-topbar__title">Tartalomkezelő</div>
-        </header>
+        </div>
         <main className="admin-content">{children}</main>
       </div>
       <AdminToasts />

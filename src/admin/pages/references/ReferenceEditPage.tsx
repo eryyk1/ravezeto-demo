@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import AdminField from '../../components/AdminField';
-import AdminPageHeader from '../../components/AdminPageHeader';
+import AdminPageShell from '../../components/AdminPageShell';
 import { useAdminUi } from '../../context/AdminUiContext';
 import { createId, referenceService } from '../../../services/content/store';
 import { useReferences } from '../../../services/content/useContent';
@@ -72,16 +72,15 @@ export default function ReferenceEditPage() {
   }
 
   return (
-    <>
-      <AdminPageHeader
-        title={isNew ? 'Új referencia' : form.title}
-        description="Ügyfél-vélemény szerkesztése."
-        actions={
-          <Link className="admin-btn admin-btn--ghost" to="/admin/references">
-            Vissza
-          </Link>
-        }
-      />
+    <AdminPageShell
+      title={isNew ? 'Új referencia' : form.title}
+      description="Ügyfél-vélemény szerkesztése."
+      actions={
+        <Link className="admin-btn admin-btn--ghost" to="/admin/references">
+          Vissza
+        </Link>
+      }
+    >
 
       <form className="admin-form" onSubmit={handleSave}>
         <div className="admin-form__grid">
@@ -173,6 +172,6 @@ export default function ReferenceEditPage() {
           ) : null}
         </div>
       </form>
-    </>
+    </AdminPageShell>
   );
 }
