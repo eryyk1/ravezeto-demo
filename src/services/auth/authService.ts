@@ -6,36 +6,62 @@ import {
 } from './sessionStorage';
 import type { AuthProvider, AuthSession, LoginResult } from './types';
 
+async function parseJsonBody(response: Response): Promise<Record<string, unknown>> {
+  const text = await response.text();
+  if (!text) return {};
+
+  try {
+    return JSON.parse(text) as Record<string, unknown>;
+  } catch {
+    return {};
+  }
+}
+
+function readError(payload: Record<string, unknown>, fallback: string): string {
+  return typeof payload.error === 'string' && payload.error.trim()
+    ? payload.error
+    : fallback;
+}
+
 async function apiLogin(email: string, password: string): Promise<LoginResult> {
-  const response = await fetch('/api/admin/login', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    body: JSON.stringify({ email, password }),
-  });
+  try {
+    const response = await fetch('/api/admin/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({ email, password }),
+    });
 
-  const payload = (await response.json()) as {
-    accessToken?: string;
-    expiresAt?: number;
-    user?: { id: string; email: string };
-    error?: string;
-  };
+    const payload = await parseJsonBody(response);
 
-  if (!response.ok) {
-    return { ok: false, error: payload.error ?? 'Bejelentkezés sikertelen.' };
+    if (!response.ok) {
+      const fallback =
+        response.status === 401
+          ? 'Hibás email vagy jelszó.'
+          : response.status === 503
+            ? 'Az admin bejelentkezés nincs konfigurálva a szerveren.'
+            : 'Bejelentkezés sikertelen.';
+      return { ok: false, error: readError(payload, fallback) };
+    }
+
+    const accessToken = payload.accessToken;
+    const expiresAt = payload.expiresAt;
+    const user = payload.user as { id: string; email: string } | undefined;
+
+    if (typeof accessToken !== 'string' || !user?.email || typeof expiresAt !== 'number') {
+      return { ok: false, error: 'Érvénytelen szerver válasz.' };
+    }
+
+    const session: AuthSession = {
+      accessToken,
+      expiresAt,
+      user,
+    };
+
+    saveSession(session);
+    return { ok: true, session };
+  } catch {
+    return { ok: false, error: 'Nem sikerült csatlakozni a szerverhez. Próbálja újra.' };
   }
-
-  if (!payload.accessToken || !payload.user || !payload.expiresAt) {
-    return { ok: false, error: 'Érvénytelen szerver válasz.' };
-  }
-
-  const session: AuthSession = {
-    accessToken: payload.accessToken,
-    expiresAt: payload.expiresAt,
-    user: payload.user,
-  };
-
-  saveSession(session);
-  return { ok: true, session };
 }
 
 async function apiGetSession(): Promise<AuthSession | null> {
@@ -47,22 +73,25 @@ async function apiGetSession(): Promise<AuthSession | null> {
     const response = await fetch('/api/admin/session', {
       headers: { Authorization: `Bearer ${token}`, Accept: 'application/json' },
     });
+
     if (!response.ok) {
       clearSession();
       return null;
     }
-    const payload = (await response.json()) as {
-      user?: { id: string; email: string };
-      expiresAt?: number;
-    };
-    if (!payload.user || !payload.expiresAt) {
+
+    const payload = await parseJsonBody(response);
+    const user = payload.user as { id: string; email: string } | undefined;
+    const expiresAt = payload.expiresAt;
+
+    if (!user?.email || typeof expiresAt !== 'number') {
       clearSession();
       return null;
     }
+
     const session: AuthSession = {
       accessToken: token,
-      expiresAt: payload.expiresAt,
-      user: payload.user,
+      expiresAt,
+      user,
     };
     saveSession(session);
     return session;

@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useAdminUi } from '../context/AdminUiContext';
 import {
@@ -45,6 +45,12 @@ const NAV_SECTIONS = [
 export default function AdminSidebar() {
   const { logout, session } = useAuth();
   const { sidebarOpen, setSidebarOpen } = useAdminUi();
+  const navigate = useNavigate();
+
+  async function handleLogout() {
+    await logout();
+    navigate('/admin/login', { replace: true });
+  }
 
   return (
     <>
@@ -97,7 +103,7 @@ export default function AdminSidebar() {
             <IconExternal className="admin-sidebar__icon" />
             <span>Weboldal megnyitása</span>
           </a>
-          <button type="button" className="admin-sidebar__logout" onClick={() => logout()}>
+          <button type="button" className="admin-sidebar__logout" onClick={handleLogout}>
             <IconLogout className="admin-sidebar__icon" />
             <span>Kijelentkezés</span>
           </button>

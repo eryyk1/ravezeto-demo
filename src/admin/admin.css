@@ -741,7 +741,7 @@ body.admin-mode .rev {
   min-height: 100vh;
   position: relative;
   overflow: hidden;
-  background: #0d1218;
+  background: #030810;
   color: #eef2f6;
 }
 
@@ -751,37 +751,129 @@ body.admin-mode .rev {
   pointer-events: none;
 }
 
+.admin-login__gradient {
+  position: absolute;
+  inset: -40%;
+  background:
+    radial-gradient(ellipse 55% 45% at 72% 38%, rgba(157, 173, 82, 0.16) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 25% 55%, rgba(214, 165, 72, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 70% 55% at 20% 42%, rgba(27, 94, 32, 0.35) 0%, transparent 52%),
+    radial-gradient(ellipse 85% 75% at 78% 38%, rgba(27, 94, 32, 0.28) 0%, transparent 48%),
+    linear-gradient(158deg, #030810 0%, #061018 18%, #0a2410 38%, #0f3312 55%, #071509 75%, #030810 100%);
+  background-size: 200% 200%;
+  animation: admin-login-gradient 52s ease-in-out infinite alternate;
+}
+
+@keyframes admin-login-gradient {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(-2%, -1%, 0) scale(1.03);
+  }
+}
+
 .admin-login__grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(117, 131, 58, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(117, 131, 58, 0.08) 1px, transparent 1px);
+    linear-gradient(rgba(117, 131, 58, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(117, 131, 58, 0.07) 1px, transparent 1px);
   background-size: 48px 48px;
-  mask-image: radial-gradient(circle at center, black 30%, transparent 85%);
+  mask-image: radial-gradient(circle at center, black 25%, transparent 82%);
+  opacity: 0.85;
+}
+
+.admin-login__stars {
+  position: absolute;
+  inset: 0;
+}
+
+.admin-login__star {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(242, 243, 232, 0.85);
+  box-shadow: 0 0 6px rgba(214, 165, 72, 0.28);
+  animation: admin-login-star 4.5s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+@keyframes admin-login-star {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.25);
+  }
 }
 
 .admin-login__glow {
   position: absolute;
   border-radius: 999px;
-  filter: blur(80px);
-  opacity: 0.45;
+  filter: blur(90px);
+  opacity: 0.42;
+  will-change: transform, opacity;
 }
 
 .admin-login__glow--1 {
-  width: 28rem;
-  height: 28rem;
-  top: -8rem;
-  right: -6rem;
-  background: rgba(117, 131, 58, 0.35);
+  width: min(42vw, 28rem);
+  height: min(42vw, 28rem);
+  top: -10%;
+  right: -8%;
+  background: radial-gradient(circle, rgba(76, 175, 80, 0.22) 0%, transparent 68%);
+  animation: admin-login-glow-a 36s ease-in-out infinite alternate;
 }
 
 .admin-login__glow--2 {
-  width: 22rem;
-  height: 22rem;
-  bottom: -6rem;
-  left: -4rem;
-  background: rgba(80, 120, 180, 0.22);
+  width: min(38vw, 22rem);
+  height: min(38vw, 22rem);
+  bottom: -8%;
+  left: -6%;
+  background: radial-gradient(circle, rgba(46, 125, 50, 0.18) 0%, transparent 65%);
+  animation: admin-login-glow-b 44s ease-in-out infinite alternate;
+}
+
+.admin-login__glow--3 {
+  width: min(28vw, 16rem);
+  height: min(28vw, 16rem);
+  right: 18%;
+  bottom: 22%;
+  background: radial-gradient(circle, rgba(102, 187, 106, 0.12) 0%, transparent 68%);
+  animation: admin-login-glow-c 30s ease-in-out infinite alternate;
+}
+
+@keyframes admin-login-glow-a {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translate3d(-3%, 4%, 0);
+    opacity: 0.5;
+  }
+}
+
+@keyframes admin-login-glow-b {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate3d(4%, -3%, 0);
+    opacity: 0.48;
+  }
+}
+
+@keyframes admin-login-glow-c {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(-2%, 2%, 0) scale(1.08);
+  }
 }
 
 .admin-login__layout {
@@ -800,32 +892,29 @@ body.admin-mode .rev {
 .admin-login__hero h1 {
   margin: 0 0 0.75rem;
   font-family: 'Urbanist', sans-serif;
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  font-size: clamp(1.65rem, 3vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: rgba(238, 242, 246, 0.95);
 }
 
 .admin-login__hero p {
   margin: 0;
   max-width: 24rem;
-  color: rgba(238, 242, 246, 0.72);
+  color: rgba(238, 242, 246, 0.68);
   line-height: 1.65;
   font-size: 1.02rem;
 }
 
-.admin-login__hero-mark {
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 1rem;
-  display: grid;
-  place-items: center;
-  font-family: 'Urbanist', sans-serif;
-  font-weight: 800;
-  font-size: 1.35rem;
-  margin-bottom: 1.25rem;
-  background: linear-gradient(135deg, var(--admin-accent) 0%, #95a84a 100%);
-  box-shadow: 0 16px 40px rgba(117, 131, 58, 0.35);
+.admin-login__logo {
+  display: block;
+  width: min(220px, 72vw);
+  height: auto;
+  margin-bottom: 1.5rem;
+  filter: brightness(0) invert(1);
+  opacity: 0.96;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .admin-login__card {
@@ -835,9 +924,19 @@ body.admin-mode .rev {
   padding: 1.6rem 1.5rem 1.5rem;
   display: grid;
   gap: 1.1rem;
-  box-shadow: var(--admin-shadow-lg);
+  box-shadow:
+    0 24px 60px rgba(3, 8, 16, 0.35),
+    0 0 0 1px rgba(117, 131, 58, 0.08);
   color: var(--admin-ink);
   backdrop-filter: blur(12px);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.admin-login__card:focus-within {
+  box-shadow:
+    0 28px 64px rgba(3, 8, 16, 0.4),
+    0 0 0 1px rgba(117, 131, 58, 0.18),
+    0 0 32px rgba(117, 131, 58, 0.12);
 }
 
 .admin-login__card-head {
@@ -1015,7 +1114,7 @@ body.admin-mode .rev {
     margin-inline: auto;
   }
 
-  .admin-login__hero-mark {
+  .admin-login__logo {
     margin-inline: auto;
   }
 }

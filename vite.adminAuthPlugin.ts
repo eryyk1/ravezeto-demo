@@ -22,11 +22,8 @@ function json(res: ServerResponse, status: number, body: unknown) {
   res.end(JSON.stringify(body));
 }
 
-export function adminAuthDevPlugin(): Plugin {
-  return {
-    name: 'admin-auth-dev-api',
-    configureServer(server) {
-      server.middlewares.use(async (req, res, next) => {
+function adminAuthMiddleware() {
+  return async (req: IncomingMessage, res: ServerResponse, next: () => void) => {
         if (!req.url?.startsWith('/api/admin/')) return next();
 
         const secret = getAdminSecret();
@@ -89,7 +86,17 @@ export function adminAuthDevPlugin(): Plugin {
         }
 
         json(res, 404, { error: 'Not found' });
-      });
+  };
+}
+
+export function adminAuthDevPlugin(): Plugin {
+  return {
+    name: 'admin-auth-dev-api',
+    configureServer(server) {
+      server.middlewares.use(adminAuthMiddleware());
+    },
+    configurePreviewServer(server) {
+      server.middlewares.use(adminAuthMiddleware());
     },
   };
 }
