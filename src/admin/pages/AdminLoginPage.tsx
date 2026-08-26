@@ -13,9 +13,10 @@ export default function AdminLoginPage() {
 
   const redirectTo =
     (location.state as { from?: string } | null)?.from ?? '/admin/dashboard';
+  const safeRedirect = redirectTo === '/admin' || redirectTo === '/admin/' ? '/admin/dashboard' : redirectTo;
 
   if (!loading && session) {
-    return <Navigate to={redirectTo} replace />;
+    return <Navigate to={safeRedirect} replace />;
   }
 
   async function handleSubmit(event: React.FormEvent) {
@@ -26,7 +27,7 @@ export default function AdminLoginPage() {
     if (message) {
       setError(message);
     } else {
-      navigate(redirectTo, { replace: true });
+      navigate(safeRedirect, { replace: true });
     }
     setSubmitting(false);
   }

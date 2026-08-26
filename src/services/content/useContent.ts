@@ -1,4 +1,4 @@
-import { useSyncExternalStore } from 'react';
+import { useEffect, useState } from 'react';
 import { contentStore } from './store';
 import type {
   CompanySettings,
@@ -6,42 +6,48 @@ import type {
   Partner,
   PalyazatokSettings,
   Reference,
+  SiteContent,
   TeamMember,
 } from './types';
 
-export function useSiteContent() {
-  return useSyncExternalStore(contentStore.subscribe, contentStore.getSnapshot);
+function useStoreValue<T>(read: () => T): T {
+  const [value, setValue] = useState(() => read());
+
+  useEffect(() => {
+    const sync = () => setValue(read());
+    return contentStore.subscribe(sync);
+  }, [read]);
+
+  return value;
+}
+
+export function useSiteContent(): SiteContent {
+  return useStoreValue(contentStore.getSnapshot);
 }
 
 export function useCompanySettings(): CompanySettings {
-  return useSyncExternalStore(contentStore.subscribe, contentStore.getCompany);
+  return useStoreValue(contentStore.getCompany);
 }
 
 export function useHomeHero(): HomeHeroContent {
-  return useSyncExternalStore(contentStore.subscribe, contentStore.getHomeHero);
+  return useStoreValue(contentStore.getHomeHero);
 }
 
 export function useTeamMembers(activeOnly = true): TeamMember[] {
-  return useSyncExternalStore(
-    contentStore.subscribe,
-    activeOnly ? contentStore.getActiveTeam : contentStore.getTeam,
-  );
+  const read = activeOnly ? contentStore.getActiveTeam : contentStore.getTeam;
+  return useStoreValue(read);
 }
 
 export function usePartners(activeOnly = true): Partner[] {
-  return useSyncExternalStore(
-    contentStore.subscribe,
-    activeOnly ? contentStore.getActivePartners : contentStore.getPartners,
-  );
+  const read = activeOnly ? contentStore.getActivePartners : contentStore.getPartners;
+  return useStoreValue(read);
 }
 
 export function useReferences(activeOnly = true): Reference[] {
-  return useSyncExternalStore(
-    contentStore.subscribe,
-    activeOnly ? contentStore.getActiveReferences : contentStore.getReferences,
-  );
+  const read = activeOnly ? contentStore.getActiveReferences : contentStore.getReferences;
+  return useStoreValue(read);
 }
 
 export function usePalyazatokSettings(): PalyazatokSettings {
-  return useSyncExternalStore(contentStore.subscribe, contentStore.getPalyazatok);
+  return useStoreValue(contentStore.getPalyazatok);
 }

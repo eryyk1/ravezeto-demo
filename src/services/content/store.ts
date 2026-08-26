@@ -40,9 +40,35 @@ function loadFromStorage(): SiteContent | null {
 class ContentStore {
   private data: SiteContent;
   private listeners = new Set<Listener>();
+  private listCache: {
+    team: TeamMember[] | null;
+    activeTeam: TeamMember[] | null;
+    partners: Partner[] | null;
+    activePartners: Partner[] | null;
+    references: Reference[] | null;
+    activeReferences: Reference[] | null;
+  } = {
+    team: null,
+    activeTeam: null,
+    partners: null,
+    activePartners: null,
+    references: null,
+    activeReferences: null,
+  };
 
   constructor() {
     this.data = loadFromStorage() ?? createDefaultContent();
+  }
+
+  private invalidateListCache() {
+    this.listCache = {
+      team: null,
+      activeTeam: null,
+      partners: null,
+      activePartners: null,
+      references: null,
+      activeReferences: null,
+    };
   }
 
   subscribe = (listener: Listener): (() => void) => {
@@ -56,6 +82,7 @@ class ContentStore {
 
   private persist() {
     if (typeof window === 'undefined') return;
+    this.invalidateListCache();
     localStorage.setItem(STORAGE_KEY, JSON.stringify(this.data));
     this.notify();
   }
@@ -67,31 +94,33 @@ class ContentStore {
     this.persist();
   }
 
-  getCompany(): CompanySettings {
-    return this.data.company;
-  }
+  getCompany = (): CompanySettings => this.data.company;
 
   updateCompany(company: CompanySettings) {
     this.data = { ...this.data, company };
     this.persist();
   }
 
-  getHomeHero(): HomeHeroContent {
-    return this.data.homeHero;
-  }
+  getHomeHero = (): HomeHeroContent => this.data.homeHero;
 
   updateHomeHero(homeHero: HomeHeroContent) {
     this.data = { ...this.data, homeHero };
     this.persist();
   }
 
-  getTeam(): TeamMember[] {
-    return [...this.data.team].sort((a, b) => a.order - b.order);
-  }
+  getTeam = (): TeamMember[] => {
+    if (!this.listCache.team) {
+      this.listCache.team = [...this.data.team].sort((a, b) => a.order - b.order);
+    }
+    return this.listCache.team;
+  };
 
-  getActiveTeam(): TeamMember[] {
-    return this.getTeam().filter((member) => member.active);
-  }
+  getActiveTeam = (): TeamMember[] => {
+    if (!this.listCache.activeTeam) {
+      this.listCache.activeTeam = this.getTeam().filter((member) => member.active);
+    }
+    return this.listCache.activeTeam;
+  };
 
   getTeamMember(id: string): TeamMember | undefined {
     return this.data.team.find((member) => member.id === id);
@@ -114,13 +143,19 @@ class ContentStore {
     this.persist();
   }
 
-  getPartners(): Partner[] {
-    return [...this.data.partners].sort((a, b) => a.order - b.order);
-  }
+  getPartners = (): Partner[] => {
+    if (!this.listCache.partners) {
+      this.listCache.partners = [...this.data.partners].sort((a, b) => a.order - b.order);
+    }
+    return this.listCache.partners;
+  };
 
-  getActivePartners(): Partner[] {
-    return this.getPartners().filter((partner) => partner.active);
-  }
+  getActivePartners = (): Partner[] => {
+    if (!this.listCache.activePartners) {
+      this.listCache.activePartners = this.getPartners().filter((partner) => partner.active);
+    }
+    return this.listCache.activePartners;
+  };
 
   getPartner(id: string): Partner | undefined {
     return this.data.partners.find((partner) => partner.id === id);
@@ -143,13 +178,19 @@ class ContentStore {
     this.persist();
   }
 
-  getReferences(): Reference[] {
-    return [...this.data.references].sort((a, b) => a.order - b.order);
-  }
+  getReferences = (): Reference[] => {
+    if (!this.listCache.references) {
+      this.listCache.references = [...this.data.references].sort((a, b) => a.order - b.order);
+    }
+    return this.listCache.references;
+  };
 
-  getActiveReferences(): Reference[] {
-    return this.getReferences().filter((reference) => reference.active);
-  }
+  getActiveReferences = (): Reference[] => {
+    if (!this.listCache.activeReferences) {
+      this.listCache.activeReferences = this.getReferences().filter((reference) => reference.active);
+    }
+    return this.listCache.activeReferences;
+  };
 
   getReference(id: string): Reference | undefined {
     return this.data.references.find((reference) => reference.id === id);
@@ -172,9 +213,7 @@ class ContentStore {
     this.persist();
   }
 
-  getPalyazatok(): PalyazatokSettings {
-    return this.data.palyazatok;
-  }
+  getPalyazatok = (): PalyazatokSettings => this.data.palyazatok;
 
   updatePalyazatok(palyazatok: PalyazatokSettings) {
     this.data = { ...this.data, palyazatok };

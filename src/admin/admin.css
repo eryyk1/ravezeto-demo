@@ -468,11 +468,15 @@
 }
 
 .admin-loading-screen {
+  --admin-bg: #f4f6f8;
+  --admin-accent: #75833a;
+  --admin-ink: #1f2933;
   min-height: 100vh;
   display: grid;
   place-items: center;
   gap: 0.75rem;
   background: var(--admin-bg);
+  color: var(--admin-ink);
 }
 
 .admin-spinner {
