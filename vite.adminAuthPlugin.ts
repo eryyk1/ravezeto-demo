@@ -1,9 +1,9 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import type { Plugin } from 'vite';
 import {
+  authenticateAdminUser,
   getAdminSecret,
   signAdminToken,
-  validateAdminCredentials,
   verifyAdminToken,
 } from './api/lib/adminAuth.js';
 import { ADMIN_SESSION_TTL_MS } from './api/lib/sessionConfig.js';
@@ -48,18 +48,19 @@ function adminAuthMiddleware() {
               return;
             }
 
-            if (!validateAdminCredentials(email, password)) {
+            const user = authenticateAdminUser(email, password);
+            if (!user) {
               json(res, 401, { error: 'Hibás email vagy jelszó.' });
               return;
             }
 
             const ttlMs = ADMIN_SESSION_TTL_MS;
             const expiresAt = Date.now() + ttlMs;
-            const accessToken = signAdminToken({ sub: 'admin', email }, secret, ttlMs);
+            const accessToken = signAdminToken({ sub: user.id, email: user.email }, secret, ttlMs);
             json(res, 200, {
               accessToken,
               expiresAt,
-              user: { id: 'admin', email },
+              user: { id: user.id, email: user.email },
             });
           } catch {
             json(res, 400, { error: 'Érvénytelen kérés.' });
@@ -110,7 +111,11 @@ function logAdminAuthStatus() {
   const hasSecret = Boolean(getAdminSecret());
 
   if (hasEmail && hasPassword && hasSecret) {
-    console.log(`[admin-auth] Local admin login configured for ${process.env.ADMIN_EMAIL}`);
+    const clientConfigured = Boolean(process.env.CLIENT_ADMIN_EMAIL && process.env.CLIENT_ADMIN_PASSWORD);
+    console.log(
+      `[admin-auth] Local admin login configured for ${process.env.ADMIN_EMAIL}` +
+        (clientConfigured ? ` (+ client: ${process.env.CLIENT_ADMIN_EMAIL})` : ''),
+    );
     return;
   }
 

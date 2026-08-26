@@ -1,7 +1,7 @@
 import {
+  authenticateAdminUser,
   getAdminSecret,
   signAdminToken,
-  validateAdminCredentials,
 } from '../lib/adminAuth.js';
 import { ADMIN_SESSION_TTL_MS } from '../lib/sessionConfig.js';
 
@@ -28,18 +28,19 @@ export default async function handler(req, res) {
     return;
   }
 
-  if (!validateAdminCredentials(email, password)) {
+  const user = authenticateAdminUser(email, password);
+  if (!user) {
     res.status(401).json({ error: 'Hibás email vagy jelszó.' });
     return;
   }
 
   const ttlMs = ADMIN_SESSION_TTL_MS;
   const expiresAt = Date.now() + ttlMs;
-  const accessToken = signAdminToken({ sub: 'admin', email }, secret, ttlMs);
+  const accessToken = signAdminToken({ sub: user.id, email: user.email }, secret, ttlMs);
 
   res.status(200).json({
     accessToken,
     expiresAt,
-    user: { id: 'admin', email },
+    user: { id: user.id, email: user.email },
   });
 }
