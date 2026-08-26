@@ -9,13 +9,15 @@ type PremiumButtonProps = {
 };
 
 const ease = [0.22, 1, 0.36, 1] as const;
+const BTN_HOVER = { y: -3 } as const;
+const BTN_TAP = { scale: 0.98 } as const;
 
 export default function PremiumButton({ to, children, variant = 'solid' }: PremiumButtonProps) {
   return (
     <motion.div
       className="premium-btn-wrap"
-      whileHover={{ y: -3 }}
-      whileTap={{ scale: 0.98 }}
+      whileHover={BTN_HOVER}
+      whileTap={BTN_TAP}
       transition={{ duration: 0.35, ease }}
     >
       <Link to={to} className={`premium-btn premium-btn--${variant}`}>

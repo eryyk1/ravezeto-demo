@@ -5,6 +5,7 @@ import {
   SITE_NAME,
   SITE_URL,
 } from './config';
+import { company } from '../content/company';
 
 export type PageMeta = {
   title: string;
@@ -51,8 +52,7 @@ const PAGE_META: Record<string, Omit<PageMeta, 'canonical'>> = {
   },
   '/kapcsolat': {
     title: `Kapcsolat – ${SITE_NAME}`,
-    description:
-      'Keressen minket bizalommal. Iroda: 1146 Budapest, Izsó u. 7. 1/3. Telefon: +36 70/513 4128. E-mail: info@ravezeto.hu',
+    description: `Keressen minket bizalommal. Iroda: ${company.address}. Telefon: ${company.phone}. E-mail: ${company.email}`,
   },
   '/jogi': {
     title: `Jogi információk – ${SITE_NAME}`,

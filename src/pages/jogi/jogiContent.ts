@@ -1,10 +1,10 @@
-export type JogiDocument = {
+type JogiDocument = {
   label: string;
   href: string;
   description?: string;
 };
 
-export type JogiPageContent = {
+type JogiPageContent = {
   title: string;
   intro: string;
   documents: JogiDocument[];

@@ -28,8 +28,5 @@ export const rolunkImages = {
 } as const;
 
 export const euBranding = {
-  szechenyiBanner: wpUpload('2024/12/2_infoblokk_ESZA_2-scaled.jpg'),
   szechenyiLogo: '/assets/images/Szechenyi-2020-logo.png',
-  esba: wpUpload('2024/12/esba.jpg'),
-  infoblokkLegacy: wpUpload('2017/06/infoblokk_esza.png'),
 } as const;

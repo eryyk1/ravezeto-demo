@@ -5,7 +5,7 @@ import { teamPhotos2025 } from '../data/media';
  * Portraits: 2025/02 MG_* shoot (mirrored from wp-content/uploads)
  */
 
-export type TeamMember = {
+type TeamMember = {
   id: number;
   name: string;
   slug: string;

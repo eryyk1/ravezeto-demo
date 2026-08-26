@@ -1,0 +1,20 @@
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.8s var(--ease-premium),
+    transform 0.8s var(--ease-premium);
+}
+
+.scroll-reveal--in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,44 @@
+.gold-mark {
+  position: relative;
+  display: inline;
+  background: linear-gradient(
+    transparent 58%,
+    rgba(214, 165, 72, 0.38) 58%,
+    rgba(214, 165, 72, 0.38) 92%,
+    transparent 92%
+  );
+  white-space: nowrap;
+}
+
+.gold-mark__line {
+  position: absolute;
+  left: -2%;
+  bottom: -0.3em;
+  width: 104%;
+  height: 0.5em;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.gold-mark__line path {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 5;
+  stroke-linecap: round;
+  opacity: 0.75;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  transition: stroke-dashoffset 0.9s ease 0.3s;
+}
+
+.scroll-reveal--in .gold-mark__line path,
+.home-hero__title-line--accent .gold-mark__line path {
+  stroke-dashoffset: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gold-mark__line path {
+    stroke-dashoffset: 0;
+    transition: none;
+  }
+}

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RÁVezető – Változásokat vezetünk, együtt!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@500;600;700;800&family=Mulish:ital,wght@0,400;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@1,9..144,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F8F0; --card:#FFFFFF; --ink:#2D3436; --muted:#5A6570;
+  --faint:#C9CDBA; --oliva:#9DAD52; --oliva-s:#75833A; --oliva-d:#2B2A27; --oliva-text:#5E6A2E;
+  --gold:#D6A548; --gold-bg:#F4EAD5; --hair:#E2E4D6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:100%;scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font-family:'Mulish',sans-serif;font-size:1.0625rem;line-height:1.7;hyphens:auto}
+h1,h2,h3,.btn{font-family:'Urbanist',sans-serif;hyphens:none}
+a{text-decoration:none;transition:all .25s}
+img{max-width:100%}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.8rem}
+.kicker{font-family:'Urbanist',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--oliva-text)}
+.mark{background:linear-gradient(transparent 58%, rgba(214,165,72,.38) 58%, rgba(214,165,72,.38) 92%, transparent 92%)}
+.btn{display:inline-block;background:var(--oliva-s);color:#fff;font-weight:700;padding:.95rem 2rem;border-radius:2rem;font-size:1rem}
+.btn:hover{background:var(--ink);transform:translateY(-2px)}
+.rev{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s}
+.rev.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .rev{opacity:1;transform:none;transition:none}
+  .hero h1 span{opacity:1 !important;transform:none !important}
+  .hero .lead,.hero .cta-row{opacity:1 !important}
+  .manifest span{color:var(--ink) !important}
+  .lines path{animation:none !important}
+  .word-sec .big,.word-sec .rest,.word-sec p{opacity:1 !important;transform:none !important;transition:none !important}
+}
+
+/* NAV – lebegő pill (L5) + valódi logó */
+header{position:fixed;top:1.1rem;left:50%;transform:translateX(-50%);z-index:30;width:min(66rem,calc(100% - 2rem))}
+.nav{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border:1px solid var(--hair);border-radius:2.5rem;padding:.6rem 1.4rem;box-shadow:0 8px 30px rgba(45,52,54,.08)}
+.logo img{height:2.1rem;display:block}
+nav{display:flex;gap:1.2rem;align-items:center}
+nav a{color:var(--muted);font-family:'Urbanist',sans-serif;font-weight:600;font-size:.88rem}
+nav a:hover{color:var(--ink)}
+nav a.cta{background:var(--oliva-s);color:#fff;padding:.5rem 1.2rem;border-radius:2rem;font-weight:700}
+nav a.cta:hover{background:var(--ink)}
+
+/* HERO – osztott (L1) + szavanként épülő cím (L4) + vonalrajz (L1) */
+.hero{position:relative;overflow:hidden;padding:9rem 0 5.5rem;min-height:88vh;display:flex;align-items:center}
+.lines{position:absolute;inset:0;pointer-events:none}
+.lines svg{width:100%;height:100%}
+.lines path{fill:none;stroke:var(--oliva);stroke-width:1.2;opacity:.2}
+.lines path:nth-child(2){opacity:.14}
+.lines path:nth-child(3){opacity:.1;stroke:var(--gold)}
+.hero .wrap{display:block;position:relative;z-index:2;width:100%;max-width:52rem}
+.hero h1{font-size:clamp(2.6rem,5.6vw,4.2rem);line-height:1.05;font-weight:800;letter-spacing:-.01em;margin:1.1rem 0 1.3rem}
+.hero h1 span{display:inline-block;opacity:0;transform:translateY(.5em);animation:wordin .7s cubic-bezier(.2,.7,.2,1) forwards}
+.hero h1 .w1{animation-delay:.1s}.hero h1 .w2{animation-delay:.28s}.hero h1 .w3{animation-delay:.5s}
+@keyframes wordin{to{opacity:1;transform:none}}
+.hero .lead{color:var(--muted);font-size:1.15rem;max-width:30rem;margin-bottom:2.2rem;opacity:0;animation:wordin .8s .8s forwards}
+.hero .cta-row{opacity:0;animation:wordin .8s 1s forwards}
+.textlink{font-family:'Urbanist',sans-serif;font-weight:700;color:var(--oliva-text);margin-left:1.4rem;border-bottom:2px solid transparent}
+.textlink:hover{border-bottom-color:var(--gold)}
+.photo-slot{aspect-ratio:4/5;border-radius:1.4rem;border:2px dashed var(--hair);background:rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;text-align:center;padding:1rem}
+
+/* MANIFESZTUM – görgetésre színeződő szöveg (L4) */
+.manifest-wrap{min-height:115vh;position:relative}
+.manifest-sticky{position:sticky;top:0;min-height:88vh;display:flex;align-items:center}
+.manifest{font-family:'Urbanist',sans-serif;font-weight:600;font-size:clamp(1.25rem,2.3vw,1.8rem);line-height:1.45;max-width:42rem;hyphens:none}
+.manifest span{color:var(--faint);transition:color .25s}
+.manifest span.lit{color:var(--ink)}
+.manifest span.gold.lit{color:var(--gold)}
+.manifest-label{margin-bottom:1.8rem}
+
+/* IDÉZET */
+.quote{padding:6.5rem 0;text-align:center;background:var(--card);border-top:1px solid var(--hair)}
+.quote blockquote{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.3;max-width:40rem;margin:0 auto 1rem}
+.quote .gm{color:inherit}
+.quote .who{font-family:'Urbanist',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--oliva-text)}
+.quote .why{color:var(--muted);font-size:.95rem;max-width:36rem;margin:1rem auto 0}
+.quote .team-line{border-top:1px solid var(--hair);max-width:36rem;margin:2.2rem auto 0;padding-top:1.8rem;color:var(--muted)}
+.quote .team-line a{color:var(--oliva-text);font-family:'Urbanist',sans-serif;font-weight:700}
+
+/* KÁRTYA-LAPOK – minden blokk kártya */
+.cardp{position:relative;border-radius:2rem 2rem 0 0;box-shadow:0 -22px 50px rgba(45,52,54,.13)}
+.stick{position:sticky;top:0}
+.panel{min-height:100vh;display:flex;align-items:center;padding:6.5rem 0 4rem}
+.c-hero{background:var(--bg);z-index:1;border-radius:0}
+.c-quote{background:var(--card);z-index:2}
+.c-hatok{background:var(--bg);z-index:3;padding:1rem 0 3rem}
+.pA{background:var(--gold-bg);z-index:4}
+.pC{background:var(--bg);z-index:6}
+
+/* pA – szolgáltatások */
+.pA .head{margin-bottom:2.6rem}
+.pA h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:800;margin-top:.8rem}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
+.c{background:rgba(255,255,255,.78);border:1px solid rgba(214,165,72,.35);border-radius:1.2rem;padding:1.9rem;transition:transform .25s,box-shadow .25s}
+.c:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(45,52,54,.08)}
+.c .ico{width:3.8rem;height:3.8rem;border-radius:1.1rem;background:linear-gradient(135deg,rgba(214,165,72,.22),rgba(157,173,82,.16));display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;transition:transform .35s cubic-bezier(.2,.8,.25,1)}
+.c .ico svg{width:2.3rem;height:2.3rem}
+.c:hover .ico{transform:rotate(-6deg) scale(1.12)}
+.c h3{font-size:1.25rem;font-weight:800;margin-bottom:.4rem}
+.c h3 .ext{font-size:.72rem;color:var(--muted);font-weight:600}
+.c p{color:var(--muted);font-size:.95rem}
+.c .go{display:inline-block;margin-top:.8rem;font-family:'Urbanist',sans-serif;font-weight:800;color:var(--oliva-s)}
+.c .go:hover{color:var(--ink)}
+
+/* HAT OK – L4 nagy szavak, tömörített térközökkel */
+.hatok-intro{padding:4.5rem 1.8rem 0;text-align:center}
+.hatok-intro .sub{color:var(--muted);max-width:34rem;margin:.7rem auto 0;font-size:.97rem}
+.word-sec{min-height:34vh;display:flex;align-items:center;padding:.9rem 0}
+.word-sec .inner{width:100%}
+.word-sec .rev{opacity:1;transform:none}
+.word-sec .big{opacity:0;transform:translateX(-3.2rem);transition:transform .7s cubic-bezier(.2,.8,.25,1),opacity .6s}
+.word-sec:nth-child(even) .big{transform:translateX(3.2rem)}
+.word-sec .rest{opacity:0;transform:translateY(.8rem);transition:transform .55s .18s cubic-bezier(.2,.8,.25,1),opacity .55s .18s}
+.word-sec p{opacity:0;transform:translateY(.8rem);transition:transform .55s .32s cubic-bezier(.2,.8,.25,1),opacity .55s .32s}
+.word-sec .rev.in .big,.word-sec .rev.in .rest,.word-sec .rev.in p{opacity:1;transform:none}
+.word-sec .idx{font-family:'Urbanist',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.2em;color:var(--oliva)}
+.word-sec .big{font-family:'Urbanist',sans-serif;font-weight:800;font-size:clamp(2.4rem,6.5vw,4.6rem);line-height:1;letter-spacing:-.01em}
+.word-sec .big b{color:var(--gold)}
+.word-sec .rest{font-family:'Urbanist',sans-serif;font-weight:700;font-size:clamp(1.05rem,2vw,1.4rem);color:var(--oliva-text);margin-top:.4rem}
+.word-sec p{color:var(--muted);max-width:32rem;margin-top:1rem;font-size:1rem}
+.word-sec:nth-child(even) .inner{text-align:right}
+.word-sec:nth-child(even) p{margin-left:auto}
+
+/* pC – számok */
+.pC .wrap{text-align:center}
+.pC h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:800;margin:.8rem 0 3rem}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:2.6rem 1.5rem;max-width:52rem;margin:0 auto}
+.stat .num{font-family:'Urbanist',sans-serif;font-weight:800;font-size:2.8rem;color:var(--oliva-s);line-height:1}
+.stat .lab{color:var(--muted);font-size:.84rem;margin-top:.55rem;line-height:1.45}
+.pC .refs{margin-top:3rem;color:var(--muted)}
+.pC .refs a{color:var(--oliva-text);font-family:'Urbanist',sans-serif;font-weight:700}
+
+/* ZÁRÁS – a panelek fölé úszik */
+.close{position:relative;z-index:7;background:var(--card);border-radius:2rem 2rem 0 0;box-shadow:0 -20px 50px rgba(45,52,54,.14);padding:7rem 0 0;text-align:center}
+.close h2{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;line-height:1.08;max-width:36rem;margin:.9rem auto 1.3rem}
+.close .refs{color:var(--muted);margin-bottom:2.4rem}
+footer{margin-top:5rem;border-top:1px solid var(--hair);padding:2.6rem 0 2rem;color:var(--muted);font-size:.9rem;text-align:left}
+footer .cols{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;align-items:flex-start}
+footer .flogo img{height:2.4rem}
+footer .tag{margin-top:.6rem}
+footer a{color:var(--muted)} footer a:hover{color:var(--oliva-s)}
+footer .copy{margin-top:2rem;text-align:center;font-size:.8rem}
+
+/* SZÉCHENYI-SÁV */
+.eu-band{margin-top:5rem;border-top:1px solid var(--hair);padding:1.5rem 0}
+.eu-band .wrap{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+.eu-band .eu-ph{display:inline-block;border:2px dashed var(--hair);border-radius:.8rem;padding:.75rem 1.5rem;color:var(--muted);font-size:.9rem;text-align:center}
+.eu-band .eu-ph:hover{border-color:var(--gold);color:var(--oliva-text)}
+.eu-band + footer{margin-top:0}
+
+@media(max-width:56rem){
+  nav a:not(.cta){display:none}
+  .hero{padding-top:7rem}
+  .cards{grid-template-columns:1fr}
+  .nums{grid-template-columns:repeat(2,1fr)}
+  .word-sec{min-height:auto;padding:1.8rem 0}
+  .word-sec:nth-child(even) .inner{text-align:left}
+  .word-sec:nth-child(even) p{margin-left:0}
+}
+
+/* B variáns – FourFold-stílus */
+.pF{background:var(--card);z-index:4}
+.fgrid{display:grid;grid-template-columns:1fr 1.25fr;gap:4rem;align-items:start}
+.fintro h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:800;margin-top:.8rem;line-height:1.12}
+.fintro .intro{color:var(--muted);margin-top:1.3rem;font-size:1.05rem;max-width:28rem}
+.facc details{border-bottom:1px solid var(--hair)}
+.facc details:first-of-type{border-top:1px solid var(--hair)}
+.facc summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;justify-content:space-between;gap:1.5rem;padding:1.35rem .4rem;font-family:'Urbanist',sans-serif;font-weight:800;font-size:clamp(1.15rem,2.2vw,1.5rem);color:var(--oliva-s);transition:color .2s}
+.facc summary::-webkit-details-marker{display:none}
+.facc summary small{font-size:.72rem;color:var(--muted);font-weight:600}
+.facc summary .pm{font-weight:600;color:var(--gold);font-size:1.4rem;transition:transform .3s}
+.facc details[open] .pm{transform:rotate(45deg)}
+.facc summary:hover{color:var(--ink)}
+.facc .body{padding:0 .4rem 1.5rem;color:var(--muted);font-size:.98rem;max-width:34rem}
+.facc .go{font-family:'Urbanist',sans-serif;font-weight:800;color:var(--oliva-s)}
+.facc .go:hover{color:var(--ink)}
+@media(max-width:56rem){.fgrid{grid-template-columns:1fr;gap:2rem}}
+
+/* Rajzolt akcentusok: képkeretek + kulcsszó-aláhúzások */
+.marks{position:relative;background:none !important;white-space:nowrap}
+.marks>svg{position:absolute;left:-2%;bottom:-.3em;width:104%;height:.5em;overflow:visible;pointer-events:none}
+.marks>svg path{fill:none;stroke:var(--gold);stroke-width:5;stroke-linecap:round;opacity:.75;transition:stroke-dashoffset .9s ease .3s}
+@media(prefers-reduced-motion:reduce){.marks>svg path{stroke-dashoffset:0 !important;transition:none !important}}
+
+/* Footer bizalomjelek */
+footer .fcred{display:flex;justify-content:space-between;align-items:center;gap:1.6rem;flex-wrap:wrap;border-top:1px solid var(--hair);margin-top:2.2rem;padding-top:1.6rem}
+footer .fcred .fdoc{font-size:.82rem;line-height:1.7}
+footer .fcred .fdoc b{font-family:'Urbanist',sans-serif;font-weight:700;color:var(--ink)}
+footer .eu-slot{position:relative;flex:none;width:13rem;height:3.4rem;border:2px dashed var(--hair);border-radius:.5rem;display:flex;align-items:center;justify-content:center;font-size:.72rem;color:var(--muted);text-align:center;padding:.3rem .8rem}
+footer .eu-slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+
+/* ===== Vizuális polírozás (audit 2. kör) ===== */
+::selection{background:var(--gold);color:#2B2A27}
+:focus-visible{outline:2px solid var(--oliva);outline-offset:3px;border-radius:2px}
+nav a:not(.cta){background:linear-gradient(var(--gold),var(--gold)) no-repeat 0 100%/0% 2px;transition:background-size .3s cubic-bezier(.2,.8,.25,1),color .25s;padding-bottom:.15rem}
+nav a:not(.cta):hover{background-size:100% 2px}
+.kicker::before{content:"› ";color:var(--gold)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.028;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='gr'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='140' height='140' filter='url(%23gr)'/></svg>")}
+footer{background:var(--oliva-d);border-top:2px solid var(--gold);border-radius:2rem 2rem 0 0;box-shadow:0 -14px 34px rgba(45,52,54,.1);color:rgba(242,243,232,.72)}
+footer a{color:rgba(242,243,232,.72)}
+footer a:hover{color:var(--gold)}
+footer .flogo img{filter:brightness(0) invert(.93)}
+footer .fcred{border-top:1px solid rgba(242,243,232,.16)}
+footer .fcred .fdoc b{color:#F2F3E8}
+footer .eu-slot{border-color:rgba(242,243,232,.3);color:rgba(242,243,232,.55)}
+footer .eu-slot img{background:#F2F3E8;border-radius:.4rem;padding:.2rem}
+.hero,.hero-sub{position:relative;overflow-x:clip}
+.hero-wm{position:absolute;right:-7rem;top:50%;transform:translateY(-50%);width:26rem;height:auto;color:var(--oliva);opacity:.05;pointer-events:none;z-index:0}
+.hero .wrap,.hero-sub .wrap{position:relative;z-index:1}
+.chev-trio{width:2.1rem;height:auto;color:var(--gold);display:block;margin:0 auto .9rem}
+
+/* Sötét Számokban-lap */
+.pC{background:var(--oliva-d);border-color:rgba(242,243,232,.1)}
+.pC h2{color:#F2F3E8}
+.pC .kicker{color:rgba(242,243,232,.6)}
+.pC .nums{max-width:56rem;text-align:left}
+.stat{border-left:1px solid rgba(242,243,232,.16);padding-left:1.3rem}
+.stat .num{font-size:clamp(3rem,6vw,4.6rem);color:var(--gold);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.stat .lab{color:rgba(242,243,232,.62)}
+.pC .refs{color:rgba(242,243,232,.6)}
+.pC .refs a{color:var(--gold)}
+/* VEZETJÜK-szavak: kilógatás + kontúr-duplázás */
+.word-sec:nth-child(odd) .big{margin-left:-3vw}
+.word-sec:nth-child(even) .big{margin-right:-3vw}
+.word-sec .big{position:relative}
+.word-sec .big .ghost{position:absolute;top:-.42em;left:-.05em;font-size:1.1em;-webkit-text-stroke:1px var(--faint);color:transparent;opacity:.5;pointer-events:none;z-index:-1;white-space:nowrap}
+.word-sec:nth-child(even) .big .ghost{left:auto;right:-.05em}
+@media(max-width:56rem){.word-sec:nth-child(odd) .big,.word-sec:nth-child(even) .big{margin-left:0;margin-right:0}.word-sec .big .ghost{display:none}}
+
+/* Mobil menü */
+.menu-btn{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:0;cursor:pointer;padding:.55rem .4rem}
+.menu-btn span{display:block;width:1.5rem;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s}
+body.mopen .menu-btn span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+body.mopen .menu-btn span:nth-child(2){opacity:0}
+body.mopen .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mmenu{position:fixed;inset:0;z-index:25;background:var(--oliva-d);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s}
+body.mopen .mmenu{opacity:1;pointer-events:auto}
+.mmenu nav{display:flex;flex-direction:column;align-items:center;gap:1.35rem;text-align:center}
+.mmenu a{font-family:'Urbanist',sans-serif;font-weight:800;font-size:1.55rem;color:#F2F3E8}
+.mmenu a:hover{color:var(--gold)}
+.mmenu a.mcta{margin-top:.6rem;background:var(--oliva-s);color:#fff;padding:.7rem 1.9rem;border-radius:2rem;font-size:1.15rem}
+body.mopen{overflow:hidden}
+@media(max-width:56rem){.menu-btn{display:flex}.nav nav{margin-left:auto;margin-right:.5rem}.mmenu nav a{display:block}}
+@media(prefers-reduced-motion:reduce){.mmenu{transition:none}.menu-btn span{transition:none}}
+</style>
+</head>
+<body>
+<script>(function(){function Shim(cb){var self=this;this.els=new Set();this.check=function(){var vh=innerHeight,es=[];self.els.forEach(function(el){var r=el.getBoundingClientRect();if(r.top<vh*0.95&&r.bottom>0&&(r.width||r.height)){es.push({target:el,isIntersecting:true,boundingClientRect:r});}});if(es.length)cb(es,self);};addEventListener('scroll',this.check,{passive:true});addEventListener('resize',this.check);setInterval(this.check,600);}Shim.prototype.observe=function(el){var s=this;this.els.add(el);requestAnimationFrame(function(){s.check();});};Shim.prototype.unobserve=function(el){this.els.delete(el);};Shim.prototype.disconnect=function(){this.els.clear();};window.IntersectionObserver=Shim;})();</script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<filter id="skrough"><feTurbulence type="fractalNoise" baseFrequency="0.035 0.045" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.5"/></filter>
+<filter id="skrough2"><feTurbulence type="fractalNoise" baseFrequency="0.02 0.06" numOctaves="2" seed="12" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3"/></filter>
+</defs></svg>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="final-fooldal.html"><img src="data:image/png;base64,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" alt="Rávezető Projekt"></a>
+    <nav>
+      <a href="final-csapatunk.html">Csapatunk</a><a href="final-tanacsadas.html">Tanácsadás</a><a href="final-felnottkepzes.html">Felnőttképzés</a>
+      <a href="final-referenciak.html">Referenciák</a><a href="final-palyazatok.html">Pályázatok</a>
+      <a href="https://mentally.team" target="_blank" rel="noopener">Mentally</a>
+      <a class="cta" href="final-kapcsolat.html">Kapcsolat</a>
+    </nav>
+    <button class="menu-btn" aria-label="Menü" aria-expanded="false" aria-controls="mmenu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mmenu" id="mmenu" aria-hidden="true">
+  <nav aria-label="Mobil menü">
+    <a href="final-fooldal.html">Főoldal</a>
+    <a href="final-csapatunk.html">Csapatunk</a>
+    <a href="final-tanacsadas.html">Tanácsadás</a>
+    <a href="final-felnottkepzes.html">Felnőttképzés</a>
+    <a href="final-referenciak.html">Referenciák</a>
+    <a href="final-palyazatok.html">Pályázatok</a>
+    <a href="https://mentally.team" target="_blank" rel="noopener">Mentally</a>
+    <a class="mcta" href="final-kapcsolat.html">Kapcsolat</a>
+  </nav>
+</div>
+
+
+<section class="hero cardp stick c-hero">
+  <div class="lines" aria-hidden="true">
+    <svg viewBox="0 0 1440 700" preserveAspectRatio="none">
+      <path d="M-20,180 C300,140 520,260 780,220 S1250,120 1460,190"/>
+      <path d="M-20,320 C260,300 540,400 820,350 S1280,260 1460,330"/>
+      <path d="M-20,470 C320,450 560,540 840,490 S1300,410 1460,470"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div>
+      <div class="kicker">Vezetési tanácsadás · 2008 óta</div>
+      <h1><span class="w1">Változásokat</span> <span class="w2">vezetünk,</span> <span class="w3"><span class="mark">együtt!</span></span></h1>
+      <p class="lead">Vezetési tanácsadók vagyunk, problémákat oldunk meg, közösen hajlítjuk a teret, alakítjuk az egészségesebb vállalati jövőt.</p>
+      <div class="cta-row">
+        <a class="btn" href="final-kapcsolat.html">Írjon nekünk</a>
+        <a class="textlink" href="#szolgaltatasok">Szolgáltatásaink →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote cardp stick c-quote">
+  <div class="wrap rev">
+    <blockquote><span class="gm">„</span>Az optimizmus az igazi erkölcsi bátorság<span class="gm">”</span></blockquote>
+    <div class="who">Ernest Shackleton</div>
+    <p class="why">A fenti idézet az egyik kedvencünk a híres felfedezőtől, aki a lehetetlennel dacolva 120 éve megmentette legénységét a jég és fagy fogságából.</p>
+    <p class="team-line">Munkatársaink jelentős szervezeti és vezetői tapasztalattal rendelkező tanácsadók, szakértők. <a href="final-csapatunk.html">Ismerje meg a csapatot →</a></p>
+  </div>
+</section>
+
+<section class="cardp c-hatok">
+<div class="hatok-intro">
+  <div class="kicker rev">Hat ok, amiért minket érdemes választani</div>
+  <p class="sub rev">16 évünk, több mint 400 fejlesztési és képzési projektünk nem jöhetett volna létre, ha nem így dolgozunk.</p>
+</div>
+<div class="wrap">
+  <section class="word-sec"><div class="inner rev">
+    <div class="big"><b>LE</b>VEZETJÜK</div>
+    <div class="rest">Önnek, mi a valódi probléma</div>
+    <p>Megmutatjuk, hogy miért szükséges változtatni, a profi szervezeti diagnózis biztosítja, hogy stabil alapokról induljon a változás.</p>
+  </div></section>
+  <section class="word-sec"><div class="inner rev">
+    <div class="big"><b>ÁT</b>VEZETJÜK</div>
+    <div class="rest">a nehézségeken</div>
+    <p>Minőségi szakembereink segítségével a változtatási folyamatban törvényszerű elbizonytalanodás fázisát gyorsan meghaladjuk.</p>
+  </div></section>
+  <section class="word-sec"><div class="inner rev">
+    <div class="big"><b>VÉGIG</b>VEZETJÜK</div>
+    <div class="rest">ügyfeleinket</div>
+    <p>A teljes változtatási folyamaton, nem hagyjuk magára a tulajdonosokat, vezetőket, támogatjuk a kritikus döntéseket a projekt minden szakaszában.</p>
+  </div></section>
+  <section class="word-sec"><div class="inner rev">
+    <div class="big"><b>RÁ</b>VEZETJÜK</div>
+    <div class="rest">a megoldásra</div>
+    <p>Amely a siker felé viszi, a sablonos „tuti megmondás” helyett közös megoldásokat alkotunk.</p>
+  </div></section>
+  <section class="word-sec"><div class="inner rev">
+    <div class="big"><b>KI</b>VEZETJÜK</div>
+    <div class="rest">a krízisből</div>
+    <p>Sokszor a kudarctól való félelem akadályozza meg az újítást. Ha már versenyhátrányban van, ha lemaradt, támogatjuk a kilábalásban.</p>
+  </div></section>
+  <section class="word-sec"><div class="inner rev">
+    <div class="big"><b>TOVÁBB</b>VEZETJÜK</div>
+    <div class="rest">a fejlődés útján</div>
+    <p>Minden vállalat esetében előre tekintünk, nemcsak a rövidtávú szempontokat vizsgáljuk, erős csapat nélkül nem működnek sem folyamatok, sem rendszerek.</p>
+  </div></section>
+</div>
+</section>
+
+
+
+<section class="panel cardp stick pF" id="szolgaltatasok">
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fintro rev">
+        <div class="kicker">Szolgáltatásaink</div>
+        <h2>Emberközpontú megközelítés, minden folyamatban.</h2>
+        <p class="intro">Ha már nem tekintünk hittel, bátorsággal, bizalommal a jövő felé, akkor cégvezetőként, tulajdonosként hogyan formáljuk tovább a vállalati teret, hogyan alkalmazkodunk a piachoz?</p>
+      </div>
+      <div class="facc rev">
+        <details open>
+          <summary><span>Tanácsadás</span><span class="pm">+</span></summary>
+          <div class="body">Egyetlen szervezetfejlesztés sem lehet sikeres a változást támogató vezetők és munkatársak nélkül. Ezt az emberközpontú megközelítést garantáljuk minden, általunk vezetett tanácsadási folyamatban. <a class="go" href="final-tanacsadas.html">Bővebben →</a></div>
+        </details>
+        <details>
+          <summary><span>Felnőttképzés</span><span class="pm">+</span></summary>
+          <div class="body">Minőségi képzéseink segítségével fejlesztjük a XXI. század munkahelyi kulcskompetenciáit, vezetőknek, munkatársaknak. Az év trénerei is nálunk dolgoznak 😊 <a class="go" href="final-felnottkepzes.html">Bővebben →</a></div>
+        </details>
+        <details>
+          <summary><span>Pályázatok</span><span class="pm">+</span></summary>
+          <div class="body">Fejlesszük közösen vállalatát pályázati forrásokból! A Rávezető minősített szervezetfejlesztő és képzési szolgáltatóként számtalan vállalati kihívásban tud segíteni Önnek. <a class="go" href="final-palyazatok.html">Bővebben →</a></div>
+        </details>
+        <details>
+          <summary><span>Mentally</span><span class="pm">+</span></summary>
+          <div class="body">Kíváncsi csapata állapotára? A Mentally megmutatja vállalata egészségének térképét! <a class="go" href="https://mentally.team" target="_blank" rel="noopener">Bővebben →</a></div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="panel cardp stick pC">
+  <div class="wrap">
+    <div class="kicker rev">A megtett út</div>
+    <h2 class="rev">Számokban.</h2>
+    <div class="nums rev">
+      <div class="stat"><div class="num" data-t="16">16</div><div class="lab">év tanácsadói tapasztalat</div></div>
+      <div class="stat"><div class="num" data-t="400" data-s="+">400+</div><div class="lab">tanácsadási projekt</div></div>
+      <div class="stat"><div class="num" data-t="200" data-s="+">200+</div><div class="lab">elégedett, visszatérő ügyfél</div></div>
+      <div class="stat"><div class="num" data-t="250" data-s="+">250+</div><div class="lab">képzési projekt 10 éve felnőttképző intézményként</div></div>
+      <div class="stat"><div class="num" data-t="3500" data-s="+">3500+</div><div class="lab">résztvevő a képzéseinken</div></div>
+      <div class="stat"><div class="num" data-t="200" data-s="+">200+</div><div class="lab">együttműködő tanácsadó</div></div>
+    </div>
+    <p class="refs rev">Büszkék vagyunk partnereink bizalmára! <a href="final-referenciak.html">Referenciáink →</a></p>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap rev">
+    <svg class="chev-trio" viewBox="0 0 40 46" aria-hidden="true"><path d="M6 40 L20 28 L34 40" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity=".35"/><path d="M6 26 L20 14 L34 26" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity=".2"/><path d="M6 12 L20 0 L34 12" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity=".12" transform="translate(0,4)"/></svg>
+    <div class="kicker">Kapcsolat</div>
+    <h2>Keressen minket bizalommal!</h2>
+    <p class="refs">1146 Budapest, Izsó u. 7. 1/3. · info@ravezeto.hu · +36 70/513 4128</p>
+    <a class="btn" href="final-kapcsolat.html">Írjon nekünk</a>
+  </div>
+  <div class="eu-band">
+    <div class="wrap">
+      <div class="kicker">Támogatott projektjeink</div>
+      <a class="eu-ph" href="final-palyazatok.html">Széchenyi 2020 / Európai Unió logó helye</a>
+    </div>
+  </div>
+  <footer>
+    <div class="wrap">
+      <div class="cols">
+        <div class="flogo"><img src="data:image/png;base64,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" alt="Rávezető Projekt"><div class="tag">Változásokat vezetünk, együtt!</div></div>
+        <div>1146 Budapest, Izsó u. 7. 1/3.<br><a href="mailto:info@ravezeto.hu">info@ravezeto.hu</a> · <a href="tel:+36705134128">+36 70/513 4128</a></div>
+        <div><a href="https://www.facebook.com/profile.php?id=100063907730525" target="_blank" rel="noopener">Facebook</a><br><a href="final-adatvedelem.html">Adatvédelem</a> · <a href="final-impresszum.html">Impresszum</a></div>
+      </div>
+      <div class="fcred">
+      <div class="fdoc"><b>Cégünk felnőttképzési engedéllyel rendelkező intézmény.</b><br>Nyilvántartásba vételi számunk: B/2020/001943 · Engedélyszámunk: E/2021/000106</div>
+      <div class="eu-slot"><img src="assets/szechenyi-2020.png" alt="Széchenyi 2020 – Európai Unió támogatás" onerror="this.remove()"><span>Széchenyi 2020 / EU logó helye</span></div>
+    </div>
+    <div class="copy">© 2026 Rávezető Projekt Kft.</div>
+    </div>
+  </footer>
+</section>
+
+<script>
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* beúszás + számlálók */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rev').forEach((el,i)=>{el.style.transitionDelay=(i%3)*.08+'s';io.observe(el)});
+if(!reduce){
+  const so=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting)return;so.unobserve(e.target);
+    const t=+e.target.dataset.t,s=e.target.dataset.s||'',st=performance.now();
+    const tick=n=>{const p=Math.min((n-st)/1200,1);e.target.textContent=Math.round(t*(1-Math.pow(1-p,3)))+s;if(p<1)requestAnimationFrame(tick)};
+    requestAnimationFrame(tick);
+  }),{threshold:.5});
+  document.querySelectorAll('.stat .num').forEach(el=>so.observe(el));
+}
+</script>
+<script>
+(function(){
+const ns="http://www.w3.org/2000/svg";
+/* rajzolt aláhúzások a kiemeléseken */
+document.querySelectorAll('.mark').forEach(el=>{
+  el.classList.add('marks');
+  const s=document.createElementNS(ns,'svg');
+  s.setAttribute('viewBox','0 0 200 20');s.setAttribute('preserveAspectRatio','none');
+  s.setAttribute('filter','url(#skrough2)');s.setAttribute('aria-hidden','true');
+  const p=document.createElementNS(ns,'path');
+  p.setAttribute('d','M4,12 C50,7 120,15 196,9');p.setAttribute('pathLength','300');
+  p.setAttribute('stroke-dasharray','300');p.setAttribute('stroke-dashoffset','300');
+  s.appendChild(p);el.appendChild(s);
+});
+/* megrajzolódás görgetéskor */
+const dio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  e.target.querySelectorAll('rect,path').forEach(x=>x.style.strokeDashoffset='0');
+  dio.unobserve(e.target);
+}),{threshold:.35});
+document.querySelectorAll('.marks>svg').forEach(s=>dio.observe(s));
+})();
+</script>
+<script>
+(function(){
+const b=document.querySelector('.menu-btn');if(!b)return;
+const close=()=>{document.body.classList.remove('mopen');b.setAttribute('aria-expanded','false');document.getElementById('mmenu').setAttribute('aria-hidden','true')};
+b.addEventListener('click',()=>{const o=document.body.classList.toggle('mopen');b.setAttribute('aria-expanded',o);document.getElementById('mmenu').setAttribute('aria-hidden',!o)});
+document.querySelectorAll('.mmenu a').forEach(a=>a.addEventListener('click',close));
+addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+})();
+</script>
+<script>
+(function(){
+const red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* kontúr-duplázás a nagy szavak mögé */
+document.querySelectorAll('.word-sec .big').forEach(b=>{
+  const g=document.createElement('span');g.className='ghost';g.setAttribute('aria-hidden','true');
+  g.textContent=b.textContent;b.appendChild(g);
+});
+if(red)return;
+/* hero-vonalak parallaxa */
+const L=document.querySelector('.lines');
+if(L){let t=false;addEventListener('scroll',()=>{if(!t){t=true;requestAnimationFrame(()=>{L.style.transform='translateY('+(scrollY*.12)+'px)';t=false})}},{passive:true})}
+/* arany vonal megrajzolódása betöltéskor */
+const gp=document.querySelector('.lines path:nth-child(3)');
+if(gp){gp.setAttribute('pathLength','600');gp.style.strokeDasharray='600';gp.style.strokeDashoffset='600';
+requestAnimationFrame(()=>{requestAnimationFrame(()=>{gp.style.transition='stroke-dashoffset 2.5s ease .4s';gp.style.strokeDashoffset='0'})})}
+})();
+</script>
+<script>document.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a'):null;if(!a)return;var h=a.getAttribute('href')||'';if(h.lastIndexOf('final-',0)===0){e.preventDefault();var s=h.replace('final-','').split('.html')[0];parent.postMessage({rvgoto:s},'*');}},true);</script>
+</body>
+</html>

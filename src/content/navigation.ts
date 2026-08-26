@@ -1,18 +1,11 @@
-export type NavItem = {
-  label: string;
-  path: string;
-};
-
-/** Primary navigation */
-export const primaryNav: NavItem[] = [
-  { label: 'Rólunk', path: '/rolunk' },
+/** Primary navigation — client pill nav order (Kapcsolat + Mentally handled in header) */
+export const primaryNav = [
+  { label: 'Csapatunk', path: '/rolunk' },
   { label: 'Tanácsadás', path: '/tanacsadas' },
-  { label: 'Mentally', path: '/mentally' },
   { label: 'Felnőttképzés', path: '/felnottkepzes' },
   { label: 'Referenciák', path: '/referenciak' },
   { label: 'Pályázatok', path: '/palyazatok' },
-  { label: 'Kapcsolat', path: '/kapcsolat' },
-];
+] as const;
 
 export const footerNav = {
   services: [
@@ -21,7 +14,7 @@ export const footerNav = {
     { label: 'Coaching', path: '/tanacsadas/coaching' },
   ],
   company: [
-    { label: 'Rólunk', path: '/rolunk' },
+    { label: 'Csapatunk', path: '/rolunk' },
     { label: 'Referenciák', path: '/referenciak' },
     { label: 'Pályázatok', path: '/palyazatok' },
     { label: 'Mentally', path: '/mentally' },

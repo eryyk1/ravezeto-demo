@@ -23,7 +23,9 @@ export default function RolunkTestimonials({ items }: RolunkTestimonialsProps) {
             key={item.author}
             type="button"
             role="tab"
+            id={`testimonial-tab-${index}`}
             aria-selected={index === active}
+            aria-controls="testimonial-panel"
             className={`rolunk-testimonials-editorial__tab${index === active ? ' is-active' : ''}`}
             onClick={() => setActive(index)}
           >
@@ -33,7 +35,7 @@ export default function RolunkTestimonials({ items }: RolunkTestimonialsProps) {
         ))}
       </div>
 
-      <div className="rolunk-testimonials-editorial__panel" role="tabpanel">
+      <div className="rolunk-testimonials-editorial__panel" id="testimonial-panel" role="tabpanel">
         <AnimatePresence mode="wait">
           <motion.blockquote
             key={current.author}

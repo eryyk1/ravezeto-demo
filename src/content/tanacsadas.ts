@@ -3,7 +3,7 @@
 import { themeImage } from '../data/media';
 
 export const tanacsadasHero = {
-  label: 'TANÁCSADÁS',
+  label: 'Tanácsadás',
   title:
     'Egyetlen szervezetfejlesztés sem lehet sikeres a változást támogató vezetők és munkatársak nélkül.',
   intro:
@@ -114,9 +114,52 @@ export const tanacsadasProcess = {
   ],
 } as const;
 
-export const tanacsadasCta = {
-  title: 'Változásokat vezetünk, együtt!',
-  text: 'Közösen hajlítjuk a teret, alakítjuk az egészségesebb vállalati jövőt.',
-  cta: 'Kapcsolat',
+export const tanacsadasClose = {
+  kicker: 'Kapcsolat',
+  title: 'Keressen minket bizalommal!',
+  cta: 'Írjon nekünk',
   link: '/kapcsolat',
+} as const;
+
+export const tanacsadasSzervezetfejlesztes = {
+  punch:
+    'Ha a szervezeti kultúra nem változik, nincs esély a stratégia sikeres végrehajtására!',
+  bands: [
+    {
+      title: 'Szervezeti kultúra: a sikeres változás alapja',
+      paragraphs: [
+        'Meggyőződésünk, hogy egyetlen szervezetfejlesztés sem lehet sikeres a változást értő és támogató munkatársak nélkül. Ez a szemlélet vezérel bennünket minden projektünkben.',
+      ],
+      photoLabel: '📷 workshop-fotó helye\n(tompított, meleg tónus)',
+    },
+    {
+      title: 'Közös munka, tartós eredmény',
+      paragraphs: [
+        'Hiszünk a folyamatalapú megközelítésben. Nem kész megoldásokat kínálunk, hanem emberközpontú szervezetfejlesztőként szoros csapatmunkában támogatjuk partnereinket céljaik megvalósításában.',
+        'Az eredmények a tanácsadási folyamat során, közös munkával születnek meg. Ügyfeleink mellett állunk a tervezéstől a megvalósításig, biztosítva a szükséges szakmai támogatást minden lépésnél.',
+      ],
+      photoLabel: '📷 közös munka fotója',
+    },
+  ],
+} as const;
+
+export const tanacsadasCoaching = {
+  leadStrong: 'Nemcsak „magányos” vezetőknek.',
+  leadRest:
+    ' Napjaink vezetői döntési helyzeteikben minden belső és külső támogatás ellenére nap mint nap egyedül maradnak a rájuk háruló felelősséggel.',
+  cards: [
+    {
+      title: 'Döntéseink szempontjai, elemzésük előtte (és néha utána)',
+      paragraphs: [
+        'Nálunk a coachok tényleg rendelkeznek szervezeti tapasztalattal!',
+        'Egyedi megközelítéssel, módszertannal saját vezetői tapasztalatukra is támaszkodva támogatják a vezetői munkavégzést a szervezeti problémák és kihívások, döntési pontok, korábbi és jelenidejű döntések közös elemzésével.',
+      ],
+    },
+    {
+      title: 'Fejlődésem útja, hogy jobb vezető legyek',
+      paragraphs: [
+        'A személyes és bizalmi kapcsolat vezető és tanácsadó között arra is alkalmas, hogy többféle módszertani eszköz, gyakorlatok és a visszacsatolás révén elősegítse a vezetői készségek és kompetenciák fejlesztését a szervezeti és személyes haszon maximalizálására.',
+      ],
+    },
+  ],
 } as const;

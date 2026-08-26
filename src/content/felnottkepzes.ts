@@ -1,15 +1,25 @@
 /** /felnottkepzes — source: live https://www.ravezeto.hu/felnottkepzesek/ */
 
+import { company } from './company';
 import { themeImage } from '../data/media';
 
 export const felnottkepzesHero = {
-  label: 'FELNŐTTKÉPZÉS',
-  title:
-    'Minőségi képzéseink segítségével fejlesztjük a XXI. század munkahelyi kulcskompetenciáit!',
-  intro: 'Az év trénerei is nálunk dolgoznak 😊',
+  label: 'Felnőttképzés',
+  titleLead:
+    'Minőségi képzéseink segítségével fejlesztjük a XXI. század munkahelyi',
+  titleMark: 'kulcskompetenciáit!',
+  awardLine: 'Az év trénerei is nálunk dolgoznak',
   image: themeImage('section1_back.png'),
   imageAlt: 'Rávezető Projekt — felnőttképzés és kompetenciafejlesztés',
 } as const;
+
+export const felnottkepzesMethodTags = [
+  'Jelenléti tréningek',
+  'E-learning tananyag',
+  'Online tréning elemek',
+  'Szervezeti modul',
+  'Follow up szolgáltatások',
+] as const;
 
 export const felnottkepzesKeyMessage = {
   label: 'Felnőttképzés',
@@ -108,6 +118,7 @@ export const felnottkepzesProcess = {
 export const felnottkepzesProgrammeGroups = [
   {
     id: 'munkavallaloi',
+    tab: 'Munkavállalói kompetenciák',
     index: '01',
     title: 'Munkavállalói kompetenciák fejlesztése',
     items: [
@@ -126,6 +137,7 @@ export const felnottkepzesProgrammeGroups = [
   },
   {
     id: 'stressz',
+    tab: 'Stresszkezelés',
     index: '02',
     title: 'Stresszkezelés, mentális egészség fejlesztése',
     items: [
@@ -135,6 +147,7 @@ export const felnottkepzesProgrammeGroups = [
   },
   {
     id: 'vezetoi',
+    tab: 'Vezetői kompetenciák',
     index: '03',
     title: 'Vezetői kompetenciák fejlesztése',
     items: [
@@ -148,6 +161,7 @@ export const felnottkepzesProgrammeGroups = [
   },
   {
     id: 'mentori',
+    tab: 'Mentori kompetenciák',
     index: '04',
     title: 'Mentori kompetenciák fejlesztése',
     items: [{ title: 'Munkahelyi mentorok képzése', hours: '16 óra' }],
@@ -162,21 +176,20 @@ export const felnottkepzesProgrammeCta = {
 export const felnottkepzesContact = {
   customerService: {
     title: 'Ügyfélszolgálat',
-    address: '1146 Budapest, Izsó u. 7. 1/3.',
-    hours: 'H-P: 9.00-16.00',
+    address: company.address,
+    hours: company.hours,
   },
   office: {
     title: 'Irodánk',
-    address: '1146 Budapest, Izsó u. 7. 1/3.',
+    address: company.address,
     note: '6. kapucsengő',
-    mapUrl:
-      'https://www.google.com/maps/search/1146+Budapest,+Izs%C3%B3+u.+7.+1%2F3./@47.5082165,19.0917401,200m/data=!3m1!1e3',
+    mapUrl: company.mapsSearch,
   },
 } as const;
 
 export const felnottkepzesCta = {
-  title: 'Kérjen ajánlatot képzéseinkre!',
-  text: 'Vállalatra szabott kompetenciafejlesztő programokkal segítjük szervezete sikerét.',
-  cta: 'Kapcsolat',
+  kicker: 'Kapcsolat',
+  title: 'Képezzük együtt csapatát!',
+  btnLabel: 'Írjon nekünk',
   link: '/kapcsolat',
 } as const;

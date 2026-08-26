@@ -9,10 +9,10 @@ export default function HomeHeader() {
 
   return (
     <>
-      <header className="home-header">
-        <div className="home-header__inner content-wrap">
+      <header className="home-header home-header--pill">
+        <div className="home-header__pill content-wrap">
           <Link to="/" className="home-header__logo" aria-label="Rávezető — Főoldal">
-            <img src="/assets/logo.svg" alt="" width={200} height={40} className="home-header__logo-img" />
+            <img src="/assets/logo-dark.svg" alt="" width={165} height={32} className="home-header__logo-img" />
           </Link>
 
           <nav className="home-header__nav" aria-label="Fő navigáció">
@@ -32,6 +32,10 @@ export default function HomeHeader() {
             </ul>
           </nav>
 
+          <Link to="/kapcsolat" className="home-header__cta">
+            Kapcsolat
+          </Link>
+
           <button
             type="button"
             className="home-header__menu-btn"
@@ -39,8 +43,11 @@ export default function HomeHeader() {
             aria-controls="home-mobile-menu"
             onClick={() => setMenuOpen((o) => !o)}
           >
-            <span className="visually-hidden">Menü</span>
+            <span className="visually-hidden">
+              {menuOpen ? 'Menü bezárása' : 'Menü megnyitása'}
+            </span>
             <span className={`home-header__burger${menuOpen ? ' is-open' : ''}`} aria-hidden="true">
+              <span />
               <span />
               <span />
             </span>
@@ -48,11 +55,7 @@ export default function HomeHeader() {
         </div>
       </header>
 
-      <MobileMenuOverlay
-        id="home-mobile-menu"
-        open={menuOpen}
-        onClose={() => setMenuOpen(false)}
-      />
+      <MobileMenuOverlay id="home-mobile-menu" open={menuOpen} onClose={() => setMenuOpen(false)} />
     </>
   );
 }

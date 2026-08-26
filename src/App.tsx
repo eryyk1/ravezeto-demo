@@ -1,6 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/shell/Layout';
-import PageTransition from './components/shell/PageTransition';
 import HomePage from './pages/home/HomePage';
 import RolunkPage from './pages/rolunk/RolunkPage';
 import TanacsadasPage from './pages/tanacsadas/TanacsadasPage';
@@ -16,7 +15,6 @@ export default function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
-        <Route element={<PageTransition />}>
           <Route index element={<HomePage />} />
           <Route path="rolunk" element={<RolunkPage />} />
           <Route path="tanacsadas/*" element={<TanacsadasPage />} />
@@ -34,7 +32,6 @@ export default function App() {
           <Route path="szolgaltatasok/*" element={<Navigate to="/tanacsadas" replace />} />
 
           <Route path="*" element={<NotFoundPage />} />
-        </Route>
       </Route>
     </Routes>
   );

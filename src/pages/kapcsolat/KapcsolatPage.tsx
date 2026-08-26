@@ -1,42 +1,109 @@
-import InnerPageHero from '../../components/pages/InnerPageHero';
-import PageSection from '../../components/pages/PageSection';
-import KapcsolatDetails from '../../components/kapcsolat/KapcsolatDetails';
+import { Link } from 'react-router-dom';
+import ClientFooter from '../../components/client/ClientFooter';
+import GoldMark from '../../components/client/GoldMark';
+import ScrollReveal from '../../components/client/ScrollReveal';
+import { company } from '../../content/company';
 import KapcsolatForm from '../../components/kapcsolat/KapcsolatForm';
-import KapcsolatMap from '../../components/kapcsolat/KapcsolatMap';
-import {
-  kapcsolatDetails,
-  kapcsolatForm,
-  kapcsolatHero,
-  kapcsolatMapEmbed,
-} from './kapcsolatContent';
-import './kapcsolat.css';
+import { kapcsolatForm, kapcsolatHero } from './kapcsolatContent';
+
+function HeroWatermark() {
+  return (
+    <svg className="hero-wm" viewBox="0 0 100 120" aria-hidden="true">
+      <path
+        d="M14 8 L78 60 L14 112"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 export default function KapcsolatPage() {
   return (
-    <div className="page kapcsolat-page">
-      <InnerPageHero
-        label={kapcsolatHero.label}
-        title={kapcsolatHero.title}
-        intro={kapcsolatHero.intro}
-        accent="contact"
-      />
-
-      <PageSection tone="warm-white" label="Elérhetőség" title="Kapcsolattartási adatok" accent>
-        <KapcsolatDetails blocks={kapcsolatDetails} />
-      </PageSection>
-
-      <PageSection
-        tone="stone"
-        label="Kapcsolatfelvétel"
-        title={kapcsolatForm.title}
-        id="kapcsolat-form"
-        accent
-      >
-        <div className="kapcsolat-form-layout">
-          <KapcsolatMap embedUrl={kapcsolatMapEmbed} />
-          <KapcsolatForm config={kapcsolatForm} />
+    <>
+      <section className="hero">
+        <HeroWatermark />
+        <div className="wrap">
+          <div className="kicker anim">Kapcsolat · Írjon nekünk</div>
+          <h1 className="anim">
+            Keressen minket <GoldMark>bizalommal</GoldMark> az alábbi elérhetőségeinken!
+          </h1>
+          <p className="lead anim">{kapcsolatHero.intro}</p>
         </div>
-      </PageSection>
-    </div>
+      </section>
+
+      <section className="contact">
+        <div className="wrap">
+          <ScrollReveal className="crow">
+            <div className="ck">Telefonszám</div>
+            <div>
+              <a className="biglink" href={`tel:${company.phoneTel}`}>
+                {company.phone}
+                <span className="ar">→</span>
+              </a>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal className="crow">
+            <div className="ck">E-mail</div>
+            <div>
+              <a className="biglink" href={`mailto:${company.email}`}>
+                {company.email}
+                <span className="ar">→</span>
+              </a>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal className="crow">
+            <div className="ck">Ügyfélszolgálat</div>
+            <div className="cbody">
+              <strong>{company.address}</strong>
+              <br />
+              {company.hours.replace('-', '–')}
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal className="crow">
+            <div className="ck">Irodánk</div>
+            <div className="cbody">
+              <strong>{company.address}</strong> · 6. kapucsengő
+              <br />
+              <a href={company.mapsSearch} target="_blank" rel="noopener noreferrer">
+                Útvonaltervezés Google Térképen →
+              </a>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <section className="msg">
+        <div className="wrap">
+          <ScrollReveal className="mgrid">
+            <h2>{kapcsolatForm.title}</h2>
+            <div>
+              <KapcsolatForm config={kapcsolatForm} />
+              <p className="fnote">
+                Ennek az űrlapnak a kitöltésével hozzájárul, hogy a weblap eltárolja és felhasználja a
+                megadott adatokat. <Link to="/jogi/adatvedelem">Adatkezelési szabályzat</Link>
+              </p>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <ScrollReveal className="mapband">
+        <iframe
+          src={company.mapEmbed}
+          title={`Térkép – ${company.address}`}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </ScrollReveal>
+
+      <ClientFooter />
+    </>
   );
 }

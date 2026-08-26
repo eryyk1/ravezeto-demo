@@ -2,13 +2,6 @@
 
 import { wpUpload } from '../data/media';
 
-export type PartnerLogo = {
-  id: number;
-  name: string;
-  slug: string;
-  logo: string;
-};
-
 /**
  * Live display order: ref35 → ref1 (Feb 2025 batch first, oldest last).
  * No ref2 on the current website.
@@ -49,28 +42,3 @@ export const referenceClientLogos = [
   { slug: 'ref3', name: 'NNGYK', logo: wpUpload('2025/02/NNGYK-new.png') },
   { slug: 'ref1', name: 'OKFO', logo: wpUpload('2025/02/OKFO-new.png') },
 ] as const;
-
-/** logos CPT — institutional partners (prefer 2025 assets where available) */
-export const partnerLogos: PartnerLogo[] = [
-  { id: 558, name: 'SBT Protect', slug: 'sbt-protect', logo: wpUpload('2025/02/SBT_processed.png') },
-  { id: 520, name: 'Globomax', slug: 'globomax', logo: wpUpload('2025/02/globomax-new.png') },
-  { id: 546, name: 'Óbudai Egyetem', slug: 'obudaie', logo: wpUpload('2025/02/OE-new.png') },
-  { id: 567, name: 'TSZC', slug: 'tszc', logo: wpUpload('2025/02/tszc-new.png') },
-  { id: 564, name: 'Tudományegyetem', slug: 'te', logo: wpUpload('2025/02/TE-new.png') },
-  { id: 534, name: 'MMSZ', slug: 'malta', logo: wpUpload('2025/02/mmsz-new.png') },
-  { id: 544, name: 'Corvinus', slug: 'corvinus', logo: wpUpload('2021/01/corvinus_nagy2-e1611570746573.jpg') },
-  { id: 384, name: 'Deloitte', slug: 'deloite', logo: wpUpload('2018/06/ref_01.png') },
-  { id: 552, name: 'Bolko', slug: 'bolko', logo: wpUpload('2021/02/Bolko.jpg') },
-  { id: 497, name: 'DJP', slug: 'djp', logo: wpUpload('2019/12/DJP-e1575969875461.jpg') },
-  { id: 503, name: 'EJF', slug: 'ejf', logo: wpUpload('2019/12/EJF-e1575970508303.jpg') },
-  { id: 525, name: 'HRDirekt', slug: 'hrdirekt', logo: wpUpload('2023/01/hrdirekt-2.png') },
-  { id: 528, name: 'IFKA', slug: 'ifka', logo: wpUpload('2021/03/Képkivágás.png') },
-  { id: 531, name: 'Kevi', slug: 'kevi', logo: wpUpload('2019/12/Kevi-e1575970885822.jpg') },
-  { id: 537, name: 'Matehetsz', slug: 'matehetsz', logo: wpUpload('2021/01/matehetsz-e1611751139435.jpg') },
-  { id: 540, name: 'NAV', slug: 'nav', logo: wpUpload('2023/01/nav-2.jpg') },
-  { id: 543, name: 'NKFIH', slug: 'nkfih', logo: wpUpload('2023/01/nkfih.jpg') },
-  { id: 549, name: 'P2M', slug: 'p2m', logo: wpUpload('2023/01/p2m-1.jpg') },
-  { id: 555, name: 'PMKH', slug: 'pmkh', logo: wpUpload('2023/01/PMKH-1.jpg') },
-  { id: 561, name: 'Széchenyi', slug: 'szechenyi', logo: wpUpload('2018/06/ref_14.png') },
-  { id: 570, name: 'VEMKH', slug: 'vemkh', logo: wpUpload('2023/01/vemkh-1.jpg') },
-];

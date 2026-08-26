@@ -1,0 +1,28 @@
+.hero-decor-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.85;
+}
+
+.hero-decor-lines svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-decor-lines path {
+  fill: none;
+  stroke: var(--oliva);
+  stroke-width: 1.2;
+  opacity: 0.22;
+}
+
+.hero-decor-lines path:nth-child(2) {
+  opacity: 0.14;
+}
+
+.hero-decor-lines path:nth-child(3) {
+  opacity: 0.1;
+  stroke: var(--gold);
+}

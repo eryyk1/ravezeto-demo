@@ -1,5 +1,15 @@
 import './HeroBackground.css';
 
+const STARS = Array.from({ length: 48 }, (_, i) => ({
+  id: i,
+  left: `${(i * 17) % 100}%`,
+  top: `${(i * 23) % 100}%`,
+  size: 1 + (i % 3),
+  opacity: 0.2 + (i % 4) * 0.15,
+  delay: `${(i * 0.7) % 8}s`,
+  duration: `${3 + (i % 5)}s`,
+}));
+
 const DUST = Array.from({ length: 32 }, (_, i) => ({
   id: i,
   left: `${4 + ((i * 11) % 94)}%`,
@@ -26,8 +36,26 @@ type HeroBackgroundProps = {
 export default function HeroBackground({ reduced = false }: HeroBackgroundProps) {
   return (
     <div className={`hero-bg${reduced ? ' hero-bg--static' : ''}`} aria-hidden="true">
-      {/* Layer 1 — forest gradient */}
+      {/* Layer 1 — deep space gradient */}
       <div className="hero-bg__gradient" />
+
+      {/* Layer 1b — starfield */}
+      {!reduced &&
+        STARS.map((s) => (
+          <span
+            key={`star-${s.id}`}
+            className="hero-bg__star"
+            style={{
+              left: s.left,
+              top: s.top,
+              width: s.size,
+              height: s.size,
+              opacity: s.opacity,
+              animationDelay: s.delay,
+              animationDuration: s.duration,
+            }}
+          />
+        ))}
 
       {/* Layer 2 — volumetric light sources */}
       <div className="hero-bg__glow hero-bg__glow--a" />

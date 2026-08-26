@@ -5,11 +5,12 @@ import { useReducedMotion } from '../../hooks/useReducedMotion';
 import './ConsultingFramework.css';
 
 const ease = [0.22, 1, 0.36, 1] as const;
+const IN_VIEW_OPTS = { once: true, margin: '-8%' } as const;
 
 export default function ConsultingFramework() {
   const [active, setActive] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: '-8%' });
+  const inView = useInView(ref, IN_VIEW_OPTS);
   const reduced = useReducedMotion();
   const layers = tanacsadasFramework.layers;
   const current = layers[active];
@@ -103,7 +104,9 @@ export default function ConsultingFramework() {
               key={layer.id}
               type="button"
               role="tab"
+              id={`framework-tab-${layer.id}`}
               aria-selected={index === active}
+              aria-controls="framework-panel"
               className={`change-framework__tab${index === active ? ' is-active' : ''}`}
               onClick={() => setActive(index)}
             >
@@ -116,6 +119,7 @@ export default function ConsultingFramework() {
 
       <motion.div
         key={current.id}
+        id="framework-panel"
         className="change-framework__panel"
         role="tabpanel"
         initial={reduced ? false : { opacity: 0, y: 12 }}

@@ -1,4 +1,2 @@
-@import './styles/tokens.css';
-@import './styles/global.css';
-@import './styles/pages.css';
-@import './styles/responsive.css';
+@import './styles/client-design.css';
+@import './styles/overrides.css';

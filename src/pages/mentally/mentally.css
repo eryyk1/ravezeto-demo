@@ -1,14 +1,36 @@
-/* Mentally page — scoped styles only */
-
-.mentally-page .page-divider {
-  margin-block: 0;
+.mentally-visual {
+  display: grid;
+  gap: 1.2rem;
 }
 
-@media (max-width: 767px) {
-  .mentally-page .mentally-about__description,
-  .mentally-page .mentally-cta__lead {
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    hyphens: auto;
-  }
+.mentally-visual__brand img {
+  width: min(100%, 11rem);
+  height: auto;
+  object-fit: contain;
+}
+
+.mentally-visual__product img {
+  width: min(100%, 100%);
+  height: auto;
+  object-fit: contain;
+}
+
+.mentally-visual .photo-slot:has(img) {
+  border-color: transparent;
+  background: var(--card);
+}
+
+.mentally-compare {
+  margin-top: 3rem;
+}
+
+.mentally-compare .photo-slot:has(img) {
+  border-color: transparent;
+  background: var(--card);
+}
+
+.mentally-compare img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }

@@ -1,86 +1,60 @@
 .home-quote {
-  position: relative;
-  z-index: 1;
-  background: var(--white-warm);
-  padding-top: var(--section-py);
-  padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
-}
-
-.home-quote__inner {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: clamp(1rem, 3vw, 2.5rem);
-  min-height: clamp(180px, 22vw, 220px);
-}
-
-.home-quote__mark {
-  font-family: var(--font-display);
-  font-size: clamp(4rem, 10vw, 6.5rem);
-  line-height: 0.8;
-  color: rgba(46, 125, 50, 0.14);
-  user-select: none;
-  align-self: flex-start;
-  margin-top: -0.25rem;
-}
-
-.home-quote__content {
-  max-width: 640px;
+  padding: clamp(4rem, 9vw, 6.5rem) 0;
+  text-align: center;
+  background: var(--rav-card);
+  border-top: 1px solid var(--hair);
 }
 
 .home-quote__text {
-  margin: 0 0 0.875rem;
-  font-family: var(--font-display);
-  font-size: clamp(1.625rem, 3.2vw, 2.375rem);
-  font-weight: 500;
+  margin: 0 auto 1rem;
+  font-family: var(--font-quote);
   font-style: italic;
-  line-height: 1.22;
-  letter-spacing: -0.015em;
-  color: var(--green-forest);
+  font-weight: 500;
+  font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+  line-height: 1.3;
+  max-width: 40rem;
+  color: var(--rav-ink);
+}
+
+.home-quote__gm {
+  color: inherit;
 }
 
 .home-quote__author {
-  display: block;
+  margin: 0;
   font-family: var(--font-ui);
-  font-style: normal;
-  font-size: 0.6875rem;
   font-weight: 700;
+  font-size: 0.8rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--text-secondary);
+  color: var(--oliva-text);
 }
 
-.home-quote__visual {
-  position: relative;
-  width: clamp(160px, 22vw, 280px);
-  height: clamp(120px, 16vw, 180px);
-  flex-shrink: 0;
+.home-quote__context {
+  margin: 1rem auto 0;
+  max-width: 36rem;
+  font-size: 0.95rem;
+  color: var(--rav-muted);
+  line-height: 1.65;
 }
 
-.home-quote__ship {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: right center;
+.home-quote__team {
+  margin: 2.2rem auto 0;
+  padding-top: 1.8rem;
+  max-width: 36rem;
+  border-top: 1px solid var(--hair);
+  color: var(--rav-muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
 }
 
-.home-quote__boat {
-  position: absolute;
-  right: 12%;
-  bottom: 8%;
-  width: clamp(40px, 5vw, 56px);
-  height: auto;
-  object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(36%) sepia(18%) saturate(700%) hue-rotate(88deg);
+.home-quote__team a {
+  color: var(--oliva-text);
+  font-family: var(--font-ui);
+  font-weight: 700;
+  text-decoration: none;
 }
 
-@media (max-width: 767px) {
-  .home-quote__inner {
-    grid-template-columns: auto 1fr;
-    min-height: auto;
-  }
-
-  .home-quote__visual {
-    display: none;
-  }
+.home-quote__team a:hover {
+  color: var(--rav-ink);
 }

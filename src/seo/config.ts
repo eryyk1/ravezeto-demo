@@ -11,7 +11,7 @@ export const DEFAULT_TITLE = `${SITE_NAME} – ${company.tagline}`;
 export const DEFAULT_DESCRIPTION =
   'RÁvezető Projekt Kft. – Vezetési tanácsadás, szervezetfejlesztés és felnőttképzés. 16 év tapasztalat, 400+ fejlesztési projekt.';
 
-export const OG_IMAGE_PATH = '/og-image.jpg';
+const OG_IMAGE_PATH = '/og-image.jpg';
 
 export const OG_IMAGE_URL = `${SITE_URL}${OG_IMAGE_PATH}`;
 

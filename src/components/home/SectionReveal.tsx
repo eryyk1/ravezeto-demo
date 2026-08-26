@@ -11,6 +11,7 @@ type SectionRevealProps = {
 };
 
 const ease = [0.22, 1, 0.36, 1] as const;
+const IN_VIEW_OPTS = { once: true, margin: '-8%' } as const;
 
 export default function SectionReveal({
   children,
@@ -20,7 +21,7 @@ export default function SectionReveal({
   'aria-label': ariaLabel,
 }: SectionRevealProps) {
   const ref = useRef<HTMLElement>(null);
-  const inView = useInView(ref, { once: true, margin: '-8%' });
+  const inView = useInView(ref, IN_VIEW_OPTS);
   const reduced = useReducedMotion();
 
   return (

@@ -1,6 +1,5 @@
 import { useState, type FormEvent } from 'react';
 import type { kapcsolatForm } from '../../pages/kapcsolat/kapcsolatContent';
-import './KapcsolatForm.css';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -125,7 +124,7 @@ export default function KapcsolatForm({ config }: KapcsolatFormProps) {
   }
 
   return (
-    <form className="kapcsolat-form" onSubmit={handleSubmit} noValidate>
+    <form onSubmit={handleSubmit} noValidate>
       <div className="kapcsolat-form__honeypot" aria-hidden="true">
         <label htmlFor="kapcsolat-website">Ne töltse ki</label>
         <input
@@ -139,96 +138,78 @@ export default function KapcsolatForm({ config }: KapcsolatFormProps) {
         />
       </div>
 
-      <label className="kapcsolat-form__field">
-        <span>
-          {config.fields.name.label}
-          <span className="kapcsolat-form__required" aria-hidden="true">
-            *
-          </span>
-        </span>
+      <div className="field">
+        <label htmlFor="kapcsolat-nev">
+          {config.fields.name.label} *
+        </label>
         <input
           type="text"
-          name="name"
+          id="kapcsolat-nev"
+          name="nev"
           autoComplete="name"
+          required
           value={values.name}
           onChange={(event) => updateField('name', event.target.value)}
           aria-invalid={Boolean(errors.name)}
           aria-describedby={errors.name ? 'kapcsolat-name-error' : undefined}
         />
         {errors.name && (
-          <span id="kapcsolat-name-error" className="kapcsolat-form__error" role="alert">
+          <span id="kapcsolat-name-error" className="field-error" role="alert">
             {errors.name}
           </span>
         )}
-      </label>
+      </div>
 
-      <label className="kapcsolat-form__field">
-        <span>
-          {config.fields.email.label}
-          <span className="kapcsolat-form__required" aria-hidden="true">
-            *
-          </span>
-        </span>
+      <div className="field">
+        <label htmlFor="kapcsolat-email">
+          E-mail cím *
+        </label>
         <input
           type="email"
+          id="kapcsolat-email"
           name="email"
           autoComplete="email"
+          required
           value={values.email}
           onChange={(event) => updateField('email', event.target.value)}
           aria-invalid={Boolean(errors.email)}
           aria-describedby={errors.email ? 'kapcsolat-email-error' : undefined}
         />
         {errors.email && (
-          <span id="kapcsolat-email-error" className="kapcsolat-form__error" role="alert">
+          <span id="kapcsolat-email-error" className="field-error" role="alert">
             {errors.email}
           </span>
         )}
-      </label>
+      </div>
 
-      <label className="kapcsolat-form__field">
-        <span>{config.fields.phone.label}</span>
-        <input
-          type="tel"
-          name="phone"
-          autoComplete="tel"
-          value={values.phone}
-          onChange={(event) => updateField('phone', event.target.value)}
-        />
-      </label>
-
-      <label className="kapcsolat-form__field">
-        <span>
-          {config.fields.message.label}
-          <span className="kapcsolat-form__required" aria-hidden="true">
-            *
-          </span>
-        </span>
+      <div className="field">
+        <label htmlFor="kapcsolat-uzenet">
+          {config.fields.message.label} *
+        </label>
         <textarea
-          name="message"
+          id="kapcsolat-uzenet"
+          name="uzenet"
           rows={5}
+          required
           value={values.message}
           onChange={(event) => updateField('message', event.target.value)}
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? 'kapcsolat-message-error' : undefined}
         />
         {errors.message && (
-          <span id="kapcsolat-message-error" className="kapcsolat-form__error" role="alert">
+          <span id="kapcsolat-message-error" className="field-error" role="alert">
             {errors.message}
           </span>
         )}
-      </label>
+      </div>
 
-      <button
-        type="submit"
-        className="kapcsolat-form__submit"
-        disabled={submitState === 'submitting'}
-      >
-        {submitState === 'submitting' ? 'Küldés…' : config.submit}
+      <button type="submit" className="btn" disabled={submitState === 'submitting'}>
+        {submitState === 'submitting' ? 'Küldés…' : `${config.submit} →`}
       </button>
 
       {statusMessage && (
         <p
-          className={`kapcsolat-form__status kapcsolat-form__status--${submitState}`}
+          className={`form-status form-status--${submitState}`}
           role="status"
           aria-live="polite"
         >

@@ -1,0 +1,90 @@
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1.8rem;
+  z-index: 10000;
+  padding: 0.75rem 1.25rem;
+  background: var(--oliva-s);
+  color: #fff;
+  border-radius: 0.5rem;
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.kapcsolat-form__honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.field-error {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  color: #b42318;
+}
+
+.form-status {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.form-status--success {
+  color: var(--oliva-text);
+}
+
+.form-status--error {
+  color: #b42318;
+}
+
+.jogi-doc-list {
+  list-style: none;
+  margin: 1.4rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.jogi-doc-list li {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.jogi-doc-list a {
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.jogi-doc-list a:hover {
+  color: var(--oliva-s);
+}
+
+.jogi-doc-list span {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.jogi-impresszum {
+  margin: 1.2rem 0;
+  padding: 1.2rem 0;
+  border-top: 1px solid var(--hair);
+  border-bottom: 1px solid var(--hair);
+}
+
+.jogi-impresszum a {
+  color: var(--oliva-text);
+  font-weight: 700;
+}
+
+.jogi-impresszum a:hover {
+  color: var(--ink);
+}

@@ -2,9 +2,6 @@ import { useEffect } from 'react';
 import { OG_LOCALE, SITE_NAME } from '../seo/config';
 import type { PageMeta } from '../seo/pageMeta';
 
-const MANAGED_SELECTOR = 'meta[data-managed="seo"]';
-const MANAGED_LINK_SELECTOR = 'link[data-managed="seo"]';
-
 function upsertMeta(
   attribute: 'name' | 'property',
   key: string,
@@ -40,30 +37,27 @@ function upsertLink(rel: string, href: string) {
 }
 
 export function usePageMeta(meta: PageMeta) {
+  const { title, description, canonical, ogImage, robots } = meta;
+
   useEffect(() => {
-    document.title = meta.title;
+    document.title = title;
 
-    upsertMeta('name', 'description', meta.description);
-    upsertMeta('name', 'robots', meta.robots ?? 'index, follow');
+    upsertMeta('name', 'description', description);
+    upsertMeta('name', 'robots', robots ?? 'index, follow');
 
-    upsertMeta('property', 'og:title', meta.title);
-    upsertMeta('property', 'og:description', meta.description);
-    upsertMeta('property', 'og:image', meta.ogImage ?? '');
-    upsertMeta('property', 'og:url', meta.canonical);
+    upsertMeta('property', 'og:title', title);
+    upsertMeta('property', 'og:description', description);
+    upsertMeta('property', 'og:image', ogImage ?? '');
+    upsertMeta('property', 'og:url', canonical);
     upsertMeta('property', 'og:type', 'website');
     upsertMeta('property', 'og:site_name', SITE_NAME);
     upsertMeta('property', 'og:locale', OG_LOCALE);
 
     upsertMeta('name', 'twitter:card', 'summary_large_image');
-    upsertMeta('name', 'twitter:title', meta.title);
-    upsertMeta('name', 'twitter:description', meta.description);
-    upsertMeta('name', 'twitter:image', meta.ogImage ?? '');
+    upsertMeta('name', 'twitter:title', title);
+    upsertMeta('name', 'twitter:description', description);
+    upsertMeta('name', 'twitter:image', ogImage ?? '');
 
-    upsertLink('canonical', meta.canonical);
-  }, [meta]);
-}
-
-export function cleanupManagedSeoTags() {
-  document.querySelectorAll(MANAGED_SELECTOR).forEach((node) => node.remove());
-  document.querySelectorAll(MANAGED_LINK_SELECTOR).forEach((node) => node.remove());
+    upsertLink('canonical', canonical);
+  }, [title, description, canonical, ogImage, robots]);
 }

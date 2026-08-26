@@ -1,14 +1,13 @@
 /** /rolunk — source: live https://www.ravezeto.hu/csapatunk/ + homepage stats */
 
 import { company } from './company';
-import { homeAbout } from './home';
 import { felnottkepzesReg } from './felnottkepzes';
 import { homeStats } from './home';
 import { themeImage, rolunkImages } from '../data/media';
 import { teamMembers } from './team';
 
 export const rolunkHero = {
-  label: 'RÓLUNK',
+  label: 'Csapatunk',
   title: 'Gyorsabban, erősebben, magasabbra!',
   intro:
     'Az egyéni és szervezeti minőség és teljesítmény növelésében tudunk segíteni, közös gondolkodással, elhivatott szakemberekkel.',
@@ -28,8 +27,16 @@ export const rolunkStory = {
 
 export const rolunkValues = {
   label: 'Értékeink',
-  title: 'ÉRTÉKEINK',
+  title: 'Ami minden munkánkat vezeti.',
   image: rolunkImages.values,
+  labels: [
+    'Kreativitás',
+    'Csapatmunka',
+    'Problémamegoldás',
+    'Minőségelvűség',
+    'Szakmai tisztesség',
+    'Módszertani sokszínűség',
+  ],
 } as const;
 
 /** Verified milestones only — dated entries from live public pages; undated stats marked „Ma” */
@@ -103,9 +110,9 @@ export const rolunkTestimonials = [
 export const rolunkClosing =
   'Munkatársaink jelentős szervezeti és vezetői tapasztalattal rendelkező tanácsadók, szakértők. Szeretjük a projekteket és belső meggyőződésünk a munkáink által saját magunk fejlesztése is.';
 
-export const rolunkCta = {
-  title: company.tagline,
-  text: homeAbout.text,
-  cta: 'Kapcsolat',
+export const rolunkClose = {
+  kicker: 'Kapcsolat',
+  title: 'Dolgozzunk együtt!',
+  cta: 'Írjon nekünk',
   link: '/kapcsolat',
 } as const;
