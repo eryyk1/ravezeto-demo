@@ -304,12 +304,13 @@ footer .eu-slot span {
   pointer-events: none;
 }
 
-.lg-flow:not(.lg-flow--ready) .lg-track {
+/* Only pause/hide when LogoFlow preloads images (has .lg-flow__preload child) */
+.lg-flow:has(.lg-flow__preload):not(.lg-flow--ready) .lg-track {
   animation-play-state: paused;
   visibility: hidden;
 }
 
-.lg-flow.lg-flow--ready .lg-track {
+.lg-flow:has(.lg-flow__preload).lg-flow--ready .lg-track {
   visibility: visible;
 }
 

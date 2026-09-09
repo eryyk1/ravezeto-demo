@@ -11,7 +11,13 @@ export default function ClientHeader() {
       <header>
         <div className="nav">
           <Link to="/" className="logo" aria-label="Rávezető — Főoldal">
-            <img src="/assets/logo-dark.svg" alt="Rávezető Projekt" />
+            <img
+              src="/assets/logo-dark.svg"
+              alt="Rávezető Projekt"
+              width={106}
+              height={31}
+              decoding="async"
+            />
           </Link>
 
           <nav aria-label="Fő navigáció">
