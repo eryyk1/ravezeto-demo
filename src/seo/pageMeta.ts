@@ -18,41 +18,60 @@ export type PageMeta = {
 const PAGE_META: Record<string, Omit<PageMeta, 'canonical'>> = {
   '/': {
     title: DEFAULT_TITLE,
-    description: DEFAULT_DESCRIPTION,
+    description:
+      'A Rávezető Projekt Kft. emberközpontú szervezetfejlesztéssel és vezetési tanácsadással segíti vállalatát 2008 óta, 400+ lezárt fejlesztési és képzési projekttel.',
   },
   '/rolunk': {
-    title: `Rólunk – ${SITE_NAME}`,
+    title: `RÁVezető – Csapatunk`,
     description:
-      'Az egyéni és szervezeti minőség és teljesítmény növelésében tudunk segíteni, közös gondolkodással, elhivatott szakemberekkel.',
+      'Ismerje meg a Rávezető Projekt Kft. tanácsadó csapatát: több éves szervezetfejlesztési és felnőttképzési tapasztalattal segítik vállalata fejlődését.',
   },
   '/tanacsadas': {
-    title: `Tanácsadás – ${SITE_NAME}`,
+    title: `RÁVezető – Tanácsadás`,
     description:
-      'Szervezetfejlesztési tanácsadás emberközpontú megközelítéssel: stratégia, vezetőfejlesztés, HR, projektmenedzsment és coaching.',
+      'A Rávezető Projekt Kft. emberközpontú szervezetfejlesztési tanácsadással támogatja a változást irányító vezetőket és munkatársakat.',
   },
   '/felnottkepzes': {
-    title: `Felnőttképzés – ${SITE_NAME}`,
+    title: `RÁVezető – Felnőttképzés`,
     description:
-      'Minőségi felnőttképzések a XXI. század kulcskompetenciáihoz. Szervezeti és személyes fejlesztő programok vállalatoknak.',
+      'A Rávezető Projekt Kft. engedélyes felnőttképzőként kulcskompetencia-fejlesztő tréningeket kínál jelenléti, e-learning és online formában vállalatoknak.',
   },
   '/referenciak': {
-    title: `Referenciák – ${SITE_NAME}`,
+    title: `RÁVezető – Referenciák`,
     description:
-      'Partnereink és ügyfeleink bizalma. Referenciák köz- és magánszektorból, oktatásból és gazdasági szférából.',
+      'A Rávezető Projekt Kft. 18 éve dolgozik vezető magyar vállalatokkal: 400+ tanácsadási projekt, 200+ visszatérő ügyfél, 3500+ képzési résztvevő.',
   },
   '/palyazatok': {
-    title: `Pályázatok – ${SITE_NAME}`,
+    title: `RÁVezető – Pályázatok`,
     description:
-      'EU-forrásból megvalósuló fejlesztési projektek tervezése és menedzsmentje. Nemzetközi és uniós projekttapasztalat.',
+      'A Rávezető Projekt Kft. díjmentes konzultációval segít cégre szabott, pályázattal támogatott képzési portfóliót összeállítani és megvalósítani.',
   },
   '/mentally': {
-    title: `Mentally – ${SITE_NAME}`,
+    title: `RÁVezető – Mentally`,
     description:
       'Tudományos alapokon nyugvó online mérőeszköz a munkahelyi mentális egészség támogatására. Ismerje meg a Mentally-t.',
   },
   '/kapcsolat': {
-    title: `Kapcsolat – ${SITE_NAME}`,
-    description: `Keressen minket bizalommal. Iroda: ${company.address}. Telefon: ${company.phone}. E-mail: ${company.email}`,
+    title: `RÁVezető – Kapcsolat`,
+    description: `Lépjen kapcsolatba a Rávezető Projekt Kft.-vel: telefon, e-mail és ${company.address}, hétköznap 9 és 16 óra között.`,
+  },
+  '/jogi/adatvedelem': {
+    title: `RÁVezető – Adatvédelem`,
+    description:
+      'A Rávezető Projekt Kft. adatvédelmi szabályzata. A végleges szöveg feltöltése az oldal élesítése előtt történik meg.',
+    robots: 'noindex, follow',
+  },
+  '/jogi/impresszum': {
+    title: `RÁVezető – Impresszum`,
+    description:
+      'A Rávezető Projekt Kft. impresszuma. A végleges jogi tartalom feltöltése az oldal élesítése előtt történik meg.',
+    robots: 'noindex, follow',
+  },
+  '/jogi/cookie': {
+    title: `RÁVezető – Cookie tájékoztató`,
+    description:
+      'A Rávezető Projekt Kft. cookie-k használatáról szóló tájékoztatója.',
+    robots: 'noindex, follow',
   },
   '/jogi': {
     title: `Jogi információk – ${SITE_NAME}`,
@@ -115,7 +134,15 @@ export function resolvePageMeta(pathname: string): PageMeta {
     };
   }
 
-  if (path.startsWith('/jogi')) {
+  if (path.startsWith('/jogi/')) {
+    const jogiPath = path as keyof typeof PAGE_META;
+    if (PAGE_META[jogiPath]) {
+      return {
+        ...PAGE_META[jogiPath],
+        canonical: `${SITE_URL}${path}`,
+        ogImage: OG_IMAGE_URL,
+      };
+    }
     return {
       ...PAGE_META['/jogi'],
       canonical: `${SITE_URL}${path}`,

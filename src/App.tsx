@@ -29,10 +29,16 @@ export default function App() {
         <Route path="jogi/*" element={<JogiPage />} />
 
         <Route path="csapatunk" element={<Navigate to="/rolunk" replace />} />
+        <Route path="magunkrol" element={<Navigate to="/rolunk" replace />} />
+        <Route path="munkatarsaink" element={<Navigate to="/rolunk" replace />} />
         <Route path="felnottkepzesek/*" element={<Navigate to="/felnottkepzes" replace />} />
         <Route path="referenciaink" element={<Navigate to="/referenciak" replace />} />
+        <Route path="referenciaink-2" element={<Navigate to="/referenciak" replace />} />
         <Route path="kapcsolatok" element={<Navigate to="/kapcsolat" replace />} />
+        <Route path="szolgaltatasaink/*" element={<Navigate to="/tanacsadas" replace />} />
         <Route path="szolgaltatasok/*" element={<Navigate to="/tanacsadas" replace />} />
+        <Route path="impresszum" element={<Navigate to="/jogi/impresszum" replace />} />
+        <Route path="adatvedelem" element={<Navigate to="/jogi/adatvedelem" replace />} />
 
         <Route path="*" element={<NotFoundPage />} />
       </Route>

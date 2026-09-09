@@ -1,0 +1,17 @@
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Rávezető Projekt Kft.",
+ "url": "https://www.ravezeto.hu/",
+ "email": "info@ravezeto.hu",
+ "telephone": "+36 70 513 4128",
+ "foundingDate": "2008",
+ "address": {
+  "@type": "PostalAddress",
+  "streetAddress": "Izsó u. 7. 1/3.",
+  "postalCode": "1146",
+  "addressLocality": "Budapest",
+  "addressCountry": "HU"
+ },
+ "description": "Vezetési tanácsadás, szervezetfejlesztés, változásmenedzsment, üzleti coaching és engedélyezett felnőttképzés 2008 óta. Nyilvántartásba vételi szám: B/2020/001943, engedélyszám: E/2021/000106."
+}

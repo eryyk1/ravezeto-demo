@@ -1,0 +1,54 @@
+# Rávezető — Apache .htaccess redirect rules (MI-Térkép handover 2026-09-07)
+# Adapted to React canonical routes: /rolunk, /referenciak, /jogi/*
+
+# Reference detail pages (34: ref1, ref3–ref35)
+RedirectMatch 301 "^/ref(1|[3-9]|[12][0-9]|3[0-5])/?$" "/referenciak"
+
+# Staff pages
+Redirect 301 /riz-adam-cmc/ /rolunk/
+Redirect 301 /biro-gabriella/ /rolunk/
+Redirect 301 /duleba-marianna/ /rolunk/
+Redirect 301 /soos-andrea/ /rolunk/
+Redirect 301 /szoke-adam/ /rolunk/
+Redirect 301 /munkatarsaink/ /rolunk/
+Redirect 301 /csapatunk/ /rolunk/
+Redirect 301 /magunkrol/ /rolunk/
+
+# Legacy primary slugs
+Redirect 301 /fooldal/ /
+Redirect 301 /fooldal-2-2/ /
+Redirect 301 /szolgaltatasaink/ /tanacsadas/
+Redirect 301 /szolgaltatasok/ /tanacsadas/
+Redirect 301 /felnottkepzesek/ /felnottkepzes/
+Redirect 301 /referenciaink/ /referenciak/
+Redirect 301 /referenciaink-2/ /referenciak/
+Redirect 301 /kapcsolatok/ /kapcsolat/
+Redirect 301 /ginop-plusz-3-2-1-21/ /palyazatok/
+Redirect 301 /aktualis-ginop-es-vekop-palyazatok/ /palyazatok/
+Redirect 301 /rolunk-mondtak/ /referenciak/
+Redirect 301 /impresszum/ /jogi/impresszum/
+Redirect 301 /adatvedelem/ /jogi/adatvedelem/
+Redirect 301 /tajekoztato-cookie-k-hasznalatarol/ /jogi/cookie/
+Redirect 301 /sikeres-kuldes/ /kapcsolat/?submitted=1
+
+# Contact sub-pages
+Redirect 301 /kapcsolat/kapcsolat-ugyfelszolgalat/ /kapcsolat/
+Redirect 301 /kapcsolat/kapcsolat-irodaink/ /kapcsolat/
+Redirect 301 /kapcsolat/kapcsolat-telefon/ /kapcsolat/
+Redirect 301 /kapcsolat/kapcsolat-felnottkepzes/ /kapcsolat/
+
+# External product domains
+Redirect 301 /empx/ https://empx.hu/
+Redirect 301 /empx-bevezeto/ https://empx.hu/
+
+# 410 Gone
+Redirect 410 /teszt/
+Redirect 410 /csr/
+Redirect 410 /70-uk-gambling-dens-not-on-gamstop-best-web-sites-of-july-2025/
+Redirect 410 /uk-non-gamstop-bookmakers/
+Redirect 410 /best-non-gamstop-casinos-in-typically-the-uk-2025/
+Redirect 410 /online-casino-transaction-methods-deposit-options-2025/
+RedirectMatch 410 "^/(category|author)/"
+
+# CONFIRMED: /mentally/ is served on-site by the React SPA — do NOT add external 301 to mentally.team.
+# JSON-LD on /mentally links to https://mentally.team via sameAs on the Mentally product/brand nodes.

@@ -24,7 +24,7 @@
 | `/referenciaink/` | `/referenciak` | References |
 | `/referenciaink-2/` | `/referenciak` | Old slug |
 | `/palyazatok/` | `/palyazatok` | Grants |
-| `/mentally/` | `/mentally` | Product page |
+| `/mentally/` | `/mentally` | Product page (on-site; **no** external redirect to mentally.team) |
 | `/kapcsolat/` | `/kapcsolat` | Contact |
 | `/kapcsolatok/` | `/kapcsolat` | New theme slug |
 | `/csr/` | `/tarsadalmi-felelossegvallalas` | CSR |

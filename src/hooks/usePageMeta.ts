@@ -21,15 +21,20 @@ function upsertMeta(
   element.setAttribute('content', content);
 }
 
-function upsertLink(rel: string, href: string) {
-  let element = document.head.querySelector(
-    `link[rel="${rel}"][data-managed="seo"]`,
-  ) as HTMLLinkElement | null;
+function upsertLink(rel: string, href: string, hreflang?: string) {
+  const selector = hreflang
+    ? `link[rel="${rel}"][hreflang="${hreflang}"][data-managed="seo"]`
+    : `link[rel="${rel}"]:not([hreflang])[data-managed="seo"]`;
+
+  let element = document.head.querySelector(selector) as HTMLLinkElement | null;
 
   if (!element) {
     element = document.createElement('link');
     element.setAttribute('rel', rel);
     element.setAttribute('data-managed', 'seo');
+    if (hreflang) {
+      element.setAttribute('hreflang', hreflang);
+    }
     document.head.appendChild(element);
   }
 
@@ -40,6 +45,8 @@ export function usePageMeta(meta: PageMeta) {
   const { title, description, canonical, ogImage, robots } = meta;
 
   useEffect(() => {
+    document.documentElement.lang = 'hu';
+
     document.title = title;
 
     upsertMeta('name', 'description', description);
@@ -59,5 +66,7 @@ export function usePageMeta(meta: PageMeta) {
     upsertMeta('name', 'twitter:image', ogImage ?? '');
 
     upsertLink('canonical', canonical);
+    upsertLink('alternate', canonical, 'hu');
+    upsertLink('alternate', canonical, 'x-default');
   }, [title, description, canonical, ogImage, robots]);
 }

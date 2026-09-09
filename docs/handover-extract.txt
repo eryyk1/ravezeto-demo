@@ -1,0 +1,1227 @@
+Kindl Dávid e.v. · mi-terkep.com
+Rávezet ő  Projekt Kft. - fejleszt ő i átadás
+Az új honlap tervezete: mit ő rizzenek meg, mit pótoljanak indítás el ő tt, mi történik a régi URL-ekkel
+Rávezet ő  Projekt Kft. · ravezeto.hu tervezet · 2026. szeptember 4. · Bizalmas
+Kinek szól ez a dokumentum. Annak, aki a ravezeto.hu oldalt építi és élesíti. Minden oldal kivitelez ő i részletet tartalmaz:
+oldalankénti hibalistát, másolásra kész kódrészleteket és szerverszabályokat. Kinek nem kell elolvasnia. Az
+ügyvezet ő nek. Az ő  két dokumentuma a jelentés és az igazságlap; ebb ő l a dokumentumból csak a 31. oldalt érdemes
+elolvasnia, mert az sorolja fel, amit neki kell eldöntenie vagy megadnia. Ezt át kell adni, nem végigolvasni.
+Ez a dokumentum a Rávezet ő  Projekt Kft. új honlapának tervezetét méri fel, és a mérés eredményét
+fejleszt ő i utasításokká alakítja. A kilenc tervezetoldalt (fooldal.html, csapatunk.html, tanacsadas.html,
+felnottkepzes.html, referenciak.html, palyazatok.html, kapcsolat.html, adatvedelem.html,
+impresszum.html) a cég saját csapata készítette. Ez a dokumentum nem bírálja ezt a munkát: a mérés
+eredményét adja tovább annak, aki élesíti, hogy mit érdemes változtatás nélkül megtartani, mit kell
+pótolni indítás el ő tt, és milyen szerver-szint ű  tennivalók várnak, amikor a 78 régi cím átáll az új
+oldalakra.
+MIB Ő L KÉSZÜLT
+A tervezet oldalainak m ű szaki mérése (a tervezet
+m ű szaki mérése, 405 check), a hozzá tartozó hibalista és
+migrációs elemzés, valamint a cég saját, kézzel ellen ő rzött
+cégadatai (a cég ellen ő rzött cégadatai). Minden
+szám, byte-érték, URL és check-azonosító ezekb ő l a
+fájlokból származik, semmi nincs kitalálva.
+MIT AD ÁT
+Oldalankénti hibalista súlyossággal és felel ő ssel, másolásra
+kész kódrészletek, a 78 régi cím teljes átírási táblája
+szerverszabályokkal, a kompromittált régi oldalak kezelése,
+a tartalommennyiség és az oldalsúly mérése, valamint záró
+lista arról, mit kell az ügyfélnek eldöntenie vagy megadnia.
+Alapja a tervezet m ű szaki mérése (405 ellen ő rzés a kilenc oldalon), az abból készült oldalankénti hibalista és a 78 él ő  cím
+migrációs elemzése.
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+1 / 32
+MI-Térkép
+ FEJLESZT Ő I ÁTADÁS: HONLAPTERV · 2026. SZEPTEMBER 4.
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+HASZNÁLATI ÚTMUTATÓ 02 / 32
+Hogyan olvassa ezt a dokumentumot.
+A dokumentumot fentr ő l lefelé érdemes végignézni. El ő ször azt mutatja meg, amit a tervezet már jól csinál:
+ez került a problémák elé, szándékosan. Utána jön egy kötelez ő  korrekció a mér ő eszköz saját értékelésén,
+majd az oldalankénti hibalista, a másolásra kész kódrészletek, az indítási migráció (átírási tábla,
+kompromittált oldalak, tartalommennyiség, testvérmárka, oldalsúly), végül pedig egy záró lista arról, mi vár
+még döntésre.
+TARTALOM
+01–02 Borító és használati útmutató
+03–04 Amit a tervezet már jól csinál
+05 Korrekció a kanonikus URL (C04) min ő sítésén
+06–14 Oldalankénti hibalista (mind a 9 tervezetoldal)
+15–20 Másolásra kész kódrészletek (kanonikus URL, meta leírás, JSON-LD, BreadcrumbList, Open Graph)
+21–26 Launch-migráció: nyitott függ ő ség, átírási tábla, szerverszabályok
+27 A kompromittált oldalak
+28–29 Tartalommennyiség és a Mentally testvérmárka kérdése
+30 Oldalsúly
+31 Mit kell az ügyfélnek eldöntenie vagy megadnia
+32 Nyitott tételek annak, aki az oldalt építi
+MIT TESZ EZ A DOKUMENTUM
+Minden számot, byte-értéket, URL-t és check-azonosítót a
+forrásfájlokból vesz át, változtatás nélkül. Ahol a forrás
+NINCS ADAT-ot jelez, ez a dokumentum is azt írja - nem
+tölti ki találgatással. A két forrásfájl eltér ő  nyelven készült (a
+hibalista magyarul, a migrációs elemzés angolul) - ez a
+dokumentum mindkett ő t magyarra egységesítve adja át, a
+számokat és URL-eket érintetlenül hagyva.
+MIT NEM TESZ
+Nem javítja át a tervezet kódját, és nem módosít semmilyen
+más fájlt. Ahol a mér ő eszköz saját min ő sítése téves volt (a
+kanonikus URL „regresszióként” jelölése), azt a
+dokumentum kifejezetten korrigálja, nemcsak megismétli.
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+2 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+AMIT A TERVEZET MÁR JÓL CSINÁL · 1/2 03 / 32
+Amit a tervezet már jól csinál.
+Ez a szakasz szándékosan áll a hibalista el ő tt. A mérés a cég saját 21 tétel ű  javítási tervének (R01–R21) saját
+check-adataival vetette össze a tervezetet: egyik tétel min ő sítése sem feltételezés. Négy tétel teljesen lezárt.
+R02 - LEZÁRVA Nincs egyetlen h1 f ő címsor sem. Check C05: mind a 8 route-térképes oldalon improved (él ő  0 →  tervezet 1),
+az adatvedelem.html-en new. Mind a 9 tervezetoldalon pontosan 1, a valódi témát leíró h1 van (pl.
+csapatunk.html: „Gyorsabban, er ő sebben, magasabbra!”, nem a cégnév vagy a menüpont szövege).
+R03 - LEZÁRVA A magyar oldalak azt állítják magukról, hogy angolul vannak. Check C01 (oldal nyelve): mind a 8 route-
+térképes oldalon improved (él ő  en →  tervezet hu), az adatvedelem.html-en new (tervezet hu).
+R14 - LEZÁRVA Az ajánlások oldala üres volt. A referenciak.html oldalon a check C09 (szószám) improved: él ő  49 szó →
+tervezet 815 szó; a check C13 (JSON-LD @type készlet) improved, és tartalmazza a Review és Person
+típusokat is, nem csak Organization/ItemList-et; a nyers szövegkivonat konkrét, névvel ellátott munkatársi/
+ügyfél-tartalmat mutat, nem üres helykitölt ő t.
+R15 - LEZÁRVA A 34 referencialogó nevesítése hiányzott. A referenciak.html oldalon a check C11 (alt szöveges képek aránya)
+improved: él ő  0 alt szöveg 34 képhez →  a tervezetben mind a 70 kép kapott alt szöveget (70 képb ő l 70); a
+nyers szövegkivonat emellett egy kiírt, szöveges partnerlistát is tartalmaz („ATEV Fehérjefeldolgozó Zrt. ·
+BauDekor Kft. · …”): nemcsak a kép alt-attribútuma, hanem a látható szöveg is nevesíti a partnereket.
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+3 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+AMIT A TERVEZET MÁR JÓL CSINÁL · 2/2 04 / 32
+Amit a tervezet már jól csinál - részben.
+Két tétel elindult, de nem futott végig. A hiányzó rész pontosan az, ami a 15–20. oldal kódrészleteivel
+pótolható.
+R05 - RÉSZBEN Nincs AI által olvasható cégadat-címke. A check C12/C13/C15 szerint 3 oldalon (f ő oldal, felnottkepzes,
+referenciak) improved/new: van JSON-LD blokk, Organization típussal, névvel és címmel. De a check C18
+(identifier), C19 (taxID) és C31 (engedélyszám az AI-adatlapon) mind a 9 oldalon missing marad - a
+cégjegyzékszám, az adószám és a feln ő ttképzési engedélyszám egyike sincs benne a JSON-LD-ben. A 18.
+oldal kódrészlete ezt a hiányzó részt zárja le.
+R09 - RÉSZBEN A cégnév köznév is, az oldalcímek nem oldották fel a félreértést. A check C02 (oldalcím) szerint minden oldal
+címe már „RÁvezet ő  – {oldal témája}” formátumú (verdict: ok), a nyitóoldal címe már nem „F ő oldal”. De a
+check C33 (egységes névírásmód, missing mind a 9 oldalon) és C34 (márkanév kísér ő  megnevezéssel,
+missing a legtöbb oldalon) azt mutatja, hogy a teljes „Rávezet ő  Projekt Kft.” névforma és a következetes kísér ő
+megnevezés a testszövegben még nem valósult meg: csak a <title>-ben van javulás.
+A 9 tételb ő l (R01–R09, R14, R15) maradék három, R01 (kiszolgáló-szint ű  403), R04 (meta leírás hiánya), R06–R13, vagy
+kiszolgáló/WordPress-szint ű  tennivaló, vagy a tervezet statikus HTML-jéb ő l nem értelmezhet ő , vagy még nyitott a
+tervezetben is. Ezek innent ő l a hibalistán és a záró oldalon jelennek meg; ett ő l kezdve a dokumentum a hiányokra tér át.
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+4 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+KORREKCIÓ: KANONIKUS URL (C04) 05 / 32
+Korrekció a mér ő eszköz saját verdiktjeihez.
+A mér ő eszköz 9 sort jelölt regressed-nek a teljes mérésben (verdict_totals.regressed = 9 a JSON-
+ben, 26 ok + 41 improved + 9 regressed + 125 new + 204 missing = 405 check összesen). Ez a 9 sor két,
+egymástól teljesen eltér ő  természet ű  tételb ő l áll, a kett ő t nem szabad egy kalap alá venni.
+2.1 - C04 (KANONIKUS URL), 9 SOR, MIND A 9 OLDALON - ÁTMIN Ő SÍTVE
+A mér ő eszköz 8 oldalon (f ő oldal, csapatunk, tanacsadas, felnottkepzes, referenciak, palyazatok, kapcsolat, impresszum)
+regressed-nek jelölte a C04-et, mert az él ő  oldalakon van <link rel="canonical">, a tervezetfájlokban nincs; a 9. oldalon
+(adatvedelem.html, amelyhez a route-térkép nem talált él ő  megfelel ő t) a verdikt már eleve missing volt.
+Mind a 9 C04 sor „indítási követelmény”, nem regresszió. Egy helyi HTML-fájlnak még nincs nyilvános URL-je,
+amelyre a kanonikus címke mutathatna - tehát a hiányzó kanonikus címke a launch el ő tti feladatlista tétele, nem
+valami, amit a tervezet elrontott az él ő  oldalhoz képest.
+Ez a min ő sítés a verdict_totals értelmezését módosítja, magát a JSON-fájlt nem írja felül. A hibalistán (6–14. oldal) a C04
+sorok súlyossága ezért alap marad (ez a mér ő eszköz saját R04-prioritása), csak a „regresszió” címkét veszem le róluk: minden
+ilyen sort a hibalistán a †  jel jelöl.
+2.2 - A TÖBBI REGRESSED SOR ÁTVIZSGÁLVA
+A 9 regressed sorból az összes maradék, azaz egyetlen sor, a C09 (Szószám) a
+palyazatok.html/https://ravezeto.hu/palyazatok/ oldalon. Ez valódi, meger ő sített tartalmi regresszió.
+Mért adatok: él ő  oldal 387 szó, tervezet 199 szó.
+Független ellen ő rzés: a pages/palyazatok.html fájlból kinyert nyers szöveg (script/style/tag eltávolítva, HTML-entitások
+feloldása) pontosan 199 szót ad, és egyezik mind a review JSON draft értékével, mind a tervezet mért adatai words
+mez ő jével (199). Három egymástól független forrás ugyanazt a számot adja.
+Tartalmi ok is látszik: a tervezet szövege kifejezetten kimondja, hogy „Jelenleg nincs elérhet ő  képzési pályázat” - azaz a
+tervezet oldal ma üresebb, kevesebb leíró szöveget tartalmazó állapotot mutat, mint az él ő  oldal jelenlegi, b ő vebb GINOP-
+leírása.
+Következtetés: a 9 regressed sorból 8 (mind C04) átmin ő sítve „indítási követelmény”-re; 1 (a palyazatok.html C09-e)
+valódi, meger ő sített regresszió, és fejleszt ő i/tartalmi javítást igényel - nem szabad launch el ő tt figyelmen kívül
+hagyni.
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+5 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+HIBALISTA · F Ő OLDAL 06 / 32
+F ő oldal · fooldal.html
+Él ő  megfelel ő : https://ravezeto.hu/ · 21 sor, mind regressed vagy missing érték ű  check - az ok/improved/new sorok (a tervezet
+javításai) itt nincsenek felsorolva, lásd a 03–04. oldalt.
+most = indulás el ő tt kötelez ő alap = az els ő  hónapban érdemes folyamatos = visszatér ő , a m ű ködés része
+†  = lásd 05. oldal: kanonikus URL korrekció
+CHECK MI A HIBA SÚLYOSSÁG FELEL Ő S
+C03 Meta leírás hiányzik a tervezetb ő l. (él ő  oldal: nincs) most tartalom
+C03b Meta leírás hossza (80-175 karakter) hiányzik a tervezetb ő l. (él ő  oldal: nincs) most tartalom
+C04 Kanonikus URL: az él ő  oldalon jelen van (https://ravezeto.hu/), a tervezetb ő l hiányzik (nincs). † (lásd 2. szakasz:
+ez indulási követelmény, nem regresszió)
+alap fejleszt ő
+C16 Course adatlap (képzésekre) hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C17 Person adatlap (szerz ő  / munkatárs) hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+folyamatos tartalom
+C18 identifier mez ő  az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C19 taxID (adószám) az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C20 BreadcrumbList adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C21 FAQPage adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap tartalom
+C22 A kérdés formájú alcímek hiányoznak a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap tartalom
+C23 A nyelvi változatok (hreflang) hiányoznak a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos fejleszt ő
+C27 og:title hiányzik a tervezetb ő l. (él ő  oldal: nincs) alap fejleszt ő
+C28 og:description hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C29 og:image hiányzik a tervezetb ő l. (él ő  oldal: nincs) alap fejleszt ő
+C31 Engedélyszám az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C33 Egységes névírásmód: a tervezet mért értéke „RÁVezet ő  ×1”, ez még nem éri el az elvárt szintet. (Az él ő  oldalon
+nem mértem: mérési hézag, nem hiba)
+most tartalom
+C34 Márkanév kísér ő  megnevezéssel: a tervezet mért értéke „1 önálló / 2 megnevezéssel”, ez még nem éri el az
+elvárt szintet. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba)
+most tartalom
+C39 Az AI-képzési program megjelenése hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+alap tartalom
+C40 A tartalmon látható dátum hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos tartalom
+C41 dateModified az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos tartalom
+C42 Megnevezett szerz ő  / szakmai háttér hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+folyamatos tartalom
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+6 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+HIBALISTA · CSAPATUNK 07 / 32
+Csapatunk · csapatunk.html
+Él ő  megfelel ő : https://ravezeto.hu/csapatunk/ · 25 sor, mind regressed vagy missing érték ű  check. Az ok/improved/new sorok
+(a tervezet javításai) itt nincsenek felsorolva, lásd a 03–04. oldalt.
+most = indulás el ő tt kötelez ő alap = az els ő  hónapban érdemes folyamatos = visszatér ő , a m ű ködés része
+†  = lásd 05. oldal: kanonikus URL korrekció
+CHECK MI A HIBA SÚLYOSSÁG FELEL Ő S
+C03 Meta leírás hiányzik a tervezetb ő l. (él ő  oldal: nincs) most tartalom
+C03b Meta leírás hossza (80-175 karakter) hiányzik a tervezetb ő l. (él ő  oldal: nincs) most tartalom
+C04 Kanonikus URL: az él ő  oldalon jelen van (https://ravezeto.hu/csapatunk/), a tervezetb ő l hiányzik (nincs). † (lásd
+2. szakasz: ez indulási követelmény, nem regresszió)
+alap fejleszt ő
+C12 JSON-LD blokkok száma hiányzik a tervezetb ő l. (él ő  oldal: 0) most fejleszt ő
+C13 JSON-LD @type készlet hiányzik a tervezetb ő l. (él ő  oldal: nincs) most fejleszt ő
+C14 A JSON-LD hibamentes értelmezhet ő sége hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag,
+nem hiba)
+most fejleszt ő
+C15 Organization / EducationalOrganization adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési
+hézag, nem hiba)
+most fejleszt ő
+C16 Course adatlap (képzésekre) hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C17 Person adatlap (szerz ő  / munkatárs) hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+folyamatos tartalom
+C18 identifier mez ő  az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C19 taxID (adószám) az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C20 BreadcrumbList adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C21 FAQPage adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap tartalom
+C22 A kérdés formájú alcímek hiányoznak a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap tartalom
+C23 A nyelvi változatok (hreflang) hiányoznak a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos fejleszt ő
+C27 og:title hiányzik a tervezetb ő l. (él ő  oldal: nincs) alap fejleszt ő
+C28 og:description hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C29 og:image hiányzik a tervezetb ő l. (él ő  oldal: nincs) alap fejleszt ő
+C31 Engedélyszám az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C33 Egységes névírásmód: a tervezet mért értéke „RÁVezet ő  ×1”, ez még nem éri el az elvárt szintet. (Az él ő  oldalon
+nem mértem: mérési hézag, nem hiba)
+most tartalom
+C34 Márkanév kísér ő  megnevezéssel: a tervezet mért értéke „1 önálló / 3 megnevezéssel”, ez még nem éri el az
+elvárt szintet. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba)
+most tartalom
+C39 Az AI-képzési program megjelenése hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+alap tartalom
+C40 A tartalmon látható dátum hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos tartalom
+C41 dateModified az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos tartalom
+C42 Megnevezett szerz ő  / szakmai háttér hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+folyamatos tartalom
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+7 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+HIBALISTA · TANÁCSADÁS 08 / 32
+Tanácsadás · tanacsadas.html
+Él ő  megfelel ő : https://ravezeto.hu/tanacsadas/ · 24 sor, mind regressed vagy missing érték ű  check: az ok/improved/new sorok
+(a tervezet javításai) itt nincsenek felsorolva, lásd a 03–04. oldalt.
+most = indulás el ő tt kötelez ő alap = az els ő  hónapban érdemes folyamatos = visszatér ő , a m ű ködés része
+†  = lásd 05. oldal: kanonikus URL korrekció
+CHECK MI A HIBA SÚLYOSSÁG FELEL Ő S
+C03 Meta leírás hiányzik a tervezetb ő l. (él ő  oldal: nincs) most tartalom
+C03b Meta leírás hossza (80-175 karakter) hiányzik a tervezetb ő l. (él ő  oldal: nincs) most tartalom
+C04 Kanonikus URL: az él ő  oldalon jelen van (https://ravezeto.hu/tanacsadas/), a tervezetb ő l hiányzik (nincs).
+† (Lásd 2. szakasz: ez indulási követelmény, nem regresszió)
+alap fejleszt ő
+C12 JSON-LD blokkok száma hiányzik a tervezetb ő l. (él ő  oldal: 0) most fejleszt ő
+C13 JSON-LD @type készlet hiányzik a tervezetb ő l. (él ő  oldal: nincs) most fejleszt ő
+C14 A JSON-LD hibamentes értelmezhet ő sége hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag,
+nem hiba)
+most fejleszt ő
+C15 Organization / EducationalOrganization adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési
+hézag, nem hiba)
+most fejleszt ő
+C16 Course adatlap (képzésekre) hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C17 Person adatlap (szerz ő  / munkatárs) hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+folyamatos tartalom
+C18 identifier mez ő  az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C19 taxID (adószám) az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C20 BreadcrumbList adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C21 FAQPage adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap tartalom
+C22 A kérdés formájú alcímek hiányoznak a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap tartalom
+C23 A nyelvi változatok (hreflang) hiányoznak a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos fejleszt ő
+C27 og:title hiányzik a tervezetb ő l. (él ő  oldal: nincs) alap fejleszt ő
+C28 og:description hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C29 og:image hiányzik a tervezetb ő l. (él ő  oldal: nincs) alap fejleszt ő
+C31 Engedélyszám az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C33 Egységes névírásmód: a tervezet mért értéke „RÁVezet ő  ×1”, ez még nem éri el az elvárt szintet. (Az él ő  oldalon
+nem mértem: mérési hézag, nem hiba)
+most tartalom
+C39 Az AI-képzési program megjelenése hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+alap tartalom
+C40 A tartalmon látható dátum hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos tartalom
+C41 dateModified az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos tartalom
+C42 Megnevezett szerz ő  / szakmai háttér hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+folyamatos tartalom
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+8 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+HIBALISTA · FELN Ő TTKÉPZÉS 09 / 32
+Feln ő ttképzés · felnottkepzes.html
+Él ő  megfelel ő : https://ravezeto.hu/felnottkepzes/ · 19 sor, mind regressed vagy missing érték ű  check: az ok/improved/new
+sorok (a tervezet javításai) itt nincsenek felsorolva, lásd a 03–04. oldalt.
+most = indulás el ő tt kötelez ő alap = az els ő  hónapban érdemes folyamatos = visszatér ő , a m ű ködés része
+†  = lásd 05. oldal: kanonikus URL korrekció
+CHECK MI A HIBA SÚLYOSSÁG FELEL Ő S
+C03 Meta leírás hiányzik a tervezetb ő l. (él ő  oldal: nincs) most tartalom
+C03b Meta leírás hossza (80-175 karakter) hiányzik a tervezetb ő l. (él ő  oldal: nincs) most tartalom
+C04 Kanonikus URL: az él ő  oldalon jelen van (https://ravezeto.hu/felnottkepzes/), a tervezetb ő l hiányzik (nincs).
+† (Lásd 2. szakasz: ez indulási követelmény, nem regresszió)
+alap fejleszt ő
+C17 Person adatlap (szerz ő  / munkatárs) hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+folyamatos tartalom
+C18 identifier mez ő  az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C19 taxID (adószám) az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C20 BreadcrumbList adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C21 FAQPage adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap tartalom
+C22 A kérdés formájú alcímek hiányoznak a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap tartalom
+C23 A nyelvi változatok (hreflang) hiányoznak a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos fejleszt ő
+C27 og:title hiányzik a tervezetb ő l. (él ő  oldal: nincs) alap fejleszt ő
+C28 og:description hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C29 og:image hiányzik a tervezetb ő l. (él ő  oldal: nincs) alap fejleszt ő
+C31 Engedélyszám az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C33 Egységes névírásmód: a tervezet mért értéke „RÁVezet ő  ×1”, ez még nem éri el az elvárt szintet. (Az él ő  oldalon
+nem mértem: mérési hézag, nem hiba)
+most tartalom
+C39 Az AI-képzési program megjelenése hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+alap tartalom
+C40 A tartalmon látható dátum hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos tartalom
+C41 dateModified az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos tartalom
+C42 Megnevezett szerz ő  / szakmai háttér hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+folyamatos tartalom
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+9 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+HIBALISTA · REFERENCIÁK 10 / 32
+Referenciák · referenciak.html
+Él ő  megfelel ő : https://ravezeto.hu/referenciaink/ · 20 sor, mindegyik regressed vagy missing érték ű  check; az
+ok/improved/new sorok: a tervezet javításai, itt nincsenek felsorolva, lásd a 03–04. oldalt.
+most = indulás el ő tt kötelez ő alap = az els ő  hónapban érdemes folyamatos = visszatér ő , a m ű ködés része
+†  = lásd 05. oldal: kanonikus URL korrekció
+CHECK MI A HIBA SÚLYOSSÁG FELEL Ő S
+C03 Meta leírás hiányzik a tervezetb ő l. (él ő  oldal: nincs) most tartalom
+C03b Meta leírás hossza (80-175 karakter) hiányzik a tervezetb ő l. (él ő  oldal: nincs) most tartalom
+C04 Kanonikus URL: az él ő  oldalon jelen van (https://ravezeto.hu/referenciaink/), a tervezetb ő l hiányzik (nincs). †
+(lásd 2. szakasz: ez indulási követelmény, nem regresszió)
+alap fejleszt ő
+C08 Címsorok száma összesen: a tervezet mért értéke „3”, ez még nem éri el az elvárt szintet. (Az él ő  oldalon nem
+mértem: mérési hézag, nem hiba)
+alap tartalom
+C16 Course adatlap (képzésekre) hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C18 identifier mez ő  az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C19 taxID (adószám) az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C20 BreadcrumbList adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C21 FAQPage adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap tartalom
+C22 A kérdés formájú alcímek hiányoznak a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap tartalom
+C23 A nyelvi változatok (hreflang) hiányoznak a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos fejleszt ő
+C27 og:title hiányzik a tervezetb ő l. (él ő  oldal: nincs) alap fejleszt ő
+C28 og:description hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C29 og:image hiányzik a tervezetb ő l. (él ő  oldal: nincs) alap fejleszt ő
+C31 Engedélyszám az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C33 Egységes névírásmód: a tervezet mért értéke „RÁVezet ő  ×1”, ez még nem éri el az elvárt szintet. (Az él ő  oldalon
+nem mértem: mérési hézag, nem hiba)
+most tartalom
+C34 Márkanév kísér ő  megnevezéssel: a tervezet mért értéke „1 önálló / 7 megnevezéssel”, ez még nem éri el az
+elvárt szintet. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba)
+most tartalom
+C39 Az AI-képzési program megjelenése hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+alap tartalom
+C40 A tartalmon látható dátum hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos tartalom
+C41 dateModified az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos tartalom
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+10 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+HIBALISTA · PÁLYÁZATOK 11 / 32
+Pályázatok · palyazatok.html
+Él ő  megfelel ő : https://ravezeto.hu/palyazatok/ · 26 sor, mindegyik regressed vagy missing érték ű  check; az ok/improved/new
+sorok: a tervezet javításai, itt nincsenek felsorolva, lásd a 03–04. oldalt.
+most = indulás el ő tt kötelez ő alap = az els ő  hónapban érdemes folyamatos = visszatér ő , a m ű ködés része
+†  = lásd 05. oldal: kanonikus URL korrekció
+CHECK MI A HIBA SÚLYOSSÁG FELEL Ő S
+C03 Meta leírás hiányzik a tervezetb ő l. (él ő  oldal: nincs) most tartalom
+C03b Meta leírás hossza (80-175 karakter) hiányzik a tervezetb ő l. (él ő  oldal: nincs) most tartalom
+C04 Kanonikus URL: az él ő  oldalon jelen van (https://ravezeto.hu/palyazatok/), a tervezetb ő l hiányzik (nincs). † (lásd
+2. szakasz: ez indulási követelmény, nem regresszió)
+alap fejleszt ő
+C09 Szószám: az él ő  oldalon jelen van (387), a tervezetb ő l hiányzik (199). alap tartalom
+C12 JSON-LD blokkok száma hiányzik a tervezetb ő l. (él ő  oldal: 0) most fejleszt ő
+C13 JSON-LD @type készlet hiányzik a tervezetb ő l. (él ő  oldal: nincs) most fejleszt ő
+C14 A JSON-LD hibamentes értelmezhet ő sége hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag,
+nem hiba)
+most fejleszt ő
+C15 Organization / EducationalOrganization adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési
+hézag, nem hiba)
+most fejleszt ő
+C16 Course adatlap (képzésekre) hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C17 Person adatlap (szerz ő  / munkatárs) hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+folyamatos tartalom
+C18 identifier mez ő  az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C19 taxID (adószám) az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C20 BreadcrumbList adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C21 FAQPage adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap tartalom
+C22 A kérdés formájú alcímek hiányoznak a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap tartalom
+C23 A nyelvi változatok (hreflang) hiányoznak a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos fejleszt ő
+C27 og:title hiányzik a tervezetb ő l. (él ő  oldal: nincs) alap fejleszt ő
+C28 og:description hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C29 og:image hiányzik a tervezetb ő l. (él ő  oldal: nincs) alap fejleszt ő
+C31 Engedélyszám az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C33 Egységes névírásmód: a tervezet mért értéke „RÁVezet ő  ×1”, ez még nem éri el az elvárt szintet. (Az él ő  oldalon
+nem mértem: mérési hézag, nem hiba)
+most tartalom
+C34 Márkanév kísér ő  megnevezéssel: a tervezet mért értéke „1 önálló / 3 megnevezéssel”, ez még nem éri el az
+elvárt szintet. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba)
+most tartalom
+C39 Az AI-képzési program megjelenése hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+alap tartalom
+C40 A tartalmon látható dátum hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos tartalom
+C41 dateModified az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos tartalom
+C42 Megnevezett szerz ő  / szakmai háttér hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+folyamatos tartalom
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+11 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+HIBALISTA · KAPCSOLAT 12 / 32
+Kapcsolat · kapcsolat.html
+Él ő  megfelel ő : https://ravezeto.hu/kapcsolat/ · 26 sor, mind regressed vagy missing érték ű  check - az ok/improved/new sorok
+(a tervezet javításai) itt nincsenek felsorolva, lásd a 03–04. oldalt.
+most = indulás el ő tt kötelez ő alap = az els ő  hónapban érdemes folyamatos = visszatér ő , a m ű ködés része
+†  = lásd 05. oldal: kanonikus URL korrekció
+CHECK MI A HIBA SÚLYOSSÁG FELEL Ő S
+C03 Meta leírás hiányzik a tervezetb ő l. (él ő  oldal: nincs) most tartalom
+C03b Meta leírás hossza (80-175 karakter) hiányzik a tervezetb ő l. (él ő  oldal: nincs) most tartalom
+C04 Kanonikus URL: az él ő  oldalon jelen van (https://ravezeto.hu/kapcsolat/), a tervezetb ő l hiányzik (nincs). † (lásd
+2. szakasz: ez indulási követelmény, nem regresszió)
+alap fejleszt ő
+C08 Címsorok száma összesen: a tervezet mért értéke „2”, ez még nem éri el az elvárt szintet. (Az él ő  oldalon nem
+mértem: mérési hézag, nem hiba)
+alap tartalom
+C09 Szószám: a tervezet mért értéke „134”, ez még nem éri el az elvárt szintet. (él ő  oldal: 45) alap tartalom
+C12 JSON-LD blokkok száma hiányzik a tervezetb ő l. (él ő  oldal: 0) most fejleszt ő
+C13 JSON-LD @type készlet hiányzik a tervezetb ő l. (él ő  oldal: nincs) most fejleszt ő
+C14 A JSON-LD hibamentes értelmezhet ő sége hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag,
+nem hiba)
+most fejleszt ő
+C15 Organization / EducationalOrganization adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési
+hézag, nem hiba)
+most fejleszt ő
+C16 Course adatlap (képzésekre) hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C17 Person adatlap (szerz ő  / munkatárs) hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+folyamatos tartalom
+C18 identifier mez ő  az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C19 taxID (adószám) az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C20 BreadcrumbList adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C21 FAQPage adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap tartalom
+C22 A kérdés formájú alcímek hiányoznak a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap tartalom
+C23 A nyelvi változatok (hreflang) hiányoznak a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos fejleszt ő
+C27 og:title hiányzik a tervezetb ő l. (él ő  oldal: nincs) alap fejleszt ő
+C28 og:description hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C29 og:image hiányzik a tervezetb ő l. (él ő  oldal: nincs) alap fejleszt ő
+C31 Engedélyszám az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C33 Egységes névírásmód: a tervezet mért értéke „RÁVezet ő  ×1”, ez még nem éri el az elvárt szintet. (Az él ő  oldalon
+nem mértem: mérési hézag, nem hiba)
+most tartalom
+C39 Az AI-képzési program megjelenése hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+alap tartalom
+C40 A tartalmon látható dátum hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos tartalom
+C41 dateModified az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos tartalom
+C42 Megnevezett szerz ő  / szakmai háttér hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+folyamatos tartalom
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+12 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+HIBALISTA · ADATVÉDELEM 13 / 32
+Adatvédelem · adatvedelem.html
+Él ő  megfelel ő : NINCS ADAT - az összerendelésben nincs rá egyértelm ű  bejegyzés - NINCS ADAT · 26 sor, mind regressed vagy
+missing érték ű  check - az ok/improved/new sorok (a tervezet javításai) itt nincsenek felsorolva, lásd a 03–04. oldalt.
+most = indulás el ő tt kötelez ő alap = az els ő  hónapban érdemes folyamatos = visszatér ő , a m ű ködés része
+†  = lásd 05. oldal: kanonikus URL korrekció
+CHECK MI A HIBA SÚLYOSSÁG FELEL Ő S
+C03 A metaleírás hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) most tartalom
+C03b A metaleírás hossza (80-175 karakter) hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+most tartalom
+C04 Kanonikus URL hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C08 Címsorok száma összesen: a tervezet mért értéke „1”, ez még nem éri el az elvárt szintet. (Az él ő  oldalon nem
+mértem: mérési hézag, nem hiba)
+alap tartalom
+C09 Szószám: a tervezet mért értéke „67”, ez még nem éri el az elvárt szintet. (Az él ő  oldalon nem mértem: mérési
+hézag, nem hiba)
+alap tartalom
+C12 A JSON-LD blokkok száma hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) most fejleszt ő
+C13 A JSON-LD @type készlet hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) most fejleszt ő
+C14 A JSON-LD hibamentes értelmezhet ő sége hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag,
+nem hiba)
+most fejleszt ő
+C15 Organization / EducationalOrganization adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési
+hézag, nem hiba)
+most fejleszt ő
+C16 Course adatlap (képzésekre) hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C17 Person adatlap (szerz ő  / munkatárs) hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+folyamatos tartalom
+C18 identifier mez ő  az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C19 taxID (adószám) az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C20 BreadcrumbList adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C21 FAQPage adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap tartalom
+C22 A kérdés formájú alcímek hiányoznak a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap tartalom
+C23 A nyelvi változatok (hreflang) hiányoznak a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos fejleszt ő
+C27 og:title hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C28 og:description hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C29 og:image hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C31 Engedélyszám az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C33 Egységes névírásmód: a tervezet mért értéke „RÁVezet ő  ×1”, ez még nem éri el az elvárt szintet. (Az él ő  oldalon
+nem mértem: mérési hézag, nem hiba)
+most tartalom
+C39 Az AI-képzési program megjelenése hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+alap tartalom
+C40 A tartalmon látható dátum hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos tartalom
+C41 dateModified az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos tartalom
+C42 Megnevezett szerz ő  / szakmai háttér hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+folyamatos tartalom
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+13 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+HIBALISTA · IMPRESSZUM 14 / 32
+Impresszum · impresszum.html
+Él ő  megfelel ő : https://ravezeto.hu/impresszum/ · 26 sor, mind regressed vagy missing érték ű  check - az ok/improved/new
+sorok (a tervezet javításai) itt nincsenek felsorolva, lásd a 03–04. oldalt.
+most = indulás el ő tt kötelez ő alap = az els ő  hónapban érdemes folyamatos = visszatér ő , a m ű ködés része
+†  = lásd 05. oldal: kanonikus URL korrekció
+CHECK MI A HIBA SÚLYOSSÁG FELEL Ő S
+C03 Meta leírás hiányzik a tervezetb ő l. (él ő  oldal: nincs) most tartalom
+C03b Meta leírás hossza (80-175 karakter) hiányzik a tervezetb ő l. (él ő  oldal: nincs) most tartalom
+C04 Kanonikus URL: az él ő  oldalon jelen van (https://ravezeto.hu/impresszum/), a tervezetb ő l hiányzik (nincs).
+† (lásd 2. szakasz: ez indulási követelmény, nem regresszió)
+alap fejleszt ő
+C08 Címsorok száma összesen: a tervezet mért értéke „1”, ez még nem éri el az elvárt szintet. (Az él ő  oldalon nem
+mértem: mérési hézag, nem hiba)
+alap tartalom
+C09 Szószám: a tervezet mért értéke „65”, ez még nem éri el az elvárt szintet. (él ő  oldal: 45) alap tartalom
+C12 JSON-LD blokkok száma hiányzik a tervezetb ő l. (él ő  oldal: 0) most fejleszt ő
+C13 JSON-LD @type készlet hiányzik a tervezetb ő l. (él ő  oldal: nincs) most fejleszt ő
+C14 A JSON-LD hibamentes értelmezhet ő sége hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag,
+nem hiba)
+most fejleszt ő
+C15 Organization / EducationalOrganization adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési
+hézag, nem hiba)
+most fejleszt ő
+C16 Course adatlap (képzésekre) hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C17 Person adatlap (szerz ő  / munkatárs) hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+folyamatos tartalom
+C18 identifier mez ő  az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C19 taxID (adószám) az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C20 BreadcrumbList adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C21 FAQPage adatlap hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap tartalom
+C22 A kérdés formájú alcímek hiányoznak a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap tartalom
+C23 A nyelvi változatok (hreflang) hiányoznak a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos fejleszt ő
+C27 og:title hiányzik a tervezetb ő l. (él ő  oldal: nincs) alap fejleszt ő
+C28 og:description hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C29 og:image hiányzik a tervezetb ő l. (él ő  oldal: nincs) alap fejleszt ő
+C31 Engedélyszám az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) alap fejleszt ő
+C33 Egységes névírásmód: a tervezet mért értéke „RÁVezet ő  ×1”, ez még nem éri el az elvárt szintet. (Az él ő  oldalon
+nem mértem: mérési hézag, nem hiba)
+most tartalom
+C39 Az AI-képzési program megjelenése hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+alap tartalom
+C40 A tartalmon látható dátum hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos tartalom
+C41 dateModified az AI-adatlapon hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem hiba) folyamatos tartalom
+C42 Megnevezett szerz ő  / szakmai háttér hiányzik a tervezetb ő l. (Az él ő  oldalon nem mértem: mérési hézag, nem
+hiba)
+folyamatos tartalom
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+14 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+KÓDRÉSZLETEK: KANONIKUS URL 15 / 32
+Másolásra kész kódrészletek.
+Minden blokk önmagában, változtatás nélkül beilleszthet ő , pontosan úgy, ahogy a mérés forrásanyaga
+tartalmazza. A TODO: el ő taggal jelölt értékeket az ügyfélnek vagy a fejleszt ő nek kell kitöltenie, ezeken kívül
+nincs kitöltend ő  helykitölt ő .
+3.1 · KANONIKUS URL-EK OLDALANKÉNT
+Forrás: az összerendelés. Ez a 8 blokk közvetlenül megoldja a 05. oldalon leírt C04 hiányt.
+fooldal.html
+<link rel="canonical" href="https://ravezeto.hu/">
+csapatunk.html
+<link rel="canonical"
+href="https://ravezeto.hu/csapatunk/">
+tanacsadas.html
+<link rel="canonical"
+href="https://ravezeto.hu/tanacsadas/">
+felnottkepzes.html
+<link rel="canonical"
+href="https://ravezeto.hu/felnottkepzes/">
+referenciak.html
+<link rel="canonical"
+href="https://ravezeto.hu/referenciaink/">
+palyazatok.html
+<link rel="canonical"
+href="https://ravezeto.hu/palyazatok/">
+kapcsolat.html
+<link rel="canonical"
+href="https://ravezeto.hu/kapcsolat/">
+impresszum.html
+<link rel="canonical"
+href="https://ravezeto.hu/impresszum/">
+adatvedelem.html: NINCS ADAT az él ő  URL-re, a fejleszt ő  tölti ki
+///- TODO: nincs él ő  URL az összerendelésben - a fejleszt ő nek kell megadnia/meger ő sítenie //>
+<link rel="canonical" href="TODO:_adatvedelem_elo_URL_megerositendo">
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+15 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+KÓDRÉSZLETEK: META DESCRIPTION 1/2 16 / 32
+Meta descriptionök oldalanként · 1/2
+3.2 · magyar, 80–175 karakter, kizárólag az adott oldal saját látható szövege alapján. Ez az egyetlen tétel, amit
+a tervezet sehol nem old meg: a check C03 mind a 9 oldalon missing, a draft érték mindenhol „nincs”.
+fooldal.html (161 karakter)
+<meta name="description" content="A Rávezet ő  Projekt Kft. emberközpontú szervezetfejlesztéssel és vezetési
+tanácsadással segíti vállalatát 2008 óta, 400+ lezárt fejlesztési és képzési projekttel.">
+csapatunk.html (149 karakter)
+<meta name="description" content="Ismerje meg a Rávezet ő  Projekt Kft. tanácsadó csapatát: több éves
+szervezetfejlesztési és feln ő ttképzési tapasztalattal segítik vállalata fejl ő dését.">
+tanacsadas.html (129 karakter)
+<meta name="description" content="A Rávezet ő  Projekt Kft. emberközpontú szervezetfejlesztési tanácsadással támogatja a
+változást irányító vezet ő ket és munkatársakat.">
+felnottkepzes.html (150 karakter)
+<meta name="description" content="A Rávezet ő  Projekt Kft. engedélyes feln ő ttképz ő ként kulcskompetencia-fejleszt ő
+tréningeket kínál jelenléti, e-learning és online formában vállalatoknak.">
+referenciak.html (143 karakter)
+<meta name="description" content="A Rávezet ő  Projekt Kft. 18 éve dolgozik vezet ő  magyar vállalatokkal: 400+
+tanácsadási projekt, 200+ visszatér ő  ügyfél, 3500+ képzési résztvev ő .">
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+16 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+KÓDRÉSZLETEK: META DESCRIPTION 2/2 17 / 32
+Meta descriptionök oldalanként · 2/2
+Az adatvedelem.html és az impresszum.html jelenlegi szövege maga is helykitölt ő  szöveg - a leírás ezt a
+tényt írja le, nem talál ki tartalmat a végleges jogi szöveg helyett.
+palyazatok.html (143 karakter)
+<meta name="description" content="A Rávezet ő  Projekt Kft. díjmentes konzultációval segít cégre szabott, pályázattal
+támogatott képzési portfóliót összeállítani és megvalósítani.">
+kapcsolat.html (140 karakter)
+<meta name="description" content="Lépjen kapcsolatba a Rávezet ő  Projekt Kft.-vel: telefon, e-mail és 1146 Budapest,
+Izsó utca 7. alatti iroda, hétköznap 9 és 16 óra között.">
+adatvedelem.html (116 karakter)
+Az oldal jelenlegi szövege maga is helykitölt ő  ("Ide kerül a végleges adatvédelmi szabályzat szövege - élesítés el ő tt pótlandó."),
+a leírás ezt a tényt írja le, nem talál ki tartalmat.
+<meta name="description" content="A Rávezet ő  Projekt Kft. adatvédelmi szabályzata. A végleges szöveg feltöltése az
+oldal élesítése el ő tt történik meg.">
+impresszum.html (111 karakter)
+Az oldal jelenlegi szövege maga is helykitölt ő  ("Ide kerül a végleges impresszum szövege - élesítés el ő tt pótlandó."), a leírás
+ezt a tényt írja le, nem talál ki tartalmat.
+<meta name="description" content="A Rávezet ő  Projekt Kft. impresszuma. A végleges jogi tartalom feltöltése az oldal
+élesítése el ő tt történik meg.">
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+17 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+KÓDRÉSZLETEK: ORGANIZATION JSON-LD 18 / 32
+Organization JSON-LD.
+3.3 · teljes site, minden oldal fejlécébe vagy lábába. Minden érték a a cég ellen ő rzött cégadatai →  identity blokkjából
+származik. Ez a blokk zárja le az R05 tétel maradék részét (18–19. oldal): a C18 (identifier), C19 (taxID) és C31 (engedélyszám)
+checkeket, amelyek mind a 9 tervezetoldalon missing státuszúak ma.
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "Organization", "name": "Rávezet ő  Projekt Kft.", "legalName": "Rávezet ő
+Projekt Tanácsadó és Szolgáltató Korlátolt Felel ő sség ű  Társaság", "url": "https://ravezeto.hu", "address": { "@type":
+"PostalAddress", "streetAddress": "Izsó u. 7. 1/3.", "addressLocality": "Budapest", "postalCode": "1146",
+"addressCountry": "HU" }, "telephone": "+36 1 798 8033", "email": "info@ravezeto.hu", "taxID": "14448304-2-42",
+"identifier": [ { "@type": "PropertyValue", "propertyID": "HU-cegjegyzekszam", "name": "Cégjegyzékszám", "value": "01
+09 904298" }, { "@type": "PropertyValue", "propertyID": "HU-felnottkepzesi-nyilvantartasi-szam", "name":
+"Feln ő ttképzési nyilvántartási szám", "value": "B/2020/001943" }, { "@type": "PropertyValue", "propertyID": "HU-
+felnottkepzesi-engedelyszam", "name": "Feln ő ttképzési engedélyszám", "value": "E/2021/000106" } ]
+}
+//script>
+Mindkét szám ellen ő rizve, mindkett ő  valódi: ez már nem nyitott kérdés. A tervezet lábléce két számot mutat, és a
+hivatalos feln ő ttképzési nyilvántartás (FAR, far.nive.hu, a cég publikus adatlapja:
+far.nive.hu/nyilvantartasok/felnottkepzok/publikus/8510, lekérdezve 2026-09-04) mindkett ő t meger ő síti,
+ugyanabban a rekordban, egyik sincs törölve. A nyilvántartás saját mez ő nevei szerint a kett ő  két különböz ő  dolog:
+B/2020/001943 a nyilvántartási szám (bejelentés alapú tevékenység, nyilvántartásba véve 2020.10.02.),
+E/2021/000106 az engedélyszám (engedélyezett képzés, engedélyezve 2021.04.23.). A két dátum közötti négy hónapos
+eltérés pontosan azt mutatja, amit a két nyilvántartási sáv is jelez: a bejelentés és az engedély két külön lépés, és egy
+szolgáltató jogszer ű en tarthatja mindkett ő t egyszerre. A fenti JSON-LD ezért mindkét számot tartalmazza, saját, névvel
+ellátott mez ő ben. A két számot soha nem szabad egy mez ő be összevonni vagy felcserélni: a nyilvántartási szám nem
+engedélyszám, és fordítva.
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+18 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+KÓDRÉSZLETEK: COURSE JSON-LD 19 / 32
+Course JSON-LD váz.
+3.4 · a felnottkepzes.html oldalon 4 f ő  képzési terület van felsorolva (kommunikáció, vezet ő i skillek, generációk közötti
+együttm ű ködés, munkahelyi stressz) plusz egy 20 elem ű  „Referencia-képzéseink” katalógus, egyik sem hordoz ma Course-szint ű
+JSON-LD-t. Az alábbi váz egy képzésre vonatkozik - minden további képzéshez egy újabb, ugyanilyen felépítés ű  blokk kell. A TODO
+értékeket a cég tölti ki képzésenként; a JSON nem támogat valódi kommentet, ezért a kitöltend ő  mez ő k értéke maga a TODO-string.
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "Course", "name": "TODO: a képzés pontos neve (pl. \"Kommunikációs
+készségfejlesztés\")", "description": "TODO: 1-3 mondat a képzés valódi tartalmáról, a cél- és korcsoportról",
+"provider": { "@type": "Organization", "name": "Rávezet ő  Projekt Kft.", "sameAs": "https://ravezeto.hu" },
+"hasCourseInstance": { "@type": "CourseInstance", "courseMode": "TODO: onsite | online | blended - a képzés tényleges
+megvalósítási formája", "courseSchedule": { "@type": "Schedule", "duration": "TODO: ISO 8601 id ő tartam, pl. PT16H egy
+16 órás képzéshez" } }, "identifier": "TODO: a képzéshez tartozó saját nyilvántartási/engedélyszám, ha van ilyen a cég
+E/2021/000106 engedélyszámán felül - ha nincs saját szám, ezt a mez ő t törölni kell, nem üresen hagyni",
+"occupationalCredentialAwarded": "TODO: a képzés végén kiadott igazolás/tanúsítvány neve, ha van"
+}
+//script>
+Fontos. A mérés szerint a feln ő ttképzés oldalon ma nem jelenik meg a cég engedélyezett, 16 órás „Mesterséges
+intelligencia alapjai” programja: sem látható szövegként, sem semmilyen JSON-LD-ben (check C39, missing mind a 9
+oldalon). Ellen ő rzés a felnottkepzes.html nyers szövegében: sem „mesterséges intelligencia”, sem „MI alapjai” kifejezés
+nem szerepel rajta. A Course-típusú JSON-LD (C16 new ezen az oldalon) a 4 meglév ő  témára vonatkozik, nem az AI-
+programra. Amikor ehhez a programhoz készül Course-blokk, a name mez ő be a tényleges, a feln ő ttképzési
+nyilvántartásban szerepl ő  programnevet kell írni, nem közelítést. Ez a tétel érdemben nyitva van, annak ellenére, hogy a
+Course-infrastruktúra technikailag már létezik a lapon.
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+19 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+KÓDRÉSZLETEK: BREADCRUMBLIST / OG 20 / 32
+BreadcrumbList és Open Graph blokkok.
+3.5 · az alábbi két blokk mintapéldája a csapatunk.html/https://ravezeto.hu/csapatunk/ oldalra készült. Mind a 8 route-térképes
+oldalon meg kell ismételni, a saját nevével, URL-jével és leírásával. Az adatvedelem.html-en a BreadcrumbList item-je az él ő  URL
+hiánya miatt (15. oldal) egyel ő re NINCS ADAT.
+BreadcrumbList - csapatunk.html mintapélda
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position":
+1, "name": "F ő oldal", "item": "https://ravezeto.hu/" }, { "@type": "ListItem", "position": 2, "name": "Csapatunk",
+"item": "https://ravezeto.hu/csapatunk/" } ]
+}
+//script>
+Open Graph - csapatunk.html mintapélda
+<meta property="og:title" content="RÁVezet ő  – Csapatunk">
+<meta property="og:description" content="Ismerje meg a Rávezet ő  Projekt Kft. tanácsadó csapatát: több éves
+szervezetfejlesztési és feln ő ttképzési tapasztalattal segítik vállalata fejl ő dését.">
+///- TODO: og:image - nincs mért/meger ő sített megosztási kép URL egyetlen oldalhoz sem; a fejleszt ő  tölti ki, miután a
+végleges share-kép elkészült //>
+<meta property="og:image" content="TODO:_megosztasi_kep_URL_csapatunk_oldalhoz">
+<meta property="og:url" content="https://ravezeto.hu/csapatunk/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="hu_HU">
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+20 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+MIGRÁCIÓ: NYITOTT FÜGG Ő SÉG 21 / 32
+A launch-migráció.
+Ez a szakasz azt írja le, mi történik a ravezeto.hu 78 él ő  URL-jével (mérve: a teljes oldalbejárás, mérés
+ideje 2026-09-03T22:14:11+00:00, forrás sitemap https://ravezeto.hu/wp-sitemap.xml), amikor a
+kilenc oldalas újratervezés élesedik. Minden URL-szám és szószám az alábbiakban közvetlenül ebb ő l a
+fájlból és a tervezet 9 HTML-fájljából származik, 2026-09-04-i méréssel. Egyetlen szám sincs kitalálva
+ebben a szakaszban sem.
+Nyitott bemenet, amelyt ő l ez az egész szakasz függ, és amelyet önmagában nem lehet eldönteni: az új oldal éles URL-
+sémája. Az összerendelés csak azt rögzíti, melyik RÉGI él ő  URL-b ő l épült az adott tervezetfájl. Azt nem, hogy milyen URL-
+útvonalon fog futni élesítés után. A kilenc tervezetoldalból nyolcnak van olyan régi URL-kötése, amelynek útvonala
+valószín ű leg változatlanul átvihet ő  (fooldal.html a /-r ő l, csapatunk.html a /csapatunk/-ról, tanacsadas.html a /tanacsadas/-
+ról, felnottkepzes.html a /felnottkepzes/-r ő l, palyazatok.html a /palyazatok/-ról, kapcsolat.html a /kapcsolat/-ról,
+impresszum.html az /impresszum/-ról), kivéve a referenciak.html-t, amelynek fájlneve nem egyezik a saját kötésével
+(/referenciaink/, nem /referenciak/). Az adatvedelem.html-hez pedig egyáltalán nincs összerendelési kötés, ez vadonatúj
+oldal. NINCS ADAT a meger ő sített éles útvonalra egyik esetben sem; ez a dokumentum feltételezi, hogy az új oldal
+megtartja a /referenciaink/ útvonalat (az összerendelés alapján, azon az elven, hogy az URL-folytonosság szándékos
+volt), és egy valószín ű  /adatvedelem/ slugot használ az új adatvédelmi oldalhoz. A tényleges éles URL-sémát a
+fejleszt ő vel meg kell er ő síteni az alábbi szabálykészletek élesítése el ő tt: minden szabály, amely a /referenciaink/ vagy
+az /adatvedelem/ célra mutat, javításra szorul, ha a fejleszt ő  más útvonalat választ.
+MÓDSZER ÉS ELLEN Ő RZÉS
+Az oldalbejárás mind a 78 URL-je pontosan egy-egy csoportba került (nyolc csoport). Programozott ellen ő rzéssel (Python
+halmaz-összehasonlítás a mért 78 URL-lel): 0 hiányzó, 0 duplikátum, 0 extra: mind a 78 pontosan egyszer szerepel.
+Csoport Darab Ellen ő rzött összeg
+A · közvetlen 1:1 kanonikus oldalak 8 8
+B · referencia-részletoldalak (ref1, ref3–ref35) 34 42
+C · munkatárs-oldalak 6 48
+D · duplikátum / közel-duplikátum / vékony oldal 18 66
+E · testvérmárka-oldal (/mentally/) 1 67
+F · EMPX-oldalak 2 69
+G · injektált kaszinó-spam héjak 4 73
+H · WordPress taxonómia-oldalak 5 78
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+21 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+ÁTÍRÁSI TÁBLA: A, B, C 22 / 32
+Átírási tábla · A, B, C csoport.
+A Közvetlen 1:1 kanonikus oldalak (8) - az összerendelés kifejezetten ezeket nevezi meg egy-egy tervezetoldal forrásaként.
+RÉGI URL ÚJ CÉL (FELTÉTELEZETT ÚTVONAL)
+https://ravezeto.hu/ / (fooldal.html)
+https://ravezeto.hu/csapatunk/ /csapatunk/ (csapatunk.html)
+https://ravezeto.hu/tanacsadas/ /tanacsadas/ (tanacsadas.html)
+https://ravezeto.hu/felnottkepzes/ /felnottkepzes/ (felnottkepzes.html)
+https://ravezeto.hu/referenciaink/ /referenciaink/ (referenciak.html) - filename/slug mismatch, see open-input note
+https://ravezeto.hu/palyazatok/ /palyazatok/ (palyazatok.html)
+https://ravezeto.hu/kapcsolat/ /kapcsolat/ (kapcsolat.html)
+https://ravezeto.hu/impresszum/ /impresszum/ (impresszum.html)
+Ennek a 8-nak szigorúan nincs szüksége átírási szabályra, ha az útvonal ténylegesen változatlan marad - itt a teljesség kedvéért szerepelnek, és mert a
+referenciaink slug-eltérés miatt legalább az egyiküknek valóban kellhet szabály.
+B Referencia-részletoldalak (34): /ref1/ – /ref35/, de csak 34 oldal: a /ref2/ soha nem létezett.
+RÉGI URL-EK ÚJ CÉL
+/ref1/, /ref3/, /ref4/, /ref5/, /ref6/, /ref7/, /ref8/, /ref9/, /ref10/, /ref11/, /ref12/, /ref13/,
+/ref14/, /ref15/, /ref16/, /ref17/, /ref18/, /ref19/, /ref20/, /ref21/, /ref22/, /ref23/, /ref24/,
+/ref25/, /ref26/, /ref27/, /ref28/, /ref29/, /ref30/, /ref31/, /ref32/, /ref33/, /ref34/, /ref35/
+(34 URLs)
+/referenciaink/
+(referenciak.html)
+C Munkatárs-oldalak (6) - 5 egyéni bemutatkozó oldal plusz a vékony munkatarsaink listaoldal.
+RÉGI URL ÉL Ő  CÍM ÚJ CÉL
+https://ravezeto.hu/riz-adam-cmc/ Riz Adam CMC /csapatunk/
+https://ravezeto.hu/biro-gabriella/ Biro Gabriella /csapatunk/
+https://ravezeto.hu/duleba-marianna/ Berta Anikó (cím/slug-eltérés magán az él ő  oldalon) /csapatunk/
+https://ravezeto.hu/soos-andrea/ Soos Andrea /csapatunk/
+https://ravezeto.hu/szoke-adam/ Szoke Adam /csapatunk/
+https://ravezeto.hu/munkatarsaink/ Munkatarsaink (vékony listaoldal-héj) /csapatunk/
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+22 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+ÁTÍRÁSI TÁBLA: D CSOPORT 23 / 32
+Átírási tábla · D csoport.
+D Duplikátum / közel-duplikátum / vékony WordPress oldalépít ő  héj (18): nincs önálló helyük a kilenc új oldal között.
+Tizenhat a legközelebbi témájú oldalra irányul; kett ő nek (teszt, csr) nincs témabeli megfelel ő je: ezek 410 Gone-t kapnak. Sok közülük
+ugyanazt a kb. 45–51 szavas, kb. 28 300–32 400 bájtos méretet osztja. Ez er ő s jel arra, hogy ezek oldalépít ő  helykitölt ő  héjak, nem
+önálló szerkeszt ő i tartalmak.
+RÉGI URL SZAVAK
+(MÉRVE) ÚJ CÉL INDOKLÁS
+/ginop-plusz-3-2-1-21/ 219 /palyazatok/ GINOP pályázati tartalom /> pályázatok oldal
+/magunkrol/ 45 / vékony „rólunk” csonk /> f ő oldal
+/fooldal-2-2/ 45 / szó szerinti f ő oldal-duplikátum
+/szolgaltatasaink/ 45 /tanacsadas/ „szolgáltatásaink” - a legközelebbi megmaradó, szolgáltatás-
+jelleg ű  oldal
+/szolgaltatasok/ 494 /tanacsadas/ valódi „szolgáltatások” tartalom, nem marad dedikált
+szolgáltatásoldal (lásd 28. oldal, tartalommennyiség)
+/kapcsolat/kapcsolat-
+ugyfelszolgalat/
+47 /kapcsolat/ vékony kapcsolat-aloldal
+/kapcsolat/kapcsolat-
+irodaink/
+47 /kapcsolat/ vékony kapcsolat-aloldal
+/kapcsolat/kapcsolat-
+telefon/
+47 /kapcsolat/ vékony kapcsolat-aloldal
+/kapcsolat/kapcsolat-
+felnottkepzes/
+47 /kapcsolat/ vékony kapcsolat-aloldal
+/referenciaink-2/ 45 /referenciaink/ szó szerinti duplikátuma a referenciaoldalnak
+/sikeres-kuldes/ 47 /kapcsolat/ form-köszön ő  oldal; az ű rlapok a kapcsolat oldalon élnek
+/tajekoztato-cookie-k-
+hasznalatarol/
+51 /adatvedelem/ a legközelebbi megmaradó jogi/adatvédelmi oldal
+/rolunk-mondtak/ 47 /referenciaink/ „amit az ügyfelek mondanak” - ajánlás témájú
+/aktualis-ginop-es-vekop-
+palyazatok/
+49 /palyazatok/ pályázati témájú
+/felnottkepzesek/ 524 /felnottkepzes/ többes számú duplikátum; lásd a felnottkepzes/felnottkepzesek
+ütközésr ő l szóló megjegyzést lent
+/kapcsolatok/ 75 /kapcsolat/ kapcsolat-duplikátum
+/teszt/ 45 410 Gone szó szerinti teszt oldal, nincs tartalmi érték, nincs témai
+megfelel ő
+/csr/ 47 410 Gone CSR-tartalom, nincs témai megfelel ő  a kilenc között, vékony héj
+Fejleszt ő i megjegyzés a /felnottkepzes/ és a /felnottkepzesek/ ütközésére. Az összerendelés a felnottkepzes.html-t a
+VÉKONY egyes számú URL-hez köti (/felnottkepzes/, 45 szó), de a tervezetoldal valódi h1-je („Min ő ségi képzéseink
+segítségével…”) és szószáma (600, a tervezet mért adatai szerint) sokkal jobban illik a tartalmas TÖBBES számú URL-hez
+(/felnottkepzesek/, 524 szó). Mindkét URL erre az egy oldalra irányul itt; ezt az ütközést jelezni kell a fejleszt ő nek a
+végleges jóváhagyás el ő tt, arra az esetre, ha maga az összerendelés téves.
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+23 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+ÁTÍRÁSI TÁBLA: E, F, G, H 24 / 32
+Átírási tábla · E, F, G, H csoport.
+E Testvérmárka-oldal (1) - /mentally/. Részletes indoklás a 29. oldalon.
+RÉGI URL ÚJ CÉL
+https://ravezeto.hu/mentally/ küls ő  301  https://mentally.team/
+F EMPX-oldalak (2): az /empx/ saját kanonikus címkéje már https://empx.hu/-re mutat (mért mez ő : canonical:
+"https://empx.hu/" a teljes oldalbejárásban), tehát az él ő  oldal is küls ő  tulajdonként kezeli.
+RÉGI URL ÚJ CÉL
+https://ravezeto.hu/empx/ küls ő  301 /> https://empx.hu/ (már az oldal saját kanonikus címe)
+https://ravezeto.hu/empx-bevezeto/ küls ő  301 /> https://empx.hu/
+NINCS ADAT arról, hogy az EMPX pontosan micsoda a mért jelen túl - a forrásfájlok semmi mást nem írnak le róla; mindkét URL-t egységesen kezelem.
+G Injektált kaszinó-spam héjak (4) - 410 Gone, nem átirányítás. Teljes indoklás a 27. oldalon.
+RÉGI URL
+https://ravezeto.hu/70-uk-gambling-dens-not-on-gamstop-best-web-sites-of-july-2025/
+https://ravezeto.hu/uk-non-gamstop-bookmakers/
+https://ravezeto.hu/best-non-gamstop-casinos-in-typically-the-uk-2025/
+https://ravezeto.hu/online-casino-transaction-methods-deposit-options-2025/
+H WordPress taxonómia-oldalak (5) - /category/… és /author/… archívumok, önálló tartalom nélkül. 410 Gone.
+RÉGI URL
+https://ravezeto.hu/category/egyeb/
+https://ravezeto.hu/category/palyazat/
+https://ravezeto.hu/category/munkatarsak/
+https://ravezeto.hu/category/referenciak/
+https://ravezeto.hu/author/papajcsikaron/
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+24 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+SZERVERSZABÁLYOK: NGINX 25 / 32
+Pontos szabályforma · nginx.
+Illessze be a ravezeto.hu server {} blokkjába. Mindkét szabálykészlet (ez és az apache-verzió a 26. oldalon) ugyanabból a 78 URL-es
+listából készült, és halmaz-összehasonlítással ellen ő riztem a bejárt 78 URL ellenében: 8 + 34 + 6 + 18 + 1 + 2 + 4 + 5 = 78,
+pontos egyezés, nincs hiány, nincs duplikátum.
+# --- Reference detail pages (34: ref1, ref3-ref35 -- ref2 never existed) ---
+location ~ ^/ref(1|[3-9]|[12][0-9]|3[0-5])/$ { return 301 /referenciaink/;
+} # --- Staff pages (6: 5 bios + thin munkatarsaink listing) ---
+location = /riz-adam-cmc/ { return 301 /csapatunk/; }
+location = /biro-gabriella/ { return 301 /csapatunk/; }
+location = /duleba-marianna/ { return 301 /csapatunk/; }
+location = /soos-andrea/ { return 301 /csapatunk/; }
+location = /szoke-adam/ { return 301 /csapatunk/; }
+location = /munkatarsaink/ { return 301 /csapatunk/; } # --- Duplicate / near-duplicate / thin utility pages (16 redirected
++ 2 gone) ---
+location = /ginop-plusz-3-2-1-21/ { return 301 /palyazatok/; }
+location = /magunkrol/ { return 301 /; }
+location = /fooldal-2-2/ { return 301 /; }
+location = /szolgaltatasaink/ { return 301 /tanacsadas/; }
+location = /szolgaltatasok/ { return 301 /tanacsadas/; }
+location = /kapcsolat/kapcsolat-ugyfelszolgalat/ { return 301 /kapcsolat/; }
+location = /kapcsolat/kapcsolat-irodaink/ { return 301 /kapcsolat/; }
+location = /kapcsolat/kapcsolat-telefon/ { return 301 /kapcsolat/; }
+location = /kapcsolat/kapcsolat-felnottkepzes/ { return 301 /kapcsolat/; }
+location = /referenciaink-2/ { return 301 /referenciaink/; }
+location = /sikeres-kuldes/ { return 301 /kapcsolat/; }
+location = /tajekoztato-cookie-k-hasznalatarol/ { return 301 /adatvedelem/; }
+location = /rolunk-mondtak/ { return 301 /referenciaink/; }
+location = /aktualis-ginop-es-vekop-palyazatok/ { return 301 /palyazatok/; }
+location = /felnottkepzesek/ { return 301 /felnottkepzes/; }
+location = /kapcsolatok/ { return 301 /kapcsolat/; }
+location = /teszt/ { return 410; }
+location = /csr/ { return 410; } # --- Injected casino spam shells (4) -- REMOVE the content, do not redirect ---
+location = /70-uk-gambling-dens-not-on-gamstop-best-web-sites-of-july-2025/ { return 410; }
+location = /uk-non-gamstop-bookmakers/ { return 410; }
+location = /best-non-gamstop-casinos-in-typically-the-uk-2025/ { return 410; }
+location = /online-casino-transaction-methods-deposit-options-2025/ { return 410; } # --- WordPress taxonomy pages (5) ---
+location ~ ^/(category|author)/ { return 410; } # --- Sister-brand pages: external redirects ---
+location = /mentally/ { return 301 https:-/mentally.team/; }
+location = /empx/ { return 301 https:-/empx.hu/; }
+location = /empx-bevezeto/ { return 301 https:-/empx.hu/; }
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+25 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+SZERVERSZABÁLYOK: APACHE 26 / 32
+Pontos szabályforma · Apache.
+.htaccess vagy vhost, az nginx-készlettel egyenérték ű  szabályok (el ő z ő  oldal).
+# --- Reference detail pages (34: ref1, ref3-ref35) ---
+RedirectMatch 301 "^/ref(1|[3-9]|[12][0-9]|3[0-5])/?$" "https:-/ravezeto.hu/referenciaink/" # --- Staff pages (6) ---
+Redirect 301 /riz-adam-cmc/ https:-/ravezeto.hu/csapatunk/
+Redirect 301 /biro-gabriella/ https:-/ravezeto.hu/csapatunk/
+Redirect 301 /duleba-marianna/ https:-/ravezeto.hu/csapatunk/
+Redirect 301 /soos-andrea/ https:-/ravezeto.hu/csapatunk/
+Redirect 301 /szoke-adam/ https:-/ravezeto.hu/csapatunk/
+Redirect 301 /munkatarsaink/ https:-/ravezeto.hu/csapatunk/ # --- Duplicate / near-duplicate / thin utility pages (16
+redirected + 2 gone) ---
+Redirect 301 /ginop-plusz-3-2-1-21/ https:-/ravezeto.hu/palyazatok/
+Redirect 301 /magunkrol/ https:-/ravezeto.hu/
+Redirect 301 /fooldal-2-2/ https:-/ravezeto.hu/
+Redirect 301 /szolgaltatasaink/ https:-/ravezeto.hu/tanacsadas/
+Redirect 301 /szolgaltatasok/ https:-/ravezeto.hu/tanacsadas/
+Redirect 301 /kapcsolat/kapcsolat-ugyfelszolgalat/ https:-/ravezeto.hu/kapcsolat/
+Redirect 301 /kapcsolat/kapcsolat-irodaink/ https:-/ravezeto.hu/kapcsolat/
+Redirect 301 /kapcsolat/kapcsolat-telefon/ https:-/ravezeto.hu/kapcsolat/
+Redirect 301 /kapcsolat/kapcsolat-felnottkepzes/ https:-/ravezeto.hu/kapcsolat/
+Redirect 301 /referenciaink-2/ https:-/ravezeto.hu/referenciaink/
+Redirect 301 /sikeres-kuldes/ https:-/ravezeto.hu/kapcsolat/
+Redirect 301 /tajekoztato-cookie-k-hasznalatarol/ https:-/ravezeto.hu/adatvedelem/
+Redirect 301 /rolunk-mondtak/ https:-/ravezeto.hu/referenciaink/
+Redirect 301 /aktualis-ginop-es-vekop-palyazatok/ https:-/ravezeto.hu/palyazatok/
+Redirect 301 /felnottkepzesek/ https:-/ravezeto.hu/felnottkepzes/
+Redirect 301 /kapcsolatok/ https:-/ravezeto.hu/kapcsolat/
+Redirect 410 /teszt/
+Redirect 410 /csr/ # --- Injected casino spam shells (4) -- REMOVE the content, do not redirect ---
+Redirect 410 /70-uk-gambling-dens-not-on-gamstop-best-web-sites-of-july-2025/
+Redirect 410 /uk-non-gamstop-bookmakers/
+Redirect 410 /best-non-gamstop-casinos-in-typically-the-uk-2025/
+Redirect 410 /online-casino-transaction-methods-deposit-options-2025/ # --- WordPress taxonomy pages (5) ---
+RedirectMatch 410 "^/(category|author)/" # --- Sister-brand pages: external redirects ---
+Redirect 301 /mentally/ https:-/mentally.team/
+Redirect 301 /empx/ https:-/empx.hu/
+Redirect 301 /empx-bevezeto/ https:-/empx.hu/
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+26 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+A KOMPROMITTÁLT OLDALAK 27 / 32
+A kompromittált oldalak.
+Forrás: a cég ellen ő rzött cégadatai →  security_hygiene és ai_visibility.headline_finding. A 78 él ő  URL közül négy
+angol nyelv ű , szerencsejáték-témájú tartalom, mindegyik általános „July 2025 best UK non-Gamstop casino sites” jelleg ű  címmel,
+mind jelen van a mért sitemapen, status: 200-zal:
+RÉGI URL
+https://ravezeto.hu/70-uk-gambling-dens-not-on-gamstop-best-web-sites-of-july-2025/
+https://ravezeto.hu/uk-non-gamstop-bookmakers/
+https://ravezeto.hu/best-non-gamstop-casinos-in-typically-the-uk-2025/
+https://ravezeto.hu/online-casino-transaction-methods-deposit-options-2025/
+A kb-fájl saját, rögzített megfogalmazása szerint: ezek „csak-cím jelleg ű  üres héjak, szerencsejáték-tartalom nélkül, cloaking
+nélkül, kimen ő  kaszinó-linkek nélkül. Egy dokumentált, tömeges WordPress-kampány része (azonos címek más, nem kapcsolódó
+feltört oldalakon).” Ezek egy múltbeli kompromittálódás maradványai, nem aktív esemény. A kb-fájl kifejezetten így fogalmaz: „soha
+ne mondja jelen id ő ben, hogy ‘az oldaluk fel van törve / kaszinó-tartalmat szolgál kiʼ. Mondja: egy MÚLTBELI kompromittálódásból
+származó spam-bejegyzéseket sosem törölték, és még mindig indexelve vannak.” Ez a dokumentum ezt a keretezést követi: múlt
+id ő , nem él ő  incidens.
+Egy újratervezés, amely csak a f ő oldalt és a nyolc másik tartalomoldalt cseréli le, ezt a négy URL-t teljesen elérhet ő n
+hagyja. A kilenc tervezetoldal egyáltalán nem érinti ő ket - sem az összerendelés, sem a tervezet mért adatai nem
+hivatkoznak egyik kaszinó-slugra sem, és egy olyan újratervezés, amely sablont cserél anélkül, hogy a régi WordPress-
+telepítés teljes URL-felületét is kezelné, ezt a négy oldalt pontosan úgy hagyja kiszolgálni, mint ma: indexelve, minden nem
+már letiltott robot számára bejárhatóan.
+MIT KELL TENNIE A FEJLESZT Ő NEK, EBBEN A SORRENDBEN
+1. Távolítsa el a tartalmat, ne irányítsa át. Egy 301-es cél felé mutató átirányítás azt sugallja, hogy a tartalom
+létez ő , jogos helyre költözött; ezeknek az oldalaknak sehova nem szabad mutatniuk. Adjon vissza 410 Gone
+választ (egy kifejezett „ez véglegesen eltávolítva” jelzést, amelyet a keres ő - és AI-robotok gyorsabban törölnek
+az indexb ő l, mint egy sima 404-et): a pontos szabályformák a 25–26. oldalon.
+2. Törölje a mögöttes WordPress-bejegyzéseket, ne csak a webszerver rétegén blokkolja az URL-eket - különben
+élve maradnak a WP admin felületen, az oldaltérképen, és elérhet ő k lesznek, ha bármelyik átirányítási szabályt
+véletlenül eltávolítják.
+3. Ellen ő rizze, mi hozta létre ő ket. A kb-fájl két, ugyanazon az oldalon már mért, közvetlenül idevágó leletet
+rögzít, amelyek pontosan lehet ő vé tennék egy tömeges WordPress-spam-kampánynak, hogy bejegyzéseket
+ültessen: user_enumeration_open: true (a /wp-json/wp/v2/users valódi felhasználóneveket szivárogtat) és
+readme_exposed: true. Egyik lelet sem mondja meg, HOGYAN jött létre a négy bejegyzés: a kb-fájl ezeket
+külön, már nyitott biztonsági-higiéniai tételként rögzíti, nem a spam-bejegyzésekhez kapcsolódó meger ő sített
+okozati láncként. Ez a dokumentum nem találgat a támadóról vagy a pontos mechanizmusról a kb-ban
+rögzítetteken túl: nem tudja, hogy ez a két tétel okozta-e a kompromittálódást, csak azt, hogy ugyanazon a
+telepítésen nyitott leletek, és érdemes megnézni ő ket ugyanabban a takarítási körben. Érdemes közben
+megnézni a jelenlegi WordPress-mag/plugin-verziókat, az admin felhasználólistát, valamint bármilyen szokatlan
+ütemezett feladatot vagy friss módosítási idej ű  fájlt a telepítési ablakon kívül.
+4. Futtassa újra a sitemap/crawl vizsgálatot a javítás után, hogy meger ő sítse: mind a négy elt ű nt (410-es vagy
+nem elérhet ő ), és már nem ad 200-at.
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+27 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+TARTALOMMENNYISÉG 28 / 32
+Tartalommennyiség a migrációnál.
+ÉL Ő  ÖSSZESEN
+13 314 szó
+78 oldal közül 75-nél mérve; 3 taxonómia-
+oldal csak bare status: 200-at adott, más
+mez ő t nem
+TERVEZET ÖSSZESEN
+3 049 szó
+9 oldal, mért szószámok:
+435+379+355+600+815+199+134+67+65
+OTTHON NÉLKÜLI TARTALOM
+42 / 78 oldal
+>100 szavas, önálló tartalom, aminek nincs
+megfelel ő je a kilenc új oldal között
+A nyers összehasonlítás túlbecsüli a valódi veszteséget, mert a 13 314 él ő  szó nagy része közel-duplikátum WordPress-héjakban ül (a
+78 oldalból 24 mért 75 szót vagy kevesebbet - oldal-épít ő  helykitölt ő , nem önálló tartalom). A releváns kérdés: hány él ő  oldal hordoz
+érdemi tartalmat (>100 mért szó, ahol az oldal már nem t ű nik sablon-héjnak), aminek nincs megfelel ő je a kilenc között - vagy mert
+410-et kapott, vagy mert az átirányítás célja ténylegesen nem tartalmazza azt a konkrét tartalmat.
+1. HELYEN 34 referencia-részletoldal (B csoport), 207 szó egyenként = 7 038 szó összesen. Mind a 34 egyetlen új oldalba
+(referenciak.html) olvad, amelynek saját tartalma összesen 815 szó. Még ha ez a 815 szavas oldal kizárólag
+referencia-tartalomból állna is, akkor sem tudná befogadni, amit 34 külön, 207 szavas oldal hordozott. Ez a
+legnagyobb egyedi tartalomveszteség a migrációban, és újra kell építeni, nem elég átirányítani: egy átirányítás
+a látogatót és a robotot egy oldalra küldi, de a konkrét szöveg, amit az az oldal hordozott, nem utazik vele.
+2. HELYEN 5 munkatárs-bemutatkozó oldal (C csoport), 209–211 szó egyenként = 1 047 szó összesen. Egyetlen
+csapatunk.html-be kerülnek össze, amelynek saját tartalma összesen 379 szó: kevesebb, mint maga az él ő
+/csapatunk/ oldal önmagában (748 szó, img_total: 5, az oldalbejárás szerint), még miel ő tt az öt egyéni
+bemutatkozás 1 047 szava hozzáadódna. A munkatárs-oldalak a második legnagyobb veszteség, és újra kell
+építeni ő ket: az egyéni bemutatkozó tartalom (szerepkör, háttér, szakterület tanácsadónkénti bontásban)
+pontosan az a fajta entitásgazdag szöveg, amelyet az AI-olvasók használnak annak megállapítására, ki dolgozik
+egy cégnél.
+KISEBB, DE VALÓS VESZTESÉGEK
+A /mentally/ oldal (203 szó): nincs önálló megfelel ő je (lásd 29. oldal). A /ginop-plusz-3-2-1-21/ (219 szó) a /palyazatok/-ra
+irányul, amelynek saját tartalma csak 199 szó, kevesebb, mint ez az egyetlen régi oldal önmagában. A /szolgaltatasok/ (494 szó,
+a valódi „szolgáltatások” oldal, nem a 45 szavas szolgaltatasaink duplikátum): nincs önálló szolgáltatás-oldal a kilenc között, a
+/tanacsadas/-ra irányul (355 szó), ami nem tartalmaz azonos szolgáltatás-tartalmat.
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+28 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+A MENTALLY TESTVÉRMÁRKA KÉRDÉSE 29 / 32
+A Mentally testvérmárka linkelési kérdése.
+Él ő  állapot: a https://ravezeto.hu/mentally/ valódi, indexelt oldal, status: 200, cím „Mentally”, 203 szó, html_bytes: 35 530 az
+oldalbejárás szerint.
+Ellen ő rizve mind a kilenc tervezetoldalon (mind a kilenc tervezetfájlban ellen ő rizve a „mentally” szóra): mind a kilenc oldal egy
+egyszer ű  HTML linket hordoz a https://mentally.team felé (oldalanként kétszer, szinte biztosan ismétl ő d ő  fejléc/lábléc elem), és a
+fooldal.html emellett hordoz egy saját teaser-kártyát is saját törzsszöveggel: „Kíváncsi csapata állapotára? A Mentally megmutatja
+vállalata egészségének térképét!”, egy „B ő vebben → ” linkkel a https://mentally.team felé.
+Nincs önálló /mentally/ oldal a kilenc új között. A 203 szavas él ő  oldalból legfeljebb egy lábléc-link és egy f ő oldali
+teaser-mondat marad. Ez nem tartalomveszteség abban az értelemben, ahogy a 28. oldal leírja (ez a dokumentum nem
+olvasta el az él ő  oldal saját törzsszövegét, csak a szószámát), de URL-folytonossági rés: a /mentally/ ma valódi oldalra
+mutat, élesítés után pedig sehova nem mutat a kilenc új között, hacsak nem kerül be egy átirányítási szabály (24. oldal, E
+csoport).
+A domain-architektúrával kapcsolatos döntéssel szemben: az audit ajánlása az Opció D, hibrid: a mentally.team maradjon saját,
+önálló domain (ne kerüljön be a ravezeto.hu alá almappaként vagy aldomainként), és emellett a két márkát az AI-olvasható séma-
+rétegen is kösse össze (parentOrganization, subOrganization, sameAs, egyez ő  nyilvántartási azonosítók), ne csak egyszer ű  szöveg
+vagy link szintjén. A leger ő sebb indok E8/E15/E19: a ravezeto.hu maga is technikailag hibás (0 JSON-LD az egész site-on, WAF-szint ű
+403 három AI-robotnak), és a „Rávezet ő ” márkaszó mérhet ő en 23%-ban a köznévi jelentésébe csúszik. A Mentally áthelyezése erre a
+domainre visszalépés lenne, és a tervezet helyesen nem teszi ezt meg.
+AJÁNLÁS A FEJLESZT Ő NEK
+A tervezet nem mond ellent az auditverdiktnek a domain-összevonás kérdésében, már most is külön domainen tartja a
+Mentallyt. Amit nem valósít meg, az az Opció D séma-szint ű  fele: nincs sameAs, parentOrganization, sem semmilyen, a
+Mentallyt kapcsolódó szervezetként megnevez ő  JSON-LD egyik tervezetoldalon sem (az AI-adatlapok száma 0 minden mért
+oldalon, kivéve a felnottkepzes.html-t (2) és a fooldal.html-t (1); NINCS ADAT arra, hogy tartalmaz-e ez a kett ő  Mentally-
+vonatkozású elemet, ehhez a JSON-LD tartalmát kellene elolvasni). Ajánlott lépés: tartsa meg a mentally.team-re mutató sima
+linket változatlanul, adja hozzá a /mentally/ →  https://mentally.team/ átirányítást (24. oldal), és adja hozzá a séma-szint ű
+parentOrganization/sameAs jelölést, amit az audit ajánl; ez a rész még hiányzik a megépített tervezetb ő l.
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+29 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+OLDALSÚLY 30 / 32
+Oldalsúly.
+Módszer: közvetlenül mérve a kilenc kapott tervezetfájlon, 2026-09-04-én (wc -c bájtszám; grep -o számlálás a data:image/… URI-
+el ő tagokra, MIME-típus szerint bontva).
+OLDAL BÁJT DATA URI (JPEG / PNG / SVG) ÖSSZES DATA URI
+adatvedelem.html 37,854 0 / 2 / 1 3
+csapatunk.html 340,533 1 / 2 / 1 4
+felnottkepzes.html 1,308,079 5 / 2 / 2 9
+fooldal.html 58,207 0 / 2 / 1 3
+impresszum.html 37,824 0 / 2 / 1 3
+kapcsolat.html 44,610 0 / 2 / 1 3
+palyazatok.html 359,532 3 / 5 / 1 9
+referenciak.html 1,997,596 28 / 42 / 2 72
+tanacsadas.html 620,830 4 / 2 / 1 7
+Total (9 pages) 4,805,065 bytes (approx. 4.58 MiB / 4.81 MB) 41 / 61 / 11 113
+A referenciak.html a legrosszabb: 1 997 596 bájt (kb. 1,90 MiB), 72 beágyazott base64 kép (28 JPEG + 42 PNG + 2 SVG)
+- több mint duplája a következ ő  legsúlyosabb oldalnak (felnottkepzes.html, 1 308 079 bájt), és 55-ször nehezebb, mint a
+legkönnyebb oldal (impresszum.html, 37 824 bájt).
+KÖVETKEZMÉNY EGY ÉL Ő  OLDALON
+Minden kép mind a kilenc oldalon base64 data URI-ként van beágyazva a HTML-be, nem külön képfájlként kiszolgálva. Ez azt
+jelenti: a böngész ő  nem tudja elkezdeni megjeleníteni az oldalt (még a szöveget sem), amíg a teljes HTML-dokumentum le nem
+tölt ő dik. Egy 1,9 MB-os oldalnak teljesen meg kell érkeznie, miel ő tt bármi látszik, míg egy normál, küls ő  képekkel dolgozó oldal
+azonnal mutatja a szöveget, a képek pedig utána folyamatosan érkeznek. Egyik kép sem cache-elhet ő  önállóan: az a látogató,
+aki már látta a referenciak.html oldalt, és újratölti, vagy egy másik oldalra navigál, amely ugyanazt a logót vagy fotót használja,
+minden alkalommal újra letölti ugyanazokat a képbájtokat, mert azok az adott konkrét HTML-fájlba vannak beágyazva, nem URL
+szerint egyszer lekérve és cache-elve. A base64-kódolás önmagában is kb. 33% többletet ad a nyers képbájtok tetejére (3 bájt
+bináris 4 bájt base64 szöveggé válik): a 4,8 MB összegnek tehát egy része tiszta kódolási veszteség, amit egy sima img src
+hivatkozás nem hordozna. A mobilkapcsolatok és bármilyen oldalméret- vagy id ő korláttal dolgozó robot a legkitettebb: egy 1,9
+MB-os egydokumentumos lekérés lényegesen más kérés, mint egy 40 KB-os HTML-héj plusz néhány önállóan cache-elhet ő
+képlekérés.
+Mit kell tennie a fejleszt ő nek: minden beágyazott képet emeljen ki saját fájlba (JPEG/PNG statikus fájlként, a 9 SVG-t
+vagy saját .svg fájlként, vagy, ha valóban apró, csak akkor tartva inline-ban, ha maga az SVG néhány száz bájt alatt van),
+hivatkozzon rájuk normál img src / CSS background-image url()-lel, az adott fájlokra mutatva, és szolgálja ki ő ket standard
+HTTP cache fejlécekkel. Ez mechanikus javítás (nem igényel tartalmi vagy design változtatást), és indítás el ő tt kell
+megtörténnie, nem utána: a referenciak.html önmagában a tervezet-site teljes mért súlyának 42%-át adja (1 997 596 a 4
+805 065 bájtból).
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+30 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+ZÁRÓ LISTA: DÖNTÉSEK 31 / 32
+Mit kell az ügyfélnek eldöntenie vagy megadnia.
+Kilenc tétel, fontossági sorrendben. Az els ő  a legtöbb más tételt is befolyásolja, enélkül a migrációs szakasz
+(21–26. oldal) céljai feltételezések maradnak. (A két feln ő ttképzési szám ellen ő rzése, ami korábban itt
+szerepelt, lekerült a listáról: mindkett ő  meger ő sítve a hivatalos FAR-nyilvántartásban, lásd 18. oldal.)
+01 Éles URL-séma
+A legfontosabb, mindent átfogó függ ő ség (21. oldal). A referenciak.html fájlnév és a /referenciaink/ kötés eltér egymástól; az
+adatvedelem.html-hez egyáltalán nincs él ő  kötés; a felnottkepzes.html kötése (23. oldal) esetleg téves. Amíg ezt nem er ő sítik
+meg, a 22–26. oldal átirányítási céljai feltételezések, nem tények.
+02 Course JSON-LD adatok képzésenként
+A 19. oldal váza minden mez ő höz TODO-t hagy: pontos képzésnév, leírás, megvalósítási forma (onsite/online/blended),
+id ő tartam, saját nyilvántartási szám (ha van), kiadott tanúsítvány neve. Ezt képzésenként a cégnek kell megadnia.
+03 Megosztási képek (og:image)
+Egyetlen oldalhoz sincs mért vagy meger ő sített megosztásikép-URL-je (20. oldal). A fejleszt ő  tölti ki, miután a végleges képek
+elkészültek.
+04 A 34 referencia-oldal és az 5 munkatárs-bemutatkozás újraírása
+A legnagyobb tartalomveszteség a migráció során látható (28. oldal): 7 038 + 1 047 szó, ami egy 815, illetve egy 379 szavas
+oldalba olvad. El kell dönteni, ki szállítja az eredeti szöveget (a régi oldalakról áthozott anyag vagy a fejleszt ő , illetve a megbízott
+által írt új szöveg), és milyen formában épül be (egyedi esettanulmány-blokkok vagy strukturált lista/JSON-LD).
+05 Az EMPX pontos jellege
+NINCS ADAT azon túl, hogy az EMPX mit jelent a mérésben (24. oldal) - csak annyi látszik, hogy az /empx/ saját kanonikus
+címkéje már https://empx.hu/-re mutat. Ha ez másik testvérmárka, azt is érdemes ugyanúgy kezelni sémaszinten, mint a
+Mentallyt (29. oldal).
+06 WordPress adminisztrátori hozzáférés a takarításhoz
+A kaszinó-bejegyzések törléséhez (27. oldal), a felhasználónév-enumeráció és a readme-kitettség ellen ő rzéséhez, valamint a
+WordPress mag/plugin-verziók átnézéséhez adminisztrátori hozzáférés kell - ki intézi ezt, és mikor fér hozzá.
+07 A /szolgaltatasok/ tartalom sorsa
+494 szavas, valódi szolgáltatástartalom, amelynek a kilenc új oldal között nincs dedikált otthona, jelenleg a /tanacsadas/-ra
+irányulna (23., 28. oldal). El kell dönteni, önálló oldalt kap-e, vagy a tanacsadas.html-be épül bele érdemben, nem csak
+átirányítással.
+08 Az AI-képzési program nyilvános megjelenése
+A cég engedélyezett, 16 órás „Mesterséges intelligencia alapjai” programja ma sem szövegként, sem JSON-LD-ben nem jelenik
+meg egyik tervezetoldalon sem (19. oldal, R08 nyitott tétel). El kell dönteni, hol és milyen szöveggel kerüljön be.
+09 A kaszinó-kompromittálódás eredetének Wayback-lekérdezése
+NINCS ADAT a kompromittálódás dátumára, az érintett plugin/verzióra vagy a támadó kilétére (27. oldal). A kb-fájl egy Wayback
+CDX-lekérdezést jelöl feladatként a négy kaszinó-URL-re az els ő  megjelenés dátumának megállapításához - ez a lekérdezés
+még nem történt meg.
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+31 / 32
+MI-TÉRKÉP · FEJLESZT Ő I ÁTADÁS: HONLAPTERV 2026. SZEPTEMBER 4.
+NYITOTT TÉTELEK 32 / 32
+Nyitott tételek annak, aki az oldalt építi.
+A meger ő sít ő  ű rlap huszonegy kérdését, vagyis a tizenöt megjelölt sort és a hat nyitott kérdést, végignéztem
+abból a szempontból, hogy melyikre tud a fejleszt ő  válaszolni. Egyikre sem: mind a huszonegy cégadat, saját
+közlés vagy referencia, amelyet csak az ügyvezet ő  tud meger ő síteni. Ezért ide nem kérdés került, hanem
+következmény: az alábbi tételek addig maradnak nyitva, amíg a meger ő sítés meg nem érkezik. Az ű rlapból
+egyetlen kérdést sem vettem ki.
+A CSAPATOLDAL
+Az öt nyilvános munkatárs neve és a létszám az igazságlap 2–4. sorában rögzített, de független forrásból vissza nem
+ellen ő rzött érték. A csapatunk oldal és a hozzá tartozó Person-címkék addig ne induljanak élesben, amíg a névsor és a létszám
+nem meger ő sített.
+A SAJÁT KÖZÖLT SZÁMOK
+A 400+, a 200+, a 250+, a 3500+ és a partnerhálózat 200+ értéke (igazságlap 6–10. sor) forrás nélkül rögzített önközlés. Amíg
+nincs mögöttük megnevezhet ő  forrás és id ő pont, ezek a számok ne kerüljenek sem a f ő oldalra, sem JSON-LD-be: egy
+visszakereshetetlen szám a bizalmat rontja, nem építi.
+A SAJTÓ- ÉS DÍJEMLÍTÉSEK
+Az igazságlap 11–15. sora öt olyan említést tartalmaz, amelyet egy AI-válasz állított, és amelyet nyilvános forrásból nem tudtam
+igazolni. Referenciaként, díjként vagy sajtóhivatkozásként egyik sem tehet ő  ki az új oldalra meger ő sítés el ő tt.
+AZ ENGEDÉLYES AI-PROGRAM LAPJA
+Az R05 tétel és a 18–19. oldal kódrészletei készen állnak, de a program pontos megnevezése, óraszáma és feln ő ttképzési
+nyilvántartási száma az ügyvezet ő  meger ő sítésére vár (nyitott kérdés 6). A Course-címke addig ne kapjon kitalált értéket:
+hiányzó adat esetén a mez ő  maradjon ki.
+ÁRAZÁS AZ ÚJ OLDALON
+A nyitott kérdés 4 arra kérdez rá, van-e nyilvános ársáv, és ha nincs, szándékos-e. Ez üzleti döntés, nem fejleszt ő i: amíg nem
+érkezik válasz, az új oldal ne kapjon árblokkot, és az Offer-címke maradjon ki.
+AZ ALAPÍTÁS ÉVE
+Három évszám van forgalomban: 2008, 2010 és 2011 (igazságlap 1. sor, nyitott kérdés 1). Az Organization-címke foundingDate
+mez ő je addig maradjon üresen, amíg nincs meger ő sített érték: egy téves évszám a cégadatok között többet visz el, mint
+amennyit a mez ő  hoz.
+A TESTVÉRMÁRKA M Ű SZAKI FELE
+A mentally.team adatkezelési tájékoztatójának és sütikezelésének m ű szaki állapota (Mentally nyitott kérdés 5 els ő  fele) az
+egyetlen tétel a harmincötb ő l, amelyre nem az ügyvezet ő , hanem az oldal üzemeltet ő je tud válaszolni. A mentally.team nem
+esett át áttervezésen, ezért nincs saját fejleszt ő i átadása: a tétel itt van rögzítve. A jogi átnézés kérdése az ügyvezet ő nél
+maradt.
+Ami senkit ő l nem kérdezhet ő . Két Mentally-sor, a 7. és a 8., a saját mérésem kimenete: a talált versenytársak száma és a
+négy vásárlói kérdésben mért megjelenés. Ezeket sem az ügyvezet ő , sem a fejleszt ő  nem tudja meger ő síteni, ezért nem
+tényként, hanem mérési eredményként állnak a lapon. Az ű rlapon azért maradtak benne, mert az igazságlap és az ű rlap is
+nyolc megjelölt sorról ír.
+Bizalmas · Rávezet ő  Projekt Kft. · fejleszt ő i átadás · 2026. szeptember 4.
+Kindl Dávid e.v. · Nyilvántartási szám: 62358013 · Adószám: 92083055-1-39 · info@mi-terkep.com · +36 70 385 2094 · mi-terkep.com
+32 / 32

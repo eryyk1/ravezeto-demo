@@ -29,6 +29,10 @@ export default function JogiPage() {
           <ScrollReveal className="doc">
             {content.intro && <p>{content.intro}</p>}
 
+            {'body' in content && content.body
+              ? content.body.map((paragraph) => <p key={paragraph.slice(0, 48)}>{paragraph}</p>)
+              : null}
+
             {isImpresszum && (
               <div className="jogi-impresszum">
                 <p>

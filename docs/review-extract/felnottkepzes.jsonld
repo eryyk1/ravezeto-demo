@@ -1,0 +1,288 @@
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Rávezető Projekt Kft.",
+ "url": "https://www.ravezeto.hu/",
+ "email": "info@ravezeto.hu",
+ "telephone": "+36 70 513 4128",
+ "foundingDate": "2008",
+ "address": {
+  "@type": "PostalAddress",
+  "streetAddress": "Izsó u. 7. 1/3.",
+  "postalCode": "1146",
+  "addressLocality": "Budapest",
+  "addressCountry": "HU"
+ },
+ "description": "Vezetési tanácsadás, szervezetfejlesztés, változásmenedzsment, üzleti coaching és engedélyezett felnőttképzés 2008 óta. Nyilvántartásba vételi szám: B/2020/001943, engedélyszám: E/2021/000106."
+}
+
+---
+
+{
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ "name": "Képzési katalógus – Rávezető Projekt Kft.",
+ "numberOfItems": 20,
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "item": {
+    "@type": "Course",
+    "name": "Gazdálkodj az időddel!",
+    "provider": {
+     "@type": "Organization",
+     "name": "Rávezető Projekt Kft."
+    },
+    "timeRequired": "PT24H"
+   }
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "item": {
+    "@type": "Course",
+    "name": "Időgazdálkodás",
+    "provider": {
+     "@type": "Organization",
+     "name": "Rávezető Projekt Kft."
+    },
+    "timeRequired": "PT16H"
+   }
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "item": {
+    "@type": "Course",
+    "name": "Kommunikációs és együttműködési készségek fejlesztése",
+    "provider": {
+     "@type": "Organization",
+     "name": "Rávezető Projekt Kft."
+    },
+    "timeRequired": "PT24H"
+   }
+  },
+  {
+   "@type": "ListItem",
+   "position": 4,
+   "item": {
+    "@type": "Course",
+    "name": "Kommunikációs tréning",
+    "provider": {
+     "@type": "Organization",
+     "name": "Rávezető Projekt Kft."
+    },
+    "timeRequired": "PT24H"
+   }
+  },
+  {
+   "@type": "ListItem",
+   "position": 5,
+   "item": {
+    "@type": "Course",
+    "name": "Komplex kommunikációs készségek fejlesztése",
+    "provider": {
+     "@type": "Organization",
+     "name": "Rávezető Projekt Kft."
+    },
+    "timeRequired": "PT42H"
+   }
+  },
+  {
+   "@type": "ListItem",
+   "position": 6,
+   "item": {
+    "@type": "Course",
+    "name": "Konfliktuskezelés",
+    "provider": {
+     "@type": "Organization",
+     "name": "Rávezető Projekt Kft."
+    },
+    "timeRequired": "PT24H"
+   }
+  },
+  {
+   "@type": "ListItem",
+   "position": 7,
+   "item": {
+    "@type": "Course",
+    "name": "Konfliktushelyzetek kezelése",
+    "provider": {
+     "@type": "Organization",
+     "name": "Rávezető Projekt Kft."
+    },
+    "timeRequired": "PT24H"
+   }
+  },
+  {
+   "@type": "ListItem",
+   "position": 8,
+   "item": {
+    "@type": "Course",
+    "name": "Konfliktuskezelés és kommunikáció",
+    "provider": {
+     "@type": "Organization",
+     "name": "Rávezető Projekt Kft."
+    },
+    "timeRequired": "PT30H"
+   }
+  },
+  {
+   "@type": "ListItem",
+   "position": 9,
+   "item": {
+    "@type": "Course",
+    "name": "Sikeres szervezeti együttműködés és kommunikáció a gyakorlatban",
+    "provider": {
+     "@type": "Organization",
+     "name": "Rávezető Projekt Kft."
+    },
+    "timeRequired": "PT16H"
+   }
+  },
+  {
+   "@type": "ListItem",
+   "position": 10,
+   "item": {
+    "@type": "Course",
+    "name": "Szervezeti és generációk közötti együttműködés fejlesztése",
+    "provider": {
+     "@type": "Organization",
+     "name": "Rávezető Projekt Kft."
+    },
+    "timeRequired": "PT30H"
+   }
+  },
+  {
+   "@type": "ListItem",
+   "position": 11,
+   "item": {
+    "@type": "Course",
+    "name": "Üzleti kapcsolattartás és kommunikáció",
+    "provider": {
+     "@type": "Organization",
+     "name": "Rávezető Projekt Kft."
+    },
+    "timeRequired": "PT16H"
+   }
+  },
+  {
+   "@type": "ListItem",
+   "position": 12,
+   "item": {
+    "@type": "Course",
+    "name": "A stressz és én",
+    "provider": {
+     "@type": "Organization",
+     "name": "Rávezető Projekt Kft."
+    },
+    "timeRequired": "PT16H"
+   }
+  },
+  {
+   "@type": "ListItem",
+   "position": 13,
+   "item": {
+    "@type": "Course",
+    "name": "Mentálhigiéné és lelki egészségvédelem",
+    "provider": {
+     "@type": "Organization",
+     "name": "Rávezető Projekt Kft."
+    },
+    "timeRequired": "PT54H"
+   }
+  },
+  {
+   "@type": "ListItem",
+   "position": 14,
+   "item": {
+    "@type": "Course",
+    "name": "Menedzseri szemlélet a vezetői munkában",
+    "provider": {
+     "@type": "Organization",
+     "name": "Rávezető Projekt Kft."
+    },
+    "timeRequired": "PT16H"
+   }
+  },
+  {
+   "@type": "ListItem",
+   "position": 15,
+   "item": {
+    "@type": "Course",
+    "name": "Tudatosság és társas készségek a vezetésben",
+    "provider": {
+     "@type": "Organization",
+     "name": "Rávezető Projekt Kft."
+    },
+    "timeRequired": "PT16H"
+   }
+  },
+  {
+   "@type": "ListItem",
+   "position": 16,
+   "item": {
+    "@type": "Course",
+    "name": "Tudatosság és társas készségek a vezetésben tréning",
+    "provider": {
+     "@type": "Organization",
+     "name": "Rávezető Projekt Kft."
+    },
+    "timeRequired": "PT24H"
+   }
+  },
+  {
+   "@type": "ListItem",
+   "position": 17,
+   "item": {
+    "@type": "Course",
+    "name": "Tudatosság és társas készségek fejlesztése",
+    "provider": {
+     "@type": "Organization",
+     "name": "Rávezető Projekt Kft."
+    },
+    "timeRequired": "PT20H"
+   }
+  },
+  {
+   "@type": "ListItem",
+   "position": 18,
+   "item": {
+    "@type": "Course",
+    "name": "Vezetői kompetenciák fejlesztése",
+    "provider": {
+     "@type": "Organization",
+     "name": "Rávezető Projekt Kft."
+    },
+    "timeRequired": "PT16H"
+   }
+  },
+  {
+   "@type": "ListItem",
+   "position": 19,
+   "item": {
+    "@type": "Course",
+    "name": "Tudatos vezetői működés fejlesztése",
+    "provider": {
+     "@type": "Organization",
+     "name": "Rávezető Projekt Kft."
+    },
+    "timeRequired": "PT24H"
+   }
+  },
+  {
+   "@type": "ListItem",
+   "position": 20,
+   "item": {
+    "@type": "Course",
+    "name": "Munkahelyi mentorok képzése",
+    "provider": {
+     "@type": "Organization",
+     "name": "Rávezető Projekt Kft."
+    },
+    "timeRequired": "PT16H"
+   }
+  }
+ ]
+}

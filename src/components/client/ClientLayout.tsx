@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import PageMetaManager from '../seo/PageMetaManager';
+import StructuredDataManager from '../seo/StructuredDataManager';
 import { useClientEffects } from '../../hooks/useClientEffects';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 import ClientHeader from './ClientHeader';
@@ -40,6 +41,7 @@ export default function ClientLayout() {
   return (
     <>
       <PageMetaManager />
+      <StructuredDataManager />
       <ClientSvgFilters />
       <a href="#root-content" className="skip-link">
         Ugrás a tartalomhoz

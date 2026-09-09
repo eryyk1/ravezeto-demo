@@ -9,7 +9,7 @@ export const SITE_NAME = 'Rávezető';
 export const DEFAULT_TITLE = `${SITE_NAME} – ${company.tagline}`;
 
 export const DEFAULT_DESCRIPTION =
-  'RÁvezető Projekt Kft. – Vezetési tanácsadás, szervezetfejlesztés és felnőttképzés. 16 év tapasztalat, 400+ fejlesztési projekt.';
+  'A Rávezető Projekt Kft. emberközpontú szervezetfejlesztéssel és vezetési tanácsadással segíti vállalatát 2008 óta, 400+ lezárt fejlesztési és képzési projekttel.';
 
 const OG_IMAGE_PATH = '/og-image.jpg';
 

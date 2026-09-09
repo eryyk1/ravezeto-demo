@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { company as companyLegal } from '../../content/company';
 import { footerNav } from '../../content/navigation';
 import {
   useCompanySettings,
@@ -43,7 +44,7 @@ export default function ClientFooter() {
 
         <div className="fcred">
           <div className="fdoc">
-            <b>Cégünk felnőttképzési engedéllyel rendelkező intézmény.</b>
+            <b>{companyLegal.footerLegalLabel}</b>
             <br />
             {footer.trainingReg || felnottkepzes.registration} · {felnottkepzes.license}
           </div>
@@ -54,7 +55,7 @@ export default function ClientFooter() {
         </div>
 
         <div className="copy">
-          © {new Date().getFullYear()} {company.name}
+          © {new Date().getFullYear()} {companyLegal.footerLegalLabel}
         </div>
       </div>
     </footer>
