@@ -213,6 +213,19 @@ export function useDraftHomeHero(): HomeHeroContent {
   return useStoreValue(() => contentStore.getDraft().homeHero);
 }
 
-export function usePalyazatokSettings(): PalyazatokSettings {
+export function usePalyazatokContent(): PalyazatokSettings {
   return useStoreValue(contentStore.getPalyazatok);
+}
+
+/** @deprecated Use usePalyazatokContent */
+export function usePalyazatokSettings(): PalyazatokSettings {
+  return usePalyazatokContent();
+}
+
+export function useDraftPalyazatok(): PalyazatokSettings {
+  return useStoreValue(() => contentStore.getDraft().palyazatok);
+}
+
+export function useDraftCompanySettings(): CompanySettings {
+  return useStoreValue(() => contentStore.getDraft().company);
 }

@@ -40,16 +40,64 @@ function formatVersionLabel(date = new Date()): string {
   return `${date.getFullYear()}.${pad(date.getMonth() + 1)}.${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}`;
 }
 
-function mergeLegacyV1(parsed: Partial<SiteContent>, defaults: SiteContent): SiteContent {
+function normalizePalyazatok(
+  stored: Partial<PalyazatokSettings> & Record<string, unknown> | undefined,
+  defaults: PalyazatokSettings,
+): PalyazatokSettings {
+  if (!stored) return defaults;
+
+  const steps =
+    Array.isArray(stored.steps) && stored.steps.length >= 3
+      ? ([stored.steps[0], stored.steps[1], stored.steps[2]] as [string, string, string])
+      : defaults.steps;
+
+  const partners =
+    Array.isArray(stored.partners) && stored.partners.length > 0
+      ? stored.partners.map((logo) => ({
+          src: String(logo.src ?? ''),
+          alt: String(logo.alt ?? ''),
+        }))
+      : defaults.partners;
+
+  let deadlineMessage = defaults.deadlineMessage;
+  if (typeof stored.deadlineMessage === 'string' && stored.deadlineMessage.trim()) {
+    deadlineMessage = stored.deadlineMessage;
+  } else if (typeof stored.deadlineDate === 'string' && stored.deadlineDate.trim()) {
+    deadlineMessage = `Benyújtás: ${stored.deadlineDate}`;
+  }
+
   return {
     ...defaults,
+    ...stored,
+    deadlineMessage,
+    partners,
+    steps,
+    partnersLabel:
+      typeof stored.partnersLabel === 'string' ? stored.partnersLabel : defaults.partnersLabel,
+    partnersLinkLabel:
+      typeof stored.partnersLinkLabel === 'string'
+        ? stored.partnersLinkLabel
+        : defaults.partnersLinkLabel,
+    partnersLink:
+      typeof stored.partnersLink === 'string' ? stored.partnersLink : defaults.partnersLink,
+  };
+}
+
+function mergeSiteContent(parsed: Partial<SiteContent>, defaults: SiteContent): SiteContent {
+  return {
+    ...defaults,
+    ...parsed,
     company: { ...defaults.company, ...parsed.company },
     homeHero: { ...defaults.homeHero, ...parsed.homeHero },
     team: parsed.team?.length ? parsed.team : defaults.team,
     partners: parsed.partners?.length ? parsed.partners : defaults.partners,
     references: parsed.references?.length ? parsed.references : defaults.references,
-    palyazatok: { ...defaults.palyazatok, ...parsed.palyazatok },
+    palyazatok: normalizePalyazatok(parsed.palyazatok, defaults.palyazatok),
   };
+}
+
+function mergeLegacyV1(parsed: Partial<SiteContent>, defaults: SiteContent): SiteContent {
+  return mergeSiteContent(parsed, defaults);
 }
 
 function loadInitialState(): CmsState {
@@ -76,8 +124,8 @@ function loadInitialState(): CmsState {
       if (parsed.storageVersion === 2 && parsed.draft && parsed.published) {
         return {
           ...parsed,
-          draft: { ...defaults, ...parsed.draft },
-          published: { ...defaults, ...parsed.published },
+          draft: mergeSiteContent(parsed.draft ?? {}, defaults),
+          published: mergeSiteContent(parsed.published ?? {}, defaults),
           versions: parsed.versions ?? [],
           activity: parsed.activity ?? [],
           meta: parsed.meta ?? {

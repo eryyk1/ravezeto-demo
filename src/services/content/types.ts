@@ -287,20 +287,9 @@ export type SeoEntry = {
   description: string;
 };
 
-export type PalyazatokTopicCard = {
-  id: string;
-  title: string;
-  text?: string;
-  items?: string[];
-};
-
-export type PalyazatokFact = {
-  id: string;
-  symbol?: string;
-  value?: number;
-  suffix?: string;
-  text: string;
-  highlight?: boolean;
+export type PalyazatokPartnerLogo = {
+  src: string;
+  alt: string;
 };
 
 export type PalyazatokSettings = {
@@ -310,21 +299,17 @@ export type PalyazatokSettings = {
   q2Mark: string;
   lead: string;
   heroCta: string;
-  deadlineKicker: string;
-  deadlineLabel: string;
-  deadlineDate: string;
-  topicsLabel: string;
-  topicsTitle: string;
-  topics: PalyazatokTopicCard[];
-  factsLabel: string;
-  factsTitle: string;
-  facts: PalyazatokFact[];
+  deadlineMessage: string;
   aboutText: string;
   aboutLinkLabel: string;
   aboutLink: string;
+  partnersLabel: string;
+  partnersLinkLabel: string;
+  partnersLink: string;
+  partners: PalyazatokPartnerLogo[];
   stepsLabel: string;
   stepsTitle: string;
-  steps: string[];
+  steps: [string, string, string];
   contactName: string;
   contactRole: string;
   contactPortrait: string;

@@ -5,14 +5,14 @@ import AdminPageShell from '../../components/AdminPageShell';
 import ImageField from '../../components/ImageField';
 import { useAdminUi } from '../../context/AdminUiContext';
 import { createId, partnerService } from '../../../services/content/store';
-import { usePartners } from '../../../services/content/useContent';
+import { useDraftPartners } from '../../../services/content/useContent';
 import type { Partner } from '../../../services/content/types';
 
 export default function PartnerEditPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { pushToast } = useAdminUi();
-  const partners = usePartners(false);
+  const partners = useDraftPartners(false);
   const isNew = id === 'new';
   const existing = useMemo(
     () => (isNew ? undefined : partners.find((partner) => partner.id === id)),

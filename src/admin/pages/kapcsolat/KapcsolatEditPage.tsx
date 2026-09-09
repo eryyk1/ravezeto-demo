@@ -153,6 +153,45 @@ export default function KapcsolatEditPage() {
                 }
               />
             </AdminField>
+            <AdminField label="Kötelező mező" htmlFor="kap-msg-required">
+              <input
+                id="kap-msg-required"
+                className="admin-input"
+                value={form.formMessages.required}
+                onChange={(e) =>
+                  setForm({
+                    ...form,
+                    formMessages: { ...form.formMessages, required: e.target.value },
+                  })
+                }
+              />
+            </AdminField>
+            <AdminField label="Érvénytelen e-mail" htmlFor="kap-msg-email">
+              <input
+                id="kap-msg-email"
+                className="admin-input"
+                value={form.formMessages.invalidEmail}
+                onChange={(e) =>
+                  setForm({
+                    ...form,
+                    formMessages: { ...form.formMessages, invalidEmail: e.target.value },
+                  })
+                }
+              />
+            </AdminField>
+            <AdminField label="Nincs konfigurálva" htmlFor="kap-msg-config">
+              <input
+                id="kap-msg-config"
+                className="admin-input"
+                value={form.formMessages.notConfigured}
+                onChange={(e) =>
+                  setForm({
+                    ...form,
+                    formMessages: { ...form.formMessages, notConfigured: e.target.value },
+                  })
+                }
+              />
+            </AdminField>
           </div>
         </section>
       </form>

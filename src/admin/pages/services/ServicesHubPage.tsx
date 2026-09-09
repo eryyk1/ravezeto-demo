@@ -11,7 +11,7 @@ const SECTIONS = [
   {
     to: '/admin/szolgaltatasok/felnottkepzes',
     title: 'Felnőttképzés',
-    description: 'Hero, módszertan, kategóriák, képzési programok és záró szekció.',
+    description: 'Hero, módszertan, kategóriák és záró szekció.',
   },
   {
     to: '/admin/szolgaltatasok/list',

@@ -12,60 +12,6 @@ export const palyazatokHero = {
   cta: 'Lépjen velünk kapcsolatba!',
 } as const;
 
-export const palyazatokProgram = {
-  title: 'GINOP Plusz 3.2.1-21',
-  subtitle:
-    '„A munkavállalók és vállalatok alkalmazkodóképességének és termelékenységének javítása a munkaerő fejlesztésén keresztül”',
-  lead:
-    'A felhívás célja, hogy a vállalkozások munkavállalói kompetenciáit fejlesszék támogatott képzéseken keresztül, miközben a bér- és képzési költségek jelentős részét pályázati forrás fedezi.',
-  statusNote:
-    'Az aktuális felhívások időszakosan változnak — díjmentes konzultáción tájékoztatjuk a legfrissebb lehetőségekről és határidőkről.',
-} as const;
-
-export const palyazatokDeadline = {
-  kicker: 'Az új felhívás megjelent!',
-  label: 'Benyújtás:',
-  date: '2026. május 31.',
-} as const;
-
-export const palyazatokTopics = {
-  label: 'Támogatott képzési témák',
-  title: 'Miben fejlődhet a csapata?',
-  cards: [
-    {
-      id: 'vezetoi',
-      title: 'Vezetői kompetenciák fejlesztése',
-      text: 'A XXI. századi vezető ismérvei',
-    },
-    {
-      id: 'kommunikacio',
-      title: 'Bontsa le a munkahelyi kommunikációs gátakat',
-      items: [
-        'Generációk között',
-        'Ügyfelekkel',
-        'Munkatársakkal',
-        'Vezető és beosztott között',
-      ],
-    },
-    {
-      id: 'stressz',
-      title: 'Nagy a nyomás, a munkahelyi stressz?',
-      text: 'Ismerjen meg stresszkezelési technikákat',
-    },
-  ],
-} as const;
-
-export const palyazatokFacts = {
-  label: 'GINOP Plusz 3.2.1-21',
-  title: 'Pályázati tények',
-  items: [
-    { id: 'meret', symbol: '›', text: 'Mikro-, kis-, közép- és nagyvállalatok' },
-    { id: 'bp', symbol: '›', text: 'Budapesti székhellyel rendelkező cégek is' },
-    { id: 'tamogatas', value: 70, suffix: '%', text: 'akár 70%-os képzési- és bértámogatás', highlight: true },
-    { id: 'eloleg', value: 50, suffix: '%', text: '50% előleg igényelhető', highlight: true },
-  ],
-} as const;
-
 export const palyazatokAbout = {
   text:
     'A Rávezető 2008 óta működő tanácsadó vállalat, 2014 óta engedéllyel rendelkező felnőttképző intézmény, kompetenciafejlesztési fókusszal.',

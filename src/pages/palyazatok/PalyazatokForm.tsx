@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { Link } from 'react-router-dom';
+import type { PalyazatokSettings } from '../../services/content/types';
 import { palyazatokForm } from './palyazatokContent';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -42,7 +43,14 @@ function validate(values: FormValues): FormErrors {
   return errors;
 }
 
-export default function PalyazatokForm() {
+type PalyazatokFormProps = {
+  content: Pick<
+    PalyazatokSettings,
+    'formSubmit' | 'formPrivacyText' | 'formPrivacyLink' | 'formPrivacyLinkLabel'
+  >;
+};
+
+export default function PalyazatokForm({ content }: PalyazatokFormProps) {
   const [values, setValues] = useState<FormValues>(emptyValues);
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
@@ -180,7 +188,7 @@ export default function PalyazatokForm() {
           aria-hidden="true"
         />
         <button className="btn" type="submit" disabled={submitState === 'submitting'}>
-          {palyazatokForm.submit}
+          {content.formSubmit}
         </button>
         {statusMessage && (
           <p
@@ -191,8 +199,8 @@ export default function PalyazatokForm() {
           </p>
         )}
         <p className="privacy">
-          {palyazatokForm.privacyText}{' '}
-          <Link to={palyazatokForm.privacyLink}>{palyazatokForm.privacyLinkLabel}</Link>
+          {content.formPrivacyText}{' '}
+          <Link to={content.formPrivacyLink}>{content.formPrivacyLinkLabel}</Link>
         </p>
       </form>
   );

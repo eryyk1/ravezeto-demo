@@ -12,8 +12,8 @@ export default function AdminDashboardPage() {
   const cards = [
     {
       title: 'Szolgáltatások',
-      value: content.services.filter((service) => service.active).length,
-      hint: `${content.services.length} összesen`,
+      value: 'Szerkesztés',
+      hint: 'Tanácsadás · Felnőttképzés',
       to: '/admin/szolgaltatasok',
       icon: IconPages,
     },
@@ -48,7 +48,7 @@ export default function AdminDashboardPage() {
     {
       title: 'Pályázatok',
       value: content.palyazatok.active ? 'Aktív' : 'Inaktív',
-      hint: content.palyazatok.deadlineDate,
+      hint: content.palyazatok.deadlineMessage,
       to: '/admin/palyazatok',
       icon: IconGrant,
     },

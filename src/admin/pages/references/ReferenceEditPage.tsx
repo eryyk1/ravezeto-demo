@@ -4,14 +4,14 @@ import AdminField from '../../components/AdminField';
 import AdminPageShell from '../../components/AdminPageShell';
 import { useAdminUi } from '../../context/AdminUiContext';
 import { createId, referenceService } from '../../../services/content/store';
-import { useReferences } from '../../../services/content/useContent';
+import { useDraftReferences } from '../../../services/content/useContent';
 import type { Reference } from '../../../services/content/types';
 
 export default function ReferenceEditPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { pushToast } = useAdminUi();
-  const references = useReferences(false);
+  const references = useDraftReferences(false);
   const isNew = id === 'new';
   const existing = useMemo(
     () => (isNew ? undefined : references.find((reference) => reference.id === id)),

@@ -1,18 +1,13 @@
 import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  palyazatokAbout,
-  palyazatokContact,
-  palyazatokHero,
-  palyazatokPartners,
-  palyazatokSteps,
-} from './palyazatokContent';
+import type { PalyazatokSettings } from '../../services/content/types';
 
 type PalyazatokBodyProps = {
+  content: PalyazatokSettings;
   formSlot?: ReactNode;
 };
 
-export default function PalyazatokBody({ formSlot }: PalyazatokBodyProps) {
+export default function PalyazatokBody({ content, formSlot }: PalyazatokBodyProps) {
   return (
     <>
       <section className="hero">
@@ -27,17 +22,17 @@ export default function PalyazatokBody({ formSlot }: PalyazatokBodyProps) {
           />
         </svg>
         <div className="wrap">
-          <div className="kicker">{palyazatokHero.label}</div>
+          <div className="kicker">{content.heroLabel}</div>
           <h1>
-            <span className="q1">{palyazatokHero.q1}</span>
+            <span className="q1">{content.q1}</span>
             <span className="q2">
-              {palyazatokHero.q2Lead} <span className="mark">{palyazatokHero.q2Mark}</span>
+              {content.q2Lead} <span className="mark">{content.q2Mark}</span>
             </span>
           </h1>
-          <p className="lead anim">{palyazatokHero.lead}</p>
+          <p className="lead anim">{content.lead}</p>
           <div className="cta-row anim">
             <a className="btn" href="#urlap">
-              {palyazatokHero.cta}
+              {content.heroCta}
             </a>
           </div>
         </div>
@@ -46,7 +41,7 @@ export default function PalyazatokBody({ formSlot }: PalyazatokBodyProps) {
       <section className="deadline-sec">
         <div className="wrap">
           <div className="deadline rev">
-            <b>Jelenleg nincs elérhető képzési pályázat</b>
+            <b>{content.deadlineMessage}</b>
           </div>
         </div>
       </section>
@@ -54,8 +49,8 @@ export default function PalyazatokBody({ formSlot }: PalyazatokBodyProps) {
       <section className="sec">
         <div className="wrap">
           <div className="about rev">
-            <p>{palyazatokAbout.text}</p>
-            <Link to={palyazatokAbout.link}>{palyazatokAbout.linkLabel}</Link>
+            <p>{content.aboutText}</p>
+            <Link to={content.aboutLink}>{content.aboutLinkLabel}</Link>
           </div>
         </div>
       </section>
@@ -63,8 +58,8 @@ export default function PalyazatokBody({ formSlot }: PalyazatokBodyProps) {
       <section className="sec">
         <div className="wrap">
           <div className="partners rev">
-            <span className="pl">{palyazatokPartners.label}</span>
-            {palyazatokPartners.logos.map((logo) => (
+            <span className="pl">{content.partnersLabel}</span>
+            {content.partners.map((logo) => (
               <img
                 key={logo.src}
                 className="plogo"
@@ -73,7 +68,7 @@ export default function PalyazatokBody({ formSlot }: PalyazatokBodyProps) {
                 loading="lazy"
               />
             ))}
-            <Link to={palyazatokPartners.link}>{palyazatokPartners.linkLabel}</Link>
+            <Link to={content.partnersLink}>{content.partnersLinkLabel}</Link>
           </div>
         </div>
       </section>
@@ -81,27 +76,27 @@ export default function PalyazatokBody({ formSlot }: PalyazatokBodyProps) {
       <section className="sec">
         <div className="wrap">
           <div className="head rev">
-            <div className="kicker">{palyazatokSteps.label}</div>
-            <h2>{palyazatokSteps.title}</h2>
+            <div className="kicker">{content.stepsLabel}</div>
+            <h2>{content.stepsTitle}</h2>
           </div>
           <div className="steps rev">
             <div className="step">
               <div className="idx">01</div>
-              <p>{palyazatokSteps.steps[0]}</p>
+              <p>{content.steps[0]}</p>
             </div>
             <div className="ssep" aria-hidden="true">
               &gt;
             </div>
             <div className="step">
               <div className="idx">02</div>
-              <p>{palyazatokSteps.steps[1]}</p>
+              <p>{content.steps[1]}</p>
             </div>
             <div className="ssep" aria-hidden="true">
               &gt;
             </div>
             <div className="step">
               <div className="idx">03</div>
-              <p>{palyazatokSteps.steps[2]}</p>
+              <p>{content.steps[2]}</p>
             </div>
           </div>
         </div>
@@ -140,25 +135,25 @@ export default function PalyazatokBody({ formSlot }: PalyazatokBodyProps) {
               </div>
               <div className="pwrap">
                 <img
-                  src={palyazatokContact.portrait}
-                  alt={`${palyazatokContact.name} portréja`}
+                  src={content.contactPortrait}
+                  alt={`${content.contactName} portréja`}
                   onError={(e) => e.currentTarget.remove()}
                 />
               </div>
               <div>
-                <h2>{palyazatokContact.name}</h2>
-                <div className="role">{palyazatokContact.role}</div>
+                <h2>{content.contactName}</h2>
+                <div className="role">{content.contactRole}</div>
               </div>
               <div className="elms">
                 E-mail:{' '}
-                <a href={`mailto:${palyazatokContact.email}`}>{palyazatokContact.email}</a>
+                <a href={`mailto:${content.contactEmail}`}>{content.contactEmail}</a>
                 <br />
                 Telefon:{' '}
-                <a href={`tel:${palyazatokContact.phoneTel}`}>{palyazatokContact.phone}</a>
+                <a href={`tel:${content.contactPhoneTel}`}>{content.contactPhone}</a>
               </div>
             </div>
             <div className="form">
-              <h2>Lépjen velünk kapcsolatba!</h2>
+              <h2>{content.formTitle}</h2>
               {formSlot}
             </div>
           </div>

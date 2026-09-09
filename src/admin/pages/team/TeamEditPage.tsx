@@ -5,7 +5,7 @@ import AdminPageShell from '../../components/AdminPageShell';
 import ImageField from '../../components/ImageField';
 import { useAdminUi } from '../../context/AdminUiContext';
 import { createId, teamService } from '../../../services/content/store';
-import { useTeamMembers } from '../../../services/content/useContent';
+import { useDraftTeamMembers } from '../../../services/content/useContent';
 import type { TeamMember } from '../../../services/content/types';
 
 function slugify(text: string) {
@@ -21,7 +21,7 @@ export default function TeamEditPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { pushToast } = useAdminUi();
-  const members = useTeamMembers(false);
+  const members = useDraftTeamMembers(false);
   const isNew = id === 'new';
 
   const existing = useMemo(
