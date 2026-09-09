@@ -26,7 +26,7 @@ export const felnottkepzesKeyMessage = {
   title:
     'A munkatársi kiválóság mellett a szervezeti működés fejlesztésében is segítenek a kompetenciafejlesztő képzések',
   text:
-    'Képzési programjaink sosem „dobozos” termékek, változatos oktatás-módszertani megoldásokkal (jelenléti tréningek, e-learning tananyag, online tréning elemek, szervezeti modul, follow up szolgáltatások) biztosítjuk a képzések jobb hasznosulását.',
+    'Képzési programjaink sosem „dobozos” termékek, változatos oktatás-módszertani megoldásokkal biztosítjuk a képzések jobb hasznosulását.',
 } as const;
 
 export const felnottkepzesCredentials = {
