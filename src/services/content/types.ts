@@ -380,10 +380,12 @@ export type CmsMeta = {
   lastModified: string | null;
   lastPublished: string | null;
   hasUnpublishedChanges: boolean;
+  /** Last deployed CMS snapshot applied from /cms/published.json */
+  publishedBuildRef: string | null;
 };
 
 export type CmsState = {
-  storageVersion: 2;
+  storageVersion: 3;
   draft: SiteContent;
   published: SiteContent;
   versions: ContentVersion[];

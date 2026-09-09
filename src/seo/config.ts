@@ -1,7 +1,7 @@
 import { company } from '../content/company';
 
 export const SITE_URL =
-  (import.meta.env.VITE_SITE_URL as string | undefined)?.replace(/\/$/, '') ??
+  (import.meta.env?.VITE_SITE_URL as string | undefined)?.replace(/\/$/, '') ??
   'https://www.ravezeto.hu';
 
 export const SITE_NAME = 'Rávezető';

@@ -251,6 +251,13 @@ body.admin-mode .rev {
   margin-top: 0.35rem;
 }
 
+.admin-sidebar__build {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  color: var(--admin-muted, #8a9199);
+  letter-spacing: 0.02em;
+}
+
 .admin-sidebar__user {
   font-size: 0.8rem;
   color: rgba(238, 242, 246, 0.58);

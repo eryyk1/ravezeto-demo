@@ -103,6 +103,7 @@ export default function AdminSidebar() {
         </nav>
 
         <div className="admin-sidebar__footer">
+          <p className="admin-sidebar__build">Build: {__APP_BUILD_ID__}</p>
           <p className="admin-sidebar__user">{session?.user.email}</p>
           <a className="admin-sidebar__link admin-sidebar__link--muted" href="/" target="_blank" rel="noreferrer">
             <IconExternal className="admin-sidebar__icon" />

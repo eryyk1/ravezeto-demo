@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && node scripts/prerender-seo.mjs",
+    "build": "tsc -b && npx tsx scripts/generate-cms-snapshot.ts && vite build && node scripts/prerender-seo.mjs",
+    "cms:snapshot": "npx tsx scripts/generate-cms-snapshot.ts",
     "redirects": "node scripts/generate-vercel-redirects.mjs",
     "preview": "vite preview",
     "extract": "node scripts/extract-content.mjs"
@@ -19,6 +20,7 @@
     "react-router-dom": "^7.6.3"
   },
   "devDependencies": {
+    "tsx": "^4.20.5",
     "@types/node": "^26.3.0",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",

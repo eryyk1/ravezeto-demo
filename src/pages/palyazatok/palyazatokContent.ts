@@ -68,7 +68,7 @@ export const palyazatokContact = {
 
 export const palyazatokForm = {
   title: 'Lépjen velünk kapcsolatba!',
-  formspreeEndpoint: import.meta.env.VITE_FORMSPREE_CONTACT as string | undefined,
+  formspreeEndpoint: import.meta.env?.VITE_FORMSPREE_CONTACT as string | undefined,
   privacyText:
     'Ennek az űrlapnak a kitöltésével hozzájárul, hogy a weblap eltárolja és felhasználja a megadott adatokat.',
   privacyLink: '/jogi/adatvedelem',

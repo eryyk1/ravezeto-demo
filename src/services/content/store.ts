@@ -20,10 +20,18 @@ import type {
   TeamMember,
 } from './types';
 
+const STORAGE_KEY_V3 = 'ravezeto_cms_v3';
 const STORAGE_KEY_V2 = 'ravezeto_cms_v2';
 const STORAGE_KEY_V1 = 'ravezeto_cms_v1';
+const CMS_STORAGE_VERSION = 3 as const;
 const MAX_VERSIONS = 40;
 const MAX_ACTIVITY = 80;
+const APP_BUILD_ID = typeof __APP_BUILD_ID__ !== 'undefined' ? __APP_BUILD_ID__ : 'dev';
+
+type CmsSnapshotFile = {
+  buildRef?: string;
+  published?: Partial<SiteContent>;
+};
 
 type Listener = () => void;
 
@@ -100,40 +108,69 @@ function mergeLegacyV1(parsed: Partial<SiteContent>, defaults: SiteContent): Sit
   return mergeSiteContent(parsed, defaults);
 }
 
+function defaultMeta(partial?: Partial<CmsState['meta']>): CmsState['meta'] {
+  return {
+    lastModified: null,
+    lastPublished: null,
+    hasUnpublishedChanges: false,
+    publishedBuildRef: null,
+    ...partial,
+  };
+}
+
+function hydrateCmsState(parsed: Partial<CmsState>, defaults: SiteContent): CmsState {
+  return {
+    storageVersion: CMS_STORAGE_VERSION,
+    draft: mergeSiteContent(parsed.draft ?? {}, defaults),
+    published: mergeSiteContent(parsed.published ?? {}, defaults),
+    versions: parsed.versions ?? [],
+    activity: parsed.activity ?? [],
+    meta: defaultMeta(parsed.meta),
+  };
+}
+
 function loadInitialState(): CmsState {
   const defaults = createDefaultContent();
   if (typeof window === 'undefined') {
     return {
-      storageVersion: 2,
+      storageVersion: CMS_STORAGE_VERSION,
       draft: defaults,
       published: cloneContent(defaults),
       versions: [],
       activity: [],
-      meta: {
-        lastModified: null,
-        lastPublished: null,
-        hasUnpublishedChanges: false,
-      },
+      meta: defaultMeta(),
     };
+  }
+
+  try {
+    const rawV3 = localStorage.getItem(STORAGE_KEY_V3);
+    if (rawV3) {
+      const parsed = JSON.parse(rawV3) as CmsState;
+      if (parsed.storageVersion === CMS_STORAGE_VERSION && parsed.draft && parsed.published) {
+        return hydrateCmsState(parsed, defaults);
+      }
+    }
+  } catch {
+    /* fall through */
   }
 
   try {
     const rawV2 = localStorage.getItem(STORAGE_KEY_V2);
     if (rawV2) {
       const parsed = JSON.parse(rawV2) as CmsState;
-      if (parsed.storageVersion === 2 && parsed.draft && parsed.published) {
-        return {
-          ...parsed,
-          draft: mergeSiteContent(parsed.draft ?? {}, defaults),
-          published: mergeSiteContent(parsed.published ?? {}, defaults),
-          versions: parsed.versions ?? [],
-          activity: parsed.activity ?? [],
-          meta: parsed.meta ?? {
-            lastModified: null,
-            lastPublished: null,
-            hasUnpublishedChanges: false,
+      if (parsed.draft && parsed.published) {
+        const ts = nowIso();
+        return hydrateCmsState(
+          {
+            ...parsed,
+            meta: defaultMeta({
+              ...parsed.meta,
+              lastModified: parsed.meta?.lastModified ?? ts,
+              publishedBuildRef: null,
+            }),
           },
-        };
+          defaults,
+        );
       }
     }
   } catch {
@@ -147,7 +184,7 @@ function loadInitialState(): CmsState {
       const merged = mergeLegacyV1(parsed, defaults);
       const ts = nowIso();
       return {
-        storageVersion: 2,
+        storageVersion: CMS_STORAGE_VERSION,
         draft: merged,
         published: cloneContent(merged),
         versions: [],
@@ -159,11 +196,10 @@ function loadInitialState(): CmsState {
             section: 'system',
           },
         ],
-        meta: {
+        meta: defaultMeta({
           lastModified: ts,
           lastPublished: ts,
-          hasUnpublishedChanges: false,
-        },
+        }),
       };
     }
   } catch {
@@ -172,26 +208,68 @@ function loadInitialState(): CmsState {
 
   const ts = nowIso();
   return {
-    storageVersion: 2,
+    storageVersion: CMS_STORAGE_VERSION,
     draft: defaults,
     published: cloneContent(defaults),
     versions: [],
     activity: [],
-    meta: {
+    meta: defaultMeta({
       lastModified: ts,
       lastPublished: ts,
-      hasUnpublishedChanges: false,
-    },
+    }),
   };
 }
 
 class ContentStore {
   private state: CmsState;
   private listeners = new Set<Listener>();
+  private syncPromise: Promise<void> | null = null;
 
   constructor() {
     this.state = loadInitialState();
+    if (typeof window !== 'undefined') {
+      this.syncPromise = this.syncPublishedFromServer();
+    }
   }
+
+  private async syncPublishedFromServer() {
+    try {
+      const response = await fetch(`/cms/published.json?build=${APP_BUILD_ID}`, { cache: 'no-store' });
+      if (!response.ok) return;
+
+      const payload = (await response.json()) as CmsSnapshotFile;
+      const remoteBuildRef = payload.buildRef ?? APP_BUILD_ID;
+      if (remoteBuildRef === this.state.meta.publishedBuildRef) return;
+
+      const defaults = createDefaultContent();
+      const mergedPublished = mergeSiteContent(payload.published ?? {}, defaults);
+      const ts = nowIso();
+
+      this.state = {
+        ...this.state,
+        published: mergedPublished,
+        meta: {
+          ...this.state.meta,
+          publishedBuildRef: remoteBuildRef,
+          lastModified: ts,
+        },
+        activity: [
+          {
+            id: createId('act'),
+            at: ts,
+            message: 'Frissített tartalom betöltve a szerverről',
+            section: 'system',
+          },
+          ...this.state.activity,
+        ].slice(0, MAX_ACTIVITY),
+      };
+      this.persist();
+    } catch {
+      /* offline or missing snapshot */
+    }
+  }
+
+  whenPublishedSynced = (): Promise<void> => this.syncPromise ?? Promise.resolve();
 
   subscribe = (listener: Listener): (() => void) => {
     this.listeners.add(listener);
@@ -204,7 +282,8 @@ class ContentStore {
 
   private persist() {
     if (typeof window === 'undefined') return;
-    localStorage.setItem(STORAGE_KEY_V2, JSON.stringify(this.state));
+    localStorage.setItem(STORAGE_KEY_V3, JSON.stringify(this.state));
+    localStorage.removeItem(STORAGE_KEY_V2);
     this.notify();
   }
 
@@ -268,6 +347,7 @@ class ContentStore {
       published: snapshot,
       versions: [version, ...this.state.versions].slice(0, MAX_VERSIONS),
       meta: {
+        ...this.state.meta,
         lastModified: ts,
         lastPublished: ts,
         hasUnpublishedChanges: false,
@@ -303,6 +383,7 @@ class ContentStore {
       published: cloneContent(restored),
       versions: [newVersion, ...this.state.versions].slice(0, MAX_VERSIONS),
       meta: {
+        ...this.state.meta,
         lastModified: ts,
         lastPublished: ts,
         hasUnpublishedChanges: false,
@@ -325,7 +406,7 @@ class ContentStore {
     const defaults = createDefaultContent();
     const ts = nowIso();
     this.state = {
-      storageVersion: 2,
+      storageVersion: CMS_STORAGE_VERSION,
       draft: defaults,
       published: cloneContent(defaults),
       versions: this.state.versions,
@@ -338,11 +419,11 @@ class ContentStore {
         },
         ...this.state.activity,
       ].slice(0, MAX_ACTIVITY),
-      meta: {
+      meta: defaultMeta({
         lastModified: ts,
         lastPublished: ts,
-        hasUnpublishedChanges: false,
-      },
+        publishedBuildRef: APP_BUILD_ID,
+      }),
     };
     this.persist();
   }

@@ -1,0 +1,1148 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-09T09:19:55.916Z",
+  "buildRef": "local",
+  "published": {
+    "schemaVersion": 2,
+    "company": {
+      "name": "RÁvezető Projekt Kft.",
+      "tagline": "Változásokat vezetünk, együtt!",
+      "address": "1146 Budapest, Izsó u. 7. 1/3.",
+      "hours": "H-P: 9.00-16.00",
+      "phone": "+36 70/513 4128",
+      "phoneTel": "+36705134128",
+      "email": "info@ravezeto.hu",
+      "facebook": "https://www.facebook.com/profile.php?id=100063907730525"
+    },
+    "homeHero": {
+      "label": "Vezetési tanácsadás · 2008 óta",
+      "headlineLines": [
+        "Változásokat",
+        "vezetünk,",
+        "együtt!"
+      ],
+      "intro": "Vezetési tanácsadók vagyunk, problémákat oldunk meg, közösen hajlítjuk a teret, alakítjuk az egészségesebb vállalati jövőt.",
+      "ctaPrimary": "Írjon nekünk",
+      "ctaPrimaryLink": "/kapcsolat",
+      "ctaSecondary": "Szolgáltatásaink",
+      "ctaSecondaryLink": "#szolgaltatasok"
+    },
+    "homeQuote": {
+      "text": "Az optimizmus az igazi erkölcsi bátorság",
+      "author": "Ernest Shackleton",
+      "context": "A fenti idézet az egyik kedvencünk a híres felfedezőtől, aki a lehetetlennel dacolva 120 éve megmentette legénységét a jég és fagy fogságából.",
+      "teamLine": "Munkatársaink jelentős szervezeti és vezetői tapasztalattal rendelkező tanácsadók, szakértők.",
+      "teamLink": "/rolunk",
+      "teamCta": "Ismerje meg a csapatot"
+    },
+    "homeReasons": {
+      "title": "Hat ok, amiért minket érdemes választani",
+      "intro": "16 évünk, több mint 400 fejlesztési és képzési projektünk nem jöhetett volna létre, ha nem így dolgozunk.",
+      "items": [
+        {
+          "emphasis": "LE",
+          "rest": "VEZETJÜK",
+          "subtitle": "Önnek, mi a valódi probléma",
+          "text": "Megmutatjuk, hogy miért szükséges változtatni, a profi szervezeti diagnózis biztosítja, hogy stabil alapokról induljon a változás."
+        },
+        {
+          "emphasis": "ÁT",
+          "rest": "VEZETJÜK",
+          "subtitle": "a nehézségeken",
+          "text": "Minőségi szakembereink segítségével a változtatási folyamatban törvényszerű elbizonytalanodás fázisát gyorsan meghaladjuk."
+        },
+        {
+          "emphasis": "VÉGIG",
+          "rest": "VEZETJÜK",
+          "subtitle": "ügyfeleinket",
+          "text": "A teljes változtatási folyamaton, nem hagyjuk magára a tulajdonosokat, vezetőket, támogatjuk a kritikus döntéseket a projekt minden szakaszában."
+        },
+        {
+          "emphasis": "RÁ",
+          "rest": "VEZETJÜK",
+          "subtitle": "a megoldásra",
+          "text": "Amely a siker felé viszi, a sablonos „tuti megmondás” helyett közös megoldásokat alkotunk."
+        },
+        {
+          "emphasis": "KI",
+          "rest": "VEZETJÜK",
+          "subtitle": "a krízisből",
+          "text": "Sokszor a kudarctól való félelem akadályozza meg az újítást. Ha már versenyhátrányban van, ha lemaradt, támogatjuk a kilábalásban."
+        },
+        {
+          "emphasis": "TOVÁBB",
+          "rest": "VEZETJÜK",
+          "subtitle": "a fejlődés útján",
+          "text": "Minden vállalat esetében előre tekintünk, nemcsak a rövidtávú szempontokat vizsgáljuk, erős csapat nélkül nem működnek sem folyamatok, sem rendszerek."
+        }
+      ]
+    },
+    "homeServicesIntro": {
+      "kicker": "Szolgáltatásaink",
+      "title": "Emberközpontú megközelítés, minden folyamatban.",
+      "intro": "Ha már nem tekintünk hittel, bátorsággal, bizalommal a jövő felé, akkor cégvezetőként, tulajdonosként hogyan formáljuk tovább a vállalati teret, hogyan alkalmazkodunk a piachoz?"
+    },
+    "homeServices": [
+      {
+        "id": "tanacsadas",
+        "title": "Tanácsadás",
+        "text": "Egyetlen szervezetfejlesztés sem lehet sikeres a változást támogató vezetők és munkatársak nélkül. Ezt az emberközpontú megközelítést garantáljuk minden, általunk vezetett tanácsadási folyamatban.",
+        "link": "/tanacsadas",
+        "cta": "Bővebben",
+        "external": false,
+        "icon": "/assets/illustrations/illust_inner_strategy.svg",
+        "order": 1,
+        "active": true
+      },
+      {
+        "id": "felnottkepzes",
+        "title": "Felnőttképzés",
+        "text": "Minőségi képzéseink segítségével fejlesztjük a XXI. század munkahelyi kulcskompetenciáit, vezetőknek, munkatársaknak. Az év trénerei is nálunk dolgoznak 😊",
+        "link": "/felnottkepzes",
+        "cta": "Bővebben",
+        "external": false,
+        "icon": "/assets/illustrations/illust_inner_courses.svg",
+        "order": 2,
+        "active": true
+      },
+      {
+        "id": "palyazatok",
+        "title": "Pályázatok",
+        "text": "Fejlesszük közösen vállalatát pályázati forrásokból! A Rávezető minősített szervezetfejlesztő és képzési szolgáltatóként számtalan vállalati kihívásban tud segíteni Önnek.",
+        "link": "/palyazatok",
+        "cta": "Bővebben",
+        "external": false,
+        "icon": "/assets/illustrations/illust_projectmanagement.svg",
+        "order": 3,
+        "active": true
+      },
+      {
+        "id": "mentally",
+        "title": "Mentally",
+        "text": "Kíváncsi csapata állapotára? A Mentally megmutatja vállalata egészségének térképét!",
+        "link": "https://mentally.team",
+        "cta": "Bővebben",
+        "external": true,
+        "icon": "/assets/illustrations/illust_research.svg",
+        "order": 4,
+        "active": true
+      }
+    ],
+    "homeStats": {
+      "kicker": "A megtett út",
+      "title": "Számokban.",
+      "refsText": "Büszkék vagyunk partnereink bizalmára!",
+      "refsLink": "/referenciak",
+      "refsCta": "Referenciáink",
+      "items": [
+        {
+          "value": 16,
+          "suffix": "",
+          "label": "év tanácsadói tapasztalat"
+        },
+        {
+          "value": 400,
+          "suffix": "+",
+          "label": "tanácsadási projekt"
+        },
+        {
+          "value": 200,
+          "suffix": "+",
+          "label": "elégedett, visszatérő ügyfél"
+        },
+        {
+          "value": 250,
+          "suffix": "+",
+          "label": "képzési projekt felnőttképző intézményként"
+        },
+        {
+          "value": 3500,
+          "suffix": "+",
+          "label": "résztvevő a képzéseinken"
+        },
+        {
+          "value": 200,
+          "suffix": "+",
+          "label": "együttműködő tanácsadó"
+        }
+      ]
+    },
+    "homeContactClose": {
+      "kicker": "Kapcsolat",
+      "title": "Keressen minket bizalommal!",
+      "cta": "Írjon nekünk",
+      "link": "/kapcsolat"
+    },
+    "rolunk": {
+      "hero": {
+        "label": "Csapatunk",
+        "title": "Gyorsabban, erősebben,",
+        "titleMark": "magasabbra!",
+        "intro": "Az egyéni és szervezeti minőség és teljesítmény növelésében tudunk segíteni, közös gondolkodással, elhivatott szakemberekkel.",
+        "image": "/assets/images/home/section1_back.png",
+        "imageAlt": "Rávezető Projekt csapat és munkakörnyezet"
+      },
+      "story": {
+        "pullQuote": "Minden munkaszervezet állandó mozgásban, változásban éli mindennapjait.",
+        "paragraphs": [
+          "A vállalatok életében megjelenő kihívások a sport nyelvén is leírhatók, mert tervezés, felkészülés és kitartás nélkül nincs siker, a teljesítmény mérhető, az eredmény pedig igazolja a szervezet létét, erejét, befolyását."
+        ],
+        "motto": "Citius, Altius, Fortius."
+      },
+      "values": {
+        "label": "Értékeink",
+        "title": "Ami minden munkánkat vezeti.",
+        "image": "/assets/images/home/ertekeink.png",
+        "labels": [
+          "Kreativitás",
+          "Csapatmunka",
+          "Problémamegoldás",
+          "Minőségelvűség",
+          "Szakmai tisztesség",
+          "Módszertani sokszínűség"
+        ]
+      },
+      "closing": "Munkatársaink jelentős szervezeti és vezetői tapasztalattal rendelkező tanácsadók, szakértők. Szeretjük a projekteket és belső meggyőződésünk a munkáink által saját magunk fejlesztése is.",
+      "close": {
+        "kicker": "Kapcsolat",
+        "title": "Dolgozzunk együtt!",
+        "cta": "Írjon nekünk",
+        "link": "/kapcsolat"
+      }
+    },
+    "tanacsadas": {
+      "hero": {
+        "label": "Tanácsadás",
+        "title": "Egyetlen szervezetfejlesztés sem lehet sikeres a változást támogató vezetők és munkatársak nélkül.",
+        "intro": "Ezt az emberközpontú megközelítést garantáljuk minden, általunk vezetett tanácsadási folyamatban.",
+        "image": "/assets/images/home/section1_back.png",
+        "imageAlt": "Rávezető Projekt — szervezetfejlesztés és tanácsadás"
+      },
+      "quote": {
+        "text": "Mindaz, amit látsz, hamarosan megváltozik, sőt megszűnik. Arra gondolj, hány változásnak voltál már magad is tanúja. A világ változás, az élet felfogás dolga.",
+        "author": "Marcus Aurelius római császár",
+        "note": "kétezer éves üzenete, hogy a változások tudatos irányítása, a változáshoz való hozzáállásunk, alkalmazkodásunk határozza meg sikerességünket."
+      },
+      "motto": "Tanácsadóink nem csupán elméleti szakemberek – valós szervezeti kihívásokban szerzett tapasztalattal segítjük ügyfeleinket a változások vezetésében.",
+      "szervezetfejlesztes": {
+        "punch": "Ha a szervezeti kultúra nem változik, nincs esély a stratégia sikeres végrehajtására!",
+        "bands": [
+          {
+            "title": "Szervezeti kultúra: a sikeres változás alapja",
+            "paragraphs": [
+              "Meggyőződésünk, hogy egyetlen szervezetfejlesztés sem lehet sikeres a változást értő és támogató munkatársak nélkül. Ez a szemlélet vezérel bennünket minden projektünkben."
+            ],
+            "photoLabel": "📷 workshop-fotó helye\n(tompított, meleg tónus)",
+            "photo": ""
+          },
+          {
+            "title": "Közös munka, tartós eredmény",
+            "paragraphs": [
+              "Hiszünk a folyamatalapú megközelítésben. Nem kész megoldásokat kínálunk, hanem emberközpontú szervezetfejlesztőként szoros csapatmunkában támogatjuk partnereinket céljaik megvalósításában.",
+              "Az eredmények a tanácsadási folyamat során, közös munkával születnek meg. Ügyfeleink mellett állunk a tervezéstől a megvalósításig, biztosítva a szükséges szakmai támogatást minden lépésnél."
+            ],
+            "photoLabel": "📷 közös munka fotója",
+            "photo": ""
+          }
+        ]
+      },
+      "coaching": {
+        "leadStrong": "Nemcsak „magányos” vezetőknek.",
+        "leadRest": " Napjaink vezetői döntési helyzeteikben minden belső és külső támogatás ellenére nap mint nap egyedül maradnak a rájuk háruló felelősséggel.",
+        "cards": [
+          {
+            "title": "Döntéseink szempontjai, elemzésük előtte (és néha utána)",
+            "paragraphs": [
+              "Nálunk a coachok tényleg rendelkeznek szervezeti tapasztalattal!",
+              "Egyedi megközelítéssel, módszertannal saját vezetői tapasztalatukra is támaszkodva támogatják a vezetői munkavégzést a szervezeti problémák és kihívások, döntési pontok, korábbi és jelenidejű döntések közös elemzésével."
+            ]
+          },
+          {
+            "title": "Fejlődésem útja, hogy jobb vezető legyek",
+            "paragraphs": [
+              "A személyes és bizalmi kapcsolat vezető és tanácsadó között arra is alkalmas, hogy többféle módszertani eszköz, gyakorlatok és a visszacsatolás révén elősegítse a vezetői készségek és kompetenciák fejlesztését a szervezeti és személyes haszon maximalizálására."
+            ]
+          }
+        ]
+      },
+      "close": {
+        "kicker": "Kapcsolat",
+        "title": "Keressen minket bizalommal!",
+        "cta": "Írjon nekünk",
+        "link": "/kapcsolat"
+      }
+    },
+    "services": [
+      {
+        "id": "szervezetfejlesztes",
+        "slug": "szervezetfejlesztes",
+        "section": "tanacsadas",
+        "index": "01",
+        "label": "Szervezetfejlesztés",
+        "title": "Szervezeti kultúra: a sikeres változás alapja",
+        "intro": "Meggyőződésünk, hogy egyetlen szervezetfejlesztés sem lehet sikeres a változást értő és támogató munkatársak nélkül.",
+        "detail": "Hiszünk a folyamatalapú megközelítésben. Nem kész megoldásokat kínálunk, hanem emberközpontú szervezetfejlesztőként szoros csapatmunkában támogatjuk partnereinket céljaik megvalósításában. Az eredmények a tanácsadási folyamat során, közös munkával születnek meg.",
+        "problems": [
+          "Ha a szervezeti kultúra nem változik, nincs esély a stratégia sikeres végrehajtására.",
+          "Közös munka, tartós eredmény — a tervezéstől a megvalósításig."
+        ],
+        "cta": "Kapcsolatfelvétel",
+        "link": "/kapcsolat",
+        "visual": "/assets/illustrations/illust_strategy.svg",
+        "image": "",
+        "order": 1,
+        "active": true
+      },
+      {
+        "id": "valtozasmenedzsment",
+        "slug": "valtozasmenedzsment",
+        "section": "tanacsadas",
+        "index": "02",
+        "label": "Változásmenedzsment",
+        "title": "A változás útja velünk",
+        "intro": "A gyorsan változó környezetben különösen fontos a stratégiai gondolkodás és a szervezeti kultúra összehangolása a szervezeti hatékonyság növelése érdekében. Szakértői támogatásunk kiterjed:",
+        "problems": [
+          "A változások stratégiai tervezésére",
+          "A változást támogató munkatársak felkészítésére",
+          "A szervezeti együttműködés fejlesztésére",
+          "A célok eléréséhez szükséges projektek és folyamatok megvalósításának szakszerű és megbízható elősegítésére"
+        ],
+        "cta": "Kapcsolatfelvétel",
+        "link": "/kapcsolat",
+        "visual": "/assets/illustrations/illust_projectmanagement.svg",
+        "image": "",
+        "order": 2,
+        "active": true
+      },
+      {
+        "id": "coaching",
+        "slug": "coaching",
+        "section": "tanacsadas",
+        "index": "03",
+        "label": "Coaching",
+        "title": "Üzleti edzés, coaching — nemcsak „magányos” vezetőknek",
+        "intro": "Napjaink vezetői döntési helyzeteikben minden belső és külső támogatás ellenére nap mint nap egyedül maradnak a rájuk háruló felelősséggel.",
+        "detail": "Nálunk a coachok tényleg rendelkeznek szervezeti tapasztalattal! Egyedi megközelítéssel, módszertannal saját vezetői tapasztalatukra is támaszkodva támogatják a vezetői munkavégzést a szervezeti problémák és kihívások, döntési pontok, korábbi és jelenidejű döntések közös elemzésével.",
+        "problems": [
+          "Döntéseink szempontjai, elemzésük előtte (és néha utána)",
+          "Fejlődésem útja, hogy jobb vezető legyek — a vezetői készségek és kompetenciák fejlesztése a szervezeti és személyes haszon maximalizálására."
+        ],
+        "cta": "Kapcsolatfelvétel",
+        "link": "/kapcsolat",
+        "visual": "/assets/illustrations/illust_coaching.svg",
+        "image": "",
+        "order": 3,
+        "active": true
+      }
+    ],
+    "felnottkepzes": {
+      "hero": {
+        "label": "Felnőttképzés",
+        "titleLead": "Minőségi képzéseink segítségével fejlesztjük a XXI. század munkahelyi",
+        "titleMark": "kulcskompetenciáit!",
+        "awardLine": "Az év trénerei is nálunk dolgoznak",
+        "image": "/assets/images/home/section1_back.png",
+        "imageAlt": "Rávezető Projekt — felnőttképzés és kompetenciafejlesztés"
+      },
+      "methodTags": [
+        "Jelenléti tréningek",
+        "E-learning tananyag",
+        "Online tréning elemek",
+        "Szervezeti modul",
+        "Follow up szolgáltatások"
+      ],
+      "keyMessage": {
+        "label": "Felnőttképzés",
+        "title": "A munkatársi kiválóság mellett a szervezeti működés fejlesztésében is segítenek a kompetenciafejlesztő képzések",
+        "text": "Képzési programjaink sosem „dobozos” termékek, változatos oktatás-módszertani megoldásokkal biztosítjuk a képzések jobb hasznosulását."
+      },
+      "credentials": {
+        "paragraphs": [
+          "A szervezeti teljesítmény növelése optimálisan több tényező együttes fejlesztésével, több eszköz használatával valósítható meg, amelyek közül az egyik legfontosabb a képzés.",
+          "Cégünk felnőttképzési engedéllyel rendelkező intézmény.",
+          "Tréneri csapatunk sokéves tereptapasztalata, kiemelkedő szakmai tudása garantálja, hogy közvetlen, felszabadult légkörben zajló tréningjeink a lehető legjobban szolgálják a megfogalmazott képzési célokat."
+        ]
+      },
+      "registration": "Nyilvántartásba vételi számunk: B/2020/001943",
+      "license": "Engedélyszámunk: E/2021/000106",
+      "motto": "A munkahelyek legnagyobb kihívása gyakran a hatékony kommunikáció és a csapatmunka hiánya. Célunk, hogy résztvevőink olyan készségeket sajátítsanak el, amelyek révén sikeresen navigálhatnak a munkahelyi kihívások között.",
+      "processLead": "A fejlesztési és képzési igények meghatározását, illesztését és megvalósítását vállalatra szabva, ügyfeleink igényei és meglévő tudásszintje figyelembevételével végezzük.",
+      "close": {
+        "kicker": "Kapcsolat",
+        "title": "Képezzük együtt csapatát!",
+        "cta": "Írjon nekünk",
+        "link": "/kapcsolat"
+      }
+    },
+    "felnottkepzesCategories": [
+      {
+        "id": "kommunikacio",
+        "index": "01",
+        "title": "Kommunikációs készségfejlesztés",
+        "text": "A világ folyamatosan változik, ahogyan a kommunikációs módszerek is. Részletesen foglalkozunk az aktív hallgatás, az érzelmi intelligencia és a hatékony visszajelzés technikáival, hogy a résztvevők magabiztosan tudják kifejezni gondolataikat és érzéseiket.",
+        "visual": "/assets/illustrations/illust_inner_courses.svg",
+        "image": "",
+        "order": 1,
+        "active": true
+      },
+      {
+        "id": "vezetoi",
+        "index": "02",
+        "title": "Vezetői skillek fejlesztése",
+        "text": "A sikeres vezetés kulcsa a megfelelő eszközök és ismeretek birtoklása. Képzésünk során a résztvevők megismerkednek a különböző vezetési stílusokkal és azok alkalmazásával, valamint a konfliktuskezelési és döntéshozatali technikákkal.",
+        "visual": "/assets/illustrations/illust_coaching.svg",
+        "image": "",
+        "order": 2,
+        "active": true
+      },
+      {
+        "id": "generaciok",
+        "index": "03",
+        "title": "Generációk közötti együttműködés",
+        "text": "Képzésünk segít az eltérő korú munkatársak közötti hatékony kommunikáció, megértés és együttműködés kialakításában. A különböző életkorú munkavállalók más-más munkastílust, technológiai tudást és tapasztalatokat hoznak a munkahelyre, ami kihívásokat jelenthet a mindennapi együttműködés során. Célunk, hogy a különböző generációk közötti szakadékot áthidaljuk, és elősegítsük a kölcsönös tiszteleten alapuló, eredményes munkakapcsolatokat.",
+        "visual": "/assets/illustrations/illust_inner_hrdevelopment.svg",
+        "image": "",
+        "order": 3,
+        "active": true
+      },
+      {
+        "id": "stressz",
+        "index": "04",
+        "title": "Munkahelyi stressz – stresszkezelési technikák",
+        "text": "A munkahelyi stressz napjaink egyik legnagyobb kihívása. A mentális egészség megőrzése érdekében tréningjeinken a résztvevők megismerkednek a stresszforrások azonosításának módszereivel és elsajátítják azokat a gyakorlati technikákat, amelyekkel képesek lesznek tudatosan kezelni a kihívásokat, hogyan őrizhetik meg lelki egyensúlyukat és növelhetik teljesítőképességüket a mindennapi munka során.",
+        "visual": "/assets/illustrations/illust_stress.svg",
+        "image": "",
+        "order": 4,
+        "active": true
+      },
+      {
+        "id": "mi-alapjai",
+        "index": "05",
+        "title": "Mesterséges intelligencia alapjai",
+        "text": "Engedélyezett, 16 órás akkreditált képzésünk bevezeti a munkatársakat a mesterséges intelligencia alapjaiba és a felelős, gyakorlati alkalmazás lehetőségeibe a mindennapi munkában.",
+        "visual": "/assets/illustrations/illust_inner_courses.svg",
+        "image": "",
+        "order": 5,
+        "active": true
+      }
+    ],
+    "felnottkepzesProgrammes": [
+      {
+        "id": "munkavallaloi",
+        "tab": "Munkavállalói kompetenciák",
+        "index": "01",
+        "title": "Munkavállalói kompetenciák fejlesztése",
+        "items": [
+          {
+            "title": "Gazdálkodj az időddel!",
+            "hours": "24 óra"
+          },
+          {
+            "title": "Időgazdálkodás",
+            "hours": "16 óra"
+          },
+          {
+            "title": "Kommunikációs és együttműködési készségek fejlesztése",
+            "hours": "24 óra"
+          },
+          {
+            "title": "Kommunikációs tréning",
+            "hours": "24 óra"
+          },
+          {
+            "title": "Komplex kommunikációs készségek fejlesztése",
+            "hours": "42 óra"
+          },
+          {
+            "title": "Konfliktuskezelés",
+            "hours": "24 óra"
+          },
+          {
+            "title": "Konfliktushelyzetek kezelése",
+            "hours": "24 óra"
+          },
+          {
+            "title": "Konfliktuskezelés és kommunikáció",
+            "hours": "30 óra"
+          },
+          {
+            "title": "Sikeres szervezeti együttműködés és kommunikáció a gyakorlatban",
+            "hours": "16 óra"
+          },
+          {
+            "title": "Szervezeti és generációk közötti együttműködés fejlesztése",
+            "hours": "30 óra"
+          },
+          {
+            "title": "Üzleti kapcsolattartás és kommunikáció",
+            "hours": "16 óra"
+          }
+        ],
+        "order": 1,
+        "active": true
+      },
+      {
+        "id": "stressz",
+        "tab": "Stresszkezelés",
+        "index": "02",
+        "title": "Stresszkezelés, mentális egészség fejlesztése",
+        "items": [
+          {
+            "title": "A stressz és én",
+            "hours": "16 óra"
+          },
+          {
+            "title": "Mentálhigiéné és lelki egészségvédelem",
+            "hours": "54 óra"
+          }
+        ],
+        "order": 2,
+        "active": true
+      },
+      {
+        "id": "vezetoi",
+        "tab": "Vezetői kompetenciák",
+        "index": "03",
+        "title": "Vezetői kompetenciák fejlesztése",
+        "items": [
+          {
+            "title": "Menedzseri szemlélet a vezetői munkában",
+            "hours": "16 óra"
+          },
+          {
+            "title": "Tudatosság és társas készségek a vezetésben",
+            "hours": "16 óra"
+          },
+          {
+            "title": "Tudatosság és társas készségek a vezetésben tréning",
+            "hours": "24 óra"
+          },
+          {
+            "title": "Tudatosság és társas készségek fejlesztése",
+            "hours": "20 óra"
+          },
+          {
+            "title": "Vezetői kompetenciák fejlesztése",
+            "hours": "16 óra"
+          },
+          {
+            "title": "Tudatos vezetői működés fejlesztése",
+            "hours": "24 óra"
+          }
+        ],
+        "order": 3,
+        "active": true
+      },
+      {
+        "id": "mentori",
+        "tab": "Mentori kompetenciák",
+        "index": "04",
+        "title": "Mentori kompetenciák fejlesztése",
+        "items": [
+          {
+            "title": "Munkahelyi mentorok képzése",
+            "hours": "16 óra"
+          }
+        ],
+        "order": 4,
+        "active": true
+      },
+      {
+        "id": "digitalis",
+        "tab": "Digitális kompetenciák",
+        "index": "05",
+        "title": "Digitális kompetenciák fejlesztése",
+        "items": [
+          {
+            "title": "Mesterséges intelligencia alapjai",
+            "hours": "16 óra"
+          }
+        ],
+        "order": 5,
+        "active": true
+      }
+    ],
+    "referenciakPage": {
+      "hero": {
+        "label": "Referenciák · Partnereink",
+        "title": "Büszkék vagyunk partnereink",
+        "titleMark": "bizalmára!",
+        "lead": "Több mint 200 elégedett, visszatérő ügyfél – az alábbi partnereink logóival lesz teljes ez az oldal."
+      },
+      "stats": [
+        {
+          "value": 16,
+          "suffix": "",
+          "label": "év tanácsadói tapasztalat"
+        },
+        {
+          "value": 400,
+          "suffix": "+",
+          "label": "tanácsadási projekt"
+        },
+        {
+          "value": 200,
+          "suffix": "+",
+          "label": "elégedett, visszatérő ügyfél"
+        },
+        {
+          "value": 3500,
+          "suffix": "+",
+          "label": "résztvevő a képzéseinken"
+        }
+      ],
+      "cta": {
+        "kicker": "Kapcsolat",
+        "title": "Keressen minket bizalommal!",
+        "text": "Csatlakozzon partnereinkhez – írjon nekünk, és beszéljük át, miben segíthetünk!",
+        "btnLabel": "Írjon nekünk",
+        "link": "/kapcsolat"
+      }
+    },
+    "kapcsolat": {
+      "hero": {
+        "label": "Kapcsolat",
+        "title": "Keressen minket bizalommal",
+        "intro": "Keressen minket bizalommal az alábbi elérhetőségeinken!"
+      },
+      "mapEmbed": "https://maps.google.com/maps?q=1146+Budapest,+Izs%C3%B3+u.+7.+1/3.&hl=hu&z=16&ie=UTF8&iwloc=&output=embed",
+      "mapsSearch": "https://www.google.com/maps/search/1146+Budapest,+Izs%C3%B3+u.+7.+1%2F3./@47.5082165,19.0917401,200m/data=!3m1!1e3",
+      "doorbellNote": "6. kapucsengő",
+      "formTitle": "Üzenet",
+      "formMessages": {
+        "success": "Köszönjük! Hamarosan felvesszük Önnel a kapcsolatot.",
+        "error": "Hiba történt. Kérjük próbálja újra később.",
+        "required": "Ez a mező kötelező.",
+        "invalidEmail": "Érvénytelen e-mail cím.",
+        "notConfigured": "Az űrlap jelenleg nincs konfigurálva. Kérjük írjon közvetlenül az info@ravezeto.hu címre."
+      }
+    },
+    "footer": {
+      "trainingReg": "Nyilvántartásba vételi számunk: B/2020/001943 · Engedélyszámunk: E/2021/000106",
+      "euMark": {
+        "image": "/assets/images/Szechenyi-2020-logo.png",
+        "alt": "Széchenyi 2020 — Európai Unió",
+        "link": "/palyazatok"
+      }
+    },
+    "seo": [
+      {
+        "path": "/",
+        "title": "Rávezető – Változásokat vezetünk, együtt!",
+        "description": "A Rávezető Projekt Kft. emberközpontú szervezetfejlesztéssel és vezetési tanácsadással segíti vállalatát 2008 óta, 400+ lezárt fejlesztési és képzési projekttel."
+      },
+      {
+        "path": "/rolunk",
+        "title": "RÁVezető – Csapatunk",
+        "description": "Ismerje meg a Rávezető Projekt Kft. tanácsadó csapatát: több éves szervezetfejlesztési és felnőttképzési tapasztalattal segítik vállalata fejlődését."
+      },
+      {
+        "path": "/tanacsadas",
+        "title": "RÁVezető – Tanácsadás",
+        "description": "A Rávezető Projekt Kft. emberközpontú szervezetfejlesztési tanácsadással támogatja a változást irányító vezetőket és munkatársakat."
+      },
+      {
+        "path": "/felnottkepzes",
+        "title": "RÁVezető – Felnőttképzés",
+        "description": "A Rávezető Projekt Kft. engedélyes felnőttképzőként kulcskompetencia-fejlesztő tréningeket kínál jelenléti, e-learning és online formában vállalatoknak."
+      },
+      {
+        "path": "/referenciak",
+        "title": "RÁVezető – Referenciák",
+        "description": "A Rávezető Projekt Kft. 18 éve dolgozik vezető magyar vállalatokkal: 400+ tanácsadási projekt, 200+ visszatérő ügyfél, 3500+ képzési résztvevő."
+      },
+      {
+        "path": "/palyazatok",
+        "title": "RÁVezető – Pályázatok",
+        "description": "A Rávezető Projekt Kft. díjmentes konzultációval segít cégre szabott, pályázattal támogatott képzési portfóliót összeállítani és megvalósítani."
+      },
+      {
+        "path": "/mentally",
+        "title": "RÁVezető – Mentally",
+        "description": "Tudományos alapokon nyugvó online mérőeszköz a munkahelyi mentális egészség támogatására. Ismerje meg a Mentally-t."
+      },
+      {
+        "path": "/kapcsolat",
+        "title": "RÁVezető – Kapcsolat",
+        "description": "Lépjen kapcsolatba a Rávezető Projekt Kft.-vel: telefon, e-mail és 1146 Budapest, Izsó u. 7. 1/3., hétköznap 9 és 16 óra között."
+      },
+      {
+        "path": "/jogi/adatvedelem",
+        "title": "RÁVezető – Adatvédelem",
+        "description": "A Rávezető Projekt Kft. adatvédelmi tájékoztatói és adatkezelési gyakorlata. Engedélyezett felnőttképző intézmény (E/2021/000106, B/2020/001943)."
+      },
+      {
+        "path": "/jogi/impresszum",
+        "title": "RÁVezető – Impresszum",
+        "description": "A Rávezető Projekt Kft. hivatalos elérhetőségei, cégadatok és jogi dokumentumai."
+      },
+      {
+        "path": "/jogi/cookie",
+        "title": "RÁVezető – Cookie tájékoztató",
+        "description": "A Rávezető Projekt Kft. cookie-k használatáról szóló tájékoztatója."
+      },
+      {
+        "path": "/jogi",
+        "title": "Jogi információk – Rávezető",
+        "description": "Adatvédelmi tájékoztató, impresszum és jogi dokumentumok."
+      }
+    ],
+    "team": [
+      {
+        "id": "794",
+        "name": "Ríz Ádám CMC",
+        "slug": "riz-adam-cmc",
+        "role": "Alapító, ügyvezető",
+        "bio": "16 éve dolgozom tanácsadóként, nagyon szeretem a munkámat. Öröm tanácsadással fejleszteni azt a vállalatot, amely emberközpontú fejlesztésekben gondolkodik, és igyekszik a munkahelyi hétköznapokat jobbá tenni. Mert tényleg megéri.",
+        "portrait": "/assets/wp-uploads/2025/02/MG_1333.jpg",
+        "portraitPosition": "center 18%",
+        "featured": true,
+        "order": 1,
+        "active": true
+      },
+      {
+        "id": "800",
+        "name": "Berta Anikó",
+        "slug": "berta-aniko",
+        "role": "Tanácsadó",
+        "bio": "2018 óta foglalkozom felnőttképzések szervezésével és lebonyolításával. A képzési folyamatot a tervezéstől a megvalósításig végigkísérem, ügyelve arra, hogy a programok az ügyfelek valós igényeire épüljenek, szakmailag magas színvonalúak legyenek, és minden jogszabályi előírásnak megfeleljenek.",
+        "portrait": "/assets/wp-uploads/2025/02/IMG_0070-scaled.jpeg",
+        "portraitPosition": "center 12%",
+        "order": 2,
+        "active": true
+      },
+      {
+        "id": "797",
+        "name": "Bíró Gabriella",
+        "slug": "biro-gabriella",
+        "role": "Tanácsadó",
+        "bio": "1992-től dolgozom szervezetfejlesztés területén. 1989-ben megismerkedtem az OD szervezetfejlesztés módszerével, azóta közreműködtem szervezeti kultúraváltás folyamataiban, vezettem tréningeket, workshopokat, és szervezeti folyamatok fejlesztése részeként coachként dolgoztam vezetőkkel. A kulturális antropológia területén szerzett ismereteimet törekszem alkalmazni, szemlélődöm, tanulok és értelmezek.",
+        "portrait": "/assets/wp-uploads/2025/02/MG_0645-scaled.jpg",
+        "portraitPosition": "center 20%",
+        "order": 3,
+        "active": true
+      },
+      {
+        "id": "803",
+        "name": "Soós Andrea",
+        "slug": "soos-andrea",
+        "role": "Tanácsadó",
+        "bio": "A korábbi munkahelyeken szerzett változatos tapasztalatokat felhasználva a cég operatív vezetésében veszek részt. A projektek menedzsmentjén felül azért is felelek, hogy a cég pénzügyei rendben legyenek. Számomra fontos, hogy a minőségi munkavégzés kiemelt szempont a Rávezetőnél, ami együtt jár az ügyfeleink és a velünk együtt dolgozó szakértők elégedettségével.",
+        "portrait": "/assets/wp-uploads/2025/02/MG_1458.jpg",
+        "portraitPosition": "center 15%",
+        "order": 4,
+        "active": true
+      },
+      {
+        "id": "806",
+        "name": "Szőke Ádám",
+        "slug": "szoke-adam",
+        "role": "Tanácsadó",
+        "bio": "A Rávezetőben elsősorban szervezetfejlesztési projekteken dolgozom tanácsadóként, amelyben nagy segítséget nyújt a korábban 9 év alatt szerzett vezetői tapasztalatom egy felsőoktatási intézményben. Rendszergondolkodásom, empátiám kiegészült a szervezetfejlesztés képzésen szerzett strukturált ismeretekkel, amelyeket még tovább bővítve igyekszem több szemszögből és eszközzel megközelíteni az egyéni-, csoportos- és szervezeti problémákat.",
+        "portrait": "/assets/wp-uploads/2025/02/MG_1055.jpg",
+        "portraitPosition": "center 22%",
+        "order": 5,
+        "active": true
+      }
+    ],
+    "partners": [
+      {
+        "id": "ref35",
+        "slug": "ref35",
+        "name": "ATEV",
+        "logo": "/assets/wp-uploads/2025/02/ATEV_processed.png",
+        "order": 1,
+        "active": true
+      },
+      {
+        "id": "ref34",
+        "slug": "ref34",
+        "name": "BGYH",
+        "logo": "/assets/wp-uploads/2025/02/BGYH-new.png",
+        "order": 2,
+        "active": true
+      },
+      {
+        "id": "ref33",
+        "slug": "ref33",
+        "name": "DKU",
+        "logo": "/assets/wp-uploads/2025/02/DKU-new.png",
+        "order": 3,
+        "active": true
+      },
+      {
+        "id": "ref32",
+        "slug": "ref32",
+        "name": "KSZK",
+        "logo": "/assets/wp-uploads/2025/02/KSZK-1-new.png",
+        "order": 4,
+        "active": true
+      },
+      {
+        "id": "ref31",
+        "slug": "ref31",
+        "name": "Lechner",
+        "logo": "/assets/wp-uploads/2025/02/Lechner-new.png",
+        "order": 5,
+        "active": true
+      },
+      {
+        "id": "ref30",
+        "slug": "ref30",
+        "name": "NFFKU",
+        "logo": "/assets/wp-uploads/2025/02/NFFKU-new.png",
+        "order": 6,
+        "active": true
+      },
+      {
+        "id": "ref29",
+        "slug": "ref29",
+        "name": "RC Hungaria",
+        "logo": "/assets/wp-uploads/2025/02/rc-hungaria-new.png",
+        "order": 7,
+        "active": true
+      },
+      {
+        "id": "ref28",
+        "slug": "ref28",
+        "name": "Vajda Papír",
+        "logo": "/assets/wp-uploads/2025/02/Vajda_Papir-new.png",
+        "order": 8,
+        "active": true
+      },
+      {
+        "id": "ref27",
+        "slug": "ref27",
+        "name": "VKSZ",
+        "logo": "/assets/wp-uploads/2025/02/vksz-new.png",
+        "order": 9,
+        "active": true
+      },
+      {
+        "id": "ref26",
+        "slug": "ref26",
+        "name": "BauDekor",
+        "logo": "/assets/wp-uploads/2025/02/BauDekor-new.png",
+        "order": 10,
+        "active": true
+      },
+      {
+        "id": "ref25",
+        "slug": "ref25",
+        "name": "Dyntell",
+        "logo": "/assets/wp-uploads/2025/02/Dyntell-new.png",
+        "order": 11,
+        "active": true
+      },
+      {
+        "id": "ref24",
+        "slug": "ref24",
+        "name": "Equinox Consulting",
+        "logo": "/assets/wp-uploads/2025/02/Equinox-Consulting-Kft-new.png",
+        "order": 12,
+        "active": true
+      },
+      {
+        "id": "ref23",
+        "slug": "ref23",
+        "name": "Ex Ante",
+        "logo": "/assets/wp-uploads/2025/02/Ex-Ante-Kft-new.png",
+        "order": 13,
+        "active": true
+      },
+      {
+        "id": "ref22",
+        "slug": "ref22",
+        "name": "Globomax",
+        "logo": "/assets/wp-uploads/2025/02/globomax-new.png",
+        "order": 14,
+        "active": true
+      },
+      {
+        "id": "ref21",
+        "slug": "ref21",
+        "name": "HD Direkt",
+        "logo": "/assets/wp-uploads/2025/02/HD-Direkt-Hungary-new.png",
+        "order": 15,
+        "active": true
+      },
+      {
+        "id": "ref20",
+        "slug": "ref20",
+        "name": "Kemence",
+        "logo": "/assets/wp-uploads/2025/02/kemence.png",
+        "order": 16,
+        "active": true
+      },
+      {
+        "id": "ref19",
+        "slug": "ref19",
+        "name": "Konigsberg Consulting",
+        "logo": "/assets/wp-uploads/2025/02/Konigsberg-Consulting-new.png",
+        "order": 17,
+        "active": true
+      },
+      {
+        "id": "ref18",
+        "slug": "ref18",
+        "name": "MNA Group",
+        "logo": "/assets/wp-uploads/2025/02/MNA-GROUP-Kft-new.png",
+        "order": 18,
+        "active": true
+      },
+      {
+        "id": "ref17",
+        "slug": "ref17",
+        "name": "Profikomp",
+        "logo": "/assets/wp-uploads/2025/02/Profikomp-new.png",
+        "order": 19,
+        "active": true
+      },
+      {
+        "id": "ref16",
+        "slug": "ref16",
+        "name": "SALDO",
+        "logo": "/assets/wp-uploads/2025/02/SALDO-new.png",
+        "order": 20,
+        "active": true
+      },
+      {
+        "id": "ref15",
+        "slug": "ref15",
+        "name": "SBT Protect",
+        "logo": "/assets/wp-uploads/2025/02/SBT_processed.png",
+        "order": 21,
+        "active": true
+      },
+      {
+        "id": "ref14",
+        "slug": "ref14",
+        "name": "Smart Digital",
+        "logo": "/assets/wp-uploads/2025/02/Smart_Digital-new.png",
+        "order": 22,
+        "active": true
+      },
+      {
+        "id": "ref13",
+        "slug": "ref13",
+        "name": "Zengo",
+        "logo": "/assets/wp-uploads/2025/02/Zengo-new.png",
+        "order": 23,
+        "active": true
+      },
+      {
+        "id": "ref12",
+        "slug": "ref12",
+        "name": "MOME",
+        "logo": "/assets/wp-uploads/2025/02/mome.png",
+        "order": 24,
+        "active": true
+      },
+      {
+        "id": "ref11",
+        "slug": "ref11",
+        "name": "Óbudai Egyetem",
+        "logo": "/assets/wp-uploads/2025/02/OE-new.png",
+        "order": 25,
+        "active": true
+      },
+      {
+        "id": "ref10",
+        "slug": "ref10",
+        "name": "Soproni Egyetem",
+        "logo": "/assets/wp-uploads/2025/02/Soproni-Egyetem-new.png",
+        "order": 26,
+        "active": true
+      },
+      {
+        "id": "ref9",
+        "slug": "ref9",
+        "name": "Széchenyi István Egyetem",
+        "logo": "/assets/wp-uploads/2025/02/sze_logo-new.png",
+        "order": 27,
+        "active": true
+      },
+      {
+        "id": "ref8",
+        "slug": "ref8",
+        "name": "SSZC",
+        "logo": "/assets/wp-uploads/2025/02/SSZC-new.png",
+        "order": 28,
+        "active": true
+      },
+      {
+        "id": "ref7",
+        "slug": "ref7",
+        "name": "Tudományegyetem",
+        "logo": "/assets/wp-uploads/2025/02/TE-new.png",
+        "order": 29,
+        "active": true
+      },
+      {
+        "id": "ref6",
+        "slug": "ref6",
+        "name": "TSZC",
+        "logo": "/assets/wp-uploads/2025/02/tszc-new.png",
+        "order": 30,
+        "active": true
+      },
+      {
+        "id": "ref5",
+        "slug": "ref5",
+        "name": "Nyugat-Magyarországi Egyetem",
+        "logo": "/assets/wp-uploads/2025/02/univgyor.png",
+        "order": 31,
+        "active": true
+      },
+      {
+        "id": "ref4",
+        "slug": "ref4",
+        "name": "MMSZ",
+        "logo": "/assets/wp-uploads/2025/02/mmsz-new.png",
+        "order": 32,
+        "active": true
+      },
+      {
+        "id": "ref3",
+        "slug": "ref3",
+        "name": "NNGYK",
+        "logo": "/assets/wp-uploads/2025/02/NNGYK-new.png",
+        "order": 33,
+        "active": true
+      },
+      {
+        "id": "ref1",
+        "slug": "ref1",
+        "name": "OKFO",
+        "logo": "/assets/wp-uploads/2025/02/OKFO-new.png",
+        "order": 34,
+        "active": true
+      }
+    ],
+    "references": [
+      {
+        "id": "smart-digital",
+        "title": "Smart Digital",
+        "description": "„Szívesen dolgozom a Rávezető csapatával, mert Mariann és Andi is mindig segítőkész és előre megnyugodhatok, hogy bármil",
+        "logo": "Smart Digital",
+        "who": "Horváth Botond operatív vezető, Smart Digital Kft.",
+        "quotes": [
+          "„Szívesen dolgozom a Rávezető csapatával, mert Mariann és Andi is mindig segítőkész és előre megnyugodhatok, hogy bármilyen képzést is tartanak nekünk, profi trénert küldenek és a kapcsolódó pályázati adminisztráció oldala is pontos és naprakész.",
+          "Kedves Ádám, Andi és Mariann! Külön örülök, hogy igazi partnerként tekinthetek rátok és segítetek a mi igényeinkre is tényleges megoldást adni.",
+          "Köszönjük az eddigi együttműködést és remélem, hogy még sok közös eredményes projektben lesz részünk!”"
+        ],
+        "order": 1,
+        "active": true
+      },
+      {
+        "id": "saldo",
+        "title": "SALDO",
+        "description": "„A GINOP Plusz-3.2.1 pályázat kapcsán kerültünk kapcsolatba a Rávezető Kft. szakértőivel, akik végigkísértek bennünket a",
+        "logo": "SALDO",
+        "who": "Sarkadi-Nagy András vezérigazgató, SALDO Pénzügyi Tanácsadó és Informatikai Zrt.",
+        "quotes": [
+          "„A GINOP Plusz-3.2.1 pályázat kapcsán kerültünk kapcsolatba a Rávezető Kft. szakértőivel, akik végigkísértek bennünket a pályázat benyújtásától a képzések lebonyolításán át egészen a projekt elszámolásáig.",
+          "Rugalmasságuk, precizitásuk és segítőkész hozzáállásuk nagyban megkönnyítette az együttműködést, és segítettek eligazodni a túlszabályozott, bürokratikus előírások között.",
+          "Profi, jól összehangolt csapat, akikkel öröm volt együtt dolgozni.”"
+        ],
+        "order": 2,
+        "active": true
+      },
+      {
+        "id": "globomax",
+        "title": "Globomax",
+        "description": "„A Rávezető Kft.-vel két szervezetfejlesztési projekten dolgoztunk. 2021 elején új fejlődési pályára akartuk állítani a ",
+        "logo": "Globomax",
+        "who": "Amberger Árpád vezérigazgató, Globomax Zrt.",
+        "quotes": [
+          "„A Rávezető Kft.-vel két szervezetfejlesztési projekten dolgoztunk. 2021 elején új fejlődési pályára akartuk állítani a 25 éve működő cégünket. Ehhez konszenzuson alapuló jövőképre, közös alapértékek meghatározására, és lényeges szervezeti változásokra is szükség volt.",
+          "Egy féléves projekttel az ehhez szükséges alapokat le tudtuk rakni. Így utólag visszatekintve látszik, hogy az ötéves középtávú terv keretében az árbevételünket meg tudtuk duplázni, és stabil fejlődési pályára állítottuk a céget.”"
+        ],
+        "order": 3,
+        "active": true
+      },
+      {
+        "id": "sze",
+        "title": "SZE",
+        "description": "„A Széchenyi István Egyetem stratégiai céljainak megvalósítását támogató programban a Rávezető Projekt Kft. hatékony seg",
+        "logo": "SZE",
+        "who": "Váginé Varga Zsuzsa, igazgató, Humánerőforrás Igazgatóság, SZE",
+        "quotes": [
+          "„A Széchenyi István Egyetem stratégiai céljainak megvalósítását támogató programban a Rávezető Projekt Kft. hatékony segítséget nyújtott, melyet ezúton is köszönünk! Ádám és Kollégái nagy hangsúlyt fektettek a fejlesztési és képzési igényeink megismerésére, ezáltal az intézményünkre tervezett, egyéni program valósulhatott meg.",
+          "Kollégáink és vezető társaink visszajelzései alapján a program elérte célját, nem csak szakmailag értékes, de élményekben is gazdag napokat töltöttünk együtt. Ádámék professzionalizmusa, szakmai felkészültsége meggyőző, emberi hozzáállásukkal olyan érzésünk volt, mintha már régóta közeli kollégák lennénk, kiváló együttműködéssel, egymást inspirálva. Egészen biztos vagyok, hogy fogunk még együtt dolgozni új, az Egyetemünk és Kollégáink fejlődését szolgáló programok megvalósításán :)!”"
+        ],
+        "order": 4,
+        "active": true
+      },
+      {
+        "id": "kozigazgatas",
+        "title": "Közigazgatás",
+        "description": "„A Rávezető Projekt Kft. szakértőivel 2019–2020 között a szervezeti kultúrafejlesztési program során dolgoztam együtt, a",
+        "logo": "Közigazgatás",
+        "who": "Arany Mónika, főosztályvezető (2019–2020)",
+        "quotes": [
+          "„A Rávezető Projekt Kft. szakértőivel 2019–2020 között a szervezeti kultúrafejlesztési program során dolgoztam együtt, ami a közös érték, kultúra, szemléletváltás megújulását alapozta meg a területi közigazgatás szervezetrendszerében. A Rávezető Projekt Kft. igényes és alapos munkával feltárta a szervezet célját, törekvését, szervezeti kultúra képességét és hatékonyságát, ehhez az állapothoz igazította a közös érték, kultúra, szemléletváltás megújulását célzó fejlesztési programokat.",
+          "Szakértői magas szakmai színvonalon dolgoztak, külön figyelmet fordítottak a szervezeti kultúrafejlesztés aktuális trendjeire, változatos andragógiai-didaktikai és fejlesztési megoldásokra. Általuk eredményesen megvalósult több ezer, különböző szakterületen munkát végző munkatárs fejlesztése a szervezeti változások aktív támogatása céljából.”"
+        ],
+        "order": 5,
+        "active": true
+      }
+    ],
+    "palyazatok": {
+      "heroLabel": "Pályázatok · GINOP Plusz 3.2.1-21",
+      "q1": "Mi van, ha képzem a munkavállalóimat és elmennek?",
+      "q2Lead": "Ok, de mi van akkor, ha nem képzem és",
+      "q2Mark": "maradnak?!",
+      "lead": "Támogatott képzések az Év Trénere díj nyerteseivel!",
+      "heroCta": "Lépjen velünk kapcsolatba!",
+      "deadlineMessage": "Jelenleg nincs elérhető képzési pályázat",
+      "aboutText": "A Rávezető 2008 óta működő tanácsadó vállalat, 2014 óta engedéllyel rendelkező felnőttképző intézmény, kompetenciafejlesztési fókusszal.",
+      "aboutLinkLabel": "Tudjon meg többet rólunk! →",
+      "aboutLink": "/rolunk",
+      "partnersLabel": "Együttműködő partnereink:",
+      "partnersLinkLabel": "További referenciák →",
+      "partnersLink": "/referenciak",
+      "partners": [
+        {
+          "src": "/assets/images/palyazatok/img-02.jpg",
+          "alt": "SALDO Pénzügyi Tanácsadó és Informatikai Zrt."
+        },
+        {
+          "src": "/assets/images/palyazatok/img-03.jpg",
+          "alt": "Smart Digital Kft."
+        },
+        {
+          "src": "/assets/images/palyazatok/img-04.png",
+          "alt": "Globomax Zrt."
+        },
+        {
+          "src": "/assets/images/palyazatok/img-05.png",
+          "alt": "ATEV Fehérjefeldolgozó Zrt."
+        },
+        {
+          "src": "/assets/images/palyazatok/img-06.png",
+          "alt": "Budapest Gyógyfürdői és Hévizei Zrt."
+        }
+      ],
+      "stepsLabel": "Hogyan segítünk?",
+      "stepsTitle": "Díjmentes konzultációval indulunk",
+      "steps": [
+        "Díjmentes konzultáció,",
+        "ami alapján segítünk összeállítani a cégre szabott képzési portfólióját,",
+        "és végigkísérjük a benyújtás és a megvalósítás során!"
+      ],
+      "contactName": "Berta Anikó",
+      "contactRole": "Projektmenedzser",
+      "contactPortrait": "/assets/images/palyazatok/img-07.jpg",
+      "contactEmail": "kepzes@ravezeto.hu",
+      "contactPhone": "+36 70/513 4128",
+      "contactPhoneTel": "+36705134128",
+      "formTitle": "Lépjen velünk kapcsolatba!",
+      "formPrivacyText": "Ennek az űrlapnak a kitöltésével hozzájárul, hogy a weblap eltárolja és felhasználja a megadott adatokat.",
+      "formPrivacyLink": "/jogi/adatvedelem",
+      "formPrivacyLinkLabel": "Adatkezelési szabályzat",
+      "formSubmit": "Küldés →",
+      "active": true
+    }
+  }
+}

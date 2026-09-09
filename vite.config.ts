@@ -16,7 +16,15 @@ export default defineConfig(({ mode }) => {
     if (env[key]) process.env[key] = env[key];
   }
 
+  const buildId =
+    process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) ??
+    process.env.GITHUB_SHA?.slice(0, 7) ??
+    'dev';
+
   return {
+    define: {
+      __APP_BUILD_ID__: JSON.stringify(buildId),
+    },
     plugins: [react(), adminAuthDevPlugin()],
     server: {
       watch: {
