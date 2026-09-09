@@ -20,7 +20,7 @@ export const teamMembers: TeamMember[] = [
     id: 794,
     name: 'Ríz Ádám CMC',
     slug: 'riz-adam-cmc',
-    bio: '16 éve dolgozom tanácsadóként, nagyon szeretem a munkámat. Öröm tanácsadással fejleszteni azt a vállalatot, amely emberközpontú fejlesztésekben gondolkodik, és igyekszik a munkahelyi hétköznapokat jobbá tenni. Mert tényleg megéri.',
+    bio: '18 éve dolgozom tanácsadóként, nagyon szeretem a munkámat. Öröm tanácsadással fejleszteni azt a vállalatot, amely emberközpontú fejlesztésekben gondolkodik, és igyekszik a munkahelyi hétköznapokat jobbá tenni. Mert tényleg megéri.',
     portrait: teamPhotos2025['riz-adam-cmc'],
     portraitPosition: 'center 18%',
     featured: true,

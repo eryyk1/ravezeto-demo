@@ -5,6 +5,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { CONTENT_DEFAULTS_REVISION } from '../src/services/content/constants';
 import { createDefaultContent } from '../src/services/content/defaults';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -17,6 +18,7 @@ const payload = {
   schemaVersion: published.schemaVersion,
   generatedAt: new Date().toISOString(),
   buildRef: process.env.VERCEL_GIT_COMMIT_SHA ?? process.env.GITHUB_SHA ?? 'local',
+  defaultsRevision: CONTENT_DEFAULTS_REVISION,
   published,
 };
 

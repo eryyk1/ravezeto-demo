@@ -1,6 +1,8 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useAdminUi } from '../context/AdminUiContext';
+import { CONTENT_DEFAULTS_REVISION } from '../../services/content/constants';
+import { useCmsMeta } from '../../services/content/useContent';
 import {
   IconDashboard,
   IconExternal,
@@ -49,6 +51,7 @@ const NAV_SECTIONS = [
 export default function AdminSidebar() {
   const { logout, session } = useAuth();
   const { sidebarOpen, setSidebarOpen } = useAdminUi();
+  const meta = useCmsMeta();
   const navigate = useNavigate();
 
   async function handleLogout() {
@@ -103,7 +106,9 @@ export default function AdminSidebar() {
         </nav>
 
         <div className="admin-sidebar__footer">
-          <p className="admin-sidebar__build">Build: {__APP_BUILD_ID__}</p>
+          <p className="admin-sidebar__build">
+            Build: {__APP_BUILD_ID__} · Tartalom rev: {meta.defaultsRevision ?? 0}/{CONTENT_DEFAULTS_REVISION}
+          </p>
           <p className="admin-sidebar__user">{session?.user.email}</p>
           <a className="admin-sidebar__link admin-sidebar__link--muted" href="/" target="_blank" rel="noreferrer">
             <IconExternal className="admin-sidebar__icon" />

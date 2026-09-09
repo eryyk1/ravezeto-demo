@@ -1,3 +1,4 @@
+import { CONTENT_DEFAULTS_REVISION } from './constants';
 import { createDefaultContent } from './defaults';
 import type {
   ActivityEntry,
@@ -20,17 +21,18 @@ import type {
   TeamMember,
 } from './types';
 
+const STORAGE_KEY_V4 = 'ravezeto_cms_v4';
 const STORAGE_KEY_V3 = 'ravezeto_cms_v3';
 const STORAGE_KEY_V2 = 'ravezeto_cms_v2';
 const STORAGE_KEY_V1 = 'ravezeto_cms_v1';
-const CMS_STORAGE_VERSION = 3 as const;
+const CMS_STORAGE_VERSION = 4 as const;
 const MAX_VERSIONS = 40;
 const MAX_ACTIVITY = 80;
-const CONTENT_DEFAULTS_REVISION = 2;
 const APP_BUILD_ID = typeof __APP_BUILD_ID__ !== 'undefined' ? __APP_BUILD_ID__ : 'dev';
 
 type CmsSnapshotFile = {
   buildRef?: string;
+  defaultsRevision?: number;
   published?: Partial<SiteContent>;
 };
 
@@ -186,10 +188,6 @@ function mergeSiteContent(parsed: Partial<SiteContent>, defaults: SiteContent): 
   };
 }
 
-function mergeLegacyV1(parsed: Partial<SiteContent>, defaults: SiteContent): SiteContent {
-  return mergeSiteContent(parsed, defaults);
-}
-
 function defaultMeta(partial?: Partial<CmsState['meta']>): CmsState['meta'] {
   return {
     lastModified: null,
@@ -201,16 +199,48 @@ function defaultMeta(partial?: Partial<CmsState['meta']>): CmsState['meta'] {
   };
 }
 
+function createFreshCmsState(defaults: SiteContent, message: string): CmsState {
+  const ts = nowIso();
+  return {
+    storageVersion: CMS_STORAGE_VERSION,
+    draft: cloneContent(defaults),
+    published: cloneContent(defaults),
+    versions: [],
+    activity: [
+      {
+        id: createId('act'),
+        at: ts,
+        message,
+        section: 'system',
+      },
+    ],
+    meta: defaultMeta({
+      lastModified: ts,
+      lastPublished: ts,
+      defaultsRevision: CONTENT_DEFAULTS_REVISION,
+      publishedBuildRef: APP_BUILD_ID,
+    }),
+  };
+}
+
+function purgeLegacyStorage() {
+  if (typeof window === 'undefined') return;
+  localStorage.removeItem(STORAGE_KEY_V3);
+  localStorage.removeItem(STORAGE_KEY_V2);
+  localStorage.removeItem(STORAGE_KEY_V1);
+}
+
 function applyDefaultsRefresh(state: CmsState, defaults: SiteContent): CmsState {
   const revision = state.meta.defaultsRevision ?? 0;
-  if (revision >= CONTENT_DEFAULTS_REVISION || state.meta.hasUnpublishedChanges) {
+  if (revision >= CONTENT_DEFAULTS_REVISION) {
     return state;
   }
 
   const ts = nowIso();
   return {
     ...state,
-    draft: defaults,
+    storageVersion: CMS_STORAGE_VERSION,
+    draft: cloneContent(defaults),
     published: cloneContent(defaults),
     meta: {
       ...state.meta,
@@ -223,7 +253,7 @@ function applyDefaultsRefresh(state: CmsState, defaults: SiteContent): CmsState 
       {
         id: createId('act'),
         at: ts,
-        message: 'Tartalom frissítve az aktuális oldal szerint',
+        message: `Tartalom frissítve (rev ${CONTENT_DEFAULTS_REVISION})`,
         section: 'system',
       },
       ...state.activity,
@@ -246,92 +276,24 @@ function hydrateCmsState(parsed: Partial<CmsState>, defaults: SiteContent): CmsS
 function loadInitialState(): CmsState {
   const defaults = createDefaultContent();
   if (typeof window === 'undefined') {
-    return {
-      storageVersion: CMS_STORAGE_VERSION,
-      draft: defaults,
-      published: cloneContent(defaults),
-      versions: [],
-      activity: [],
-      meta: defaultMeta(),
-    };
+    return createFreshCmsState(defaults, 'SSR init');
   }
 
+  purgeLegacyStorage();
+
   try {
-    const rawV3 = localStorage.getItem(STORAGE_KEY_V3);
-    if (rawV3) {
-      const parsed = JSON.parse(rawV3) as CmsState;
+    const rawV4 = localStorage.getItem(STORAGE_KEY_V4);
+    if (rawV4) {
+      const parsed = JSON.parse(rawV4) as CmsState;
       if (parsed.storageVersion === CMS_STORAGE_VERSION && parsed.draft && parsed.published) {
-        return hydrateCmsState(parsed, defaults);
+        return applyDefaultsRefresh(hydrateCmsState(parsed, defaults), defaults);
       }
     }
   } catch {
     /* fall through */
   }
 
-  try {
-    const rawV2 = localStorage.getItem(STORAGE_KEY_V2);
-    if (rawV2) {
-      const parsed = JSON.parse(rawV2) as CmsState;
-      if (parsed.draft && parsed.published) {
-        const ts = nowIso();
-        return hydrateCmsState(
-          {
-            ...parsed,
-            meta: defaultMeta({
-              ...parsed.meta,
-              lastModified: parsed.meta?.lastModified ?? ts,
-              publishedBuildRef: null,
-            }),
-          },
-          defaults,
-        );
-      }
-    }
-  } catch {
-    /* fall through */
-  }
-
-  try {
-    const rawV1 = localStorage.getItem(STORAGE_KEY_V1);
-    if (rawV1) {
-      const parsed = JSON.parse(rawV1) as Partial<SiteContent>;
-      const merged = mergeLegacyV1(parsed, defaults);
-      const ts = nowIso();
-      return {
-        storageVersion: CMS_STORAGE_VERSION,
-        draft: merged,
-        published: cloneContent(merged),
-        versions: [],
-        activity: [
-          {
-            id: `act-migrate-${Date.now()}`,
-            at: ts,
-            message: 'Tartalom átmigrálva a korábbi CMS verzióból',
-            section: 'system',
-          },
-        ],
-        meta: defaultMeta({
-          lastModified: ts,
-          lastPublished: ts,
-        }),
-      };
-    }
-  } catch {
-    /* fall through */
-  }
-
-  const ts = nowIso();
-  return {
-    storageVersion: CMS_STORAGE_VERSION,
-    draft: defaults,
-    published: cloneContent(defaults),
-    versions: [],
-    activity: [],
-    meta: defaultMeta({
-      lastModified: ts,
-      lastPublished: ts,
-    }),
-  };
+  return createFreshCmsState(defaults, 'CMS inicializálva az aktuális oldal tartalmával');
 }
 
 class ContentStore {
@@ -352,32 +314,37 @@ class ContentStore {
       if (!response.ok) return;
 
       const payload = (await response.json()) as CmsSnapshotFile;
-      const remoteBuildRef = payload.buildRef ?? APP_BUILD_ID;
-      if (remoteBuildRef === this.state.meta.publishedBuildRef) return;
-
       const defaults = createDefaultContent();
-      const mergedPublished = mergeSiteContent(payload.published ?? {}, defaults);
+      const remoteBuildRef = payload.buildRef ?? APP_BUILD_ID;
+      const remoteRevision = payload.defaultsRevision ?? CONTENT_DEFAULTS_REVISION;
+      const localRevision = this.state.meta.defaultsRevision ?? 0;
+      const needsRefresh =
+        remoteRevision > localRevision || remoteBuildRef !== this.state.meta.publishedBuildRef;
+
+      if (!needsRefresh) return;
+
+      const mergedPublished =
+        remoteRevision > localRevision
+          ? cloneContent(defaults)
+          : mergeSiteContent(payload.published ?? {}, defaults);
       const ts = nowIso();
-      const shouldResetDraft = !this.state.meta.hasUnpublishedChanges;
 
       this.state = {
         ...this.state,
         published: mergedPublished,
-        ...(shouldResetDraft ? { draft: cloneContent(mergedPublished) } : {}),
+        draft: cloneContent(mergedPublished),
         meta: {
           ...this.state.meta,
           publishedBuildRef: remoteBuildRef,
-          defaultsRevision: CONTENT_DEFAULTS_REVISION,
+          defaultsRevision: remoteRevision,
           lastModified: ts,
-          ...(shouldResetDraft ? { hasUnpublishedChanges: false } : {}),
+          hasUnpublishedChanges: false,
         },
         activity: [
           {
             id: createId('act'),
             at: ts,
-            message: shouldResetDraft
-              ? 'Frissített tartalom betöltve a szerverről'
-              : 'Publikált tartalom frissítve (piszkozat megmaradt)',
+            message: `Frissített tartalom betöltve (rev ${remoteRevision})`,
             section: 'system',
           },
           ...this.state.activity,
@@ -402,8 +369,10 @@ class ContentStore {
 
   private persist() {
     if (typeof window === 'undefined') return;
-    localStorage.setItem(STORAGE_KEY_V3, JSON.stringify(this.state));
+    localStorage.setItem(STORAGE_KEY_V4, JSON.stringify(this.state));
+    localStorage.removeItem(STORAGE_KEY_V3);
     localStorage.removeItem(STORAGE_KEY_V2);
+    localStorage.removeItem(STORAGE_KEY_V1);
     this.notify();
   }
 
@@ -471,6 +440,8 @@ class ContentStore {
         lastModified: ts,
         lastPublished: ts,
         hasUnpublishedChanges: false,
+        publishedBuildRef: APP_BUILD_ID,
+        defaultsRevision: CONTENT_DEFAULTS_REVISION,
       },
       activity: [
         {
@@ -527,9 +498,9 @@ class ContentStore {
     const ts = nowIso();
     this.state = {
       storageVersion: CMS_STORAGE_VERSION,
-      draft: defaults,
+      draft: cloneContent(defaults),
       published: cloneContent(defaults),
-      versions: this.state.versions,
+      versions: [],
       activity: [
         {
           id: createId('act'),
@@ -537,12 +508,12 @@ class ContentStore {
           message: 'Tartalom visszaállítva az alapértelmezett értékekre',
           section: 'system',
         },
-        ...this.state.activity,
-      ].slice(0, MAX_ACTIVITY),
+      ],
       meta: defaultMeta({
         lastModified: ts,
         lastPublished: ts,
         publishedBuildRef: APP_BUILD_ID,
+        defaultsRevision: CONTENT_DEFAULTS_REVISION,
       }),
     };
     this.persist();

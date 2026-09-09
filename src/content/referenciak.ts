@@ -19,8 +19,8 @@ export const referenciakTestimonials = [
     logo: 'Smart Digital',
     who: 'Horváth Botond operatív vezető, Smart Digital Kft.',
     quotes: [
-      '„Szívesen dolgozom a Rávezető csapatával, mert Mariann és Andi is mindig segítőkész és előre megnyugodhatok, hogy bármilyen képzést is tartanak nekünk, profi trénert küldenek és a kapcsolódó pályázati adminisztráció oldala is pontos és naprakész.',
-      'Kedves Ádám, Andi és Mariann! Külön örülök, hogy igazi partnerként tekinthetek rátok és segítetek a mi igényeinkre is tényleges megoldást adni.',
+      '„Szívesen dolgozom a Rávezető csapatával, mert Andi és Ádám is mindig segítőkész és előre megnyugodhatok, hogy bármilyen képzést is tartanak nekünk, profi trénert küldenek és a kapcsolódó pályázati adminisztráció oldala is pontos és naprakész.',
+      'Kedves Andi és Ádám! Külön örülök, hogy igazi partnerként tekinthetek rátok és segítetek a mi igényeinkre is tényleges megoldást adni.',
       'Köszönjük az eddigi együttműködést és remélem, hogy még sok közös eredményes projektben lesz részünk!”',
     ],
   },
@@ -55,6 +55,27 @@ export const referenciakTestimonials = [
     quotes: [
       '„A Rávezető Projekt Kft. szakértőivel 2019–2020 között a szervezeti kultúrafejlesztési program során dolgoztam együtt, ami a közös érték, kultúra, szemléletváltás megújulását alapozta meg a területi közigazgatás szervezetrendszerében. A Rávezető Projekt Kft. igényes és alapos munkával feltárta a szervezet célját, törekvését, szervezeti kultúra képességét és hatékonyságát, ehhez az állapothoz igazította a közös érték, kultúra, szemléletváltás megújulását célzó fejlesztési programokat.',
       'Szakértői magas szakmai színvonalon dolgoztak, külön figyelmet fordítottak a szervezeti kultúrafejlesztés aktuális trendjeire, változatos andragógiai-didaktikai és fejlesztési megoldásokra. Általuk eredményesen megvalósult több ezer, különböző szakterületen munkát végző munkatárs fejlesztése a szervezeti változások aktív támogatása céljából.”',
+    ],
+  },
+  {
+    logo: 'B+N',
+    who: 'Papp Szilvia, képzés-fejlesztési vezető, B+N Magyarország Kft.',
+    quotes: [
+      '„Köszönjük a konfliktuskezelési és kommunikációs képzésen nyújtott szakmai munkátokat. A program jól illeszkedett a résztvevők eltérő munkaköri sajátosságaihoz, és segített közelebb hozni egymáshoz az operációban dolgozó kollégák és back office területek szemléletét.',
+      'Külön értékeltük a gyakorlati megközelítést, az érthető felépítést és azt, hogy a tréning valódi, a mindennapokban is hasznosítható eszközöket adott a munkatársaknak. Mindkét tréner kiválóan vette a »hibrid« csoportok által behozott akadályokat, a néha szélsőséges véleménykülönbségeket.',
+      'Határozottan állíthatjuk, hogy Ágira és Ritára a képzési napokon nem csak trénerként, hanem pszichológusként, pedagógusként, sőt kollégaként tekinthettünk. Úgy látjuk, hogy a képzés hozzájárult a kölcsönös megértéshez és a jövőbeni együttműködés erősítéséhez.”',
+    ],
+  },
+  {
+    logo: 'SBT Protect',
+    who: 'Ertinger Imre, ügyvezető, SBT Protect Kft.',
+    quotes: [
+      '„Ádámmal és csapatával 2019 óta dolgozunk együtt, változó intenzitással és több területen is: szervezetfejlesztés, menedzsment coaching, képzések, toborzás. Amit nyújtanak:',
+      'nyílt, barátságos, támogató, bizalmi légkör,',
+      'szakmailag alátámasztott módszerek és eszközök,',
+      'igényekre szabott megoldások,',
+      'felkészült, segítőkész csapat.',
+      'Kétség nélkül ajánlom őket.”',
     ],
   },
 ] as const;

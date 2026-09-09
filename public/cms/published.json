@@ -1,7 +1,8 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-09T12:26:40.360Z",
+  "generatedAt": "2026-09-09T12:33:48.218Z",
   "buildRef": "local",
+  "defaultsRevision": 3,
   "published": {
     "schemaVersion": 2,
     "company": {
@@ -398,16 +399,6 @@
         "image": "",
         "order": 4,
         "active": true
-      },
-      {
-        "id": "mi-alapjai",
-        "index": "05",
-        "title": "Mesterséges intelligencia alapjai",
-        "text": "Engedélyezett, 16 órás akkreditált képzésünk bevezeti a munkatársakat a mesterséges intelligencia alapjaiba és a felelős, gyakorlati alkalmazás lehetőségeibe a mindennapi munkában.",
-        "visual": "/assets/illustrations/illust_inner_courses.svg",
-        "image": "",
-        "order": 5,
-        "active": true
       }
     ],
     "felnottkepzesProgrammes": [
@@ -529,20 +520,6 @@
           }
         ],
         "order": 4,
-        "active": true
-      },
-      {
-        "id": "digitalis",
-        "tab": "Digitális kompetenciák",
-        "index": "05",
-        "title": "Digitális kompetenciák fejlesztése",
-        "items": [
-          {
-            "title": "Mesterséges intelligencia alapjai",
-            "hours": "16 óra"
-          }
-        ],
-        "order": 5,
         "active": true
       }
     ],
@@ -677,7 +654,7 @@
         "name": "Ríz Ádám CMC",
         "slug": "riz-adam-cmc",
         "role": "Alapító, ügyvezető",
-        "bio": "16 éve dolgozom tanácsadóként, nagyon szeretem a munkámat. Öröm tanácsadással fejleszteni azt a vállalatot, amely emberközpontú fejlesztésekben gondolkodik, és igyekszik a munkahelyi hétköznapokat jobbá tenni. Mert tényleg megéri.",
+        "bio": "18 éve dolgozom tanácsadóként, nagyon szeretem a munkámat. Öröm tanácsadással fejleszteni azt a vállalatot, amely emberközpontú fejlesztésekben gondolkodik, és igyekszik a munkahelyi hétköznapokat jobbá tenni. Mert tényleg megéri.",
         "portrait": "/assets/wp-uploads/2025/02/MG_1333.jpg",
         "portraitPosition": "center 18%",
         "featured": true,
@@ -1007,12 +984,12 @@
       {
         "id": "smart-digital",
         "title": "Smart Digital",
-        "description": "„Szívesen dolgozom a Rávezető csapatával, mert Mariann és Andi is mindig segítőkész és előre megnyugodhatok, hogy bármil",
+        "description": "„Szívesen dolgozom a Rávezető csapatával, mert Andi és Ádám is mindig segítőkész és előre megnyugodhatok, hogy bármilyen",
         "logo": "Smart Digital",
         "who": "Horváth Botond operatív vezető, Smart Digital Kft.",
         "quotes": [
-          "„Szívesen dolgozom a Rávezető csapatával, mert Mariann és Andi is mindig segítőkész és előre megnyugodhatok, hogy bármilyen képzést is tartanak nekünk, profi trénert küldenek és a kapcsolódó pályázati adminisztráció oldala is pontos és naprakész.",
-          "Kedves Ádám, Andi és Mariann! Külön örülök, hogy igazi partnerként tekinthetek rátok és segítetek a mi igényeinkre is tényleges megoldást adni.",
+          "„Szívesen dolgozom a Rávezető csapatával, mert Andi és Ádám is mindig segítőkész és előre megnyugodhatok, hogy bármilyen képzést is tartanak nekünk, profi trénert küldenek és a kapcsolódó pályázati adminisztráció oldala is pontos és naprakész.",
+          "Kedves Andi és Ádám! Külön örülök, hogy igazi partnerként tekinthetek rátok és segítetek a mi igényeinkre is tényleges megoldást adni.",
           "Köszönjük az eddigi együttműködést és remélem, hogy még sok közös eredményes projektben lesz részünk!”"
         ],
         "order": 1,
@@ -1069,6 +1046,37 @@
           "Szakértői magas szakmai színvonalon dolgoztak, külön figyelmet fordítottak a szervezeti kultúrafejlesztés aktuális trendjeire, változatos andragógiai-didaktikai és fejlesztési megoldásokra. Általuk eredményesen megvalósult több ezer, különböző szakterületen munkát végző munkatárs fejlesztése a szervezeti változások aktív támogatása céljából.”"
         ],
         "order": 5,
+        "active": true
+      },
+      {
+        "id": "b-n",
+        "title": "B+N",
+        "description": "„Köszönjük a konfliktuskezelési és kommunikációs képzésen nyújtott szakmai munkátokat. A program jól illeszkedett a rész",
+        "logo": "B+N",
+        "who": "Papp Szilvia, képzés-fejlesztési vezető, B+N Magyarország Kft.",
+        "quotes": [
+          "„Köszönjük a konfliktuskezelési és kommunikációs képzésen nyújtott szakmai munkátokat. A program jól illeszkedett a résztvevők eltérő munkaköri sajátosságaihoz, és segített közelebb hozni egymáshoz az operációban dolgozó kollégák és back office területek szemléletét.",
+          "Külön értékeltük a gyakorlati megközelítést, az érthető felépítést és azt, hogy a tréning valódi, a mindennapokban is hasznosítható eszközöket adott a munkatársaknak. Mindkét tréner kiválóan vette a »hibrid« csoportok által behozott akadályokat, a néha szélsőséges véleménykülönbségeket.",
+          "Határozottan állíthatjuk, hogy Ágira és Ritára a képzési napokon nem csak trénerként, hanem pszichológusként, pedagógusként, sőt kollégaként tekinthettünk. Úgy látjuk, hogy a képzés hozzájárult a kölcsönös megértéshez és a jövőbeni együttműködés erősítéséhez.”"
+        ],
+        "order": 6,
+        "active": true
+      },
+      {
+        "id": "sbt-protect",
+        "title": "SBT Protect",
+        "description": "„Ádámmal és csapatával 2019 óta dolgozunk együtt, változó intenzitással és több területen is: szervezetfejlesztés, mened",
+        "logo": "SBT Protect",
+        "who": "Ertinger Imre, ügyvezető, SBT Protect Kft.",
+        "quotes": [
+          "„Ádámmal és csapatával 2019 óta dolgozunk együtt, változó intenzitással és több területen is: szervezetfejlesztés, menedzsment coaching, képzések, toborzás. Amit nyújtanak:",
+          "nyílt, barátságos, támogató, bizalmi légkör,",
+          "szakmailag alátámasztott módszerek és eszközök,",
+          "igényekre szabott megoldások,",
+          "felkészült, segítőkész csapat.",
+          "Kétség nélkül ajánlom őket.”"
+        ],
+        "order": 7,
         "active": true
       }
     ],

@@ -43,7 +43,7 @@ export const rolunkValues = {
 export const rolunkTimeline = {
   label: 'Mérföldkövek',
   title: 'Úton a változások felé',
-  lead: '16 évünk, több mint 400 fejlesztési és képzési projektünk nem jöhetett volna létre, ha nem így dolgozunk.',
+  lead: '18 évünk, több mint 400 fejlesztési és képzési projektünk nem jöhetett volna létre, ha nem így dolgozunk.',
   items: [
     {
       year: '2020',
