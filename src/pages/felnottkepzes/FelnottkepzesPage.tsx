@@ -131,7 +131,7 @@ export default function FelnottkepzesPage() {
             <div className="photo-slot">
               <img
                 className="ill"
-                src="/assets/images/felnottkepzes/photo-02.jpg"
+                src="/assets/images/felnottkepzes/img-02.jpg"
                 alt="Tusrajz: tréner a flipchartnál, félkörben ülő résztvevők"
                 onError={(e) => e.currentTarget.remove()}
               />
@@ -198,7 +198,7 @@ export default function FelnottkepzesPage() {
             <div className="photo-slot">
               <img
                 className="ill"
-                src="/assets/images/felnottkepzes/photo-03.jpg"
+                src="/assets/images/felnottkepzes/img-03.jpg"
                 alt="Tusrajz: két beszélgető alak, beszédbuborékaik összeérnek"
                 onError={(e) => e.currentTarget.remove()}
               />
@@ -231,7 +231,7 @@ export default function FelnottkepzesPage() {
             <div className="photo-slot">
               <img
                 className="ill"
-                src="/assets/images/felnottkepzes/photo-04.jpg"
+                src="/assets/images/felnottkepzes/img-04.jpg"
                 alt="Tusrajz: karmester alak, pálcája nyomán felfelé ívelő vonalak"
                 onError={(e) => e.currentTarget.remove()}
               />
@@ -246,7 +246,7 @@ export default function FelnottkepzesPage() {
             <div className="photo-slot">
               <img
                 className="ill"
-                src="/assets/images/felnottkepzes/photo-05.jpg"
+                src="/assets/images/felnottkepzes/img-05.jpg"
                 alt="Tusrajz: két oldalról épülő híd, középen arany zárókő"
                 onError={(e) => e.currentTarget.remove()}
               />
@@ -285,7 +285,7 @@ export default function FelnottkepzesPage() {
             <div className="photo-slot">
               <img
                 className="ill"
-                src="/assets/images/felnottkepzes/photo-06.jpg"
+                src="/assets/images/felnottkepzes/img-06.jpg"
                 alt="Tusrajz: kusza vonal kisimul nyugodt vonallá"
                 onError={(e) => e.currentTarget.remove()}
               />
@@ -422,7 +422,7 @@ export default function FelnottkepzesPage() {
           <div className="wrap">
             <div className="cols">
               <div className="flogo">
-                <img src="/assets/images/felnottkepzes/logo.png" alt="Rávezető Projekt" />
+                <img src="/assets/images/felnottkepzes/img-07.png" alt="Rávezető Projekt" />
                 <div className="tag">Változásokat vezetünk, együtt!</div>
               </div>
               <div>

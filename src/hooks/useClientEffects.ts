@@ -162,6 +162,119 @@ function setupAureliusQuote(reduced: boolean) {
   return () => window.removeEventListener('scroll', light);
 }
 
+function setupReferenciakTestimonials(reduced: boolean) {
+  const inner = document.getElementById('tstInner');
+  const logos = document.getElementById('tstLogos');
+  if (!inner || !logos) return undefined;
+
+  const items = [...inner.querySelectorAll('.tst-item')];
+  const btns = [...logos.querySelectorAll('.tst-logo')];
+  if (!items.length || !btns.length) return undefined;
+
+  let idx = 0;
+  let timer: number | null = null;
+
+  const render = (i: number) => {
+    items.forEach((el, j) => el.classList.toggle('on', j === i));
+    btns.forEach((b, j) => {
+      b.classList.toggle('on', j === i);
+      b.setAttribute('aria-selected', String(j === i));
+    });
+  };
+
+  const show = (i: number) => {
+    if (reduced) {
+      render(i);
+      return;
+    }
+    inner.classList.add('out');
+    window.setTimeout(() => {
+      render(i);
+      inner.classList.remove('out');
+    }, 280);
+  };
+
+  const handlers = btns.map((b, i) => {
+    const onClick = () => {
+      idx = i;
+      show(i);
+      restart();
+    };
+    b.addEventListener('click', onClick);
+    return () => b.removeEventListener('click', onClick);
+  });
+
+  const next = () => {
+    idx = (idx + 1) % items.length;
+    show(idx);
+  };
+
+  const restart = () => {
+    if (timer !== null) window.clearInterval(timer);
+    if (!reduced) timer = window.setInterval(next, 15000);
+  };
+
+  const tstBox = document.querySelector('.tst');
+  const pause = () => {
+    if (timer !== null) window.clearInterval(timer);
+  };
+  tstBox?.addEventListener('mouseenter', pause);
+  logos.addEventListener('mouseenter', pause);
+  tstBox?.addEventListener('mouseleave', restart);
+  logos.addEventListener('mouseleave', restart);
+
+  restart();
+
+  return () => {
+    handlers.forEach((off) => off());
+    if (timer !== null) window.clearInterval(timer);
+    tstBox?.removeEventListener('mouseenter', pause);
+    logos.removeEventListener('mouseenter', pause);
+    tstBox?.removeEventListener('mouseleave', restart);
+    logos.removeEventListener('mouseleave', restart);
+  };
+}
+
+function setupReferenciakLogoHover() {
+  const flow = document.querySelector('.lg-flow');
+  if (!flow) return undefined;
+
+  const names = [...document.querySelectorAll('.partner-list .pn')] as HTMLElement[];
+
+  const set = (slug: string, on: boolean) => {
+    names.forEach((node) => {
+      if (node.dataset.p === slug) node.classList.toggle('on', on);
+    });
+  };
+
+  const cellOf = (target: EventTarget | null) => {
+    if (!(target instanceof Element)) return null;
+    return target.closest('.cell');
+  };
+
+  const onOver = (event: Event) => {
+    const cell = cellOf(event.target);
+    if (cell instanceof HTMLElement && cell.dataset.p) set(cell.dataset.p, true);
+  };
+
+  const onOut = (event: Event) => {
+    const cell = cellOf(event.target);
+    if (cell instanceof HTMLElement && cell.dataset.p) set(cell.dataset.p, false);
+  };
+
+  const onLeave = () => names.forEach((node) => node.classList.remove('on'));
+
+  flow.addEventListener('mouseover', onOver);
+  flow.addEventListener('mouseout', onOut);
+  flow.addEventListener('mouseleave', onLeave);
+
+  return () => {
+    flow.removeEventListener('mouseover', onOver);
+    flow.removeEventListener('mouseout', onOut);
+    flow.removeEventListener('mouseleave', onLeave);
+  };
+}
+
 function setupDocStamp(reduced: boolean) {
   const docs = document.querySelectorAll('.doc');
   if (!docs.length) return undefined;
@@ -215,6 +328,10 @@ export function useClientEffects() {
     const cleanupCounters = setupStatCounters(reduced);
     const cleanupAurelius = setupAureliusQuote(reduced);
     const cleanupDocStamp = setupDocStamp(reduced);
+    const cleanupReferenciakTestimonials =
+      pathname === '/referenciak' ? setupReferenciakTestimonials(reduced) : undefined;
+    const cleanupReferenciakLogoHover =
+      pathname === '/referenciak' ? setupReferenciakLogoHover() : undefined;
 
     return () => {
       cleanupMarks?.();
@@ -222,6 +339,8 @@ export function useClientEffects() {
       cleanupCounters?.();
       cleanupAurelius?.();
       cleanupDocStamp?.();
+      cleanupReferenciakTestimonials?.();
+      cleanupReferenciakLogoHover?.();
     };
   }, [reduced, pathname]);
 }

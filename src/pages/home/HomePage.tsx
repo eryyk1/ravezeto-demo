@@ -1,19 +1,12 @@
-import HomeClientClose from './sections/HomeClientClose';
-import HomeClientHero from './sections/HomeClientHero';
-import HomeClientQuote from './sections/HomeClientQuote';
-import HomeClientReasons from './sections/HomeClientReasons';
-import HomeClientServices from './sections/HomeClientServices';
-import HomeClientStats from './sections/HomeClientStats';
+import { useMemo } from 'react';
+import { usePageMeta } from '../../hooks/usePageMeta';
+import { resolvePageMeta } from '../../seo/pageMeta';
+import HomeBody from './HomeBody';
+import './client-prototype.css';
 
 export default function HomePage() {
-  return (
-    <>
-      <HomeClientHero />
-      <HomeClientQuote />
-      <HomeClientReasons />
-      <HomeClientServices />
-      <HomeClientStats />
-      <HomeClientClose />
-    </>
-  );
+  const meta = useMemo(() => resolvePageMeta('/'), []);
+  usePageMeta(meta);
+
+  return <HomeBody />;
 }
