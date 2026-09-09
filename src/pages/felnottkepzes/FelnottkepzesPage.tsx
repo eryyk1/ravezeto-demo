@@ -1,18 +1,119 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import StructuredDataManager from '../../components/seo/StructuredDataManager';
 import { usePageMeta } from '../../hooks/usePageMeta';
+import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { resolvePageMeta } from '../../seo/pageMeta';
 import './felnottkepzes.css';
+
+const CAT = [
+  {
+    tab: 'Munkavállalói kompetenciák',
+    title: 'Munkavállalói kompetenciák fejlesztése',
+    items: [
+      ['Gazdálkodj az időddel!', '24 óra'],
+      ['Időgazdálkodás', '16 óra'],
+      ['Kommunikációs és együttműködési készségek fejlesztése', '24 óra'],
+      ['Kommunikációs tréning', '24 óra'],
+      ['Komplex kommunikációs készségek fejlesztése', '42 óra'],
+      ['Konfliktuskezelés', '24 óra'],
+      ['Konfliktushelyzetek kezelése', '24 óra'],
+      ['Konfliktuskezelés és kommunikáció', '30 óra'],
+      ['Sikeres szervezeti együttműködés és kommunikáció a gyakorlatban', '16 óra'],
+      ['Szervezeti és generációk közötti együttműködés fejlesztése', '30 óra'],
+      ['Üzleti kapcsolattartás és kommunikáció', '16 óra'],
+    ],
+  },
+  {
+    tab: 'Stresszkezelés',
+    title: 'Stresszkezelés, mentális egészség fejlesztése',
+    items: [
+      ['A stressz és én', '16 óra'],
+      ['Mentálhigiéné és lelki egészségvédelem', '54 óra'],
+    ],
+  },
+  {
+    tab: 'Vezetői kompetenciák',
+    title: 'Vezetői kompetenciák fejlesztése',
+    items: [
+      ['Menedzseri szemlélet a vezetői munkában', '16 óra'],
+      ['Tudatosság és társas készségek a vezetésben', '16 óra'],
+      ['Tudatosság és társas készségek a vezetésben tréning', '24 óra'],
+      ['Tudatosság és társas készségek fejlesztése', '20 óra'],
+      ['Vezetői kompetenciák fejlesztése', '16 óra'],
+      ['Tudatos vezetői működés fejlesztése', '24 óra'],
+    ],
+  },
+  {
+    tab: 'Mentori kompetenciák',
+    title: 'Mentori kompetenciák fejlesztése',
+    items: [['Munkahelyi mentorok képzése', '16 óra']],
+  },
+] as const;
 
 export default function FelnottkepzesPage() {
   const meta = useMemo(() => resolvePageMeta('/felnottkepzes'), []);
   usePageMeta(meta);
+  const reduced = useReducedMotion();
+
+  useEffect(() => {
+    const cInner = document.getElementById('catInner');
+    const cTabs = document.getElementById('catTabs');
+    if (!cInner || !cTabs) return;
+
+    let activeIndex = 0;
+
+    function crender(i: number) {
+      const c = CAT[i];
+      cInner!.innerHTML =
+        `<h3>${c.title}</h3><ul class="reflist">` +
+        c.items
+          .map(
+            (x) =>
+              `<li><span class="t">${x[0]}</span><span class="dots"></span><span class="h">${x[1]}</span></li>`,
+          )
+          .join('') +
+        '</ul>';
+      [...cTabs!.children].forEach((b, j) => {
+        b.classList.toggle('on', j === i);
+        b.setAttribute('aria-selected', String(j === i));
+      });
+    }
+
+    function cshow(i: number) {
+      if (i === activeIndex) return;
+      activeIndex = i;
+      if (reduced) {
+        crender(i);
+        return;
+      }
+      cInner!.classList.add('out');
+      window.setTimeout(() => {
+        crender(i);
+        cInner!.classList.remove('out');
+      }, 280);
+    }
+
+    cTabs.replaceChildren();
+    CAT.forEach((c, i) => {
+      const b = document.createElement('button');
+      b.className = 'cat-tab';
+      b.type = 'button';
+      b.setAttribute('role', 'tab');
+      b.textContent = c.tab;
+      b.addEventListener('click', () => cshow(i));
+      cTabs.appendChild(b);
+    });
+    crender(0);
+
+    return () => {
+      cTabs.replaceChildren();
+      cInner.innerHTML = '';
+      cInner.classList.remove('out');
+    };
+  }, [reduced]);
 
   return (
     <>
-      <StructuredDataManager />
-
       <section className="hero-sub">
         <svg className="hero-wm" viewBox="0 0 100 120" aria-hidden="true">
           <path
