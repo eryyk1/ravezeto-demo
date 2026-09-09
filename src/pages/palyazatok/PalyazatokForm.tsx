@@ -110,8 +110,6 @@ export default function PalyazatokForm() {
   }
 
   return (
-    <div className="form">
-      <h2>{palyazatokForm.title}</h2>
       <form onSubmit={handleSubmit} noValidate>
         <div className="field">
           <label htmlFor="palyazat-nev">Kapcsolattartó neve *</label>
@@ -197,6 +195,5 @@ export default function PalyazatokForm() {
           <Link to={palyazatokForm.privacyLink}>{palyazatokForm.privacyLinkLabel}</Link>
         </p>
       </form>
-    </div>
   );
 }

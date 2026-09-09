@@ -2,8 +2,6 @@
  * Pályázatok page — source: client-reference/palyazatok.html (GINOP Plusz 3.2.1-21)
  */
 
-import { referenceClientLogos } from '../../content/partners';
-import { teamPhotos2025 } from '../../data/media';
 
 export const palyazatokHero = {
   label: 'Pályázatok · GINOP Plusz 3.2.1-21',
@@ -70,20 +68,37 @@ export const palyazatokFacts = {
 
 export const palyazatokAbout = {
   text:
-    'A Rávezető Projekt Kft. 2008 óta működő tanácsadó vállalat, 2014 óta engedéllyel rendelkező felnőttképző intézmény, kompetenciafejlesztési fókusszal.',
+    'A Rávezető 2008 óta működő tanácsadó vállalat, 2014 óta engedéllyel rendelkező felnőttképző intézmény, kompetenciafejlesztési fókusszal.',
   linkLabel: 'Tudjon meg többet rólunk! →',
   link: '/rolunk',
 } as const;
-
-const partnerSlugs = ['ref14', 'ref16', 'ref22', 'ref9'] as const;
 
 export const palyazatokPartners = {
   label: 'Együttműködő partnereink:',
   linkLabel: 'További referenciák →',
   link: '/referenciak',
-  logos: partnerSlugs
-    .map((slug) => referenceClientLogos.find((logo) => logo.slug === slug))
-    .filter((logo): logo is (typeof referenceClientLogos)[number] => Boolean(logo)),
+  logos: [
+    {
+      src: '/assets/images/palyazatok/img-02.jpg',
+      alt: 'SALDO Pénzügyi Tanácsadó és Informatikai Zrt.',
+    },
+    {
+      src: '/assets/images/palyazatok/img-03.jpg',
+      alt: 'Smart Digital Kft.',
+    },
+    {
+      src: '/assets/images/palyazatok/img-04.png',
+      alt: 'Globomax Zrt.',
+    },
+    {
+      src: '/assets/images/palyazatok/img-05.png',
+      alt: 'ATEV Fehérjefeldolgozó Zrt.',
+    },
+    {
+      src: '/assets/images/palyazatok/img-06.png',
+      alt: 'Budapest Gyógyfürdői és Hévizei Zrt.',
+    },
+  ],
 } as const;
 
 export const palyazatokSteps = {
@@ -99,7 +114,7 @@ export const palyazatokSteps = {
 export const palyazatokContact = {
   name: 'Berta Anikó',
   role: 'Projektmenedzser',
-  portrait: teamPhotos2025['berta-aniko'],
+  portrait: '/assets/images/palyazatok/img-07.jpg',
   email: 'kepzes@ravezeto.hu',
   phone: '+36 70/513 4128',
   phoneTel: '+36705134128',
@@ -110,7 +125,7 @@ export const palyazatokForm = {
   formspreeEndpoint: import.meta.env.VITE_FORMSPREE_CONTACT as string | undefined,
   privacyText:
     'Ennek az űrlapnak a kitöltésével hozzájárul, hogy a weblap eltárolja és felhasználja a megadott adatokat.',
-  privacyLink: '/adatvedelem',
+  privacyLink: '/jogi/adatvedelem',
   privacyLinkLabel: 'Adatkezelési szabályzat',
   submit: 'Küldés →',
   messages: {

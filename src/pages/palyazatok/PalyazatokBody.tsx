@@ -1,15 +1,11 @@
 import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import ContentFreshness from '../../components/client/ContentFreshness';
 import {
   palyazatokAbout,
   palyazatokContact,
-  palyazatokFacts,
   palyazatokHero,
   palyazatokPartners,
-  palyazatokProgram,
   palyazatokSteps,
-  palyazatokTopics,
 } from './palyazatokContent';
 
 type PalyazatokBodyProps = {
@@ -50,66 +46,7 @@ export default function PalyazatokBody({ formSlot }: PalyazatokBodyProps) {
       <section className="deadline-sec">
         <div className="wrap">
           <div className="deadline rev">
-            <span className="k">{palyazatokProgram.title}</span>
-            <b>{palyazatokProgram.subtitle}</b>
-            <p style={{ marginTop: '1rem', fontSize: '1.05rem', lineHeight: 1.65 }}>
-              {palyazatokProgram.lead}
-            </p>
-            <p style={{ marginTop: '.8rem', fontSize: '.98rem', color: 'var(--muted)' }}>
-              {palyazatokProgram.statusNote}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="sec">
-        <div className="wrap">
-          <div className="head rev">
-            <div className="kicker">{palyazatokTopics.label}</div>
-            <h2>{palyazatokTopics.title}</h2>
-          </div>
-          <div className="cards3 rev">
-            {palyazatokTopics.cards.map((card, index) => (
-              <article key={card.id} className="tcard">
-                <div className="idx">{String(index + 1).padStart(2, '0')}</div>
-                <h3>{card.title}</h3>
-                {'text' in card && card.text ? <p>{card.text}</p> : null}
-                {'items' in card && card.items ? (
-                  <ul>
-                    {card.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                ) : null}
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="sec">
-        <div className="wrap">
-          <div className="head rev">
-            <div className="kicker">{palyazatokFacts.label}</div>
-            <h2>{palyazatokFacts.title}</h2>
-          </div>
-          <div className="facts rev">
-            {palyazatokFacts.items.map((fact) => (
-              <div
-                key={fact.id}
-                className={`fact${'highlight' in fact && fact.highlight ? ' hl' : ''}`}
-              >
-                {'value' in fact && fact.value !== undefined ? (
-                  <div className="big">
-                    {fact.value}
-                    {fact.suffix}
-                  </div>
-                ) : (
-                  <div className="big">{fact.symbol}</div>
-                )}
-                <p>{fact.text}</p>
-              </div>
-            ))}
+            <b>Jelenleg nincs elérhető képzési pályázat</b>
           </div>
         </div>
       </section>
@@ -129,10 +66,10 @@ export default function PalyazatokBody({ formSlot }: PalyazatokBodyProps) {
             <span className="pl">{palyazatokPartners.label}</span>
             {palyazatokPartners.logos.map((logo) => (
               <img
-                key={logo.slug}
+                key={logo.src}
                 className="plogo"
-                src={logo.logo}
-                alt={logo.name}
+                src={logo.src}
+                alt={logo.alt}
                 loading="lazy"
               />
             ))}
@@ -148,19 +85,24 @@ export default function PalyazatokBody({ formSlot }: PalyazatokBodyProps) {
             <h2>{palyazatokSteps.title}</h2>
           </div>
           <div className="steps rev">
-            {palyazatokSteps.steps.map((step, index) => (
-              <div key={step} style={{ display: 'contents' }}>
-                {index > 0 ? (
-                  <div className="ssep" aria-hidden="true">
-                    &gt;
-                  </div>
-                ) : null}
-                <div className="step">
-                  <div className="idx">{String(index + 1).padStart(2, '0')}</div>
-                  <p>{step}</p>
-                </div>
-              </div>
-            ))}
+            <div className="step">
+              <div className="idx">01</div>
+              <p>{palyazatokSteps.steps[0]}</p>
+            </div>
+            <div className="ssep" aria-hidden="true">
+              &gt;
+            </div>
+            <div className="step">
+              <div className="idx">02</div>
+              <p>{palyazatokSteps.steps[1]}</p>
+            </div>
+            <div className="ssep" aria-hidden="true">
+              &gt;
+            </div>
+            <div className="step">
+              <div className="idx">03</div>
+              <p>{palyazatokSteps.steps[2]}</p>
+            </div>
           </div>
         </div>
       </section>
@@ -220,7 +162,6 @@ export default function PalyazatokBody({ formSlot }: PalyazatokBodyProps) {
               {formSlot}
             </div>
           </div>
-          <ContentFreshness />
         </div>
       </section>
 
@@ -228,7 +169,7 @@ export default function PalyazatokBody({ formSlot }: PalyazatokBodyProps) {
         <div className="wrap">
           <div className="cols">
             <div className="flogo">
-              <img src="/assets/images/palyazatok/img-08.svg" alt="Rávezető Projekt Kft." />
+              <img src="/assets/images/palyazatok/img-08.svg" alt="Rávezető Projekt" />
               <div className="tag">Változásokat vezetünk, együtt!</div>
             </div>
             <div>
