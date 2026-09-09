@@ -1,11 +1,13 @@
 [
   {
     "source": "/70-uk-gambling-dens-not-on-gamstop-best-web-sites-of-july-2025",
-    "statusCode": 410
+    "destination": "/",
+    "permanent": true
   },
   {
     "source": "/70-uk-gambling-dens-not-on-gamstop-best-web-sites-of-july-2025/",
-    "statusCode": 410
+    "destination": "/",
+    "permanent": true
   },
   {
     "source": "/adatvedelem",
@@ -29,19 +31,23 @@
   },
   {
     "source": "/author/papajcsikaron",
-    "statusCode": 410
+    "destination": "/",
+    "permanent": true
   },
   {
     "source": "/author/papajcsikaron/",
-    "statusCode": 410
+    "destination": "/",
+    "permanent": true
   },
   {
     "source": "/best-non-gamstop-casinos-in-typically-the-uk-2025",
-    "statusCode": 410
+    "destination": "/",
+    "permanent": true
   },
   {
     "source": "/best-non-gamstop-casinos-in-typically-the-uk-2025/",
-    "statusCode": 410
+    "destination": "/",
+    "permanent": true
   },
   {
     "source": "/biro-gabriella",
@@ -55,35 +61,43 @@
   },
   {
     "source": "/category/egyeb",
-    "statusCode": 410
+    "destination": "/",
+    "permanent": true
   },
   {
     "source": "/category/egyeb/",
-    "statusCode": 410
+    "destination": "/",
+    "permanent": true
   },
   {
     "source": "/category/munkatarsak",
-    "statusCode": 410
+    "destination": "/",
+    "permanent": true
   },
   {
     "source": "/category/munkatarsak/",
-    "statusCode": 410
+    "destination": "/",
+    "permanent": true
   },
   {
     "source": "/category/palyazat",
-    "statusCode": 410
+    "destination": "/",
+    "permanent": true
   },
   {
     "source": "/category/palyazat/",
-    "statusCode": 410
+    "destination": "/",
+    "permanent": true
   },
   {
     "source": "/category/referenciak",
-    "statusCode": 410
+    "destination": "/",
+    "permanent": true
   },
   {
     "source": "/category/referenciak/",
-    "statusCode": 410
+    "destination": "/",
+    "permanent": true
   },
   {
     "source": "/csapatunk",
@@ -97,11 +111,13 @@
   },
   {
     "source": "/csr",
-    "statusCode": 410
+    "destination": "/",
+    "permanent": true
   },
   {
     "source": "/csr/",
-    "statusCode": 410
+    "destination": "/",
+    "permanent": true
   },
   {
     "source": "/duleba-marianna",
@@ -255,11 +271,13 @@
   },
   {
     "source": "/online-casino-transaction-methods-deposit-options-2025",
-    "statusCode": 410
+    "destination": "/",
+    "permanent": true
   },
   {
     "source": "/online-casino-transaction-methods-deposit-options-2025/",
-    "statusCode": 410
+    "destination": "/",
+    "permanent": true
   },
   {
     "source": "/ref1",
@@ -703,19 +721,23 @@
   },
   {
     "source": "/teszt",
-    "statusCode": 410
+    "destination": "/",
+    "permanent": true
   },
   {
     "source": "/teszt/",
-    "statusCode": 410
+    "destination": "/",
+    "permanent": true
   },
   {
     "source": "/uk-non-gamstop-bookmakers",
-    "statusCode": 410
+    "destination": "/",
+    "permanent": true
   },
   {
     "source": "/uk-non-gamstop-bookmakers/",
-    "statusCode": 410
+    "destination": "/",
+    "permanent": true
   },
   {
     "source": "/wp-content/uploads/2018/08/GDPR_Kapcsolatok.pdf",

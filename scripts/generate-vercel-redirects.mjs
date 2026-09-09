@@ -12,10 +12,13 @@ const permanent = (source, destination) => [
   ...(source.endsWith('/') ? [] : [{ source: `${source}/`, destination, permanent: true }]),
 ];
 
-const gone = (source) => [
-  { source, statusCode: 410 },
-  ...(source.endsWith('/') ? [] : [{ source: `${source}/`, statusCode: 410 }]),
-];
+/**
+ * Vercel redirects require `destination` on every rule and only allow
+ * status codes 301, 302, 303, 307, 308 (no native 410). Retired/spam paths
+ * are permanently redirected to `/`. Nginx/Apache fallback configs still
+ * return 410 Gone for these URLs when not deployed on Vercel.
+ */
+const retire = (source) => permanent(source, '/');
 
 const rules = [];
 
@@ -78,7 +81,7 @@ for (const [from, dest] of [
   rules.push(...permanent(from, dest));
 }
 
-// 410 Gone — test, spam, taxonomy
+// Retired paths (410 on nginx/apache; permanent redirect to / on Vercel)
 for (const path of [
   '/teszt',
   '/csr',
@@ -92,7 +95,7 @@ for (const path of [
   '/category/referenciak',
   '/author/papajcsikaron',
 ]) {
-  rules.push(...gone(path));
+  rules.push(...retire(path));
 }
 
 // PDF legacy paths (keep existing)
@@ -117,6 +120,32 @@ const deduped = rules.filter((r) => {
 
 deduped.sort((a, b) => a.source.localeCompare(b.source));
 
-const out = new URL('../vercel.redirects.generated.json', import.meta.url);
-fs.writeFileSync(out, JSON.stringify(deduped, null, 2), 'utf8');
-console.log('Wrote', deduped.length, 'redirect rules to', out.pathname);
+for (const rule of deduped) {
+  if (!rule.source || typeof rule.destination !== 'string' || !rule.destination) {
+    throw new Error(`Invalid redirect rule (missing destination): ${JSON.stringify(rule)}`);
+  }
+}
+
+const vercelConfig = {
+  redirects: deduped,
+  rewrites: [
+    {
+      source: '/((?!assets/|api/).*)',
+      destination: '/index.html',
+    },
+  ],
+  functions: {
+    'api/**/*.js': {
+      memory: 128,
+      maxDuration: 10,
+    },
+  },
+};
+
+const vercelJsonPath = new URL('../vercel.json', import.meta.url);
+const generatedPath = new URL('../vercel.redirects.generated.json', import.meta.url);
+
+fs.writeFileSync(vercelJsonPath, `${JSON.stringify(vercelConfig, null, 2)}\n`, 'utf8');
+fs.writeFileSync(generatedPath, `${JSON.stringify(deduped, null, 2)}\n`, 'utf8');
+
+console.log('Wrote', deduped.length, 'redirect rules to vercel.json');
