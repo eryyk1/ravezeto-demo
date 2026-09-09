@@ -1,4 +1,4 @@
-/** /tanacsadas — source: live https://www.ravezeto.hu/tanacsadas/ */
+/** /tanacsadas — aligned with TanacsadasBody.tsx */
 
 import { themeImage } from '../data/media';
 
@@ -13,15 +13,51 @@ export const tanacsadasHero = {
 } as const;
 
 export const tanacsadasQuote = {
+  kicker: 'Kétezer éve is igaz volt',
   text: 'Mindaz, amit látsz, hamarosan megváltozik, sőt megszűnik. Arra gondolj, hány változásnak voltál már magad is tanúja. A világ változás, az élet felfogás dolga.',
-  author: 'Marcus Aurelius római császár',
+  author: 'Marcus Aurelius',
   note:
-    'kétezer éves üzenete, hogy a változások tudatos irányítása, a változáshoz való hozzáállásunk, alkalmazkodásunk határozza meg sikerességünket.',
+    'A változások tudatos irányítása, a változáshoz való alkalmazkodásunk határozza meg sikerességünket.',
 } as const;
 
 export const tanacsadasMotto =
   'Tanácsadóink nem csupán elméleti szakemberek – valós szervezeti kihívásokban szerzett tapasztalattal segítjük ügyfeleinket a változások vezetésében.';
 
+export const tanacsadasSzervezetfejlesztes = {
+  punch: tanacsadasMotto,
+  bands: [
+    {
+      title: 'Szervezeti kultúra: a sikeres változás alapja',
+      paragraphs: [
+        'A szervezeti kultúra változása nélkül, nincs esély a stratégia sikeres végrehajtására!',
+        'A kultúra jórészt a felszín alatt működik: a kimondatlan szabályokban, a beidegződött reflexekben, abban, ahogyan a szervezetben valójában döntenek és együttműködnek. Munkánk első lépése ezért mindig az, hogy ezt láthatóvá és megbeszélhetővé tegyük.',
+      ],
+      photoLabel: '🖊 sketch-rajz helye\n(assets/tanacsadas-kultura.png)',
+    },
+    {
+      title: 'Közös munka, tartós eredmény',
+      paragraphs: [
+        'Hiszünk a folyamatalapú megközelítésben. Nem kész megoldásokat kínálunk, hanem szoros csapatmunkában támogatjuk partnereinket céljaik megvalósításában.',
+        'Az eredmények a tanácsadási folyamat során, közös munkával születnek meg. Ügyfeleink mellett állunk a tervezéstől a megvalósításig, biztosítva a szükséges szakmai támogatást minden lépésnél.',
+      ],
+      photoLabel: '🖊 sketch-rajz helye\n(assets/tanacsadas-kozos-munka.png)',
+    },
+  ],
+} as const;
+
+export const tanacsadasValtozasmenedzsment = {
+  lead:
+    'A gyorsan változó környezetben különösen fontos a stratégiai gondolkodás és a szervezeti kultúra összehangolása a szervezeti hatékonyság növelése érdekében. Segítünk megtervezni a változást, felkészíteni azokat a vezetőket és munkatársakat, akiken a végrehajtás múlik, és erősíteni az együttműködést a szervezeti egységek között. Ott is ügyfeleink mellett maradunk, ahol a legtöbb változás elakad: a célok eléréséhez szükséges projektek és folyamatok megvalósításánál.',
+  photoLabel: '🖊 sketch-rajz helye\n(assets/tanacsadas-valtozas.png)',
+} as const;
+
+export const tanacsadasCoaching = {
+  lead:
+    'Napjaink vezetői döntési helyzeteikben minden belső és külső támogatás ellenére nap mint nap egyedül maradnak a rájuk háruló felelősséggel. A személyes és bizalmi kapcsolat vezető és tanácsadó között arra is alkalmas, hogy többféle módszertani eszköz, gyakorlatok és a visszacsatolás révén elősegítse a vezetői készségek és kompetenciák fejlesztését a szervezeti és személyes haszon maximalizálására.',
+  photoLabel: '🖊 sketch-rajz helye\n(assets/coaching.png)',
+} as const;
+
+/** Legacy service cards — kept for services admin list */
 export const tanacsadasServices = [
   {
     id: 'szervezetfejlesztes',
@@ -29,11 +65,11 @@ export const tanacsadasServices = [
     label: 'Szervezetfejlesztés',
     title: 'Szervezeti kultúra: a sikeres változás alapja',
     intro:
-      'Meggyőződésünk, hogy egyetlen szervezetfejlesztés sem lehet sikeres a változást értő és támogató munkatársak nélkül.',
+      'A szervezeti kultúra változása nélkül, nincs esély a stratégia sikeres végrehajtására!',
     detail:
-      'Hiszünk a folyamatalapú megközelítésben. Nem kész megoldásokat kínálunk, hanem emberközpontú szervezetfejlesztőként szoros csapatmunkában támogatjuk partnereinket céljaik megvalósításában. Az eredmények a tanácsadási folyamat során, közös munkával születnek meg.',
+      'Hiszünk a folyamatalapú megközelítésben. Nem kész megoldásokat kínálunk, hanem szoros csapatmunkában támogatjuk partnereinket céljaik megvalósításában.',
     problems: [
-      'Ha a szervezeti kultúra nem változik, nincs esély a stratégia sikeres végrehajtására.',
+      'A kultúra jórészt a felszín alatt működik — munkánk első lépése, hogy ezt láthatóvá tegyük.',
       'Közös munka, tartós eredmény — a tervezéstől a megvalósításig.',
     ],
     cta: 'Kapcsolatfelvétel',
@@ -44,15 +80,9 @@ export const tanacsadasServices = [
     id: 'valtozasmenedzsment',
     index: '02',
     label: 'Változásmenedzsment',
-    title: 'A változás útja velünk',
-    intro:
-      'A gyorsan változó környezetben különösen fontos a stratégiai gondolkodás és a szervezeti kultúra összehangolása a szervezeti hatékonyság növelése érdekében. Szakértői támogatásunk kiterjed:',
-    problems: [
-      'A változások stratégiai tervezésére',
-      'A változást támogató munkatársak felkészítésére',
-      'A szervezeti együttműködés fejlesztésére',
-      'A célok eléréséhez szükséges projektek és folyamatok megvalósításának szakszerű és megbízható elősegítésére',
-    ],
+    title: 'Változás menedzsment',
+    intro: tanacsadasValtozasmenedzsment.lead,
+    problems: [],
     cta: 'Kapcsolatfelvétel',
     link: '/kapcsolat',
     visual: '/assets/illustrations/illust_projectmanagement.svg',
@@ -61,15 +91,9 @@ export const tanacsadasServices = [
     id: 'coaching',
     index: '03',
     label: 'Coaching',
-    title: 'Üzleti edzés, coaching — nemcsak „magányos” vezetőknek',
-    intro:
-      'Napjaink vezetői döntési helyzeteikben minden belső és külső támogatás ellenére nap mint nap egyedül maradnak a rájuk háruló felelősséggel.',
-    detail:
-      'Nálunk a coachok tényleg rendelkeznek szervezeti tapasztalattal! Egyedi megközelítéssel, módszertannal saját vezetői tapasztalatukra is támaszkodva támogatják a vezetői munkavégzést a szervezeti problémák és kihívások, döntési pontok, korábbi és jelenidejű döntések közös elemzésével.',
-    problems: [
-      'Döntéseink szempontjai, elemzésük előtte (és néha utána)',
-      'Fejlődésem útja, hogy jobb vezető legyek — a vezetői készségek és kompetenciák fejlesztése a szervezeti és személyes haszon maximalizálására.',
-    ],
+    title: 'Üzleti edzés, coaching',
+    intro: tanacsadasCoaching.lead,
+    problems: [],
     cta: 'Kapcsolatfelvétel',
     link: '/kapcsolat',
     visual: '/assets/illustrations/illust_coaching.svg',
@@ -119,47 +143,4 @@ export const tanacsadasClose = {
   title: 'Keressen minket bizalommal!',
   cta: 'Írjon nekünk',
   link: '/kapcsolat',
-} as const;
-
-export const tanacsadasSzervezetfejlesztes = {
-  punch:
-    'Ha a szervezeti kultúra nem változik, nincs esély a stratégia sikeres végrehajtására!',
-  bands: [
-    {
-      title: 'Szervezeti kultúra: a sikeres változás alapja',
-      paragraphs: [
-        'Meggyőződésünk, hogy egyetlen szervezetfejlesztés sem lehet sikeres a változást értő és támogató munkatársak nélkül. Ez a szemlélet vezérel bennünket minden projektünkben.',
-      ],
-      photoLabel: '📷 workshop-fotó helye\n(tompított, meleg tónus)',
-    },
-    {
-      title: 'Közös munka, tartós eredmény',
-      paragraphs: [
-        'Hiszünk a folyamatalapú megközelítésben. Nem kész megoldásokat kínálunk, hanem emberközpontú szervezetfejlesztőként szoros csapatmunkában támogatjuk partnereinket céljaik megvalósításában.',
-        'Az eredmények a tanácsadási folyamat során, közös munkával születnek meg. Ügyfeleink mellett állunk a tervezéstől a megvalósításig, biztosítva a szükséges szakmai támogatást minden lépésnél.',
-      ],
-      photoLabel: '📷 közös munka fotója',
-    },
-  ],
-} as const;
-
-export const tanacsadasCoaching = {
-  leadStrong: 'Nemcsak „magányos” vezetőknek.',
-  leadRest:
-    ' Napjaink vezetői döntési helyzeteikben minden belső és külső támogatás ellenére nap mint nap egyedül maradnak a rájuk háruló felelősséggel.',
-  cards: [
-    {
-      title: 'Döntéseink szempontjai, elemzésük előtte (és néha utána)',
-      paragraphs: [
-        'Nálunk a coachok tényleg rendelkeznek szervezeti tapasztalattal!',
-        'Egyedi megközelítéssel, módszertannal saját vezetői tapasztalatukra is támaszkodva támogatják a vezetői munkavégzést a szervezeti problémák és kihívások, döntési pontok, korábbi és jelenidejű döntések közös elemzésével.',
-      ],
-    },
-    {
-      title: 'Fejlődésem útja, hogy jobb vezető legyek',
-      paragraphs: [
-        'A személyes és bizalmi kapcsolat vezető és tanácsadó között arra is alkalmas, hogy többféle módszertani eszköz, gyakorlatok és a visszacsatolás révén elősegítse a vezetői készségek és kompetenciák fejlesztését a szervezeti és személyes haszon maximalizálására.',
-      ],
-    },
-  ],
 } as const;

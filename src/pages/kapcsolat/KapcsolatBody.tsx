@@ -16,7 +16,7 @@ export default function KapcsolatBody({ formSlot }: KapcsolatBodyProps) {
           <p className="lead anim">Kérdése van, vagy időpontot egyeztetne? Válassza az Önnek kényelmes csatornát – örömmel válaszolunk.</p>
         </div>
       </section>
-      
+
       <section className="contact">
         <div className="wrap">
           <div className="crow rev">
@@ -37,7 +37,7 @@ export default function KapcsolatBody({ formSlot }: KapcsolatBodyProps) {
           </div>
         </div>
       </section>
-      
+
       <section className="msg">
         <div className="wrap">
           <div className="mgrid rev">
@@ -49,23 +49,23 @@ export default function KapcsolatBody({ formSlot }: KapcsolatBodyProps) {
           </div>
         </div>
       </section>
-      
-      
+
+
       <div className="mapband rev">
         <iframe src="https://www.google.com/maps?q=1146+Budapest,+Izs%C3%B3+u.+7.&output=embed" title="Térkép – 1146 Budapest, Izsó u. 7." loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
       </div>
-      
+
       <footer>
         <div className="wrap">
           <div className="cols">
-            <div className="flogo"><img src="/assets/images/kapcsolat/img-02.svg" alt="Rávezető Projekt Kft." /><div className="tag">Változásokat vezetünk, együtt!</div></div>
+            <div className="flogo"><img src="/assets/images/kapcsolat/img-02.svg" alt="Rávezető Projekt" /><div className="tag">Változásokat vezetünk, együtt!</div></div>
             <div>1146 Budapest, Izsó u. 7. 1/3.<br /><a href="mailto:info@ravezeto.hu">info@ravezeto.hu</a> · <a href="tel:+36705134128">+36 70/513 4128</a></div>
-            <div><a href="#" target="_blank" rel="noopener">LinkedIn</a><br /><Link to="/jogi/adatvedelem">Adatvédelem</Link> · <Link to="/jogi/impresszum">Impresszum</Link></div>
+            <div><a href="https://www.linkedin.com/company/r%C3%A1vezet%C5%91-projekt/" target="_blank" rel="noopener">LinkedIn</a><br /><Link to="/jogi/adatvedelem">Adatvédelem</Link> · <Link to="/jogi/impresszum">Impresszum</Link></div>
           </div>
           <div className="fcred">
             <div className="fdoc"><b>Cégünk felnőttképzési engedéllyel rendelkező intézmény.</b><br />Nyilvántartásba vételi számunk: B/2020/001943 · Engedélyszámunk: E/2021/000106</div>
           </div>
-          <div className="copy">© 2026 Rávezető Projekt Kft.</div>
+          <div className="copy">© 2026 Rávezető Projekt Kft. · Frissítve: <time dateTime="2026-09-09">2026. szeptember</time></div>
         </div>
       </footer>
     </>

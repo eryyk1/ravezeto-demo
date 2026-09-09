@@ -21,4 +21,4 @@ export const OG_LOCALE = 'hu_HU';
 export const SITE_LAST_MODIFIED = '2026-09-09';
 
 /** Human-readable label for visible freshness markers */
-export const SITE_LAST_MODIFIED_LABEL = '2026. szeptember 9.';
+export const SITE_LAST_MODIFIED_LABEL = '2026. szeptember';

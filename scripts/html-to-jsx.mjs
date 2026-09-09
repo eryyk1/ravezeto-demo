@@ -40,6 +40,7 @@ const ATTR_MAP = {
   stitchtiles: 'stitchTiles',
   pathlength: 'pathLength',
   referrerpolicy: 'referrerPolicy',
+  datetime: 'dateTime',
 };
 
 function convertStyle(style) {

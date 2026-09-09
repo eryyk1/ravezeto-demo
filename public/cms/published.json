@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-09T09:19:55.916Z",
+  "generatedAt": "2026-09-09T12:26:40.360Z",
   "buildRef": "local",
   "published": {
     "schemaVersion": 2,
@@ -15,7 +15,7 @@
       "facebook": "https://www.facebook.com/profile.php?id=100063907730525"
     },
     "homeHero": {
-      "label": "Vezetési tanácsadás · 2008 óta",
+      "label": "Emberközpontú szervezetfejlesztés · 2008 óta",
       "headlineLines": [
         "Változásokat",
         "vezetünk,",
@@ -30,14 +30,14 @@
     "homeQuote": {
       "text": "Az optimizmus az igazi erkölcsi bátorság",
       "author": "Ernest Shackleton",
-      "context": "A fenti idézet az egyik kedvencünk a híres felfedezőtől, aki a lehetetlennel dacolva 120 éve megmentette legénységét a jég és fagy fogságából.",
+      "context": "Kedvenc idézetünk a híres felfedezőtől, aki a lehetetlennel dacolva 120 éve megmentette legénységét a jég és fagy fogságából. Mi így szeretünk dolgozni.",
       "teamLine": "Munkatársaink jelentős szervezeti és vezetői tapasztalattal rendelkező tanácsadók, szakértők.",
       "teamLink": "/rolunk",
-      "teamCta": "Ismerje meg a csapatot"
+      "teamCta": "Ismerje meg csapatunkat"
     },
     "homeReasons": {
       "title": "Hat ok, amiért minket érdemes választani",
-      "intro": "16 évünk, több mint 400 fejlesztési és képzési projektünk nem jöhetett volna létre, ha nem így dolgozunk.",
+      "intro": "18 év tapasztalat, több mint 400 fejlesztési és képzési projekt áll mögöttünk. Lépésről-lépésre",
       "items": [
         {
           "emphasis": "LE",
@@ -49,7 +49,7 @@
           "emphasis": "ÁT",
           "rest": "VEZETJÜK",
           "subtitle": "a nehézségeken",
-          "text": "Minőségi szakembereink segítségével a változtatási folyamatban törvényszerű elbizonytalanodás fázisát gyorsan meghaladjuk."
+          "text": "Szakembereink segítségével a változtatási folyamatban törvényszerű elbizonytalanodás fázisát gyorsan meghaladjuk."
         },
         {
           "emphasis": "VÉGIG",
@@ -67,7 +67,7 @@
           "emphasis": "KI",
           "rest": "VEZETJÜK",
           "subtitle": "a krízisből",
-          "text": "Sokszor a kudarctól való félelem akadályozza meg az újítást. Ha már versenyhátrányban van, ha lemaradt, támogatjuk a kilábalásban."
+          "text": "Sokszor a kudarctól való félelem akadályozza meg az újítást. Ha versenyhátrányban van, vagy már úgy érzi, hogy lemaradt, támogatjuk a kilábalásban."
         },
         {
           "emphasis": "TOVÁBB",
@@ -84,8 +84,8 @@
     },
     "homeServices": [
       {
-        "id": "tanacsadas",
-        "title": "Tanácsadás",
+        "id": "vezetesi-tanacsadas",
+        "title": "Vezetési tanácsadás",
         "text": "Egyetlen szervezetfejlesztés sem lehet sikeres a változást támogató vezetők és munkatársak nélkül. Ezt az emberközpontú megközelítést garantáljuk minden, általunk vezetett tanácsadási folyamatban.",
         "link": "/tanacsadas",
         "cta": "Bővebben",
@@ -119,7 +119,7 @@
       {
         "id": "mentally",
         "title": "Mentally",
-        "text": "Kíváncsi csapata állapotára? A Mentally megmutatja vállalata egészségének térképét!",
+        "text": "A munkahelyi stressz nem HR-ügy, hanem üzleti kockázat. Tudd meg, mi stresszeli a csapatodat, mielőtt a legjobb embereid felmondanak!",
         "link": "https://mentally.team",
         "cta": "Bővebben",
         "external": true,
@@ -136,7 +136,7 @@
       "refsCta": "Referenciáink",
       "items": [
         {
-          "value": 16,
+          "value": 18,
           "suffix": "",
           "label": "év tanácsadói tapasztalat"
         },
@@ -153,7 +153,7 @@
         {
           "value": 250,
           "suffix": "+",
-          "label": "képzési projekt felnőttképző intézményként"
+          "label": "képzési projekt 10 éve felnőttképző intézményként"
         },
         {
           "value": 3500,
@@ -219,51 +219,44 @@
         "imageAlt": "Rávezető Projekt — szervezetfejlesztés és tanácsadás"
       },
       "quote": {
+        "kicker": "Kétezer éve is igaz volt",
         "text": "Mindaz, amit látsz, hamarosan megváltozik, sőt megszűnik. Arra gondolj, hány változásnak voltál már magad is tanúja. A világ változás, az élet felfogás dolga.",
-        "author": "Marcus Aurelius római császár",
-        "note": "kétezer éves üzenete, hogy a változások tudatos irányítása, a változáshoz való hozzáállásunk, alkalmazkodásunk határozza meg sikerességünket."
+        "author": "Marcus Aurelius",
+        "note": "A változások tudatos irányítása, a változáshoz való alkalmazkodásunk határozza meg sikerességünket."
       },
       "motto": "Tanácsadóink nem csupán elméleti szakemberek – valós szervezeti kihívásokban szerzett tapasztalattal segítjük ügyfeleinket a változások vezetésében.",
       "szervezetfejlesztes": {
-        "punch": "Ha a szervezeti kultúra nem változik, nincs esély a stratégia sikeres végrehajtására!",
+        "punch": "Tanácsadóink nem csupán elméleti szakemberek – valós szervezeti kihívásokban szerzett tapasztalattal segítjük ügyfeleinket a változások vezetésében.",
         "bands": [
           {
             "title": "Szervezeti kultúra: a sikeres változás alapja",
             "paragraphs": [
-              "Meggyőződésünk, hogy egyetlen szervezetfejlesztés sem lehet sikeres a változást értő és támogató munkatársak nélkül. Ez a szemlélet vezérel bennünket minden projektünkben."
+              "A szervezeti kultúra változása nélkül, nincs esély a stratégia sikeres végrehajtására!",
+              "A kultúra jórészt a felszín alatt működik: a kimondatlan szabályokban, a beidegződött reflexekben, abban, ahogyan a szervezetben valójában döntenek és együttműködnek. Munkánk első lépése ezért mindig az, hogy ezt láthatóvá és megbeszélhetővé tegyük."
             ],
-            "photoLabel": "📷 workshop-fotó helye\n(tompított, meleg tónus)",
+            "photoLabel": "🖊 sketch-rajz helye\n(assets/tanacsadas-kultura.png)",
             "photo": ""
           },
           {
             "title": "Közös munka, tartós eredmény",
             "paragraphs": [
-              "Hiszünk a folyamatalapú megközelítésben. Nem kész megoldásokat kínálunk, hanem emberközpontú szervezetfejlesztőként szoros csapatmunkában támogatjuk partnereinket céljaik megvalósításában.",
+              "Hiszünk a folyamatalapú megközelítésben. Nem kész megoldásokat kínálunk, hanem szoros csapatmunkában támogatjuk partnereinket céljaik megvalósításában.",
               "Az eredmények a tanácsadási folyamat során, közös munkával születnek meg. Ügyfeleink mellett állunk a tervezéstől a megvalósításig, biztosítva a szükséges szakmai támogatást minden lépésnél."
             ],
-            "photoLabel": "📷 közös munka fotója",
+            "photoLabel": "🖊 sketch-rajz helye\n(assets/tanacsadas-kozos-munka.png)",
             "photo": ""
           }
         ]
       },
+      "valtozasmenedzsment": {
+        "lead": "A gyorsan változó környezetben különösen fontos a stratégiai gondolkodás és a szervezeti kultúra összehangolása a szervezeti hatékonyság növelése érdekében. Segítünk megtervezni a változást, felkészíteni azokat a vezetőket és munkatársakat, akiken a végrehajtás múlik, és erősíteni az együttműködést a szervezeti egységek között. Ott is ügyfeleink mellett maradunk, ahol a legtöbb változás elakad: a célok eléréséhez szükséges projektek és folyamatok megvalósításánál.",
+        "photoLabel": "🖊 sketch-rajz helye\n(assets/tanacsadas-valtozas.png)",
+        "photo": ""
+      },
       "coaching": {
-        "leadStrong": "Nemcsak „magányos” vezetőknek.",
-        "leadRest": " Napjaink vezetői döntési helyzeteikben minden belső és külső támogatás ellenére nap mint nap egyedül maradnak a rájuk háruló felelősséggel.",
-        "cards": [
-          {
-            "title": "Döntéseink szempontjai, elemzésük előtte (és néha utána)",
-            "paragraphs": [
-              "Nálunk a coachok tényleg rendelkeznek szervezeti tapasztalattal!",
-              "Egyedi megközelítéssel, módszertannal saját vezetői tapasztalatukra is támaszkodva támogatják a vezetői munkavégzést a szervezeti problémák és kihívások, döntési pontok, korábbi és jelenidejű döntések közös elemzésével."
-            ]
-          },
-          {
-            "title": "Fejlődésem útja, hogy jobb vezető legyek",
-            "paragraphs": [
-              "A személyes és bizalmi kapcsolat vezető és tanácsadó között arra is alkalmas, hogy többféle módszertani eszköz, gyakorlatok és a visszacsatolás révén elősegítse a vezetői készségek és kompetenciák fejlesztését a szervezeti és személyes haszon maximalizálására."
-            ]
-          }
-        ]
+        "lead": "Napjaink vezetői döntési helyzeteikben minden belső és külső támogatás ellenére nap mint nap egyedül maradnak a rájuk háruló felelősséggel. A személyes és bizalmi kapcsolat vezető és tanácsadó között arra is alkalmas, hogy többféle módszertani eszköz, gyakorlatok és a visszacsatolás révén elősegítse a vezetői készségek és kompetenciák fejlesztését a szervezeti és személyes haszon maximalizálására.",
+        "photoLabel": "🖊 sketch-rajz helye\n(assets/coaching.png)",
+        "photo": ""
       },
       "close": {
         "kicker": "Kapcsolat",
@@ -280,10 +273,10 @@
         "index": "01",
         "label": "Szervezetfejlesztés",
         "title": "Szervezeti kultúra: a sikeres változás alapja",
-        "intro": "Meggyőződésünk, hogy egyetlen szervezetfejlesztés sem lehet sikeres a változást értő és támogató munkatársak nélkül.",
-        "detail": "Hiszünk a folyamatalapú megközelítésben. Nem kész megoldásokat kínálunk, hanem emberközpontú szervezetfejlesztőként szoros csapatmunkában támogatjuk partnereinket céljaik megvalósításában. Az eredmények a tanácsadási folyamat során, közös munkával születnek meg.",
+        "intro": "A szervezeti kultúra változása nélkül, nincs esély a stratégia sikeres végrehajtására!",
+        "detail": "Hiszünk a folyamatalapú megközelítésben. Nem kész megoldásokat kínálunk, hanem szoros csapatmunkában támogatjuk partnereinket céljaik megvalósításában.",
         "problems": [
-          "Ha a szervezeti kultúra nem változik, nincs esély a stratégia sikeres végrehajtására.",
+          "A kultúra jórészt a felszín alatt működik — munkánk első lépése, hogy ezt láthatóvá tegyük.",
           "Közös munka, tartós eredmény — a tervezéstől a megvalósításig."
         ],
         "cta": "Kapcsolatfelvétel",
@@ -299,14 +292,9 @@
         "section": "tanacsadas",
         "index": "02",
         "label": "Változásmenedzsment",
-        "title": "A változás útja velünk",
-        "intro": "A gyorsan változó környezetben különösen fontos a stratégiai gondolkodás és a szervezeti kultúra összehangolása a szervezeti hatékonyság növelése érdekében. Szakértői támogatásunk kiterjed:",
-        "problems": [
-          "A változások stratégiai tervezésére",
-          "A változást támogató munkatársak felkészítésére",
-          "A szervezeti együttműködés fejlesztésére",
-          "A célok eléréséhez szükséges projektek és folyamatok megvalósításának szakszerű és megbízható elősegítésére"
-        ],
+        "title": "Változás menedzsment",
+        "intro": "A gyorsan változó környezetben különösen fontos a stratégiai gondolkodás és a szervezeti kultúra összehangolása a szervezeti hatékonyság növelése érdekében. Segítünk megtervezni a változást, felkészíteni azokat a vezetőket és munkatársakat, akiken a végrehajtás múlik, és erősíteni az együttműködést a szervezeti egységek között. Ott is ügyfeleink mellett maradunk, ahol a legtöbb változás elakad: a célok eléréséhez szükséges projektek és folyamatok megvalósításánál.",
+        "problems": [],
         "cta": "Kapcsolatfelvétel",
         "link": "/kapcsolat",
         "visual": "/assets/illustrations/illust_projectmanagement.svg",
@@ -320,13 +308,9 @@
         "section": "tanacsadas",
         "index": "03",
         "label": "Coaching",
-        "title": "Üzleti edzés, coaching — nemcsak „magányos” vezetőknek",
-        "intro": "Napjaink vezetői döntési helyzeteikben minden belső és külső támogatás ellenére nap mint nap egyedül maradnak a rájuk háruló felelősséggel.",
-        "detail": "Nálunk a coachok tényleg rendelkeznek szervezeti tapasztalattal! Egyedi megközelítéssel, módszertannal saját vezetői tapasztalatukra is támaszkodva támogatják a vezetői munkavégzést a szervezeti problémák és kihívások, döntési pontok, korábbi és jelenidejű döntések közös elemzésével.",
-        "problems": [
-          "Döntéseink szempontjai, elemzésük előtte (és néha utána)",
-          "Fejlődésem útja, hogy jobb vezető legyek — a vezetői készségek és kompetenciák fejlesztése a szervezeti és személyes haszon maximalizálására."
-        ],
+        "title": "Üzleti edzés, coaching",
+        "intro": "Napjaink vezetői döntési helyzeteikben minden belső és külső támogatás ellenére nap mint nap egyedül maradnak a rájuk háruló felelősséggel. A személyes és bizalmi kapcsolat vezető és tanácsadó között arra is alkalmas, hogy többféle módszertani eszköz, gyakorlatok és a visszacsatolás révén elősegítse a vezetői készségek és kompetenciák fejlesztését a szervezeti és személyes haszon maximalizálására.",
+        "problems": [],
         "cta": "Kapcsolatfelvétel",
         "link": "/kapcsolat",
         "visual": "/assets/illustrations/illust_coaching.svg",
@@ -567,11 +551,11 @@
         "label": "Referenciák · Partnereink",
         "title": "Büszkék vagyunk partnereink",
         "titleMark": "bizalmára!",
-        "lead": "Több mint 200 elégedett, visszatérő ügyfél – az alábbi partnereink logóival lesz teljes ez az oldal."
+        "lead": "Több mint 200 elégedett, visszatérő ügyfél."
       },
       "stats": [
         {
-          "value": 16,
+          "value": 18,
           "suffix": "",
           "label": "év tanácsadói tapasztalat"
         },
@@ -669,12 +653,12 @@
       {
         "path": "/jogi/adatvedelem",
         "title": "RÁVezető – Adatvédelem",
-        "description": "A Rávezető Projekt Kft. adatvédelmi tájékoztatói és adatkezelési gyakorlata. Engedélyezett felnőttképző intézmény (E/2021/000106, B/2020/001943)."
+        "description": "A Rávezető Projekt Kft. adatvédelmi szabályzata. A végleges szöveg feltöltése az oldal élesítése előtt történik meg."
       },
       {
         "path": "/jogi/impresszum",
         "title": "RÁVezető – Impresszum",
-        "description": "A Rávezető Projekt Kft. hivatalos elérhetőségei, cégadatok és jogi dokumentumai."
+        "description": "A Rávezető Projekt Kft. impresszuma. A végleges jogi tartalom feltöltése az oldal élesítése előtt történik meg."
       },
       {
         "path": "/jogi/cookie",

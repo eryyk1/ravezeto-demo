@@ -58,12 +58,12 @@ const PAGE_META: Record<string, Omit<PageMeta, 'canonical'>> = {
   '/jogi/adatvedelem': {
     title: `RÁVezető – Adatvédelem`,
     description:
-      'A Rávezető Projekt Kft. adatvédelmi tájékoztatói és adatkezelési gyakorlata. Engedélyezett felnőttképző intézmény (E/2021/000106, B/2020/001943).',
+      'A Rávezető Projekt Kft. adatvédelmi szabályzata. A végleges szöveg feltöltése az oldal élesítése előtt történik meg.',
   },
   '/jogi/impresszum': {
     title: `RÁVezető – Impresszum`,
     description:
-      'A Rávezető Projekt Kft. hivatalos elérhetőségei, cégadatok és jogi dokumentumai.',
+      'A Rávezető Projekt Kft. impresszuma. A végleges jogi tartalom feltöltése az oldal élesítése előtt történik meg.',
   },
   '/jogi/cookie': {
     title: `RÁVezető – Cookie tájékoztató`,

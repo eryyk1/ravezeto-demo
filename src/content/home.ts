@@ -3,7 +3,7 @@
 import { euBranding, mentallyImages, themeImage } from '../data/media';
 
 export const homeHero = {
-  label: 'Vezetési tanácsadás · 2008 óta',
+  label: 'Emberközpontú szervezetfejlesztés · 2008 óta',
   headlineLines: ['Változásokat', 'vezetünk,', 'együtt!'] as const,
   intro:
     'Vezetési tanácsadók vagyunk, problémákat oldunk meg, közösen hajlítjuk a teret, alakítjuk az egészségesebb vállalati jövőt.',
@@ -24,17 +24,17 @@ export const homeQuote = {
   text: 'Az optimizmus az igazi erkölcsi bátorság',
   author: 'Ernest Shackleton',
   context:
-    'A fenti idézet az egyik kedvencünk a híres felfedezőtől, aki a lehetetlennel dacolva 120 éve megmentette legénységét a jég és fagy fogságából.',
+    'Kedvenc idézetünk a híres felfedezőtől, aki a lehetetlennel dacolva 120 éve megmentette legénységét a jég és fagy fogságából. Mi így szeretünk dolgozni.',
   teamLine:
     'Munkatársaink jelentős szervezeti és vezetői tapasztalattal rendelkező tanácsadók, szakértők.',
   teamLink: '/rolunk',
-  teamCta: 'Ismerje meg a csapatot',
+  teamCta: 'Ismerje meg csapatunkat',
 } as const;
 
 export const homeReasons = {
   title: 'Hat ok, amiért minket érdemes választani',
   intro:
-    '16 évünk, több mint 400 fejlesztési és képzési projektünk nem jöhetett volna létre, ha nem így dolgozunk.',
+    '18 év tapasztalat, több mint 400 fejlesztési és képzési projekt áll mögöttünk. Lépésről-lépésre',
   items: [
     {
       emphasis: 'LE',
@@ -46,7 +46,7 @@ export const homeReasons = {
       emphasis: 'ÁT',
       rest: 'VEZETJÜK',
       subtitle: 'a nehézségeken',
-      text: 'Minőségi szakembereink segítségével a változtatási folyamatban törvényszerű elbizonytalanodás fázisát gyorsan meghaladjuk.',
+      text: 'Szakembereink segítségével a változtatási folyamatban törvényszerű elbizonytalanodás fázisát gyorsan meghaladjuk.',
     },
     {
       emphasis: 'VÉGIG',
@@ -64,7 +64,7 @@ export const homeReasons = {
       emphasis: 'KI',
       rest: 'VEZETJÜK',
       subtitle: 'a krízisből',
-      text: 'Sokszor a kudarctól való félelem akadályozza meg az újítást. Ha már versenyhátrányban van, ha lemaradt, támogatjuk a kilábalásban.',
+      text: 'Sokszor a kudarctól való félelem akadályozza meg az újítást. Ha versenyhátrányban van, vagy már úgy érzi, hogy lemaradt, támogatjuk a kilábalásban.',
     },
     {
       emphasis: 'TOVÁBB',
@@ -98,7 +98,7 @@ export const homeServicesIntro = {
 
 export const homeServices = [
   {
-    title: 'Tanácsadás',
+    title: 'Vezetési tanácsadás',
     text: 'Egyetlen szervezetfejlesztés sem lehet sikeres a változást támogató vezetők és munkatársak nélkül. Ezt az emberközpontú megközelítést garantáljuk minden, általunk vezetett tanácsadási folyamatban.',
     link: '/tanacsadas',
     cta: 'Bővebben',
@@ -123,7 +123,7 @@ export const homeServices = [
   },
   {
     title: 'Mentally',
-    text: 'Kíváncsi csapata állapotára? A Mentally megmutatja vállalata egészségének térképét!',
+    text: 'A munkahelyi stressz nem HR-ügy, hanem üzleti kockázat. Tudd meg, mi stresszeli a csapatodat, mielőtt a legjobb embereid felmondanak!',
     link: 'https://mentally.team',
     cta: 'Bővebben',
     external: true,
@@ -151,10 +151,10 @@ export const homeStatsIntro = {
 } as const;
 
 export const homeStats = [
-  { value: 16, suffix: '', label: 'év tanácsadói tapasztalat' },
+  { value: 18, suffix: '', label: 'év tanácsadói tapasztalat' },
   { value: 400, suffix: '+', label: 'tanácsadási projekt' },
   { value: 200, suffix: '+', label: 'elégedett, visszatérő ügyfél' },
-  { value: 250, suffix: '+', label: 'képzési projekt felnőttképző intézményként' },
+  { value: 250, suffix: '+', label: 'képzési projekt 10 éve felnőttképző intézményként' },
   { value: 3500, suffix: '+', label: 'résztvevő a képzéseinken' },
   { value: 200, suffix: '+', label: 'együttműködő tanácsadó' },
 ] as const;

@@ -98,6 +98,16 @@ export default function TanacsadasEditPage() {
 
         <section className="admin-panel">
           <h2>Idézet (Aurelius)</h2>
+          <AdminField label="Címke" htmlFor="tan-quote-kicker">
+            <input
+              id="tan-quote-kicker"
+              className="admin-input"
+              value={form.quote.kicker ?? ''}
+              onChange={(e) =>
+                setForm({ ...form, quote: { ...form.quote, kicker: e.target.value } })
+              }
+            />
+          </AdminField>
           <AdminField label="Szöveg" htmlFor="tan-quote">
             <textarea
               id="tan-quote"
@@ -199,63 +209,55 @@ export default function TanacsadasEditPage() {
         </section>
 
         <section className="admin-panel">
-          <h2>Coaching</h2>
-          <div className="admin-form__grid">
-            <AdminField label="Bevezető (kiemelt)" htmlFor="tan-coach-strong">
-              <input
-                id="tan-coach-strong"
-                className="admin-input"
-                value={form.coaching.leadStrong}
-                onChange={(e) =>
-                  setForm({ ...form, coaching: { ...form.coaching, leadStrong: e.target.value } })
-                }
-              />
-            </AdminField>
-            <AdminField label="Bevezető (folytatás)" htmlFor="tan-coach-rest">
-              <input
-                id="tan-coach-rest"
-                className="admin-input"
-                value={form.coaching.leadRest}
-                onChange={(e) =>
-                  setForm({ ...form, coaching: { ...form.coaching, leadRest: e.target.value } })
-                }
-              />
-            </AdminField>
-          </div>
-          {form.coaching.cards.map((card, cardIndex) => (
-            <div key={cardIndex} className="admin-subpanel">
-              <h3>Kártya {cardIndex + 1}</h3>
-              <AdminField label="Cím" htmlFor={`tan-card-title-${cardIndex}`}>
-                <input
-                  id={`tan-card-title-${cardIndex}`}
-                  className="admin-input"
-                  value={card.title}
-                  onChange={(e) => {
-                    const cards = [...form.coaching.cards];
-                    cards[cardIndex] = { ...cards[cardIndex], title: e.target.value };
-                    setForm({ ...form, coaching: { ...form.coaching, cards } });
-                  }}
-                />
-              </AdminField>
-              {card.paragraphs.map((paragraph, pIndex) => (
-                <AdminField key={pIndex} label={`Bekezdés ${pIndex + 1}`} htmlFor={`tan-card-${cardIndex}-p-${pIndex}`}>
-                  <textarea
-                    id={`tan-card-${cardIndex}-p-${pIndex}`}
-                    className="admin-textarea"
-                    rows={3}
-                    value={paragraph}
-                    onChange={(e) => {
-                      const cards = [...form.coaching.cards];
-                      const paragraphs = [...cards[cardIndex].paragraphs];
-                      paragraphs[pIndex] = e.target.value;
-                      cards[cardIndex] = { ...cards[cardIndex], paragraphs };
-                      setForm({ ...form, coaching: { ...form.coaching, cards } });
-                    }}
-                  />
-                </AdminField>
-              ))}
-            </div>
-          ))}
+          <h2>Változás menedzsment</h2>
+          <AdminField label="Bevezető" htmlFor="tan-vm-lead">
+            <textarea
+              id="tan-vm-lead"
+              className="admin-textarea"
+              rows={5}
+              value={form.valtozasmenedzsment.lead}
+              onChange={(e) =>
+                setForm({
+                  ...form,
+                  valtozasmenedzsment: { ...form.valtozasmenedzsment, lead: e.target.value },
+                })
+              }
+            />
+          </AdminField>
+          <ImageField
+            label="Illusztráció"
+            value={form.valtozasmenedzsment.photo ?? ''}
+            onChange={(value) =>
+              setForm({
+                ...form,
+                valtozasmenedzsment: { ...form.valtozasmenedzsment, photo: value },
+              })
+            }
+            hint={form.valtozasmenedzsment.photoLabel}
+          />
+        </section>
+
+        <section className="admin-panel">
+          <h2>Üzleti edzés, coaching</h2>
+          <AdminField label="Bevezető" htmlFor="tan-coach-lead">
+            <textarea
+              id="tan-coach-lead"
+              className="admin-textarea"
+              rows={5}
+              value={form.coaching.lead}
+              onChange={(e) =>
+                setForm({ ...form, coaching: { ...form.coaching, lead: e.target.value } })
+              }
+            />
+          </AdminField>
+          <ImageField
+            label="Illusztráció"
+            value={form.coaching.photo ?? ''}
+            onChange={(value) =>
+              setForm({ ...form, coaching: { ...form.coaching, photo: value } })
+            }
+            hint={form.coaching.photoLabel}
+          />
         </section>
 
         <section className="admin-panel">

@@ -24,6 +24,11 @@ export default function JogiPage() {
     <JogiDocumentBody
       content={content}
       showCompanyDetails={slug === 'impresszum'}
+      logoSrc={
+        slug === 'impresszum'
+          ? '/assets/images/impresszum/img-02.svg'
+          : '/assets/images/adatvedelem/img-02.svg'
+      }
     />
   );
 }

@@ -11,7 +11,7 @@ export default function ReferenciakBody() {
           <p className="lead">Több mint 200 elégedett, visszatérő ügyfél.</p>
         </div>
       </section>
-      
+
       <section className="tstats">
         <div className="wrap">
           <div className="grid rev">
@@ -22,7 +22,7 @@ export default function ReferenciakBody() {
           </div>
         </div>
       </section>
-      
+
       <section className="sec">
         <div className="wrap">
           <div className="lg-flow rev">
@@ -32,7 +32,7 @@ export default function ReferenciakBody() {
           <p className="partner-list rev"><strong>Partnereink:</strong> <span className="pn" data-p="atev">ATEV Fehérjefeldolgozó Zrt.</span> · <span className="pn" data-p="baudekor">BauDekor Kft.</span> · <span className="pn" data-p="bgyh">Budapest Gyógyfürdői és Hévizei Zrt.</span> · <span className="pn" data-p="dku">Digitális Kormányzati Ügynökség Zrt.</span> · <span className="pn" data-p="dyntell">Dyntell Kft.</span> · <span className="pn" data-p="egis">Egis Gyógyszergyár Zrt.</span> · <span className="pn" data-p="equinox">Equinox Consulting Kft.</span> · <span className="pn" data-p="ex-ante">Ex Ante Kft.</span> · <span className="pn" data-p="globomax">Globomax Zrt.</span> · <span className="pn" data-p="hd-direkt">HD Direkt Hungary Kft.</span> · <span className="pn" data-p="kemence">Kemence Pékség</span> · <span className="pn" data-p="konigsberg">Königsberg Consulting Kft.</span> · <span className="pn" data-p="kszk">Kormányzati Szolgáltató Központ Nonprofit Kft.</span> · <span className="pn" data-p="lechner">Lechner Tudásközpont</span> · <span className="pn" data-p="mmsz">Magyar Máltai Szeretetszolgálat</span> · <span className="pn" data-p="te">Magyar Testnevelési és Sporttudományi Egyetem</span> · <span className="pn" data-p="mna-group">MNA GROUP Kft.</span> · <span className="pn" data-p="mome">Moholy-Nagy Művészeti Egyetem</span> · <span className="pn" data-p="nngyk">Nemzeti Népegészségügyi és Gyógyszerészeti Központ</span> · <span className="pn" data-p="nffku">Nemzetközi Fejlesztési és Forráskoordinációs Ügynökség Zrt.</span> · <span className="pn" data-p="oe">Óbudai Egyetem</span> · <span className="pn" data-p="okfo">Országos Kórházi Főigazgatóság</span> · <span className="pn" data-p="profikomp">Profikomp Környezettechnika Zrt.</span> · <span className="pn" data-p="rc-hungaria">RC Hungária Kft.</span> · <span className="pn" data-p="saldo">SALDO Pénzügyi Tanácsadó és Informatikai Zrt.</span> · <span className="pn" data-p="sbt">SBT Protect Kft.</span> · <span className="pn" data-p="smart-digital">Smart Digital Kft.</span> · <span className="pn" data-p="soproni-egyetem">Soproni Egyetem</span> · <span className="pn" data-p="sszc">Soproni Szakképzési Centrum</span> · <span className="pn" data-p="sze">Széchenyi István Egyetem</span> · <span className="pn" data-p="tszc">Tatabányai Szakképzési Centrum</span> · <span className="pn" data-p="universitas-gyor">Universitas-Győr Nonprofit Kft.</span> · <span className="pn" data-p="vajda-papir">Vajda-Papír Kft.</span> · <span className="pn" data-p="vksz">Veszprémi Közüzemi Szolgáltató Zrt.</span> · <span className="pn" data-p="zengo">Zengo Kft.</span></p>
         </div>
       </section>
-      
+
       <section className="sec-t3" id="velemenyek">
         <div className="wrap">
           <div className="kicker rev">Ügyfeleink mondták</div>
@@ -82,7 +82,7 @@ export default function ReferenciakBody() {
           </div>
         </div>
       </section>
-      
+
       <section className="cta-sec">
         <div className="wrap">
           <div className="cta-card rev">
@@ -94,18 +94,18 @@ export default function ReferenciakBody() {
           </div>
         </div>
       </section>
-      
+
       <footer>
         <div className="wrap">
           <div className="cols">
-            <div className="flogo"><img src="/assets/images/referenciak/img-72.svg" alt="Rávezető Projekt Kft." /><div className="tag">Változásokat vezetünk, együtt!</div></div>
+            <div className="flogo"><img src="/assets/images/referenciak/img-72.svg" alt="Rávezető Projekt" /><div className="tag">Változásokat vezetünk, együtt!</div></div>
             <div>1146 Budapest, Izsó u. 7. 1/3.<br /><a href="mailto:info@ravezeto.hu">info@ravezeto.hu</a> · <a href="tel:+36705134128">+36 70/513 4128</a></div>
-            <div><a href="#" target="_blank" rel="noopener">LinkedIn</a><br /><Link to="/jogi/adatvedelem">Adatvédelem</Link> · <Link to="/jogi/impresszum">Impresszum</Link></div>
+            <div><a href="https://www.linkedin.com/company/r%C3%A1vezet%C5%91-projekt/" target="_blank" rel="noopener">LinkedIn</a><br /><Link to="/jogi/adatvedelem">Adatvédelem</Link> · <Link to="/jogi/impresszum">Impresszum</Link></div>
           </div>
           <div className="fcred">
             <div className="fdoc"><b>Cégünk felnőttképzési engedéllyel rendelkező intézmény.</b><br />Nyilvántartásba vételi számunk: B/2020/001943 · Engedélyszámunk: E/2021/000106</div>
           </div>
-          <div className="copy">© 2026 Rávezető Projekt Kft.</div>
+          <div className="copy">© 2026 Rávezető Projekt Kft. · Frissítve: <time dateTime="2026-09-09">2026. szeptember</time></div>
         </div>
       </footer>
     </>

@@ -182,11 +182,28 @@ export default function HomeEditPage() {
               />
             </AdminField>
             <AdminField label="Kontextus" htmlFor="home-quote-context">
-              <input
+              <textarea
                 id="home-quote-context"
-                className="admin-input"
+                className="admin-textarea"
+                rows={3}
                 value={quoteForm.form.context}
                 onChange={(e) => quoteForm.setForm({ ...quoteForm.form, context: e.target.value })}
+              />
+            </AdminField>
+            <AdminField label="Csapat sor" htmlFor="home-quote-team">
+              <input
+                id="home-quote-team"
+                className="admin-input"
+                value={quoteForm.form.teamLine}
+                onChange={(e) => quoteForm.setForm({ ...quoteForm.form, teamLine: e.target.value })}
+              />
+            </AdminField>
+            <AdminField label="Csapat link szöveg" htmlFor="home-quote-team-cta">
+              <input
+                id="home-quote-team-cta"
+                className="admin-input"
+                value={quoteForm.form.teamCta}
+                onChange={(e) => quoteForm.setForm({ ...quoteForm.form, teamCta: e.target.value })}
               />
             </AdminField>
           </div>
@@ -211,6 +228,62 @@ export default function HomeEditPage() {
               onChange={(e) => reasonsForm.setForm({ ...reasonsForm.form, intro: e.target.value })}
             />
           </AdminField>
+          {reasonsForm.form.items.map((item, index) => (
+            <div key={item.emphasis} className="admin-subpanel">
+              <h3>{item.emphasis}{item.rest}</h3>
+              <div className="admin-form__grid">
+                <AdminField label="Kiemelés" htmlFor={`home-reason-em-${index}`}>
+                  <input
+                    id={`home-reason-em-${index}`}
+                    className="admin-input"
+                    value={item.emphasis}
+                    onChange={(e) => {
+                      const items = [...reasonsForm.form.items];
+                      items[index] = { ...items[index], emphasis: e.target.value };
+                      reasonsForm.setForm({ ...reasonsForm.form, items });
+                    }}
+                  />
+                </AdminField>
+                <AdminField label="Szó folytatás" htmlFor={`home-reason-rest-${index}`}>
+                  <input
+                    id={`home-reason-rest-${index}`}
+                    className="admin-input"
+                    value={item.rest}
+                    onChange={(e) => {
+                      const items = [...reasonsForm.form.items];
+                      items[index] = { ...items[index], rest: e.target.value };
+                      reasonsForm.setForm({ ...reasonsForm.form, items });
+                    }}
+                  />
+                </AdminField>
+              </div>
+              <AdminField label="Alcím" htmlFor={`home-reason-sub-${index}`}>
+                <input
+                  id={`home-reason-sub-${index}`}
+                  className="admin-input"
+                  value={item.subtitle}
+                  onChange={(e) => {
+                    const items = [...reasonsForm.form.items];
+                    items[index] = { ...items[index], subtitle: e.target.value };
+                    reasonsForm.setForm({ ...reasonsForm.form, items });
+                  }}
+                />
+              </AdminField>
+              <AdminField label="Szöveg" htmlFor={`home-reason-text-${index}`}>
+                <textarea
+                  id={`home-reason-text-${index}`}
+                  className="admin-textarea"
+                  rows={3}
+                  value={item.text}
+                  onChange={(e) => {
+                    const items = [...reasonsForm.form.items];
+                    items[index] = { ...items[index], text: e.target.value };
+                    reasonsForm.setForm({ ...reasonsForm.form, items });
+                  }}
+                />
+              </AdminField>
+            </div>
+          ))}
         </section>
 
         <section className="admin-panel">

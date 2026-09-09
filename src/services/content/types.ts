@@ -164,6 +164,7 @@ export type TanacsadasPageContent = {
     imageAlt: string;
   };
   quote: {
+    kicker?: string;
     text: string;
     author: string;
     note: string;
@@ -178,13 +179,15 @@ export type TanacsadasPageContent = {
       photo?: string;
     }>;
   };
+  valtozasmenedzsment: {
+    lead: string;
+    photoLabel: string;
+    photo?: string;
+  };
   coaching: {
-    leadStrong: string;
-    leadRest: string;
-    cards: Array<{
-      title: string;
-      paragraphs: string[];
-    }>;
+    lead: string;
+    photoLabel: string;
+    photo?: string;
   };
   close: CloseBand;
 };
@@ -382,6 +385,8 @@ export type CmsMeta = {
   hasUnpublishedChanges: boolean;
   /** Last deployed CMS snapshot applied from /cms/published.json */
   publishedBuildRef: string | null;
+  /** Bumped when bundled defaults change — triggers draft refresh without unpublished edits */
+  defaultsRevision?: number;
 };
 
 export type CmsState = {

@@ -18,7 +18,7 @@ export default function TanacsadasBody() {
           <p className="lead">Ezt az emberközpontú megközelítést garantáljuk minden, általunk vezetett tanácsadási folyamatban.</p>
         </div>
       </section>
-      
+
       <div className="aurelius-wrap">
         <div className="aurelius-sticky">
           <div className="wrap">
@@ -29,7 +29,7 @@ export default function TanacsadasBody() {
           </div>
         </div>
       </div>
-      
+
       <section className="chapter">
         <div className="wrap">
           <div className="ch-head">
@@ -54,7 +54,7 @@ export default function TanacsadasBody() {
           <p className="accent-line rev">Tanácsadóink nem csupán elméleti szakemberek – valós szervezeti kihívásokban szerzett tapasztalattal segítjük ügyfeleinket a változások vezetésében.</p>
         </div>
       </section>
-      
+
       <section className="chapter w alt">
         <div className="wrap">
           <div className="ch-head">
@@ -66,7 +66,7 @@ export default function TanacsadasBody() {
           </div>
         </div>
       </section>
-      
+
       <section className="chapter">
         <div className="wrap">
           <div className="ch-head">
@@ -80,7 +80,7 @@ export default function TanacsadasBody() {
           </div>
         </div>
       </section>
-      
+
       <section className="close">
         <div className="wrap rev">
           <svg className="chev-trio" viewBox="0 0 40 46" aria-hidden="true"><path d="M6 40 L20 28 L34 40" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" opacity=".35" /><path d="M6 26 L20 14 L34 26" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" opacity=".2" /><path d="M6 12 L20 0 L34 12" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" opacity=".12" transform="translate(0,4)" /></svg>
@@ -92,14 +92,14 @@ export default function TanacsadasBody() {
         <footer>
           <div className="wrap">
             <div className="cols">
-              <div className="flogo"><img src="/assets/images/tanacsadas/img-06.svg" alt="Rávezető Projekt Kft." /><div className="tag">Változásokat vezetünk, együtt!</div></div>
+              <div className="flogo"><img src="/assets/images/tanacsadas/img-06.svg" alt="Rávezető Projekt" /><div className="tag">Változásokat vezetünk, együtt!</div></div>
               <div>1146 Budapest, Izsó u. 7. 1/3.<br /><a href="mailto:info@ravezeto.hu">info@ravezeto.hu</a> · <a href="tel:+36705134128">+36 70/513 4128</a></div>
-              <div><a href="#" target="_blank" rel="noopener">LinkedIn</a><br /><Link to="/jogi/adatvedelem">Adatvédelem</Link> · <Link to="/jogi/impresszum">Impresszum</Link></div>
+              <div><a href="https://www.linkedin.com/company/r%C3%A1vezet%C5%91-projekt/" target="_blank" rel="noopener">LinkedIn</a><br /><Link to="/jogi/adatvedelem">Adatvédelem</Link> · <Link to="/jogi/impresszum">Impresszum</Link></div>
             </div>
             <div className="fcred">
             <div className="fdoc"><b>Cégünk felnőttképzési engedéllyel rendelkező intézmény.</b><br />Nyilvántartásba vételi számunk: B/2020/001943 · Engedélyszámunk: E/2021/000106</div>
           </div>
-          <div className="copy">© 2026 Rávezető Projekt Kft.</div>
+          <div className="copy">© 2026 Rávezető Projekt Kft. · Frissítve: <time dateTime="2026-09-09">2026. szeptember</time></div>
           </div>
         </footer>
       </section>

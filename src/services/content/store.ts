@@ -26,6 +26,7 @@ const STORAGE_KEY_V1 = 'ravezeto_cms_v1';
 const CMS_STORAGE_VERSION = 3 as const;
 const MAX_VERSIONS = 40;
 const MAX_ACTIVITY = 80;
+const CONTENT_DEFAULTS_REVISION = 2;
 const APP_BUILD_ID = typeof __APP_BUILD_ID__ !== 'undefined' ? __APP_BUILD_ID__ : 'dev';
 
 type CmsSnapshotFile = {
@@ -91,12 +92,93 @@ function normalizePalyazatok(
   };
 }
 
+function normalizeTanacsadas(
+  stored: Partial<TanacsadasPageContent> | undefined,
+  defaults: TanacsadasPageContent,
+): TanacsadasPageContent {
+  if (!stored) return defaults;
+
+  const rawCoaching = stored.coaching as Record<string, unknown> | undefined;
+  let coaching = defaults.coaching;
+  if (rawCoaching && typeof rawCoaching.lead === 'string' && rawCoaching.lead.trim()) {
+    coaching = {
+      lead: rawCoaching.lead,
+      photoLabel: String(rawCoaching.photoLabel ?? defaults.coaching.photoLabel),
+      photo: typeof rawCoaching.photo === 'string' ? rawCoaching.photo : defaults.coaching.photo,
+    };
+  } else if (rawCoaching && ('leadStrong' in rawCoaching || 'cards' in rawCoaching)) {
+    coaching = defaults.coaching;
+  }
+
+  const valtozasmenedzsment = {
+    ...defaults.valtozasmenedzsment,
+    ...(stored.valtozasmenedzsment ?? {}),
+  };
+  if (!stored.valtozasmenedzsment?.lead?.trim()) {
+    valtozasmenedzsment.lead = defaults.valtozasmenedzsment.lead;
+  }
+
+  return {
+    ...defaults,
+    ...stored,
+    hero: { ...defaults.hero, ...stored.hero },
+    quote: { ...defaults.quote, ...stored.quote },
+    motto: typeof stored.motto === 'string' ? stored.motto : defaults.motto,
+    szervezetfejlesztes: {
+      punch: stored.szervezetfejlesztes?.punch ?? defaults.szervezetfejlesztes.punch,
+      bands:
+        Array.isArray(stored.szervezetfejlesztes?.bands) &&
+        stored.szervezetfejlesztes.bands.length >= defaults.szervezetfejlesztes.bands.length
+          ? stored.szervezetfejlesztes.bands.map((band, index) => ({
+              ...defaults.szervezetfejlesztes.bands[index],
+              ...band,
+              paragraphs:
+                band.paragraphs?.length > 0
+                  ? band.paragraphs
+                  : (defaults.szervezetfejlesztes.bands[index]?.paragraphs ?? []),
+            }))
+          : defaults.szervezetfejlesztes.bands,
+    },
+    valtozasmenedzsment,
+    coaching,
+    close: { ...defaults.close, ...stored.close },
+  };
+}
+
 function mergeSiteContent(parsed: Partial<SiteContent>, defaults: SiteContent): SiteContent {
   return {
     ...defaults,
     ...parsed,
     company: { ...defaults.company, ...parsed.company },
     homeHero: { ...defaults.homeHero, ...parsed.homeHero },
+    homeQuote: { ...defaults.homeQuote, ...parsed.homeQuote },
+    homeReasons: parsed.homeReasons?.items?.length
+      ? {
+          title: parsed.homeReasons.title ?? defaults.homeReasons.title,
+          intro: parsed.homeReasons.intro ?? defaults.homeReasons.intro,
+          items: parsed.homeReasons.items,
+        }
+      : defaults.homeReasons,
+    homeServicesIntro: { ...defaults.homeServicesIntro, ...parsed.homeServicesIntro },
+    homeServices: parsed.homeServices?.length ? parsed.homeServices : defaults.homeServices,
+    homeStats: parsed.homeStats?.items?.length
+      ? {
+          ...defaults.homeStats,
+          ...parsed.homeStats,
+          items: parsed.homeStats.items,
+        }
+      : defaults.homeStats,
+    homeContactClose: { ...defaults.homeContactClose, ...parsed.homeContactClose },
+    referenciakPage: parsed.referenciakPage
+      ? {
+          hero: { ...defaults.referenciakPage.hero, ...parsed.referenciakPage.hero },
+          stats: parsed.referenciakPage.stats?.length
+            ? parsed.referenciakPage.stats
+            : defaults.referenciakPage.stats,
+          cta: { ...defaults.referenciakPage.cta, ...parsed.referenciakPage.cta },
+        }
+      : defaults.referenciakPage,
+    tanacsadas: normalizeTanacsadas(parsed.tanacsadas, defaults.tanacsadas),
     team: parsed.team?.length ? parsed.team : defaults.team,
     partners: parsed.partners?.length ? parsed.partners : defaults.partners,
     references: parsed.references?.length ? parsed.references : defaults.references,
@@ -114,12 +196,43 @@ function defaultMeta(partial?: Partial<CmsState['meta']>): CmsState['meta'] {
     lastPublished: null,
     hasUnpublishedChanges: false,
     publishedBuildRef: null,
+    defaultsRevision: CONTENT_DEFAULTS_REVISION,
     ...partial,
   };
 }
 
-function hydrateCmsState(parsed: Partial<CmsState>, defaults: SiteContent): CmsState {
+function applyDefaultsRefresh(state: CmsState, defaults: SiteContent): CmsState {
+  const revision = state.meta.defaultsRevision ?? 0;
+  if (revision >= CONTENT_DEFAULTS_REVISION || state.meta.hasUnpublishedChanges) {
+    return state;
+  }
+
+  const ts = nowIso();
   return {
+    ...state,
+    draft: defaults,
+    published: cloneContent(defaults),
+    meta: {
+      ...state.meta,
+      defaultsRevision: CONTENT_DEFAULTS_REVISION,
+      lastModified: ts,
+      hasUnpublishedChanges: false,
+      publishedBuildRef: APP_BUILD_ID,
+    },
+    activity: [
+      {
+        id: createId('act'),
+        at: ts,
+        message: 'Tartalom frissítve az aktuális oldal szerint',
+        section: 'system',
+      },
+      ...state.activity,
+    ].slice(0, MAX_ACTIVITY),
+  };
+}
+
+function hydrateCmsState(parsed: Partial<CmsState>, defaults: SiteContent): CmsState {
+  const state: CmsState = {
     storageVersion: CMS_STORAGE_VERSION,
     draft: mergeSiteContent(parsed.draft ?? {}, defaults),
     published: mergeSiteContent(parsed.published ?? {}, defaults),
@@ -127,6 +240,7 @@ function hydrateCmsState(parsed: Partial<CmsState>, defaults: SiteContent): CmsS
     activity: parsed.activity ?? [],
     meta: defaultMeta(parsed.meta),
   };
+  return applyDefaultsRefresh(state, defaults);
 }
 
 function loadInitialState(): CmsState {
@@ -244,20 +358,26 @@ class ContentStore {
       const defaults = createDefaultContent();
       const mergedPublished = mergeSiteContent(payload.published ?? {}, defaults);
       const ts = nowIso();
+      const shouldResetDraft = !this.state.meta.hasUnpublishedChanges;
 
       this.state = {
         ...this.state,
         published: mergedPublished,
+        ...(shouldResetDraft ? { draft: cloneContent(mergedPublished) } : {}),
         meta: {
           ...this.state.meta,
           publishedBuildRef: remoteBuildRef,
+          defaultsRevision: CONTENT_DEFAULTS_REVISION,
           lastModified: ts,
+          ...(shouldResetDraft ? { hasUnpublishedChanges: false } : {}),
         },
         activity: [
           {
             id: createId('act'),
             at: ts,
-            message: 'Frissített tartalom betöltve a szerverről',
+            message: shouldResetDraft
+              ? 'Frissített tartalom betöltve a szerverről'
+              : 'Publikált tartalom frissítve (piszkozat megmaradt)',
             section: 'system',
           },
           ...this.state.activity,

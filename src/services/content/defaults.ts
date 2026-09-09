@@ -44,6 +44,7 @@ import {
   tanacsadasQuote,
   tanacsadasServices,
   tanacsadasSzervezetfejlesztes,
+  tanacsadasValtozasmenedzsment,
 } from '../../content/tanacsadas';
 import { teamMembers as legacyTeam } from '../../content/team';
 import { kapcsolatForm, kapcsolatHero } from '../../pages/kapcsolat/kapcsolatContent';
@@ -169,13 +170,15 @@ export function createDefaultContent(): SiteContent {
           photo: '',
         })),
       },
+      valtozasmenedzsment: {
+        lead: tanacsadasValtozasmenedzsment.lead,
+        photoLabel: tanacsadasValtozasmenedzsment.photoLabel,
+        photo: '',
+      },
       coaching: {
-        leadStrong: tanacsadasCoaching.leadStrong,
-        leadRest: tanacsadasCoaching.leadRest,
-        cards: tanacsadasCoaching.cards.map((card) => ({
-          title: card.title,
-          paragraphs: [...card.paragraphs],
-        })),
+        lead: tanacsadasCoaching.lead,
+        photoLabel: tanacsadasCoaching.photoLabel,
+        photo: '',
       },
       close: { ...tanacsadasClose },
     },

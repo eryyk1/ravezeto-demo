@@ -4,12 +4,11 @@ export const referenciakHero = {
   label: 'Referenciák · Partnereink',
   title: 'Büszkék vagyunk partnereink',
   titleMark: 'bizalmára!',
-  lead:
-    'Több mint 200 elégedett, visszatérő ügyfél – az alábbi partnereink logóival lesz teljes ez az oldal.',
+  lead: 'Több mint 200 elégedett, visszatérő ügyfél.',
 } as const;
 
 export const referenciakStats = [
-  { value: 16, suffix: '', label: 'év tanácsadói tapasztalat' },
+  { value: 18, suffix: '', label: 'év tanácsadói tapasztalat' },
   { value: 400, suffix: '+', label: 'tanácsadási projekt' },
   { value: 200, suffix: '+', label: 'elégedett, visszatérő ügyfél' },
   { value: 3500, suffix: '+', label: 'résztvevő a képzéseinken' },

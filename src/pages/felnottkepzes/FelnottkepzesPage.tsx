@@ -48,11 +48,6 @@ const CATALOG = [
     title: 'Mentori kompetenciák fejlesztése',
     items: [['Munkahelyi mentorok képzése', '16 óra']],
   },
-  {
-    tab: 'Digitális kompetenciák',
-    title: 'Digitális kompetenciák fejlesztése',
-    items: [['Mesterséges intelligencia alapjai', '16 óra']],
-  },
 ] as const;
 
 export default function FelnottkepzesPage() {
@@ -197,7 +192,7 @@ export default function FelnottkepzesPage() {
         <div className="wrap">
           <div className="kicker rev">Főbb képzési területeink</div>
           <h2 className="sec-t rev">
-            Öt terület, amelyben a legerősebbek vagyunk.
+            Négy terület, amelyben a legerősebbek vagyunk.
           </h2>
           <div className="band rev">
             <div className="photo-slot">
@@ -301,24 +296,6 @@ export default function FelnottkepzesPage() {
               </span>
             </div>
           </div>
-          <div className="band rev">
-            <div className="photo-slot">
-              <img
-                className="ill"
-                src="/assets/illustrations/illust_inner_courses.svg"
-                alt="Illusztráció: digitális kompetenciák"
-                onError={(e) => e.currentTarget.remove()}
-              />
-            </div>
-            <div>
-              <h3>Mesterséges intelligencia alapjai</h3>
-              <p>
-                Engedélyezett, 16 órás akkreditált képzésünk bevezeti a munkatársakat
-                a mesterséges intelligencia alapjaiba és a felelős, gyakorlati
-                alkalmazás lehetőségeibe a mindennapi munkában.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -332,7 +309,7 @@ export default function FelnottkepzesPage() {
               </h2>
             </div>
             <div className="cat-count rev">
-              <b>21</b> képzés · <b>5</b> terület
+              <b>20</b> képzés · <b>4</b> terület
             </div>
           </div>
           <div className="cat-tabs rev" role="tablist" aria-label="Képzési kategóriák">
@@ -445,7 +422,7 @@ export default function FelnottkepzesPage() {
           <div className="wrap">
             <div className="cols">
               <div className="flogo">
-                <img src="/assets/images/felnottkepzes/img-07.png" alt="Rávezető Projekt Kft." />
+                <img src="/assets/images/felnottkepzes/img-07.svg" alt="Rávezető Projekt Kft." />
                 <div className="tag">Változásokat vezetünk, együtt!</div>
               </div>
               <div>
@@ -456,7 +433,7 @@ export default function FelnottkepzesPage() {
               </div>
               <div>
                 <a
-                  href="https://www.linkedin.com/company/ravezeto-projekt"
+                  href="https://www.linkedin.com/company/r%C3%A1vezet%C5%91-projekt/"
                   target="_blank"
                   rel="noopener"
                 >
