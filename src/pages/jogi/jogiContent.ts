@@ -1,10 +1,10 @@
-type JogiDocument = {
+export type JogiDocument = {
   label: string;
   href: string;
   description?: string;
 };
 
-type JogiPageContent = {
+export type JogiPageContent = {
   title: string;
   intro: string;
   body?: readonly string[];

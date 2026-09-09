@@ -12,13 +12,11 @@ const permanent = (source, destination) => [
   ...(source.endsWith('/') ? [] : [{ source: `${source}/`, destination, permanent: true }]),
 ];
 
-/**
- * Vercel redirects require `destination` on every rule and only allow
- * status codes 301, 302, 303, 307, 308 (no native 410). Retired/spam paths
- * are permanently redirected to `/`. Nginx/Apache fallback configs still
- * return 410 Gone for these URLs when not deployed on Vercel.
- */
-const retire = (source) => permanent(source, '/');
+/** Vercel supports 410 Gone without destination */
+const gone = (source) => [
+  { source, statusCode: 410 },
+  ...(source.endsWith('/') ? [] : [{ source: `${source}/`, statusCode: 410 }]),
+];
 
 const rules = [];
 
@@ -81,7 +79,7 @@ for (const [from, dest] of [
   rules.push(...permanent(from, dest));
 }
 
-// Retired paths (410 on nginx/apache; permanent redirect to / on Vercel)
+// Retired paths — 410 Gone per MI-Térkép migration table
 for (const path of [
   '/teszt',
   '/csr',
@@ -95,7 +93,7 @@ for (const path of [
   '/category/referenciak',
   '/author/papajcsikaron',
 ]) {
-  rules.push(...retire(path));
+  rules.push(...gone(path));
 }
 
 // PDF legacy paths (keep existing)
@@ -121,14 +119,55 @@ const deduped = rules.filter((r) => {
 deduped.sort((a, b) => a.source.localeCompare(b.source));
 
 for (const rule of deduped) {
-  if (!rule.source || typeof rule.destination !== 'string' || !rule.destination) {
+  if (!rule.source) {
+    throw new Error(`Invalid redirect rule: ${JSON.stringify(rule)}`);
+  }
+  if (rule.statusCode === 410) continue;
+  if (typeof rule.destination !== 'string' || !rule.destination) {
     throw new Error(`Invalid redirect rule (missing destination): ${JSON.stringify(rule)}`);
   }
 }
 
+const PRERENDER_ROUTES = [
+  '/rolunk',
+  '/tanacsadas',
+  '/felnottkepzes',
+  '/referenciak',
+  '/palyazatok',
+  '/mentally',
+  '/kapcsolat',
+  '/jogi/adatvedelem',
+  '/jogi/impresszum',
+  '/jogi/cookie',
+];
+
+const prerenderRewrites = PRERENDER_ROUTES.map((route) => ({
+  source: route,
+  destination: `${route}/index.html`,
+}));
+
 const vercelConfig = {
   redirects: deduped,
+  headers: [
+    {
+      source: '/(.*)',
+      headers: [
+        { key: 'X-Content-Type-Options', value: 'nosniff' },
+        { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+        { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+        {
+          key: 'Permissions-Policy',
+          value: 'camera=(), microphone=(), geolocation=()',
+        },
+        {
+          key: 'Strict-Transport-Security',
+          value: 'max-age=63072000; includeSubDomains; preload',
+        },
+      ],
+    },
+  ],
   rewrites: [
+    ...prerenderRewrites,
     {
       source: '/((?!assets/|api/).*)',
       destination: '/index.html',

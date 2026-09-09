@@ -58,7 +58,7 @@ export default function KapcsolatBody({ formSlot }: KapcsolatBodyProps) {
       <footer>
         <div className="wrap">
           <div className="cols">
-            <div className="flogo"><img src="/assets/images/kapcsolat/img-02.svg" alt="Rávezető Projekt" /><div className="tag">Változásokat vezetünk, együtt!</div></div>
+            <div className="flogo"><img src="/assets/images/kapcsolat/img-02.svg" alt="Rávezető Projekt Kft." /><div className="tag">Változásokat vezetünk, együtt!</div></div>
             <div>1146 Budapest, Izsó u. 7. 1/3.<br /><a href="mailto:info@ravezeto.hu">info@ravezeto.hu</a> · <a href="tel:+36705134128">+36 70/513 4128</a></div>
             <div><a href="#" target="_blank" rel="noopener">LinkedIn</a><br /><Link to="/jogi/adatvedelem">Adatvédelem</Link> · <Link to="/jogi/impresszum">Impresszum</Link></div>
           </div>

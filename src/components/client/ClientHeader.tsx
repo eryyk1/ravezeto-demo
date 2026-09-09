@@ -13,7 +13,7 @@ export default function ClientHeader() {
           <Link to="/" className="logo" aria-label="Rávezető — Főoldal">
             <img
               src="/assets/logo-dark.svg"
-              alt="Rávezető Projekt"
+              alt="Rávezető Projekt Kft."
               width={106}
               height={31}
               decoding="async"

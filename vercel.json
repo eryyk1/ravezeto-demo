@@ -2,13 +2,11 @@
   "redirects": [
     {
       "source": "/70-uk-gambling-dens-not-on-gamstop-best-web-sites-of-july-2025",
-      "destination": "/",
-      "permanent": true
+      "statusCode": 410
     },
     {
       "source": "/70-uk-gambling-dens-not-on-gamstop-best-web-sites-of-july-2025/",
-      "destination": "/",
-      "permanent": true
+      "statusCode": 410
     },
     {
       "source": "/adatvedelem",
@@ -32,23 +30,19 @@
     },
     {
       "source": "/author/papajcsikaron",
-      "destination": "/",
-      "permanent": true
+      "statusCode": 410
     },
     {
       "source": "/author/papajcsikaron/",
-      "destination": "/",
-      "permanent": true
+      "statusCode": 410
     },
     {
       "source": "/best-non-gamstop-casinos-in-typically-the-uk-2025",
-      "destination": "/",
-      "permanent": true
+      "statusCode": 410
     },
     {
       "source": "/best-non-gamstop-casinos-in-typically-the-uk-2025/",
-      "destination": "/",
-      "permanent": true
+      "statusCode": 410
     },
     {
       "source": "/biro-gabriella",
@@ -62,43 +56,35 @@
     },
     {
       "source": "/category/egyeb",
-      "destination": "/",
-      "permanent": true
+      "statusCode": 410
     },
     {
       "source": "/category/egyeb/",
-      "destination": "/",
-      "permanent": true
+      "statusCode": 410
     },
     {
       "source": "/category/munkatarsak",
-      "destination": "/",
-      "permanent": true
+      "statusCode": 410
     },
     {
       "source": "/category/munkatarsak/",
-      "destination": "/",
-      "permanent": true
+      "statusCode": 410
     },
     {
       "source": "/category/palyazat",
-      "destination": "/",
-      "permanent": true
+      "statusCode": 410
     },
     {
       "source": "/category/palyazat/",
-      "destination": "/",
-      "permanent": true
+      "statusCode": 410
     },
     {
       "source": "/category/referenciak",
-      "destination": "/",
-      "permanent": true
+      "statusCode": 410
     },
     {
       "source": "/category/referenciak/",
-      "destination": "/",
-      "permanent": true
+      "statusCode": 410
     },
     {
       "source": "/csapatunk",
@@ -112,13 +98,11 @@
     },
     {
       "source": "/csr",
-      "destination": "/",
-      "permanent": true
+      "statusCode": 410
     },
     {
       "source": "/csr/",
-      "destination": "/",
-      "permanent": true
+      "statusCode": 410
     },
     {
       "source": "/duleba-marianna",
@@ -272,13 +256,11 @@
     },
     {
       "source": "/online-casino-transaction-methods-deposit-options-2025",
-      "destination": "/",
-      "permanent": true
+      "statusCode": 410
     },
     {
       "source": "/online-casino-transaction-methods-deposit-options-2025/",
-      "destination": "/",
-      "permanent": true
+      "statusCode": 410
     },
     {
       "source": "/ref1",
@@ -722,23 +704,19 @@
     },
     {
       "source": "/teszt",
-      "destination": "/",
-      "permanent": true
+      "statusCode": 410
     },
     {
       "source": "/teszt/",
-      "destination": "/",
-      "permanent": true
+      "statusCode": 410
     },
     {
       "source": "/uk-non-gamstop-bookmakers",
-      "destination": "/",
-      "permanent": true
+      "statusCode": 410
     },
     {
       "source": "/uk-non-gamstop-bookmakers/",
-      "destination": "/",
-      "permanent": true
+      "statusCode": 410
     },
     {
       "source": "/wp-content/uploads/2018/08/GDPR_Kapcsolatok.pdf",
@@ -761,7 +739,74 @@
       "permanent": true
     }
   ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        }
+      ]
+    }
+  ],
   "rewrites": [
+    {
+      "source": "/rolunk",
+      "destination": "/rolunk/index.html"
+    },
+    {
+      "source": "/tanacsadas",
+      "destination": "/tanacsadas/index.html"
+    },
+    {
+      "source": "/felnottkepzes",
+      "destination": "/felnottkepzes/index.html"
+    },
+    {
+      "source": "/referenciak",
+      "destination": "/referenciak/index.html"
+    },
+    {
+      "source": "/palyazatok",
+      "destination": "/palyazatok/index.html"
+    },
+    {
+      "source": "/mentally",
+      "destination": "/mentally/index.html"
+    },
+    {
+      "source": "/kapcsolat",
+      "destination": "/kapcsolat/index.html"
+    },
+    {
+      "source": "/jogi/adatvedelem",
+      "destination": "/jogi/adatvedelem/index.html"
+    },
+    {
+      "source": "/jogi/impresszum",
+      "destination": "/jogi/impresszum/index.html"
+    },
+    {
+      "source": "/jogi/cookie",
+      "destination": "/jogi/cookie/index.html"
+    },
     {
       "source": "/((?!assets/|api/).*)",
       "destination": "/index.html"

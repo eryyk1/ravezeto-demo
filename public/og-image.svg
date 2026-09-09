@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="RávezetQ Projekt Kft.">
+  <rect width="1200" height="630" fill="#F7F8F0"/>
+  <rect x="80" y="80" width="1040" height="470" rx="32" fill="#FFFFFF" stroke="#E2E4D6" stroke-width="4"/>
+  <text x="120" y="250" fill="#2B2A27" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700">RávezetQ Projekt Kft.</text>
+  <text x="120" y="340" fill="#75833A" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="600">Változásokat vezetünk, együtt!</text>
+  <text x="120" y="430" fill="#5A6570" font-family="Arial, Helvetica, sans-serif" font-size="28">Szervezetfejlesztés · Tanácsadás · FelnQttképzés</text>
+  <circle cx="980" cy="315" r="110" fill="#D6A548" opacity="0.25"/>
+  <path d="M900 315 L960 255 L1020 315 L960 375 Z" fill="#9DAD52"/>
+</svg>

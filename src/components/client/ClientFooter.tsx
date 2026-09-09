@@ -19,7 +19,7 @@ export default function ClientFooter() {
       <div className="wrap">
         <div className="cols">
           <div className="flogo">
-            <img src="/assets/logo.svg" alt="Rávezető Projekt" />
+            <img src="/assets/logo.svg" alt="Rávezető Projekt Kft." />
             <div className="tag">{company.tagline}</div>
           </div>
           <div>

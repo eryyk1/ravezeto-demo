@@ -2,8 +2,8 @@ import { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import { usePageMeta } from '../../hooks/usePageMeta';
 import { resolvePageMeta } from '../../seo/pageMeta';
-import AdatvedelemBody from './AdatvedelemBody';
-import ImpresszumBody from './ImpresszumBody';
+import JogiDocumentBody from './JogiDocumentBody';
+import { jogiPages } from './jogiContent';
 import './jogi.css';
 
 function resolveSlug(pathname: string): string | null {
@@ -13,11 +13,17 @@ function resolveSlug(pathname: string): string | null {
 
 export default function JogiPage() {
   const { pathname } = useLocation();
-  const slug = resolveSlug(pathname);
-  const isImpresszum = slug === 'impresszum';
-  const metaPath = isImpresszum ? '/jogi/impresszum' : '/jogi/adatvedelem';
+  const slug = resolveSlug(pathname) ?? 'adatvedelem';
+  const metaPath = `/jogi/${slug}`;
   const meta = useMemo(() => resolvePageMeta(metaPath), [metaPath]);
   usePageMeta(meta);
 
-  return isImpresszum ? <ImpresszumBody /> : <AdatvedelemBody />;
+  const content = jogiPages[slug] ?? jogiPages.adatvedelem;
+
+  return (
+    <JogiDocumentBody
+      content={content}
+      showCompanyDetails={slug === 'impresszum'}
+    />
+  );
 }

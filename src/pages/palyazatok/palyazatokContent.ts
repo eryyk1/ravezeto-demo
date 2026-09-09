@@ -14,6 +14,16 @@ export const palyazatokHero = {
   cta: 'Lépjen velünk kapcsolatba!',
 } as const;
 
+export const palyazatokProgram = {
+  title: 'GINOP Plusz 3.2.1-21',
+  subtitle:
+    '„A munkavállalók és vállalatok alkalmazkodóképességének és termelékenységének javítása a munkaerő fejlesztésén keresztül”',
+  lead:
+    'A felhívás célja, hogy a vállalkozások munkavállalói kompetenciáit fejlesszék támogatott képzéseken keresztül, miközben a bér- és képzési költségek jelentős részét pályázati forrás fedezi.',
+  statusNote:
+    'Az aktuális felhívások időszakosan változnak — díjmentes konzultáción tájékoztatjuk a legfrissebb lehetőségekről és határidőkről.',
+} as const;
+
 export const palyazatokDeadline = {
   kicker: 'Az új felhívás megjelent!',
   label: 'Benyújtás:',
@@ -60,7 +70,7 @@ export const palyazatokFacts = {
 
 export const palyazatokAbout = {
   text:
-    'A Rávezető 2008 óta működő tanácsadó vállalat, 2014 óta engedéllyel rendelkező felnőttképző intézmény, kompetenciafejlesztési fókusszal.',
+    'A Rávezető Projekt Kft. 2008 óta működő tanácsadó vállalat, 2014 óta engedéllyel rendelkező felnőttképző intézmény, kompetenciafejlesztési fókusszal.',
   linkLabel: 'Tudjon meg többet rólunk! →',
   link: '/rolunk',
 } as const;

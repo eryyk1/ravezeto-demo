@@ -1,7 +1,9 @@
 import { felnottkepzesCategories, felnottkepzesProgrammeGroups } from '../content/felnottkepzes';
+import { referenciakTestimonials } from '../content/referenciak';
 import { tanacsadasServices } from '../content/tanacsadas';
 import { company } from '../content/company';
-import { SITE_NAME, SITE_URL } from './config';
+import { SITE_LAST_MODIFIED, SITE_NAME, SITE_URL } from './config';
+import { resolveFaqForPath } from './faqContent';
 import type { TeamMember } from '../services/content/types';
 
 export const ORGANIZATION_ID = `${SITE_URL}/#organization`;
@@ -84,7 +86,7 @@ function buildOrganizationNode(options?: { includeMentallyBrand?: boolean }) {
         value: company.trainingLicenseNumber,
       },
     ],
-    sameAs: [...company.sameAs],
+    sameAs: [...new Set([...company.sameAs, company.mentallyProductUrl])],
     description: ORG_DESCRIPTION,
     knowsAbout: [
       'Szervezetfejlesztés',
@@ -111,6 +113,7 @@ function buildMentallyProductNodes() {
       name: 'Mentally',
       url: company.mentallyProductUrl,
       sameAs: company.mentallyProductUrl,
+      parentOrganization: { '@id': ORGANIZATION_ID },
     },
     {
       '@type': 'SoftwareApplication',
@@ -138,8 +141,84 @@ function buildMentallyProductNodes() {
       isPartOf: { '@id': `${SITE_URL}/#website` },
       about: { '@id': MENTALLY_PRODUCT_ID },
       publisher: { '@id': ORGANIZATION_ID },
+      dateModified: SITE_LAST_MODIFIED,
     },
   ];
+}
+
+function buildWebPageNode(path: string, name: string) {
+  const url = `${SITE_URL}${path === '/' ? '/' : path}`;
+
+  return {
+    '@type': 'WebPage',
+    '@id': `${url}#webpage`,
+    url,
+    name,
+    inLanguage: 'hu-HU',
+    isPartOf: { '@id': `${SITE_URL}/#website` },
+    publisher: { '@id': ORGANIZATION_ID },
+    dateModified: SITE_LAST_MODIFIED,
+  };
+}
+
+function buildFaqNode(path: string) {
+  const items = resolveFaqForPath(path);
+  if (!items.length) return null;
+
+  return {
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
+}
+
+function buildReviewNodes() {
+  return referenciakTestimonials.map((testimonial, index) => {
+    const reviewBody = testimonial.quotes.join(' ');
+    const authorName = testimonial.who.split(',')[0]?.trim() ?? testimonial.who;
+
+    return {
+      '@type': 'Review',
+      '@id': `${SITE_URL}/referenciak#review-${index + 1}`,
+      reviewBody,
+      author: {
+        '@type': 'Person',
+        name: authorName,
+      },
+      itemReviewed: { '@id': ORGANIZATION_ID },
+      publisher: { '@id': ORGANIZATION_ID },
+    };
+  });
+}
+
+const PAGE_LABELS: Record<string, string> = {
+  '/': `${SITE_NAME} – ${company.tagline}`,
+  '/rolunk': 'RÁVezető – Csapatunk',
+  '/tanacsadas': 'RÁVezető – Tanácsadás',
+  '/felnottkepzes': 'RÁVezető – Felnőttképzés',
+  '/referenciak': 'RÁVezető – Referenciák',
+  '/palyazatok': 'RÁVezető – Pályázatok',
+  '/mentally': 'RÁVezető – Mentally',
+  '/kapcsolat': 'RÁVezető – Kapcsolat',
+  '/jogi/adatvedelem': 'RÁVezető – Adatvédelem',
+  '/jogi/impresszum': 'RÁVezető – Impresszum',
+  '/jogi/cookie': 'RÁVezető – Cookie tájékoztató',
+};
+
+function resolvePageLabel(path: string): string | null {
+  if (PAGE_LABELS[path]) return PAGE_LABELS[path];
+  if (path.startsWith('/tanacsadas')) return PAGE_LABELS['/tanacsadas'];
+  if (path.startsWith('/felnottkepzes')) return PAGE_LABELS['/felnottkepzes'];
+  if (path.startsWith('/jogi/')) {
+    return PAGE_LABELS[path] ?? 'RÁVezető – Jogi információk';
+  }
+  return null;
 }
 
 type BreadcrumbCrumb = {
@@ -388,8 +467,33 @@ export function resolveStructuredData(
     });
   }
 
+  if (path === '/') {
+    graph.push({
+      '@type': 'Brand',
+      '@id': MENTALLY_BRAND_ID,
+      name: 'Mentally',
+      url: company.mentallyProductUrl,
+      sameAs: company.mentallyProductUrl,
+      parentOrganization: { '@id': ORGANIZATION_ID },
+    });
+  }
+
   if (isMentallyPage) {
     graph.push(...buildMentallyProductNodes());
+  }
+
+  const pageLabel = resolvePageLabel(path);
+  if (pageLabel) {
+    graph.push(buildWebPageNode(path, pageLabel));
+  }
+
+  const faqNode = buildFaqNode(path);
+  if (faqNode) {
+    graph.push(faqNode);
+  }
+
+  if (path === '/referenciak') {
+    graph.push(...buildReviewNodes());
   }
 
   return {
