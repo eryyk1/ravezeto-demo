@@ -1,11 +1,11 @@
-import { useEffect, useMemo } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../../hooks/usePageMeta';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { resolvePageMeta } from '../../seo/pageMeta';
 import './felnottkepzes.css';
 
-const CAT = [
+const CATALOG = [
   {
     tab: 'Munkavállalói kompetenciák',
     title: 'Munkavállalói kompetenciák fejlesztése',
@@ -54,63 +54,26 @@ export default function FelnottkepzesPage() {
   const meta = useMemo(() => resolvePageMeta('/felnottkepzes'), []);
   usePageMeta(meta);
   const reduced = useReducedMotion();
+  const [activeTab, setActiveTab] = useState(0);
+  const [catalogTransition, setCatalogTransition] = useState(false);
 
-  useEffect(() => {
-    const cInner = document.getElementById('catInner');
-    const cTabs = document.getElementById('catTabs');
-    if (!cInner || !cTabs) return;
+  const showTab = useCallback(
+    (index: number) => {
+      if (index === activeTab) return;
 
-    let activeIndex = 0;
-
-    function crender(i: number) {
-      const c = CAT[i];
-      cInner!.innerHTML =
-        `<h3>${c.title}</h3><ul class="reflist">` +
-        c.items
-          .map(
-            (x) =>
-              `<li><span class="t">${x[0]}</span><span class="dots"></span><span class="h">${x[1]}</span></li>`,
-          )
-          .join('') +
-        '</ul>';
-      [...cTabs!.children].forEach((b, j) => {
-        b.classList.toggle('on', j === i);
-        b.setAttribute('aria-selected', String(j === i));
-      });
-    }
-
-    function cshow(i: number) {
-      if (i === activeIndex) return;
-      activeIndex = i;
       if (reduced) {
-        crender(i);
+        setActiveTab(index);
         return;
       }
-      cInner!.classList.add('out');
+
+      setCatalogTransition(true);
       window.setTimeout(() => {
-        crender(i);
-        cInner!.classList.remove('out');
+        setActiveTab(index);
+        setCatalogTransition(false);
       }, 280);
-    }
-
-    cTabs.replaceChildren();
-    CAT.forEach((c, i) => {
-      const b = document.createElement('button');
-      b.className = 'cat-tab';
-      b.type = 'button';
-      b.setAttribute('role', 'tab');
-      b.textContent = c.tab;
-      b.addEventListener('click', () => cshow(i));
-      cTabs.appendChild(b);
-    });
-    crender(0);
-
-    return () => {
-      cTabs.replaceChildren();
-      cInner.innerHTML = '';
-      cInner.classList.remove('out');
-    };
-  }, [reduced]);
+    },
+    [activeTab, reduced],
+  );
 
   return (
     <>
@@ -134,10 +97,18 @@ export default function FelnottkepzesPage() {
           <p className="award-line">
             <span className="g">›</span>Az év trénerei is nálunk dolgoznak
           </p>
+          <a
+            className="award-proof"
+            href="https://www.linkedin.com/feed/update/urn:li:activity:7159842612516921345/"
+            target="_blank"
+            rel="noopener"
+          >
+            Megnézem a bizonyítékot →
+          </a>
         </div>
       </section>
 
-      <section className="sec sec-w">
+      <section className="sec">
         <div className="wrap">
           <div className="band flip rev">
             <div>
@@ -158,9 +129,17 @@ export default function FelnottkepzesPage() {
               </p>
             </div>
             <div className="photo-slot">
-              📷 tréningterem – jelenetfotó helye
-              <br />
-              (tompított, meleg tónus)
+              <img
+                className="ill"
+                src="/assets/images/felnottkepzes/photo-02.jpg"
+                alt="Tusrajz: tréner a flipchartnál, félkörben ülő résztvevők"
+                onError={(e) => e.currentTarget.remove()}
+              />
+              <span>
+                🖊 sketch-rajz helye
+                <br />
+                (assets/fk-terem.png)
+              </span>
             </div>
           </div>
           <div className="mid rev">
@@ -194,9 +173,6 @@ export default function FelnottkepzesPage() {
                 <div className="num">E/2021/000106</div>
               </div>
             </div>
-            <div className="note">
-              Cégünk felnőttképzési engedéllyel rendelkező intézmény.
-            </div>
           </div>
         </div>
       </section>
@@ -212,14 +188,26 @@ export default function FelnottkepzesPage() {
         </div>
       </section>
 
-      <section className="sec sec-w">
+      <section className="sec">
         <div className="wrap">
           <div className="kicker rev">Főbb képzési területeink</div>
           <h2 className="sec-t rev">
             Négy terület, amelyben a legerősebbek vagyunk.
           </h2>
           <div className="band rev">
-            <div className="photo-slot">📷 kommunikációs tréning – jelenetfotó helye</div>
+            <div className="photo-slot">
+              <img
+                className="ill"
+                src="/assets/images/felnottkepzes/photo-03.jpg"
+                alt="Tusrajz: két beszélgető alak, beszédbuborékaik összeérnek"
+                onError={(e) => e.currentTarget.remove()}
+              />
+              <span>
+                🖊 sketch-rajz helye
+                <br />
+                (assets/fk-kommunikacio.png)
+              </span>
+            </div>
             <div>
               <h3>Kommunikációs készségfejlesztés</h3>
               <p>
@@ -240,10 +228,34 @@ export default function FelnottkepzesPage() {
                 konfliktuskezelési és döntéshozatali technikákkal.
               </p>
             </div>
-            <div className="photo-slot">📷 vezetői tréning – jelenetfotó helye</div>
+            <div className="photo-slot">
+              <img
+                className="ill"
+                src="/assets/images/felnottkepzes/photo-04.jpg"
+                alt="Tusrajz: karmester alak, pálcája nyomán felfelé ívelő vonalak"
+                onError={(e) => e.currentTarget.remove()}
+              />
+              <span>
+                🖊 sketch-rajz helye
+                <br />
+                (assets/fk-vezetoi.png)
+              </span>
+            </div>
           </div>
           <div className="band rev">
-            <div className="photo-slot">📷 generációs workshop – jelenetfotó helye</div>
+            <div className="photo-slot">
+              <img
+                className="ill"
+                src="/assets/images/felnottkepzes/photo-05.jpg"
+                alt="Tusrajz: két oldalról épülő híd, középen arany zárókő"
+                onError={(e) => e.currentTarget.remove()}
+              />
+              <span>
+                🖊 sketch-rajz helye
+                <br />
+                (assets/fk-generaciok.png)
+              </span>
+            </div>
             <div>
               <h3>Generációk közötti együttműködés</h3>
               <p>
@@ -270,7 +282,19 @@ export default function FelnottkepzesPage() {
                 során.
               </p>
             </div>
-            <div className="photo-slot">📷 stresszkezelési tréning – jelenetfotó helye</div>
+            <div className="photo-slot">
+              <img
+                className="ill"
+                src="/assets/images/felnottkepzes/photo-06.jpg"
+                alt="Tusrajz: kusza vonal kisimul nyugodt vonallá"
+                onError={(e) => e.currentTarget.remove()}
+              />
+              <span>
+                🖊 sketch-rajz helye
+                <br />
+                (assets/fk-stressz.png)
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -288,14 +312,40 @@ export default function FelnottkepzesPage() {
               <b>20</b> képzés · <b>4</b> terület
             </div>
           </div>
-          <div
-            className="cat-tabs rev"
-            id="catTabs"
-            role="tablist"
-            aria-label="Képzési kategóriák"
-          />
+          <div className="cat-tabs rev" role="tablist" aria-label="Képzési kategóriák">
+            {CATALOG.map((group, index) => (
+              <button
+                key={group.tab}
+                type="button"
+                role="tab"
+                className={`cat-tab${index === activeTab ? ' on' : ''}`}
+                aria-selected={index === activeTab}
+                onClick={() => showTab(index)}
+              >
+                {group.tab}
+              </button>
+            ))}
+          </div>
           <div className="cat-card rev">
-            <div className="cat-inner" id="catInner" />
+            <div className={`cat-inner${catalogTransition ? ' out' : ''}`}>
+              {CATALOG.map((group, index) => (
+                <div
+                  key={group.tab}
+                  className={`cat-panel${index === activeTab ? ' on' : ''}`}
+                >
+                  <h3>{group.title}</h3>
+                  <ul className="reflist">
+                    {group.items.map(([title, hours]) => (
+                      <li key={title}>
+                        <span className="t">{title}</span>
+                        <span className="dots" />
+                        <span className="h">{hours}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -372,7 +422,7 @@ export default function FelnottkepzesPage() {
           <div className="wrap">
             <div className="cols">
               <div className="flogo">
-                <img src="/assets/logo.svg" alt="Rávezető Projekt" />
+                <img src="/assets/images/felnottkepzes/logo.png" alt="Rávezető Projekt" />
                 <div className="tag">Változásokat vezetünk, együtt!</div>
               </div>
               <div>
@@ -383,11 +433,11 @@ export default function FelnottkepzesPage() {
               </div>
               <div>
                 <a
-                  href="https://www.facebook.com/profile.php?id=100063907730525"
+                  href="https://www.linkedin.com/company/ravezeto-projekt"
                   target="_blank"
                   rel="noopener"
                 >
-                  Facebook
+                  LinkedIn
                 </a>
                 <br />
                 <Link to="/jogi/adatvedelem">Adatvédelem</Link> ·{' '}
@@ -400,14 +450,6 @@ export default function FelnottkepzesPage() {
                 <br />
                 Nyilvántartásba vételi számunk: B/2020/001943 · Engedélyszámunk:
                 E/2021/000106
-              </div>
-              <div className="eu-slot">
-                <img
-                  src="/assets/images/Szechenyi-2020-logo.png"
-                  alt="Széchenyi 2020 – Európai Unió támogatás"
-                  onError={(e) => e.currentTarget.remove()}
-                />
-                <span>Széchenyi 2020 / EU logó helye</span>
               </div>
             </div>
             <div className="copy">© 2026 Rávezető Projekt Kft.</div>
