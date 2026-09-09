@@ -4,7 +4,7 @@ export const rolunkBeliefs = {
   label: 'Amiben hiszünk',
   title: 'Hat ok, amiért minket érdemes választani',
   intro:
-    '16 évünk, több mint 400 fejlesztési és képzési projektünk nem jöhetett volna létre, ha nem így dolgozunk.',
+    '18 évünk, több mint 400 fejlesztési és képzési projektünk nem jöhetett volna létre, ha nem így dolgozunk.',
   items: [
     {
       id: 'diagnosis',

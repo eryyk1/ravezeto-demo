@@ -133,13 +133,7 @@ export default function FelnottkepzesPage() {
                 className="ill"
                 src="/assets/images/felnottkepzes/img-02.jpg"
                 alt="Tusrajz: tréner a flipchartnál, félkörben ülő résztvevők"
-                onError={(e) => e.currentTarget.remove()}
               />
-              <span>
-                🖊 sketch-rajz helye
-                <br />
-                (assets/fk-terem.png)
-              </span>
             </div>
           </div>
           <div className="mid rev">
@@ -200,13 +194,7 @@ export default function FelnottkepzesPage() {
                 className="ill"
                 src="/assets/images/felnottkepzes/img-03.jpg"
                 alt="Tusrajz: két beszélgető alak, beszédbuborékaik összeérnek"
-                onError={(e) => e.currentTarget.remove()}
               />
-              <span>
-                🖊 sketch-rajz helye
-                <br />
-                (assets/fk-kommunikacio.png)
-              </span>
             </div>
             <div>
               <h3>Kommunikációs készségfejlesztés</h3>
@@ -233,13 +221,7 @@ export default function FelnottkepzesPage() {
                 className="ill"
                 src="/assets/images/felnottkepzes/img-04.jpg"
                 alt="Tusrajz: karmester alak, pálcája nyomán felfelé ívelő vonalak"
-                onError={(e) => e.currentTarget.remove()}
               />
-              <span>
-                🖊 sketch-rajz helye
-                <br />
-                (assets/fk-vezetoi.png)
-              </span>
             </div>
           </div>
           <div className="band rev">
@@ -248,13 +230,7 @@ export default function FelnottkepzesPage() {
                 className="ill"
                 src="/assets/images/felnottkepzes/img-05.jpg"
                 alt="Tusrajz: két oldalról épülő híd, középen arany zárókő"
-                onError={(e) => e.currentTarget.remove()}
               />
-              <span>
-                🖊 sketch-rajz helye
-                <br />
-                (assets/fk-generaciok.png)
-              </span>
             </div>
             <div>
               <h3>Generációk közötti együttműködés</h3>
@@ -287,13 +263,7 @@ export default function FelnottkepzesPage() {
                 className="ill"
                 src="/assets/images/felnottkepzes/img-06.jpg"
                 alt="Tusrajz: kusza vonal kisimul nyugodt vonallá"
-                onError={(e) => e.currentTarget.remove()}
               />
-              <span>
-                🖊 sketch-rajz helye
-                <br />
-                (assets/fk-stressz.png)
-              </span>
             </div>
           </div>
         </div>

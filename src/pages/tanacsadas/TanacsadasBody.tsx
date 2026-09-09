@@ -36,7 +36,7 @@ export default function TanacsadasBody() {
                   <h2 className="ch-big">Szervezet<wbr /><b>fejlesztés</b></h2>
           </div>
           <div className="band rev">
-            <div className="photo-slot"><img className="ill" src="/assets/images/tanacsadas/img-02.jpg" alt="Tusrajz: fa, amelynek gyökerei a felszín alatt is látszanak – a szervezeti kultúra metaforája" onError={(e) => e.currentTarget.remove()} /><span>🖊 sketch-rajz helye<br />(assets/tanacsadas-kultura.png)</span></div>
+            <div className="photo-slot"><img className="ill" src="/assets/images/tanacsadas/img-02.jpg" alt="Tusrajz: fa, amelynek gyökerei a felszín alatt is látszanak – a szervezeti kultúra metaforája" /></div>
             <div className="btxt">
               <h3>Szervezeti kultúra: a sikeres változás alapja</h3>
               <p>A szervezeti kultúra változása nélkül, nincs esély a stratégia sikeres végrehajtására!</p>
@@ -49,7 +49,7 @@ export default function TanacsadasBody() {
               <p>Hiszünk a folyamatalapú megközelítésben. Nem kész megoldásokat kínálunk, hanem szoros csapatmunkában támogatjuk partnereinket céljaik megvalósításában.</p>
               <p>Az eredmények a tanácsadási folyamat során, közös munkával születnek meg. Ügyfeleink mellett állunk a tervezéstől a megvalósításig, biztosítva a szükséges szakmai támogatást minden lépésnél.</p>
             </div>
-            <div className="photo-slot"><img className="ill ill2" src="/assets/images/tanacsadas/img-03.jpg" alt="Tusrajz: két kéz együtt rajzol egy közös vonalat" onError={(e) => e.currentTarget.remove()} /><span>🖊 sketch-rajz helye<br />(assets/tanacsadas-kozos-munka.png)</span></div>
+            <div className="photo-slot"><img className="ill ill2" src="/assets/images/tanacsadas/img-03.jpg" alt="Tusrajz: két kéz együtt rajzol egy közös vonalat" /></div>
           </div>
           <p className="accent-line rev">Tanácsadóink nem csupán elméleti szakemberek – valós szervezeti kihívásokban szerzett tapasztalattal segítjük ügyfeleinket a változások vezetésében.</p>
         </div>
@@ -61,7 +61,7 @@ export default function TanacsadasBody() {
                   <h2 className="ch-big">Változás<wbr /><b>menedzsment</b></h2>
           </div>
           <div className="band rev">
-            <div className="photo-slot wide"><img className="ill" src="/assets/images/tanacsadas/img-04.jpg" alt="Tusrajz: két alak kövekkel rakja le az utat, miközben a többiek már járnak rajta – a változást menet közben, együtt építjük" onError={(e) => e.currentTarget.remove()} /><span>🖊 sketch-rajz helye<br />(assets/tanacsadas-valtozas.png)</span></div>
+            <div className="photo-slot wide"><img className="ill" src="/assets/images/tanacsadas/img-04.jpg" alt="Tusrajz: két alak kövekkel rakja le az utat, miközben a többiek már járnak rajta – a változást menet közben, együtt építjük" /></div>
             <p className="vm-lead">A gyorsan változó környezetben különösen fontos a stratégiai gondolkodás és a szervezeti kultúra összehangolása a szervezeti hatékonyság növelése érdekében. Segítünk megtervezni a változást, felkészíteni azokat a vezetőket és munkatársakat, akiken a végrehajtás múlik, és erősíteni az együttműködést a szervezeti egységek között. Ott is ügyfeleink mellett maradunk, ahol a legtöbb változás elakad: a célok eléréséhez szükséges projektek és folyamatok megvalósításánál.</p>
           </div>
         </div>
@@ -75,7 +75,7 @@ export default function TanacsadasBody() {
           <div className="co-grid">
             <p className="co-lead rev">Napjaink vezetői döntési helyzeteikben minden belső és külső támogatás ellenére nap mint nap egyedül maradnak a rájuk háruló felelősséggel. A személyes és bizalmi kapcsolat vezető és tanácsadó között arra is alkalmas, hogy többféle módszertani eszköz, gyakorlatok és a visszacsatolás révén elősegítse a vezetői készségek és kompetenciák fejlesztését a szervezeti és személyes haszon maximalizálására.</p>
             <div className="chairs rev">
-              <div className="co-photo"><img className="ill" src="/assets/images/tanacsadas/img-05.jpg" alt="Tusrajz: két egymással szemben álló fotel – a coaching-beszélgetés tere" onError={(e) => e.currentTarget.remove()} /><span>🖊 sketch-rajz helye<br />(assets/coaching.png)</span></div>
+              <div className="co-photo"><img className="ill" src="/assets/images/tanacsadas/img-05.jpg" alt="Tusrajz: két egymással szemben álló fotel – a coaching-beszélgetés tere" /></div>
             </div>
           </div>
         </div>

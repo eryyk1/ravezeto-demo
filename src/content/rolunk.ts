@@ -3,7 +3,7 @@
 import { company } from './company';
 import { felnottkepzesReg } from './felnottkepzes';
 import { homeStats } from './home';
-import { themeImage, rolunkImages } from '../data/media';
+import { pageImage, rolunkImages } from '../data/media';
 import { teamMembers } from './team';
 
 export const rolunkHero = {
@@ -11,7 +11,7 @@ export const rolunkHero = {
   title: 'Gyorsabban, erősebben, magasabbra!',
   intro:
     'Az egyéni és szervezeti minőség és teljesítmény növelésében tudunk segíteni, közös gondolkodással, elhivatott szakemberekkel.',
-  image: themeImage('section1_back.png'),
+  image: pageImage('csapatunk', 'img-02.jpg'),
   imageAlt: 'Rávezető Projekt csapat és munkakörnyezet',
 } as const;
 

@@ -1,19 +1,25 @@
-/** WordPress upload paths — mirrored under public/assets/wp-uploads/ */
+/** Page images extracted from client HTML bundle → public/assets/images/{page}/ */
 
+export function pageImage(page: string, file: string): string {
+  return `/assets/images/${page}/${file.replace(/^\//, '')}`;
+}
+
+/** @deprecated Legacy WordPress mirror — do not use for new content */
 export function wpUpload(relativePath: string): string {
   return `/assets/wp-uploads/${relativePath.replace(/^\//, '')}`;
 }
 
+/** @deprecated Legacy theme folder — do not use for new content */
 export function themeImage(relativePath: string): string {
   return `/assets/images/home/${relativePath.replace(/^\//, '')}`;
 }
 
 export const teamPhotos2025 = {
-  'riz-adam-cmc': wpUpload('2025/02/MG_1333.jpg'),
-  'berta-aniko': wpUpload('2025/02/IMG_0070-scaled.jpeg'),
-  'biro-gabriella': wpUpload('2025/02/MG_0645-scaled.jpg'),
-  'soos-andrea': wpUpload('2025/02/MG_1458.jpg'),
-  'szoke-adam': wpUpload('2025/02/MG_1055.jpg'),
+  'riz-adam-cmc': '',
+  'berta-aniko': '',
+  'biro-gabriella': '',
+  'soos-andrea': '',
+  'szoke-adam': '',
 } as const;
 
 export const mentallyImages = {
@@ -24,7 +30,7 @@ export const mentallyImages = {
 } as const;
 
 export const rolunkImages = {
-  values: themeImage('ertekeink.png'),
+  values: pageImage('csapatunk', 'img-03.jpg'),
 } as const;
 
 export const euBranding = {

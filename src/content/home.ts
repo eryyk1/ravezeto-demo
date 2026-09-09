@@ -1,6 +1,6 @@
 /** Homepage content — aligned with Rávezető reference design */
 
-import { euBranding, mentallyImages, themeImage } from '../data/media';
+import { euBranding, mentallyImages, pageImage } from '../data/media';
 
 export const homeHero = {
   label: 'Emberközpontú szervezetfejlesztés · 2008 óta',
@@ -79,8 +79,8 @@ export const homeMotto =
   'Ha már nem tekintünk hittel, bátorsággal, bizalommal a jövő felé, akkor cégvezetőként, tulajdonosként hogyan formáljuk tovább a vállalati teret, hogyan alkalmazkodunk a piachoz?';
 
 export const homeAbout = {
-  image: themeImage('section1_back.png'),
-  overlayLines: ['16+ év', '400+ projekt'],
+  image: pageImage('csapatunk', 'img-02.jpg'),
+  overlayLines: ['18+ év', '400+ projekt'],
   label: 'Rólunk',
   headline: 'Gyorsabban, erősebben, magasabbra!',
   text:

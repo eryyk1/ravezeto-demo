@@ -1,6 +1,6 @@
 /** /tanacsadas — aligned with TanacsadasBody.tsx */
 
-import { themeImage } from '../data/media';
+import { pageImage } from '../data/media';
 
 export const tanacsadasHero = {
   label: 'Tanácsadás',
@@ -8,7 +8,7 @@ export const tanacsadasHero = {
     'Egyetlen szervezetfejlesztés sem lehet sikeres a változást támogató vezetők és munkatársak nélkül.',
   intro:
     'Ezt az emberközpontú megközelítést garantáljuk minden, általunk vezetett tanácsadási folyamatban.',
-  image: themeImage('section1_back.png'),
+  image: pageImage('tanacsadas', 'img-02.jpg'),
   imageAlt: 'Rávezető Projekt — szervezetfejlesztés és tanácsadás',
 } as const;
 

@@ -1,7 +1,7 @@
 /** /felnottkepzes — source: live https://www.ravezeto.hu/felnottkepzesek/ */
 
 import { company } from './company';
-import { themeImage } from '../data/media';
+import { pageImage } from '../data/media';
 
 export const felnottkepzesHero = {
   label: 'Felnőttképzés',
@@ -9,7 +9,7 @@ export const felnottkepzesHero = {
     'Minőségi képzéseink segítségével fejlesztjük a XXI. század munkahelyi',
   titleMark: 'kulcskompetenciáit!',
   awardLine: 'Az év trénerei is nálunk dolgoznak',
-  image: themeImage('section1_back.png'),
+  image: pageImage('felnottkepzes', 'img-02.jpg'),
   imageAlt: 'Rávezető Projekt — felnőttképzés és kompetenciafejlesztés',
 } as const;
 

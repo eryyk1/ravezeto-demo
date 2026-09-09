@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-09T12:45:25.565Z",
+  "generatedAt": "2026-09-09T12:57:11.641Z",
   "buildRef": "local",
-  "defaultsRevision": 4,
+  "defaultsRevision": 5,
   "published": {
     "schemaVersion": 2,
     "company": {
@@ -180,7 +180,7 @@
         "title": "Gyorsabban, erősebben,",
         "titleMark": "magasabbra!",
         "intro": "Az egyéni és szervezeti minőség és teljesítmény növelésében tudunk segíteni, közös gondolkodással, elhivatott szakemberekkel.",
-        "image": "/assets/images/home/section1_back.png",
+        "image": "/assets/images/csapatunk/img-02.jpg",
         "imageAlt": "Rávezető Projekt csapat és munkakörnyezet"
       },
       "story": {
@@ -193,7 +193,7 @@
       "values": {
         "label": "Értékeink",
         "title": "Ami minden munkánkat vezeti.",
-        "image": "/assets/images/home/ertekeink.png",
+        "image": "/assets/images/csapatunk/img-03.jpg",
         "labels": [
           "Kreativitás",
           "Csapatmunka",
@@ -216,7 +216,7 @@
         "label": "Tanácsadás",
         "title": "Egyetlen szervezetfejlesztés sem lehet sikeres a változást támogató vezetők és munkatársak nélkül.",
         "intro": "Ezt az emberközpontú megközelítést garantáljuk minden, általunk vezetett tanácsadási folyamatban.",
-        "image": "/assets/images/home/section1_back.png",
+        "image": "/assets/images/tanacsadas/img-02.jpg",
         "imageAlt": "Rávezető Projekt — szervezetfejlesztés és tanácsadás"
       },
       "quote": {
@@ -326,7 +326,7 @@
         "titleLead": "Minőségi képzéseink segítségével fejlesztjük a XXI. század munkahelyi",
         "titleMark": "kulcskompetenciáit!",
         "awardLine": "Az év trénerei is nálunk dolgoznak",
-        "image": "/assets/images/home/section1_back.png",
+        "image": "/assets/images/felnottkepzes/img-02.jpg",
         "imageAlt": "Rávezető Projekt — felnőttképzés és kompetenciafejlesztés"
       },
       "methodTags": [
@@ -655,7 +655,7 @@
         "slug": "riz-adam-cmc",
         "role": "Alapító, ügyvezető",
         "bio": "18 éve dolgozom tanácsadóként, nagyon szeretem a munkámat. Öröm tanácsadással fejleszteni azt a vállalatot, amely emberközpontú fejlesztésekben gondolkodik, és igyekszik a munkahelyi hétköznapokat jobbá tenni. Mert tényleg megéri.",
-        "portrait": "/assets/wp-uploads/2025/02/MG_1333.jpg",
+        "portrait": "",
         "portraitPosition": "center 18%",
         "featured": true,
         "order": 1,
@@ -667,7 +667,7 @@
         "slug": "berta-aniko",
         "role": "Tanácsadó",
         "bio": "2018 óta foglalkozom felnőttképzések szervezésével és lebonyolításával. A képzési folyamatot a tervezéstől a megvalósításig végigkísérem, ügyelve arra, hogy a programok az ügyfelek valós igényeire épüljenek, szakmailag magas színvonalúak legyenek, és minden jogszabályi előírásnak megfeleljenek.",
-        "portrait": "/assets/wp-uploads/2025/02/IMG_0070-scaled.jpeg",
+        "portrait": "",
         "portraitPosition": "center 12%",
         "order": 2,
         "active": true
@@ -678,7 +678,7 @@
         "slug": "biro-gabriella",
         "role": "Tanácsadó",
         "bio": "1992-től dolgozom szervezetfejlesztés területén. 1989-ben megismerkedtem az OD szervezetfejlesztés módszerével, azóta közreműködtem szervezeti kultúraváltás folyamataiban, vezettem tréningeket, workshopokat, és szervezeti folyamatok fejlesztése részeként coachként dolgoztam vezetőkkel. A kulturális antropológia területén szerzett ismereteimet törekszem alkalmazni, szemlélődöm, tanulok és értelmezek.",
-        "portrait": "/assets/wp-uploads/2025/02/MG_0645-scaled.jpg",
+        "portrait": "",
         "portraitPosition": "center 20%",
         "order": 3,
         "active": true
@@ -689,7 +689,7 @@
         "slug": "soos-andrea",
         "role": "Tanácsadó",
         "bio": "A korábbi munkahelyeken szerzett változatos tapasztalatokat felhasználva a cég operatív vezetésében veszek részt. A projektek menedzsmentjén felül azért is felelek, hogy a cég pénzügyei rendben legyenek. Számomra fontos, hogy a minőségi munkavégzés kiemelt szempont a Rávezetőnél, ami együtt jár az ügyfeleink és a velünk együtt dolgozó szakértők elégedettségével.",
-        "portrait": "/assets/wp-uploads/2025/02/MG_1458.jpg",
+        "portrait": "",
         "portraitPosition": "center 15%",
         "order": 4,
         "active": true
@@ -700,7 +700,7 @@
         "slug": "szoke-adam",
         "role": "Tanácsadó",
         "bio": "A Rávezetőben elsősorban szervezetfejlesztési projekteken dolgozom tanácsadóként, amelyben nagy segítséget nyújt a korábban 9 év alatt szerzett vezetői tapasztalatom egy felsőoktatási intézményben. Rendszergondolkodásom, empátiám kiegészült a szervezetfejlesztés képzésen szerzett strukturált ismeretekkel, amelyeket még tovább bővítve igyekszem több szemszögből és eszközzel megközelíteni az egyéni-, csoportos- és szervezeti problémákat.",
-        "portrait": "/assets/wp-uploads/2025/02/MG_1055.jpg",
+        "portrait": "",
         "portraitPosition": "center 22%",
         "order": 5,
         "active": true
@@ -711,7 +711,7 @@
         "id": "ref35",
         "slug": "ref35",
         "name": "ATEV",
-        "logo": "/assets/wp-uploads/2025/02/ATEV_processed.png",
+        "logo": "/assets/images/referenciak/img-02.png",
         "order": 1,
         "active": true
       },
@@ -719,7 +719,7 @@
         "id": "ref34",
         "slug": "ref34",
         "name": "BGYH",
-        "logo": "/assets/wp-uploads/2025/02/BGYH-new.png",
+        "logo": "/assets/images/referenciak/img-04.png",
         "order": 2,
         "active": true
       },
@@ -727,7 +727,7 @@
         "id": "ref33",
         "slug": "ref33",
         "name": "DKU",
-        "logo": "/assets/wp-uploads/2025/02/DKU-new.png",
+        "logo": "/assets/images/referenciak/img-05.png",
         "order": 3,
         "active": true
       },
@@ -735,7 +735,7 @@
         "id": "ref32",
         "slug": "ref32",
         "name": "KSZK",
-        "logo": "/assets/wp-uploads/2025/02/KSZK-1-new.png",
+        "logo": "/assets/images/referenciak/img-14.png",
         "order": 4,
         "active": true
       },
@@ -743,7 +743,7 @@
         "id": "ref31",
         "slug": "ref31",
         "name": "Lechner",
-        "logo": "/assets/wp-uploads/2025/02/Lechner-new.png",
+        "logo": "/assets/images/referenciak/img-15.png",
         "order": 5,
         "active": true
       },
@@ -751,7 +751,7 @@
         "id": "ref30",
         "slug": "ref30",
         "name": "NFFKU",
-        "logo": "/assets/wp-uploads/2025/02/NFFKU-new.png",
+        "logo": "/assets/images/referenciak/img-39.png",
         "order": 6,
         "active": true
       },
@@ -759,7 +759,7 @@
         "id": "ref29",
         "slug": "ref29",
         "name": "RC Hungaria",
-        "logo": "/assets/wp-uploads/2025/02/rc-hungaria-new.png",
+        "logo": "/assets/images/referenciak/img-43.png",
         "order": 7,
         "active": true
       },
@@ -767,7 +767,7 @@
         "id": "ref28",
         "slug": "ref28",
         "name": "Vajda Papír",
-        "logo": "/assets/wp-uploads/2025/02/Vajda_Papir-new.png",
+        "logo": "/assets/images/referenciak/img-52.jpg",
         "order": 8,
         "active": true
       },
@@ -775,7 +775,7 @@
         "id": "ref27",
         "slug": "ref27",
         "name": "VKSZ",
-        "logo": "/assets/wp-uploads/2025/02/vksz-new.png",
+        "logo": "/assets/images/referenciak/img-53.png",
         "order": 9,
         "active": true
       },
@@ -783,7 +783,7 @@
         "id": "ref26",
         "slug": "ref26",
         "name": "BauDekor",
-        "logo": "/assets/wp-uploads/2025/02/BauDekor-new.png",
+        "logo": "/assets/images/referenciak/img-03.jpg",
         "order": 10,
         "active": true
       },
@@ -791,7 +791,7 @@
         "id": "ref25",
         "slug": "ref25",
         "name": "Dyntell",
-        "logo": "/assets/wp-uploads/2025/02/Dyntell-new.png",
+        "logo": "/assets/images/referenciak/img-06.png",
         "order": 11,
         "active": true
       },
@@ -799,7 +799,7 @@
         "id": "ref24",
         "slug": "ref24",
         "name": "Equinox Consulting",
-        "logo": "/assets/wp-uploads/2025/02/Equinox-Consulting-Kft-new.png",
+        "logo": "/assets/images/referenciak/img-08.jpg",
         "order": 12,
         "active": true
       },
@@ -807,7 +807,7 @@
         "id": "ref23",
         "slug": "ref23",
         "name": "Ex Ante",
-        "logo": "/assets/wp-uploads/2025/02/Ex-Ante-Kft-new.png",
+        "logo": "/assets/images/referenciak/img-09.png",
         "order": 13,
         "active": true
       },
@@ -815,7 +815,7 @@
         "id": "ref22",
         "slug": "ref22",
         "name": "Globomax",
-        "logo": "/assets/wp-uploads/2025/02/globomax-new.png",
+        "logo": "/assets/images/referenciak/img-10.png",
         "order": 14,
         "active": true
       },
@@ -823,7 +823,7 @@
         "id": "ref21",
         "slug": "ref21",
         "name": "HD Direkt",
-        "logo": "/assets/wp-uploads/2025/02/HD-Direkt-Hungary-new.png",
+        "logo": "/assets/images/referenciak/img-11.jpg",
         "order": 15,
         "active": true
       },
@@ -831,7 +831,7 @@
         "id": "ref20",
         "slug": "ref20",
         "name": "Kemence",
-        "logo": "/assets/wp-uploads/2025/02/kemence.png",
+        "logo": "/assets/images/referenciak/img-12.jpg",
         "order": 16,
         "active": true
       },
@@ -839,7 +839,7 @@
         "id": "ref19",
         "slug": "ref19",
         "name": "Konigsberg Consulting",
-        "logo": "/assets/wp-uploads/2025/02/Konigsberg-Consulting-new.png",
+        "logo": "/assets/images/referenciak/img-13.png",
         "order": 17,
         "active": true
       },
@@ -847,7 +847,7 @@
         "id": "ref18",
         "slug": "ref18",
         "name": "MNA Group",
-        "logo": "/assets/wp-uploads/2025/02/MNA-GROUP-Kft-new.png",
+        "logo": "/assets/images/referenciak/img-18.png",
         "order": 18,
         "active": true
       },
@@ -855,7 +855,7 @@
         "id": "ref17",
         "slug": "ref17",
         "name": "Profikomp",
-        "logo": "/assets/wp-uploads/2025/02/Profikomp-new.png",
+        "logo": "/assets/images/referenciak/img-42.jpg",
         "order": 19,
         "active": true
       },
@@ -863,7 +863,7 @@
         "id": "ref16",
         "slug": "ref16",
         "name": "SALDO",
-        "logo": "/assets/wp-uploads/2025/02/SALDO-new.png",
+        "logo": "/assets/images/referenciak/img-44.jpg",
         "order": 20,
         "active": true
       },
@@ -871,7 +871,7 @@
         "id": "ref15",
         "slug": "ref15",
         "name": "SBT Protect",
-        "logo": "/assets/wp-uploads/2025/02/SBT_processed.png",
+        "logo": "/assets/images/referenciak/img-45.jpg",
         "order": 21,
         "active": true
       },
@@ -879,7 +879,7 @@
         "id": "ref14",
         "slug": "ref14",
         "name": "Smart Digital",
-        "logo": "/assets/wp-uploads/2025/02/Smart_Digital-new.png",
+        "logo": "/assets/images/referenciak/img-46.jpg",
         "order": 22,
         "active": true
       },
@@ -887,7 +887,7 @@
         "id": "ref13",
         "slug": "ref13",
         "name": "Zengo",
-        "logo": "/assets/wp-uploads/2025/02/Zengo-new.png",
+        "logo": "/assets/images/referenciak/img-54.png",
         "order": 23,
         "active": true
       },
@@ -895,7 +895,7 @@
         "id": "ref12",
         "slug": "ref12",
         "name": "MOME",
-        "logo": "/assets/wp-uploads/2025/02/mome.png",
+        "logo": "/assets/images/referenciak/img-19.png",
         "order": 24,
         "active": true
       },
@@ -903,7 +903,7 @@
         "id": "ref11",
         "slug": "ref11",
         "name": "Óbudai Egyetem",
-        "logo": "/assets/wp-uploads/2025/02/OE-new.png",
+        "logo": "/assets/images/referenciak/img-40.jpg",
         "order": 25,
         "active": true
       },
@@ -911,7 +911,7 @@
         "id": "ref10",
         "slug": "ref10",
         "name": "Soproni Egyetem",
-        "logo": "/assets/wp-uploads/2025/02/Soproni-Egyetem-new.png",
+        "logo": "/assets/images/referenciak/img-47.png",
         "order": 26,
         "active": true
       },
@@ -919,7 +919,7 @@
         "id": "ref9",
         "slug": "ref9",
         "name": "Széchenyi István Egyetem",
-        "logo": "/assets/wp-uploads/2025/02/sze_logo-new.png",
+        "logo": "/assets/images/referenciak/img-49.png",
         "order": 27,
         "active": true
       },
@@ -927,7 +927,7 @@
         "id": "ref8",
         "slug": "ref8",
         "name": "SSZC",
-        "logo": "/assets/wp-uploads/2025/02/SSZC-new.png",
+        "logo": "/assets/images/referenciak/img-48.png",
         "order": 28,
         "active": true
       },
@@ -935,7 +935,7 @@
         "id": "ref7",
         "slug": "ref7",
         "name": "Tudományegyetem",
-        "logo": "/assets/wp-uploads/2025/02/TE-new.png",
+        "logo": "/assets/images/referenciak/img-17.jpg",
         "order": 29,
         "active": true
       },
@@ -943,7 +943,7 @@
         "id": "ref6",
         "slug": "ref6",
         "name": "TSZC",
-        "logo": "/assets/wp-uploads/2025/02/tszc-new.png",
+        "logo": "/assets/images/referenciak/img-50.jpg",
         "order": 30,
         "active": true
       },
@@ -951,7 +951,7 @@
         "id": "ref5",
         "slug": "ref5",
         "name": "Nyugat-Magyarországi Egyetem",
-        "logo": "/assets/wp-uploads/2025/02/univgyor.png",
+        "logo": "/assets/images/referenciak/img-51.jpg",
         "order": 31,
         "active": true
       },
@@ -959,7 +959,7 @@
         "id": "ref4",
         "slug": "ref4",
         "name": "MMSZ",
-        "logo": "/assets/wp-uploads/2025/02/mmsz-new.png",
+        "logo": "/assets/images/referenciak/img-16.jpg",
         "order": 32,
         "active": true
       },
@@ -967,7 +967,7 @@
         "id": "ref3",
         "slug": "ref3",
         "name": "NNGYK",
-        "logo": "/assets/wp-uploads/2025/02/NNGYK-new.png",
+        "logo": "/assets/images/referenciak/img-38.png",
         "order": 33,
         "active": true
       },
@@ -975,7 +975,7 @@
         "id": "ref1",
         "slug": "ref1",
         "name": "OKFO",
-        "logo": "/assets/wp-uploads/2025/02/OKFO-new.png",
+        "logo": "/assets/images/referenciak/img-41.png",
         "order": 34,
         "active": true
       }
