@@ -12,11 +12,25 @@ const permanent = (source, destination) => [
   ...(source.endsWith('/') ? [] : [{ source: `${source}/`, destination, permanent: true }]),
 ];
 
-/** Vercel supports 410 Gone without destination */
-const gone = (source) => [
-  { source, statusCode: 410 },
-  ...(source.endsWith('/') ? [] : [{ source: `${source}/`, statusCode: 410 }]),
+/** Vercel redirects require destination; 410 is handled via rewrite → /api/gone */
+const GONE_PATHS = [
+  '/teszt',
+  '/csr',
+  '/70-uk-gambling-dens-not-on-gamstop-best-web-sites-of-july-2025',
+  '/uk-non-gamstop-bookmakers',
+  '/best-non-gamstop-casinos-in-typically-the-uk-2025',
+  '/online-casino-transaction-methods-deposit-options-2025',
+  '/category/egyeb',
+  '/category/palyazat',
+  '/category/munkatarsak',
+  '/category/referenciak',
+  '/author/papajcsikaron',
 ];
+
+const goneRewrites = GONE_PATHS.flatMap((source) => [
+  { source, destination: '/api/gone' },
+  ...(source.endsWith('/') ? [] : [{ source: `${source}/`, destination: '/api/gone' }]),
+]);
 
 const rules = [];
 
@@ -79,23 +93,6 @@ for (const [from, dest] of [
   rules.push(...permanent(from, dest));
 }
 
-// Retired paths — 410 Gone per MI-Térkép migration table
-for (const path of [
-  '/teszt',
-  '/csr',
-  '/70-uk-gambling-dens-not-on-gamstop-best-web-sites-of-july-2025',
-  '/uk-non-gamstop-bookmakers',
-  '/best-non-gamstop-casinos-in-typically-the-uk-2025',
-  '/online-casino-transaction-methods-deposit-options-2025',
-  '/category/egyeb',
-  '/category/palyazat',
-  '/category/munkatarsak',
-  '/category/referenciak',
-  '/author/papajcsikaron',
-]) {
-  rules.push(...gone(path));
-}
-
 // PDF legacy paths (keep existing)
 rules.push(
   ...permanent(
@@ -119,12 +116,8 @@ const deduped = rules.filter((r) => {
 deduped.sort((a, b) => a.source.localeCompare(b.source));
 
 for (const rule of deduped) {
-  if (!rule.source) {
+  if (!rule.source || typeof rule.destination !== 'string' || !rule.destination) {
     throw new Error(`Invalid redirect rule: ${JSON.stringify(rule)}`);
-  }
-  if (rule.statusCode === 410) continue;
-  if (typeof rule.destination !== 'string' || !rule.destination) {
-    throw new Error(`Invalid redirect rule (missing destination): ${JSON.stringify(rule)}`);
   }
 }
 
@@ -167,6 +160,7 @@ const vercelConfig = {
     },
   ],
   rewrites: [
+    ...goneRewrites,
     ...prerenderRewrites,
     {
       source: '/((?!assets/|api/).*)',

@@ -1,13 +1,5 @@
 [
   {
-    "source": "/70-uk-gambling-dens-not-on-gamstop-best-web-sites-of-july-2025",
-    "statusCode": 410
-  },
-  {
-    "source": "/70-uk-gambling-dens-not-on-gamstop-best-web-sites-of-july-2025/",
-    "statusCode": 410
-  },
-  {
     "source": "/adatvedelem",
     "destination": "/jogi/adatvedelem",
     "permanent": true
@@ -28,22 +20,6 @@
     "permanent": true
   },
   {
-    "source": "/author/papajcsikaron",
-    "statusCode": 410
-  },
-  {
-    "source": "/author/papajcsikaron/",
-    "statusCode": 410
-  },
-  {
-    "source": "/best-non-gamstop-casinos-in-typically-the-uk-2025",
-    "statusCode": 410
-  },
-  {
-    "source": "/best-non-gamstop-casinos-in-typically-the-uk-2025/",
-    "statusCode": 410
-  },
-  {
     "source": "/biro-gabriella",
     "destination": "/rolunk",
     "permanent": true
@@ -54,38 +30,6 @@
     "permanent": true
   },
   {
-    "source": "/category/egyeb",
-    "statusCode": 410
-  },
-  {
-    "source": "/category/egyeb/",
-    "statusCode": 410
-  },
-  {
-    "source": "/category/munkatarsak",
-    "statusCode": 410
-  },
-  {
-    "source": "/category/munkatarsak/",
-    "statusCode": 410
-  },
-  {
-    "source": "/category/palyazat",
-    "statusCode": 410
-  },
-  {
-    "source": "/category/palyazat/",
-    "statusCode": 410
-  },
-  {
-    "source": "/category/referenciak",
-    "statusCode": 410
-  },
-  {
-    "source": "/category/referenciak/",
-    "statusCode": 410
-  },
-  {
     "source": "/csapatunk",
     "destination": "/rolunk",
     "permanent": true
@@ -94,14 +38,6 @@
     "source": "/csapatunk/",
     "destination": "/rolunk",
     "permanent": true
-  },
-  {
-    "source": "/csr",
-    "statusCode": 410
-  },
-  {
-    "source": "/csr/",
-    "statusCode": 410
   },
   {
     "source": "/duleba-marianna",
@@ -252,14 +188,6 @@
     "source": "/munkatarsaink/",
     "destination": "/rolunk",
     "permanent": true
-  },
-  {
-    "source": "/online-casino-transaction-methods-deposit-options-2025",
-    "statusCode": 410
-  },
-  {
-    "source": "/online-casino-transaction-methods-deposit-options-2025/",
-    "statusCode": 410
   },
   {
     "source": "/ref1",
@@ -700,22 +628,6 @@
     "source": "/tajekoztato-cookie-k-hasznalatarol/",
     "destination": "/jogi/cookie",
     "permanent": true
-  },
-  {
-    "source": "/teszt",
-    "statusCode": 410
-  },
-  {
-    "source": "/teszt/",
-    "statusCode": 410
-  },
-  {
-    "source": "/uk-non-gamstop-bookmakers",
-    "statusCode": 410
-  },
-  {
-    "source": "/uk-non-gamstop-bookmakers/",
-    "statusCode": 410
   },
   {
     "source": "/wp-content/uploads/2018/08/GDPR_Kapcsolatok.pdf",

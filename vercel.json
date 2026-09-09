@@ -1,14 +1,6 @@
 {
   "redirects": [
     {
-      "source": "/70-uk-gambling-dens-not-on-gamstop-best-web-sites-of-july-2025",
-      "statusCode": 410
-    },
-    {
-      "source": "/70-uk-gambling-dens-not-on-gamstop-best-web-sites-of-july-2025/",
-      "statusCode": 410
-    },
-    {
       "source": "/adatvedelem",
       "destination": "/jogi/adatvedelem",
       "permanent": true
@@ -29,22 +21,6 @@
       "permanent": true
     },
     {
-      "source": "/author/papajcsikaron",
-      "statusCode": 410
-    },
-    {
-      "source": "/author/papajcsikaron/",
-      "statusCode": 410
-    },
-    {
-      "source": "/best-non-gamstop-casinos-in-typically-the-uk-2025",
-      "statusCode": 410
-    },
-    {
-      "source": "/best-non-gamstop-casinos-in-typically-the-uk-2025/",
-      "statusCode": 410
-    },
-    {
       "source": "/biro-gabriella",
       "destination": "/rolunk",
       "permanent": true
@@ -55,38 +31,6 @@
       "permanent": true
     },
     {
-      "source": "/category/egyeb",
-      "statusCode": 410
-    },
-    {
-      "source": "/category/egyeb/",
-      "statusCode": 410
-    },
-    {
-      "source": "/category/munkatarsak",
-      "statusCode": 410
-    },
-    {
-      "source": "/category/munkatarsak/",
-      "statusCode": 410
-    },
-    {
-      "source": "/category/palyazat",
-      "statusCode": 410
-    },
-    {
-      "source": "/category/palyazat/",
-      "statusCode": 410
-    },
-    {
-      "source": "/category/referenciak",
-      "statusCode": 410
-    },
-    {
-      "source": "/category/referenciak/",
-      "statusCode": 410
-    },
-    {
       "source": "/csapatunk",
       "destination": "/rolunk",
       "permanent": true
@@ -95,14 +39,6 @@
       "source": "/csapatunk/",
       "destination": "/rolunk",
       "permanent": true
-    },
-    {
-      "source": "/csr",
-      "statusCode": 410
-    },
-    {
-      "source": "/csr/",
-      "statusCode": 410
     },
     {
       "source": "/duleba-marianna",
@@ -253,14 +189,6 @@
       "source": "/munkatarsaink/",
       "destination": "/rolunk",
       "permanent": true
-    },
-    {
-      "source": "/online-casino-transaction-methods-deposit-options-2025",
-      "statusCode": 410
-    },
-    {
-      "source": "/online-casino-transaction-methods-deposit-options-2025/",
-      "statusCode": 410
     },
     {
       "source": "/ref1",
@@ -703,22 +631,6 @@
       "permanent": true
     },
     {
-      "source": "/teszt",
-      "statusCode": 410
-    },
-    {
-      "source": "/teszt/",
-      "statusCode": 410
-    },
-    {
-      "source": "/uk-non-gamstop-bookmakers",
-      "statusCode": 410
-    },
-    {
-      "source": "/uk-non-gamstop-bookmakers/",
-      "statusCode": 410
-    },
-    {
       "source": "/wp-content/uploads/2018/08/GDPR_Kapcsolatok.pdf",
       "destination": "/assets/documents/GDPR_Kapcsolatok.pdf",
       "permanent": true
@@ -767,6 +679,94 @@
     }
   ],
   "rewrites": [
+    {
+      "source": "/teszt",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/teszt/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/csr",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/csr/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/70-uk-gambling-dens-not-on-gamstop-best-web-sites-of-july-2025",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/70-uk-gambling-dens-not-on-gamstop-best-web-sites-of-july-2025/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/uk-non-gamstop-bookmakers",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/uk-non-gamstop-bookmakers/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/best-non-gamstop-casinos-in-typically-the-uk-2025",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/best-non-gamstop-casinos-in-typically-the-uk-2025/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/online-casino-transaction-methods-deposit-options-2025",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/online-casino-transaction-methods-deposit-options-2025/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/category/egyeb",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/category/egyeb/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/category/palyazat",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/category/palyazat/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/category/munkatarsak",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/category/munkatarsak/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/category/referenciak",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/category/referenciak/",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/author/papajcsikaron",
+      "destination": "/api/gone"
+    },
+    {
+      "source": "/author/papajcsikaron/",
+      "destination": "/api/gone"
+    },
     {
       "source": "/rolunk",
       "destination": "/rolunk/index.html"
