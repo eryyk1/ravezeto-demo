@@ -18,6 +18,7 @@ const photoPlaceholders = [
   '📷 vezetői tréning – jelenetfotó helye',
   '📷 generációs workshop – jelenetfotó helye',
   '📷 stresszkezelési tréning – jelenetfotó helye',
+  '📷 MI képzés – jelenetfotó helye',
 ] as const;
 
 export default function FelnottkepzesPage() {
@@ -50,7 +51,7 @@ export default function FelnottkepzesPage() {
         <div className="wrap">
           <ScrollReveal className="band flip">
             <div>
-              <h2 className="sec-t2">{page.keyMessage.title}.</h2>
+              <h2 className="sec-t2">{page.keyMessage.title}</h2>
               <p className="mut">{page.credentials.paragraphs[0]}</p>
               <p className="mut" style={{ marginTop: '1rem' }}>
                 {page.processLead} Ennek szerves része a tananyagfejlesztés
@@ -62,17 +63,13 @@ export default function FelnottkepzesPage() {
 
           <ScrollReveal className="mid">
             <p>{page.keyMessage.text}</p>
-            <ScrollReveal
-              as="div"
-              className="tagrow"
-              aria-label="Oktatás-módszertani megoldásaink"
-            >
+            <div className="tagrow" aria-label="Oktatás-módszertani megoldásaink">
               {page.methodTags.map((tag) => (
                 <span key={tag} className="tag">
                   {tag}
                 </span>
               ))}
-            </ScrollReveal>
+            </div>
             <p style={{ marginTop: '1.4rem' }}>
               {page.credentials.paragraphs[2]}
             </p>
@@ -109,7 +106,7 @@ export default function FelnottkepzesPage() {
             Főbb képzési területeink
           </ScrollReveal>
           <ScrollReveal as="h2" className="sec-t">
-            Négy terület, amelyben a legerősebbek vagyunk.
+            {felnottkepzesCategories.length} terület, amelyben a legerősebbek vagyunk.
           </ScrollReveal>
 
           {felnottkepzesCategories.map((category, index) => {
@@ -201,6 +198,7 @@ export default function FelnottkepzesPage() {
         title={page.close.title}
         btnLabel={page.close.cta}
         btnTo={page.close.link}
+        showEuBand={false}
       />
     </>
   );

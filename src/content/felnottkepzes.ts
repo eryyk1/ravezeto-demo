@@ -70,9 +70,16 @@ export const felnottkepzesCategories = [
   {
     id: 'stressz',
     index: '04',
-    title: 'Munkahelyi stressz és stresszkezelési technikák',
+    title: 'Munkahelyi stressz – stresszkezelési technikák',
     text: 'A munkahelyi stressz napjaink egyik legnagyobb kihívása. A mentális egészség megőrzése érdekében tréningjeinken a résztvevők megismerkednek a stresszforrások azonosításának módszereivel és elsajátítják azokat a gyakorlati technikákat, amelyekkel képesek lesznek tudatosan kezelni a kihívásokat, hogyan őrizhetik meg lelki egyensúlyukat és növelhetik teljesítőképességüket a mindennapi munka során.',
     visual: '/assets/illustrations/illust_stress.svg',
+  },
+  {
+    id: 'mi-alapjai',
+    index: '05',
+    title: 'Mesterséges intelligencia alapjai',
+    text: 'Engedélyezett, 16 órás akkreditált képzésünk bevezeti a munkatársakat a mesterséges intelligencia alapjaiba és a felelős, gyakorlati alkalmazás lehetőségeibe a mindennapi munkában.',
+    visual: '/assets/illustrations/illust_inner_courses.svg',
   },
 ] as const;
 
@@ -165,6 +172,13 @@ export const felnottkepzesProgrammeGroups = [
     index: '04',
     title: 'Mentori kompetenciák fejlesztése',
     items: [{ title: 'Munkahelyi mentorok képzése', hours: '16 óra' }],
+  },
+  {
+    id: 'digitalis',
+    tab: 'Digitális kompetenciák',
+    index: '05',
+    title: 'Digitális kompetenciák fejlesztése',
+    items: [{ title: 'Mesterséges intelligencia alapjai', hours: '16 óra' }],
   },
 ] as const;
 
