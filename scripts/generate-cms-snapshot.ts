@@ -17,7 +17,7 @@ const published = createDefaultContent();
 const payload = {
   schemaVersion: published.schemaVersion,
   generatedAt: new Date().toISOString(),
-  buildRef: process.env.VERCEL_GIT_COMMIT_SHA ?? process.env.GITHUB_SHA ?? 'local',
+  buildRef: (process.env.VERCEL_GIT_COMMIT_SHA ?? process.env.GITHUB_SHA ?? 'local').slice(0, 7),
   defaultsRevision: CONTENT_DEFAULTS_REVISION,
   published,
 };

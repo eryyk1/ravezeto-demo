@@ -390,7 +390,7 @@ export type CmsMeta = {
 };
 
 export type CmsState = {
-  storageVersion: 4;
+  storageVersion: 5;
   draft: SiteContent;
   published: SiteContent;
   versions: ContentVersion[];

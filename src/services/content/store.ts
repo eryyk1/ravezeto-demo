@@ -21,11 +21,12 @@ import type {
   TeamMember,
 } from './types';
 
+const STORAGE_KEY_V5 = 'ravezeto_cms_v5';
 const STORAGE_KEY_V4 = 'ravezeto_cms_v4';
 const STORAGE_KEY_V3 = 'ravezeto_cms_v3';
 const STORAGE_KEY_V2 = 'ravezeto_cms_v2';
 const STORAGE_KEY_V1 = 'ravezeto_cms_v1';
-const CMS_STORAGE_VERSION = 4 as const;
+const CMS_STORAGE_VERSION = 5 as const;
 const MAX_VERSIONS = 40;
 const MAX_ACTIVITY = 80;
 const APP_BUILD_ID = typeof __APP_BUILD_ID__ !== 'undefined' ? __APP_BUILD_ID__ : 'dev';
@@ -223,8 +224,15 @@ function createFreshCmsState(defaults: SiteContent, message: string): CmsState {
   };
 }
 
+function normalizeBuildRef(value: string | null | undefined): string {
+  const raw = String(value ?? '').trim();
+  if (!raw || raw === 'dev' || raw === 'local') return raw;
+  return raw.slice(0, 7);
+}
+
 function purgeLegacyStorage() {
   if (typeof window === 'undefined') return;
+  localStorage.removeItem(STORAGE_KEY_V4);
   localStorage.removeItem(STORAGE_KEY_V3);
   localStorage.removeItem(STORAGE_KEY_V2);
   localStorage.removeItem(STORAGE_KEY_V1);
@@ -282,9 +290,9 @@ function loadInitialState(): CmsState {
   purgeLegacyStorage();
 
   try {
-    const rawV4 = localStorage.getItem(STORAGE_KEY_V4);
-    if (rawV4) {
-      const parsed = JSON.parse(rawV4) as CmsState;
+    const rawV5 = localStorage.getItem(STORAGE_KEY_V5);
+    if (rawV5) {
+      const parsed = JSON.parse(rawV5) as CmsState;
       if (parsed.storageVersion === CMS_STORAGE_VERSION && parsed.draft && parsed.published) {
         return applyDefaultsRefresh(hydrateCmsState(parsed, defaults), defaults);
       }
@@ -315,18 +323,16 @@ class ContentStore {
 
       const payload = (await response.json()) as CmsSnapshotFile;
       const defaults = createDefaultContent();
-      const remoteBuildRef = payload.buildRef ?? APP_BUILD_ID;
+      const remoteBuildRef = normalizeBuildRef(payload.buildRef ?? APP_BUILD_ID);
       const remoteRevision = payload.defaultsRevision ?? CONTENT_DEFAULTS_REVISION;
       const localRevision = this.state.meta.defaultsRevision ?? 0;
+      const localBuildRef = normalizeBuildRef(this.state.meta.publishedBuildRef);
       const needsRefresh =
-        remoteRevision > localRevision || remoteBuildRef !== this.state.meta.publishedBuildRef;
+        remoteRevision > localRevision || remoteBuildRef !== localBuildRef;
 
       if (!needsRefresh) return;
 
-      const mergedPublished =
-        remoteRevision > localRevision
-          ? cloneContent(defaults)
-          : mergeSiteContent(payload.published ?? {}, defaults);
+      const mergedPublished = cloneContent(defaults);
       const ts = nowIso();
 
       this.state = {
@@ -369,7 +375,8 @@ class ContentStore {
 
   private persist() {
     if (typeof window === 'undefined') return;
-    localStorage.setItem(STORAGE_KEY_V4, JSON.stringify(this.state));
+    localStorage.setItem(STORAGE_KEY_V5, JSON.stringify(this.state));
+    localStorage.removeItem(STORAGE_KEY_V4);
     localStorage.removeItem(STORAGE_KEY_V3);
     localStorage.removeItem(STORAGE_KEY_V2);
     localStorage.removeItem(STORAGE_KEY_V1);
