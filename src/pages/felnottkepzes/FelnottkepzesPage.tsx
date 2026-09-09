@@ -31,8 +31,7 @@ export default function FelnottkepzesPage() {
             <span className="mark">kulcskompetenciáit!</span>
           </h1>
           <p className="award-line">
-            <span className="g">›</span>
-            Az év trénerei is nálunk dolgoznak
+            <span className="g">›</span>Az év trénerei is nálunk dolgoznak
           </p>
         </div>
       </section>
@@ -193,92 +192,9 @@ export default function FelnottkepzesPage() {
             id="catTabs"
             role="tablist"
             aria-label="Képzési kategóriák"
-          >
-            <button
-              type="button"
-              className="cat-tab on"
-              role="tab"
-              aria-selected={true}
-            >
-              Munkavállalói kompetenciák
-            </button>
-            <button type="button" className="cat-tab" role="tab" aria-selected={false}>
-              Stresszkezelés
-            </button>
-            <button type="button" className="cat-tab" role="tab" aria-selected={false}>
-              Vezetői kompetenciák
-            </button>
-            <button type="button" className="cat-tab" role="tab" aria-selected={false}>
-              Mentori kompetenciák
-            </button>
-          </div>
+          />
           <div className="cat-card rev">
-            <div className="cat-inner" id="catInner">
-              <h3>Munkavállalói kompetenciák fejlesztése</h3>
-              <ul className="reflist">
-                <li>
-                  <span className="t">Gazdálkodj az időddel!</span>
-                  <span className="dots" />
-                  <span className="h">24 óra</span>
-                </li>
-                <li>
-                  <span className="t">Időgazdálkodás</span>
-                  <span className="dots" />
-                  <span className="h">16 óra</span>
-                </li>
-                <li>
-                  <span className="t">
-                    Kommunikációs és együttműködési készségek fejlesztése
-                  </span>
-                  <span className="dots" />
-                  <span className="h">24 óra</span>
-                </li>
-                <li>
-                  <span className="t">Kommunikációs tréning</span>
-                  <span className="dots" />
-                  <span className="h">24 óra</span>
-                </li>
-                <li>
-                  <span className="t">Komplex kommunikációs készségek fejlesztése</span>
-                  <span className="dots" />
-                  <span className="h">42 óra</span>
-                </li>
-                <li>
-                  <span className="t">Konfliktuskezelés</span>
-                  <span className="dots" />
-                  <span className="h">24 óra</span>
-                </li>
-                <li>
-                  <span className="t">Konfliktushelyzetek kezelése</span>
-                  <span className="dots" />
-                  <span className="h">24 óra</span>
-                </li>
-                <li>
-                  <span className="t">Konfliktuskezelés és kommunikáció</span>
-                  <span className="dots" />
-                  <span className="h">30 óra</span>
-                </li>
-                <li>
-                  <span className="t">
-                    Sikeres szervezeti együttműködés és kommunikáció a gyakorlatban
-                  </span>
-                  <span className="dots" />
-                  <span className="h">16 óra</span>
-                </li>
-                <li>
-                  <span className="t">
-                    Szervezeti és generációk közötti együttműködés fejlesztése
-                  </span>
-                  <span className="dots" />
-                  <span className="h">30 óra</span>
-                </li>
-                <li>
-                  <span className="t">Üzleti kapcsolattartás és kommunikáció</span>
-                  <span className="dots" />
-                  <span className="h">16 óra</span>
-                </li>
-              </ul>
-            </div>
+            <div className="cat-inner" id="catInner" />
           </div>
         </div>
       </section>
@@ -301,7 +217,7 @@ export default function FelnottkepzesPage() {
                 className="map"
                 href="https://www.google.com/maps/search/1146+Budapest,+Izs%C3%B3+u.+7.+1%2F3."
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
               >
                 Megnyitás térképen →
               </a>
@@ -368,7 +284,7 @@ export default function FelnottkepzesPage() {
                 <a
                   href="https://www.facebook.com/profile.php?id=100063907730525"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                 >
                   Facebook
                 </a>
