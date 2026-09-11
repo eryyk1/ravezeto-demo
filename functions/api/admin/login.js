@@ -6,15 +6,14 @@ import {
 import { ADMIN_SESSION_TTL_MS } from '../../lib/sessionConfig.js';
 import { jsonResponse } from '../../lib/http.js';
 
-export async function onRequestPost(context) {
-  const { request, env } = context;
+export async function handleAdminLogin(request, env) {
   const secret = getAdminSecret(env);
 
   if (!secret) {
     return jsonResponse(
       {
         error:
-          'Az admin bejelentkezés nincs konfigurálva. Állítsa be az ADMIN_EMAIL, ADMIN_PASSWORD és ADMIN_JWT_SECRET változókat a Cloudflare Pages környezeti változóiban.',
+          'Az admin bejelentkezés nincs konfigurálva. Állítsa be az ADMIN_EMAIL, ADMIN_PASSWORD és ADMIN_JWT_SECRET változókat a Cloudflare Worker környezeti változóiban.',
       },
       503,
     );
@@ -48,4 +47,9 @@ export async function onRequestPost(context) {
     expiresAt,
     user: { id: user.id, email: user.email },
   });
+}
+
+/** @deprecated Pages Functions entry — use handleAdminLogin via worker/index.js */
+export async function onRequestPost(context) {
+  return handleAdminLogin(context.request, context.env);
 }

@@ -26,7 +26,7 @@ export async function sendContactEmail(env, payload) {
       ok: false,
       status: 503,
       error:
-        'Az űrlap küldés nincs konfigurálva. Állítsa be a RESEND_API_KEY és CONTACT_FROM_EMAIL változókat a Cloudflare Pages környezeti változóiban.',
+        'Az űrlap küldés nincs konfigurálva. Állítsa be a RESEND_API_KEY és CONTACT_FROM_EMAIL változókat a Cloudflare Worker környezeti változóiban.',
     };
   }
 

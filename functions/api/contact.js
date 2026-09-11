@@ -2,9 +2,7 @@ import { jsonResponse } from '../lib/http.js';
 import { sendContactEmail } from '../lib/contactEmail.js';
 import { isSameOriginRequest, validateContactPayload } from '../lib/contactValidation.js';
 
-export async function onRequestPost(context) {
-  const { request, env } = context;
-
+export async function handleContactSubmit(request, env) {
   if (!isSameOriginRequest(request)) {
     return jsonResponse({ error: 'Forbidden' }, 403);
   }
@@ -27,4 +25,9 @@ export async function onRequestPost(context) {
   }
 
   return jsonResponse({ ok: true });
+}
+
+/** @deprecated Pages Functions entry — use handleContactSubmit via worker/index.js */
+export async function onRequestPost(context) {
+  return handleContactSubmit(context.request, context.env);
 }

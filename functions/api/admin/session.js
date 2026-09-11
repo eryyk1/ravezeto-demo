@@ -7,8 +7,7 @@ function getBearerToken(request) {
   return header.slice(7);
 }
 
-export async function onRequestGet(context) {
-  const { request, env } = context;
+export async function handleAdminSession(request, env) {
   const secret = getAdminSecret(env);
 
   if (!secret) {
@@ -29,4 +28,9 @@ export async function onRequestGet(context) {
     user: { id: payload.sub, email: payload.email },
     expiresAt: payload.exp,
   });
+}
+
+/** @deprecated Pages Functions entry — use handleAdminSession via worker/index.js */
+export async function onRequestGet(context) {
+  return handleAdminSession(context.request, context.env);
 }
