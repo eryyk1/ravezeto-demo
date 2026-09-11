@@ -17,6 +17,7 @@ export default defineConfig(({ mode }) => {
   }
 
   const buildId =
+    process.env.CF_PAGES_COMMIT_SHA?.slice(0, 7) ??
     process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) ??
     process.env.GITHUB_SHA?.slice(0, 7) ??
     'dev';
