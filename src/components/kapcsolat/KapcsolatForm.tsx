@@ -13,8 +13,7 @@ type FormMessages = {
 
 export type KapcsolatFormConfig = {
   title: string;
-  recipient?: string;
-  formspreeEndpoint?: string;
+  submitEndpoint?: string;
   fields?: typeof defaultKapcsolatForm.fields;
   submit?: string;
   messages: FormMessages;
@@ -67,13 +66,12 @@ function validate(values: FormValues, messages: FormMessages): FormErrors {
 export default function KapcsolatForm({ config }: KapcsolatFormProps) {
   const fields = config.fields ?? defaultKapcsolatForm.fields;
   const submitLabel = config.submit ?? defaultKapcsolatForm.submit;
-  const recipient = config.recipient ?? defaultKapcsolatForm.recipient;
   const [values, setValues] = useState<FormValues>(emptyValues);
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
   const [statusMessage, setStatusMessage] = useState('');
 
-  const endpoint = config.formspreeEndpoint?.trim();
+  const endpoint = (config.submitEndpoint ?? defaultKapcsolatForm.submitEndpoint).trim();
 
   function updateField(field: keyof FormValues, value: string) {
     setValues((prev) => ({ ...prev, [field]: value }));
@@ -103,12 +101,6 @@ export default function KapcsolatForm({ config }: KapcsolatFormProps) {
       return;
     }
 
-    if (!endpoint) {
-      setSubmitState('error');
-      setStatusMessage(config.messages.notConfigured);
-      return;
-    }
-
     setSubmitState('submitting');
     setStatusMessage('');
 
@@ -124,13 +116,20 @@ export default function KapcsolatForm({ config }: KapcsolatFormProps) {
           email: values.email.trim(),
           phone: values.phone.trim() || undefined,
           message: values.message.trim(),
-          _replyto: values.email.trim(),
-          _subject: `Kapcsolatfelvétel — ${recipient}`,
+          website: values.website,
         }),
       });
 
+      const payload = await response.json().catch(() => ({} as Record<string, unknown>));
+
       if (!response.ok) {
-        throw new Error('Formspree request failed');
+        const serverError =
+          typeof payload.error === 'string' && payload.error.trim()
+            ? payload.error
+            : config.messages.error;
+        setSubmitState('error');
+        setStatusMessage(serverError);
+        return;
       }
 
       setValues(emptyValues);

@@ -15,8 +15,7 @@ export default function KapcsolatPage() {
   const formConfig = useMemo(
     () => ({
       title: kapcsolat.formTitle,
-      recipient: kapcsolatFormDefaults.recipient,
-      formspreeEndpoint: kapcsolatFormDefaults.formspreeEndpoint,
+      submitEndpoint: kapcsolatFormDefaults.submitEndpoint,
       fields: kapcsolatFormDefaults.fields,
       submit: kapcsolatFormDefaults.submit,
       messages: kapcsolat.formMessages,

@@ -34,8 +34,7 @@ export const kapcsolatDetails = [
 
 export const kapcsolatForm = {
   title: 'Üzenet',
-  recipient: company.email,
-  formspreeEndpoint: import.meta.env?.VITE_FORMSPREE_CONTACT as string | undefined,
+  submitEndpoint: '/api/contact',
   fields: {
     name: { label: 'Név', required: true },
     email: { label: 'Email', required: true },
