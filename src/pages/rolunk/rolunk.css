@@ -45,9 +45,6 @@ nav a.cta:hover{background:var(--ink)}
 .motto .latin{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.3;margin-bottom:1.2rem}
 .motto .latin .gm{color:inherit}
 .motto p{color:var(--muted);max-width:42rem;margin:0 auto}
-.motto-sec .motto .latin{color:#f4f3ea;text-shadow:0 2px 24px rgba(0,0,0,.32)}
-.motto-sec .motto .latin .gm{color:var(--gold)}
-.motto-sec .motto p{color:rgba(242,243,232,.9)}
 
 /* Munkatárs-rács */
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.2rem 1.6rem}
@@ -140,11 +137,13 @@ footer .eu-slot img{background:#F2F3E8;border-radius:.4rem;padding:.2rem}
 .hero .wrap,.hero-sub .wrap{position:relative;z-index:1}
 .chev-trio{width:2.1rem;height:auto;color:var(--gold);display:block;margin:0 auto .9rem}
 
-/* Sötét Citius-sáv */
+/* Sötét Citius-sáv — .sec-w from other page bundles must not win over dark background */
+.motto-sec.sec-w,
 .motto-sec{background:var(--oliva-d);border-top:0;border-bottom:0;border-radius:2rem 2rem 0 0;box-shadow:0 -14px 34px rgba(45,52,54,.1)}
 .motto-sec .kicker{color:rgba(242,243,232,.6)}
-.motto .latin{color:#F2F3E8}
-.motto p{color:rgba(242,243,232,.68)}
+.motto-sec .motto .latin{color:#faf9f2;text-shadow:0 2px 20px rgba(0,0,0,.45);opacity:1}
+.motto-sec .motto .latin .gm{color:var(--gold)}
+.motto-sec .motto p{color:rgba(242,243,232,.92)}
 .motto-art path{fill:var(--gold)}
 .motto-art path:nth-child(1){opacity:.1}
 .motto-art path:nth-child(2){opacity:.16}
