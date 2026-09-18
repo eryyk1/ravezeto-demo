@@ -313,12 +313,14 @@ footer .eu-slot span {
 }
 
 .referenciak-page .lg-flow .cell img {
-  filter: grayscale(1) opacity(0.55);
-  transition: filter 0.3s;
+  filter: grayscale(1);
+  opacity: 0.88;
+  transition: filter 0.3s, opacity 0.3s;
 }
 
 .referenciak-page .lg-flow .cell:hover img {
   filter: none;
+  opacity: 1;
 }
 
 /* Illustration / photo slots: drop placeholder card chrome when an image is shown */
@@ -437,28 +439,35 @@ footer .eu-slot span {
   animation-play-state: running;
 }
 
-/* Rolunk / Csapatunk — Citius: global .sec-w from other page CSS must not reset dark band */
+/* Rolunk / Csapatunk — Citius (see also .rolunk-page rules in rolunk.css) */
+.rolunk-page section.sec.sec-w.motto-sec,
 section.sec.sec-w.motto-sec {
   background: var(--oliva-d);
   border-top: 0;
   border-bottom: 0;
 }
 
+.rolunk-page section.motto-sec .wrap.motto,
+.rolunk-page section.motto-sec .wrap.motto.rev,
 section.motto-sec .wrap.motto.rev {
   opacity: 1;
   transform: none;
 }
 
+.rolunk-page section.motto-sec .motto .latin,
 section.motto-sec .motto .latin {
   color: #faf9f2;
+  -webkit-text-fill-color: #faf9f2;
   opacity: 1;
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.45);
 }
 
+.rolunk-page section.motto-sec .motto .latin .gm,
 section.motto-sec .motto .latin .gm {
   color: var(--gold);
 }
 
+.rolunk-page section.motto-sec .motto p,
 section.motto-sec .motto p {
   color: rgba(242, 243, 232, 0.92);
 }

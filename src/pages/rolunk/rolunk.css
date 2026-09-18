@@ -166,3 +166,38 @@ body.mopen .mmenu{opacity:1;pointer-events:auto}
 body.mopen{overflow:hidden}
 @media(max-width:56rem){.menu-btn{display:flex}.nav nav{margin-left:auto;margin-right:.5rem}.mmenu nav a{display:block}}
 @media(prefers-reduced-motion:reduce){.mmenu{transition:none}.menu-btn span{transition:none}}
+
+/* Scoped fixes — beat later global .sec-w / .rev rules from other page stylesheets in the bundle */
+.rolunk-page section.sec.sec-w.motto-sec{
+  background:var(--oliva-d);
+  border-top:0;
+  border-bottom:0;
+}
+.rolunk-page section.motto-sec .wrap.motto,
+.rolunk-page section.motto-sec .wrap.motto.rev{
+  opacity:1;
+  transform:none;
+}
+.rolunk-page section.motto-sec .motto .latin{
+  color:#faf9f2;
+  -webkit-text-fill-color:#faf9f2;
+  opacity:1;
+  text-shadow:0 2px 20px rgba(0,0,0,.45);
+}
+.rolunk-page section.motto-sec .motto .latin .gm{color:var(--gold)}
+.rolunk-page section.motto-sec .motto p{color:rgba(242,243,232,.92)}
+
+.rolunk-page .team-grid .member{
+  box-sizing:border-box;
+  padding:2rem 2.15rem;
+}
+.rolunk-page .team-grid .member h3{
+  margin:0 0 .75rem;
+  padding:0 .35rem 0 .15rem;
+  line-height:1.35;
+}
+.rolunk-page .team-grid .member .li-link{margin-bottom:1rem}
+.rolunk-page .team-grid .member .bio{
+  margin:0;
+  padding:0 .1rem;
+}
