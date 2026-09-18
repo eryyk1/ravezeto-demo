@@ -314,57 +314,68 @@ footer .eu-slot span {
   visibility: visible;
 }
 
-.lg-flow .cell img {
-  filter: grayscale(1);
-  opacity: 0.88;
-  transition: filter 0.3s, opacity 0.3s;
+.referenciak-page .lg-flow .cell img {
+  filter: grayscale(1) opacity(0.55);
+  transition: filter 0.3s;
 }
 
-.lg-flow .cell:hover img {
-  filter: grayscale(0);
-  opacity: 1;
+.referenciak-page .lg-flow .cell:hover img {
+  filter: none;
 }
 
-/* Photo slots: remove dashed border only when a real image is present */
+/* Illustration / photo slots: drop placeholder card chrome when an image is shown */
 .photo-slot:has(img),
 .team-photo:has(img),
 .co-photo:has(img),
-.values-img:has(img),
-.partners .partner-logo:has(img) {
-  border-color: transparent;
-  background: var(--card);
+.values-img:has(img) {
+  border: none;
+  background: transparent;
   padding: 0;
-  overflow: hidden;
+  border-radius: 0;
 }
 
 .photo-slot:has(img) {
   display: block;
 }
 
+.photo-slot:has(img.ill),
+.co-photo:has(img.ill) {
+  overflow: visible;
+}
+
 .photo-slot img,
 .team-photo img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   display: block;
 }
 
-.team-photo img {
-  border-radius: inherit;
-  min-height: 100%;
+.photo-slot:has(img:not(.ill)) img {
+  object-fit: cover;
 }
 
-.photo-slot:has(img[src$='.svg']) img {
+.team-photo img {
+  min-height: 100%;
+  object-fit: cover;
+}
+
+.photo-slot:has(img[src$='.svg']:not(.ill)) img {
   object-fit: contain;
-  padding: 1.4rem;
+  padding: 0;
   filter: none;
 }
 
-.photo-slot:has(img:not([src$='.svg'])) img,
-.team-photo img,
-.co-photo img,
-.member .photo img {
-  filter: grayscale(0.35) sepia(0.12) saturate(0.95) contrast(0.98);
+/* Keep intentional card frames (e.g. partner logo tiles on Pályázatok) */
+.partners .partner-logo:has(img) {
+  border: 1px solid var(--hair);
+  background: var(--card);
+  padding: 0.75rem 1.25rem;
+  overflow: hidden;
+}
+
+.referenciak-page .lg-flow .cell {
+  border: 1px solid var(--hair);
+  background: var(--card);
 }
 
 .member .photo:hover img,

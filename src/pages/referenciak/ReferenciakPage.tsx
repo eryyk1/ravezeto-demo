@@ -8,5 +8,9 @@ export default function ReferenciakPage() {
   const meta = useMemo(() => resolvePageMeta('/referenciak'), []);
   usePageMeta(meta);
 
-  return <ReferenciakBody />;
+  return (
+    <div className="referenciak-page">
+      <ReferenciakBody />
+    </div>
+  );
 }

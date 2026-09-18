@@ -5,6 +5,7 @@ type Testimonial = {
   logo: string;
   who: string;
   quotes: readonly string[];
+  listItems?: readonly string[];
 };
 
 type TestimonialDeckProps = {
@@ -47,15 +48,15 @@ export default function TestimonialDeck({ items }: TestimonialDeckProps) {
 
   const restartTimer = useCallback(() => {
     clearTimer();
-    if (reduced) return;
+    if (reduced || items.length < 2) return;
 
     timerRef.current = window.setInterval(() => {
       setActiveIndex((current) => {
         const next = (current + 1) % items.length;
-        if (reduced) return next;
-
-        setTransitioning(true);
-        window.setTimeout(() => setTransitioning(false), 280);
+        if (!reduced) {
+          setTransitioning(true);
+          window.setTimeout(() => setTransitioning(false), 280);
+        }
         return next;
       });
     }, ROTATE_MS);
@@ -69,6 +70,8 @@ export default function TestimonialDeck({ items }: TestimonialDeckProps) {
   const pause = () => clearTimer();
   const resume = () => restartTimer();
 
+  if (!active) return null;
+
   return (
     <>
       <div className="tst rev" onMouseEnter={pause} onMouseLeave={resume}>
@@ -76,8 +79,15 @@ export default function TestimonialDeck({ items }: TestimonialDeckProps) {
           <div className={`tst-inner${transitioning ? ' out' : ''}`}>
             <blockquote className="tst-quote">
               {active.quotes.map((quote) => (
-                <p key={quote.slice(0, 40)}>{quote}</p>
+                <p key={quote.slice(0, 48)}>{quote}</p>
               ))}
+              {active.listItems && active.listItems.length > 0 && (
+                <ul>
+                  {active.listItems.map((line) => (
+                    <li key={line}>{line}</li>
+                  ))}
+                </ul>
+              )}
             </blockquote>
             <div className="tst-who">{active.who}</div>
           </div>

@@ -30,6 +30,8 @@ export type Reference = {
   logo: string;
   who: string;
   quotes: string[];
+  /** Optional bullet list inside the testimonial quote block */
+  listItems?: string[];
   category?: string;
   order: number;
   active: boolean;

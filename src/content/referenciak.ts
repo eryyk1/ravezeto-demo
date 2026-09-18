@@ -71,11 +71,29 @@ export const referenciakTestimonials = [
     who: 'Ertinger Imre, ügyvezető, SBT Protect Kft.',
     quotes: [
       '„Ádámmal és csapatával 2019 óta dolgozunk együtt, változó intenzitással és több területen is: szervezetfejlesztés, menedzsment coaching, képzések, toborzás. Amit nyújtanak:',
+      'Kétség nélkül ajánlom őket.”',
+    ],
+    listItems: [
       'nyílt, barátságos, támogató, bizalmi légkör,',
       'szakmailag alátámasztott módszerek és eszközök,',
       'igényekre szabott megoldások,',
       'felkészült, segítőkész csapat.',
-      'Kétség nélkül ajánlom őket.”',
+    ],
+  },
+  {
+    logo: 'Future FM',
+    who: 'Takács Katalin, vezérigazgató, Future FM Zrt.',
+    quotes: [
+      '„Vezetőként ritkán találkozom olyan szakemberrel, aki egyszerre rendelkezik kiemelkedő szakmai tudással és ennyire őszinte emberi odafigyeléssel. Ádám mellett az ember azt érzi, hogy nem egy tanácsadóval ül egy asztalnál, hanem egy tapasztalt, elkötelezett kísérővel, aki valóban érti a helyzetét. Munkája során a bizalom, a diszkréció és a személyre szabott támogatás alapértékek. A helyzeteket szélesebb perspektívából látni, vagy egyszerűen a számomra hiteles megoldást megtalálni, segítségével természetes folyamatnak tűnik. Nagyon sokat köszönhetek neki mind a saját vezetői fejlődésemben, mind szervezeti kultúránk alakításában.”',
+    ],
+  },
+  {
+    logo: 'ATEV',
+    who: 'Lovászi Zsuzsanna, humánpolitikai igazgató, ATEV Zrt.',
+    quotes: [
+      '„Partnerünk az elmúlt több mint másfél év során meghatározó szerepet vállalt szervezetünk fejlesztési céljainak támogatásában. Közös munkánk során kultúrafejlesztési és szervezetfejlesztési projektekben, Assessment Center folyamatok lebonyolításában, toborzási feladatokban, vezetői coaching programok megvalósításában, valamint a GINOP támogatású képzések szervezésében és lebonyolításában működtünk együtt.',
+      'Tanácsadóik, támogató munkatársaik nem csupán szakértőként, hanem valódi partnerként támogatják a közös célok megvalósítását, miközben a legkülönbözőbb szervezeti kihívásokra is konstruktív és gyakorlatias megoldásokat kínálnak.',
+      'A közös munka során minden esetben magas szintű szakértelmet, alapos felkészültséget és a szervezetünk működésének gyors megértését tapasztaltuk. Külön értékként emeljük ki emberközpontú hozzáállásukat, együttműködő szemléletüket és azt a figyelmet, amellyel igényeinkhez alkalmazkodnak.”',
     ],
   },
 ] as const;

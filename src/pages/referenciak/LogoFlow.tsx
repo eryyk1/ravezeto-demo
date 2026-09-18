@@ -1,27 +1,32 @@
 import { useMemo } from 'react';
 import ScrollReveal from '../../components/client/ScrollReveal';
 import { usePreloadImages } from '../../hooks/usePreloadImages';
-
-type LogoItem = {
-  slug: string;
-  name: string;
-  logo: string;
-};
+import type { ReferenciakLogoCell } from './referenciakPageData';
 
 type LogoFlowProps = {
-  logos: readonly LogoItem[];
+  forwardTrack: readonly ReferenciakLogoCell[];
+  backTrack: readonly ReferenciakLogoCell[];
+  onPartnerHover?: (slug: string | null) => void;
 };
 
-function LogoCell({ item }: { item: LogoItem }) {
+function LogoCell({
+  item,
+  ariaHidden,
+  onPartnerHover,
+}: {
+  item: ReferenciakLogoCell;
+  ariaHidden?: boolean;
+  onPartnerHover?: (slug: string | null) => void;
+}) {
   return (
-    <div className="cell">
-      <img
-        src={item.logo}
-        alt={item.name}
-        loading="eager"
-        decoding="async"
-        fetchPriority="high"
-      />
+    <div
+      className="cell"
+      data-p={item.slug}
+      aria-hidden={ariaHidden || undefined}
+      onMouseEnter={() => onPartnerHover?.(item.slug)}
+      onMouseLeave={() => onPartnerHover?.(null)}
+    >
+      <img src={item.logo} alt={ariaHidden ? '' : item.name} loading="lazy" decoding="async" />
     </div>
   );
 }
@@ -30,42 +35,48 @@ function LogoTrack({
   items,
   back = false,
   ariaHidden = false,
+  onPartnerHover,
 }: {
-  items: readonly LogoItem[];
+  items: readonly ReferenciakLogoCell[];
   back?: boolean;
   ariaHidden?: boolean;
+  onPartnerHover?: (slug: string | null) => void;
 }) {
   const loop = [...items, ...items];
 
   return (
-    <div
-      className={`lg-track${back ? ' back' : ''}`}
-      aria-hidden={ariaHidden || undefined}
-    >
+    <div className={`lg-track${back ? ' back' : ''}`} aria-hidden={ariaHidden || undefined}>
       {loop.map((item, index) => (
-        <LogoCell key={`${item.slug}-${index}`} item={item} />
+        <LogoCell
+          key={`${item.slug}-${index}`}
+          item={item}
+          ariaHidden={ariaHidden}
+          onPartnerHover={onPartnerHover}
+        />
       ))}
     </div>
   );
 }
 
-export default function LogoFlow({ logos }: LogoFlowProps) {
-  const uniqueUrls = useMemo(() => [...new Set(logos.map((logo) => logo.logo))], [logos]);
+export default function LogoFlow({ forwardTrack, backTrack, onPartnerHover }: LogoFlowProps) {
+  const uniqueUrls = useMemo(
+    () => [...new Set([...forwardTrack, ...backTrack].map((logo) => logo.logo))],
+    [forwardTrack, backTrack],
+  );
   const imagesReady = usePreloadImages(uniqueUrls);
 
-  const midpoint = Math.ceil(logos.length / 2);
-  const forward = logos.slice(0, midpoint);
-  const backward = logos.slice(midpoint);
-
   return (
-    <ScrollReveal className={`lg-flow${imagesReady ? ' lg-flow--ready' : ''}`}>
+    <ScrollReveal
+      className={`lg-flow${imagesReady ? ' lg-flow--ready' : ''}`}
+      onMouseLeave={() => onPartnerHover?.(null)}
+    >
       <div className="lg-flow__preload" aria-hidden="true">
         {uniqueUrls.map((url) => (
           <img key={url} src={url} alt="" decoding="async" fetchPriority="high" />
         ))}
       </div>
-      <LogoTrack items={forward} />
-      <LogoTrack items={backward} back ariaHidden />
+      <LogoTrack items={forwardTrack} onPartnerHover={onPartnerHover} />
+      <LogoTrack items={backTrack} back ariaHidden onPartnerHover={onPartnerHover} />
     </ScrollReveal>
   );
 }

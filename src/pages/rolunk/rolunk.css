@@ -45,12 +45,15 @@ nav a.cta:hover{background:var(--ink)}
 .motto .latin{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.3;margin-bottom:1.2rem}
 .motto .latin .gm{color:inherit}
 .motto p{color:var(--muted);max-width:42rem;margin:0 auto}
+.motto-sec .motto .latin{color:#f4f3ea;text-shadow:0 2px 24px rgba(0,0,0,.32)}
+.motto-sec .motto .latin .gm{color:var(--gold)}
+.motto-sec .motto p{color:rgba(242,243,232,.9)}
 
 /* Munkatárs-rács */
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.2rem 1.6rem}
-.member{padding:1.7rem 1.6rem;background:var(--card);border:1px solid var(--hair);border-radius:1.2rem}
-.member h3{font-size:1.25rem;font-weight:800;margin:0 0 .6rem}
-.member .bio{color:var(--muted);font-size:1rem;line-height:1.65}
+.member{padding:1.85rem 1.75rem;background:var(--card);border:1px solid var(--hair);border-radius:1.2rem;min-width:0;overflow:hidden}
+.member h3{font-size:1.25rem;font-weight:800;margin:0 0 .6rem;overflow-wrap:break-word;word-break:normal;line-height:1.25;padding-right:.25rem}
+.member .bio{color:var(--muted);font-size:1rem;line-height:1.65;overflow-wrap:break-word;word-break:normal}
 .member .li-link{display:inline-flex;align-items:center;gap:.55rem;font-family:'Urbanist',sans-serif;font-weight:700;font-size:.85rem;color:var(--oliva-s);margin-bottom:1.1rem;padding-bottom:.15rem;border-bottom:2px solid transparent;transition:border-color .25s,color .25s}
 .member .li-link:hover{color:var(--ink);border-bottom-color:var(--gold)}
 .li-badge{flex:none;display:inline-flex;align-items:center;justify-content:center;width:1.6rem;height:1.6rem;border-radius:.5rem;background:linear-gradient(135deg,rgba(214,165,72,.22),rgba(157,173,82,.16));color:var(--oliva-s);font-size:.72rem;font-weight:800;font-family:'Urbanist',sans-serif;transition:color .25s}

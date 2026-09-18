@@ -306,6 +306,7 @@ export function createDefaultContent(): SiteContent {
       logo: item.logo,
       who: item.who,
       quotes: [...item.quotes],
+      ...('listItems' in item && item.listItems ? { listItems: [...item.listItems] } : {}),
       order: index + 1,
       active: true,
     })),
