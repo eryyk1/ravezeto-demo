@@ -1,4 +1,3 @@
-import ScrollReveal from '../../components/client/ScrollReveal';
 import type { ReferenciakLogoCell } from './referenciakPageData';
 
 type LogoFlowProps = {
@@ -64,9 +63,9 @@ function LogoTrack({
 
 export default function LogoFlow({ forwardTrack, backTrack, onPartnerHover }: LogoFlowProps) {
   return (
-    <ScrollReveal className="lg-flow" onMouseLeave={() => onPartnerHover?.(null)}>
+    <div className="lg-flow rev" onMouseLeave={() => onPartnerHover?.(null)}>
       <LogoTrack items={forwardTrack} onPartnerHover={onPartnerHover} />
       <LogoTrack items={backTrack} back ariaHidden onPartnerHover={onPartnerHover} />
-    </ScrollReveal>
+    </div>
   );
 }

@@ -158,8 +158,6 @@
   color: rgba(242, 243, 232, 0.86);
 }
 
-.motto-sec .motto .latin,
-.motto-sec .motto p,
 .pC h2,
 .pC .refs,
 .pC .refs a,
@@ -426,4 +424,41 @@ footer .eu-slot span {
   .aurelius span {
     color: #f2f3e8 !important;
   }
+}
+
+/* Referenciák — marquee must stay visible and animating (original HTML used .lg-flow.rev) */
+.referenciak-page .lg-flow.rev {
+  opacity: 1;
+  transform: none;
+}
+
+.referenciak-page .lg-flow .lg-track {
+  visibility: visible;
+  animation-play-state: running;
+}
+
+/* Rolunk / Csapatunk — Citius: global .sec-w from other page CSS must not reset dark band */
+section.sec.sec-w.motto-sec {
+  background: var(--oliva-d);
+  border-top: 0;
+  border-bottom: 0;
+}
+
+section.motto-sec .wrap.motto.rev {
+  opacity: 1;
+  transform: none;
+}
+
+section.motto-sec .motto .latin {
+  color: #faf9f2;
+  opacity: 1;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.45);
+}
+
+section.motto-sec .motto .latin .gm {
+  color: var(--gold);
+}
+
+section.motto-sec .motto p {
+  color: rgba(242, 243, 232, 0.92);
 }
