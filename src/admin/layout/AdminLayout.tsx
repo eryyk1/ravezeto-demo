@@ -13,9 +13,13 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
   const { setSidebarOpen, pushToast } = useAdminUi();
   const meta = useCmsMeta();
 
-  function handlePublish() {
-    contentStore.publish();
-    pushToast('success', 'Minden piszkozat publikálva.');
+  async function handlePublish() {
+    const result = await contentStore.publishToServer('Globális publikálás');
+    if (result.ok) {
+      pushToast('success', 'Minden piszkozat publikálva a szerverre.');
+    } else {
+      pushToast('error', result.error);
+    }
   }
 
   return (

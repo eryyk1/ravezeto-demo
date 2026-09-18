@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { uploadCmsImage } from '../../services/content/cmsApi';
 import { readImageFile } from '../../services/content/store';
 
 type ImageFieldProps = {
@@ -21,6 +22,15 @@ export default function ImageField({ label, value, onChange, hint }: ImageFieldP
     }
     setUploading(true);
     try {
+      const uploaded = await uploadCmsImage(file);
+      if (uploaded.ok) {
+        onChange(uploaded.data.url);
+        return;
+      }
+      if (uploaded.status !== 501 && uploaded.status !== 404) {
+        window.alert(uploaded.message);
+        return;
+      }
       const dataUrl = await readImageFile(file);
       onChange(dataUrl);
     } catch {

@@ -12,7 +12,7 @@ export const rolunkHero = {
   intro:
     'Az egyéni és szervezeti minőség és teljesítmény növelésében tudunk segíteni, közös gondolkodással, elhivatott szakemberekkel.',
   image: pageImage('csapatunk', 'img-02.jpg'),
-  imageAlt: 'Rávezető Projekt csapat és munkakörnyezet',
+  imageAlt: 'A Rávezető Projekt csapata az irodában',
 } as const;
 
 export const rolunkStory = {

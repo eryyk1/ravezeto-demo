@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-18T08:06:32.232Z",
+  "generatedAt": "2026-09-18T08:25:49.865Z",
   "buildRef": "local",
   "defaultsRevision": 6,
   "published": {
@@ -181,7 +181,7 @@
         "titleMark": "magasabbra!",
         "intro": "Az egyéni és szervezeti minőség és teljesítmény növelésében tudunk segíteni, közös gondolkodással, elhivatott szakemberekkel.",
         "image": "/assets/images/csapatunk/img-02.jpg",
-        "imageAlt": "Rávezető Projekt csapat és munkakörnyezet"
+        "imageAlt": "A Rávezető Projekt csapata az irodában"
       },
       "story": {
         "pullQuote": "Minden munkaszervezet állandó mozgásban, változásban éli mindennapjait.",

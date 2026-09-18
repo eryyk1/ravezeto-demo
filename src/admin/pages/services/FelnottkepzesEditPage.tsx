@@ -23,7 +23,10 @@ export default function FelnottkepzesEditPage() {
       contentStore.updateFelnottkepzes(form);
       markSaved(form);
     }
-    if (!draftOnly) contentStore.publish('Felnőttképzés oldal publikálva');
+    if (!draftOnly) {
+      return contentStore.publishToServer('Felnőttképzés oldal publikálva');
+    }
+    return { ok: true as const };
   }
 
   async function handleSaveDraft() {
@@ -43,8 +46,9 @@ export default function FelnottkepzesEditPage() {
   async function handlePublish() {
     setPublishing(true);
     try {
-      await saveAll(false);
-      pushToast('success', 'Felnőttképzés oldal publikálva.');
+      const result = await saveAll(false);
+      if (result.ok) pushToast('success', 'Felnőttképzés oldal publikálva a szerverre.');
+      else pushToast('error', result.error);
     } catch {
       pushToast('error', 'A publikálás sikertelen.');
     } finally {

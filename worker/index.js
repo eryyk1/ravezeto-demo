@@ -2,6 +2,12 @@ import { handleAdminLogin } from '../functions/api/admin/login.js';
 import { handleAdminSession } from '../functions/api/admin/session.js';
 import { handleContactSubmit } from '../functions/api/contact.js';
 import {
+  handleCmsPublishedGet,
+  handleCmsPublishPost,
+  handleCmsStateGet,
+  handleCmsStatePut,
+} from '../functions/api/cms/handlers.js';
+import {
   GONE_PATHS,
   PRERENDER_ROUTES,
   goneResponse,
@@ -27,6 +33,22 @@ export default {
 
     if (path === '/api/contact' && request.method === 'POST') {
       return handleContactSubmit(request, env);
+    }
+
+    if (path === '/api/cms/published' && request.method === 'GET') {
+      return handleCmsPublishedGet(request, env);
+    }
+
+    if (path === '/api/cms/state' && request.method === 'GET') {
+      return handleCmsStateGet(request, env);
+    }
+
+    if (path === '/api/cms/state' && (request.method === 'PUT' || request.method === 'POST')) {
+      return handleCmsStatePut(request, env);
+    }
+
+    if (path === '/api/cms/publish' && request.method === 'POST') {
+      return handleCmsPublishPost(request, env);
     }
 
     if (request.method === 'GET' && PRERENDER_ROUTES.has(path)) {

@@ -36,8 +36,9 @@ export default function RolunkEditPage() {
     setPublishing(true);
     try {
       if (dirty) markSaved(form);
-      contentStore.publish('Rólunk oldal publikálva');
-      pushToast('success', 'Rólunk oldal publikálva.');
+      const result = await contentStore.publishToServer('Rólunk oldal publikálva');
+      if (result.ok) pushToast('success', 'Rólunk oldal publikálva a szerverre.');
+      else pushToast('error', result.error);
     } catch {
       pushToast('error', 'A publikálás sikertelen.');
     } finally {

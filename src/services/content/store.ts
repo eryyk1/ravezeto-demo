@@ -1,3 +1,9 @@
+import {
+  fetchAdminCmsState,
+  fetchPublishedSnapshot,
+  publishCmsState,
+  saveAdminCmsState,
+} from './cmsApi';
 import { CONTENT_DEFAULTS_REVISION } from './constants';
 import { createDefaultContent } from './defaults';
 import type {
@@ -281,6 +287,10 @@ function hydrateCmsState(parsed: Partial<CmsState>, defaults: SiteContent): CmsS
   return applyDefaultsRefresh(state, defaults);
 }
 
+function isAdminRoute(): boolean {
+  return typeof window !== 'undefined' && window.location.pathname.startsWith('/admin');
+}
+
 function loadInitialState(): CmsState {
   const defaults = createDefaultContent();
   if (typeof window === 'undefined') {
@@ -289,16 +299,19 @@ function loadInitialState(): CmsState {
 
   purgeLegacyStorage();
 
-  try {
-    const rawV5 = localStorage.getItem(STORAGE_KEY_V5);
-    if (rawV5) {
-      const parsed = JSON.parse(rawV5) as CmsState;
-      if (parsed.storageVersion === CMS_STORAGE_VERSION && parsed.draft && parsed.published) {
-        return applyDefaultsRefresh(hydrateCmsState(parsed, defaults), defaults);
+  // Public site must not treat localStorage as the CMS database — admin may use it as draft cache only.
+  if (isAdminRoute()) {
+    try {
+      const rawV5 = localStorage.getItem(STORAGE_KEY_V5);
+      if (rawV5) {
+        const parsed = JSON.parse(rawV5) as CmsState;
+        if (parsed.storageVersion === CMS_STORAGE_VERSION && parsed.draft && parsed.published) {
+          return applyDefaultsRefresh(hydrateCmsState(parsed, defaults), defaults);
+        }
       }
+    } catch {
+      /* fall through */
     }
-  } catch {
-    /* fall through */
   }
 
   return createFreshCmsState(defaults, 'CMS inicializálva az aktuális oldal tartalmával');
@@ -316,50 +329,78 @@ class ContentStore {
     }
   }
 
+  private applyRemotePublished(payload: CmsSnapshotFile, sourceLabel: string) {
+    if (!payload.published) return;
+
+    const defaults = createDefaultContent();
+    const mergedPublished = mergeSiteContent(payload.published, defaults);
+    const remoteBuildRef = normalizeBuildRef(payload.buildRef ?? APP_BUILD_ID);
+    const remoteRevision = payload.defaultsRevision ?? CONTENT_DEFAULTS_REVISION;
+    const localRevision = this.state.meta.defaultsRevision ?? 0;
+    const localBuildRef = normalizeBuildRef(this.state.meta.publishedBuildRef);
+    const needsRefresh =
+      remoteRevision > localRevision ||
+      remoteBuildRef !== localBuildRef ||
+      JSON.stringify(this.state.published) !== JSON.stringify(mergedPublished);
+
+    if (!needsRefresh) return;
+
+    const ts = nowIso();
+    const onAdmin = isAdminRoute();
+
+    this.state = {
+      ...this.state,
+      published: mergedPublished,
+      draft: onAdmin ? this.state.draft : cloneContent(mergedPublished),
+      meta: {
+        ...this.state.meta,
+        publishedBuildRef: remoteBuildRef,
+        defaultsRevision: remoteRevision,
+        lastModified: ts,
+        hasUnpublishedChanges: onAdmin ? this.state.meta.hasUnpublishedChanges : false,
+      },
+      activity: [
+        {
+          id: createId('act'),
+          at: ts,
+          message: `${sourceLabel} (rev ${remoteRevision})`,
+          section: 'system',
+        },
+        ...this.state.activity,
+      ].slice(0, MAX_ACTIVITY),
+    };
+    if (onAdmin) this.persist();
+    this.notify();
+  }
+
   private async syncPublishedFromServer() {
+    const api = await fetchPublishedSnapshot();
+    if (api.ok) {
+      this.applyRemotePublished(api.data, 'Publikált tartalom betöltve a szerverről');
+      return;
+    }
+
     try {
       const response = await fetch(`/cms/published.json?build=${APP_BUILD_ID}`, { cache: 'no-store' });
       if (!response.ok) return;
-
       const payload = (await response.json()) as CmsSnapshotFile;
-      const defaults = createDefaultContent();
-      const remoteBuildRef = normalizeBuildRef(payload.buildRef ?? APP_BUILD_ID);
-      const remoteRevision = payload.defaultsRevision ?? CONTENT_DEFAULTS_REVISION;
-      const localRevision = this.state.meta.defaultsRevision ?? 0;
-      const localBuildRef = normalizeBuildRef(this.state.meta.publishedBuildRef);
-      const needsRefresh =
-        remoteRevision > localRevision || remoteBuildRef !== localBuildRef;
-
-      if (!needsRefresh) return;
-
-      const mergedPublished = cloneContent(defaults);
-      const ts = nowIso();
-
-      this.state = {
-        ...this.state,
-        published: mergedPublished,
-        draft: cloneContent(mergedPublished),
-        meta: {
-          ...this.state.meta,
-          publishedBuildRef: remoteBuildRef,
-          defaultsRevision: remoteRevision,
-          lastModified: ts,
-          hasUnpublishedChanges: false,
-        },
-        activity: [
-          {
-            id: createId('act'),
-            at: ts,
-            message: `Frissített tartalom betöltve (rev ${remoteRevision})`,
-            section: 'system',
-          },
-          ...this.state.activity,
-        ].slice(0, MAX_ACTIVITY),
-      };
-      this.persist();
+      this.applyRemotePublished(payload, 'Build pillanatkép betöltve');
     } catch {
       /* offline or missing snapshot */
     }
+  }
+
+  async syncFromServerAsAdmin(): Promise<{ ok: true } | { ok: false; error: string }> {
+    const result = await fetchAdminCmsState();
+    if (!result.ok) {
+      return { ok: false, error: result.message };
+    }
+
+    const defaults = createDefaultContent();
+    this.state = applyDefaultsRefresh(hydrateCmsState(result.data.state, defaults), defaults);
+    this.persist();
+    this.notify();
+    return { ok: true };
   }
 
   whenPublishedSynced = (): Promise<void> => this.syncPromise ?? Promise.resolve();
@@ -430,6 +471,12 @@ class ContentStore {
   }
 
   publish(activityMessage = 'Változások publikálva') {
+    return this.publishToServer(activityMessage);
+  }
+
+  async publishToServer(
+    activityMessage = 'Változások publikálva',
+  ): Promise<{ ok: true } | { ok: false; error: string }> {
     const snapshot = cloneContent(this.state.draft);
     const version: ContentVersion = {
       id: createId('ver'),
@@ -438,7 +485,7 @@ class ContentStore {
       snapshot: cloneContent(snapshot),
     };
     const ts = nowIso();
-    this.state = {
+    const nextState: CmsState = {
       ...this.state,
       published: snapshot,
       versions: [version, ...this.state.versions].slice(0, MAX_VERSIONS),
@@ -460,7 +507,38 @@ class ContentStore {
         ...this.state.activity,
       ].slice(0, MAX_ACTIVITY),
     };
+
+    const remote = await publishCmsState(nextState);
+    if (!remote.ok) {
+      const failTs = nowIso();
+      this.state = {
+        ...this.state,
+        activity: [
+          {
+            id: createId('act'),
+            at: failTs,
+            message: `Publikálás sikertelen: ${remote.message}`,
+            section: 'publish',
+          },
+          ...this.state.activity,
+        ].slice(0, MAX_ACTIVITY),
+      };
+      this.notify();
+      return { ok: false, error: remote.message };
+    }
+
+    this.state = nextState;
     this.persist();
+    this.notify();
+    return { ok: true };
+  }
+
+  async saveDraftToServer(): Promise<{ ok: true } | { ok: false; error: string }> {
+    const result = await saveAdminCmsState(this.state);
+    if (!result.ok) {
+      return { ok: false, error: result.message };
+    }
+    return { ok: true };
   }
 
   restoreVersion(versionId: string): boolean {
