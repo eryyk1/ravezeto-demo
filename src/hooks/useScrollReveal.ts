@@ -7,7 +7,12 @@ export function useScrollReveal() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const els = document.querySelectorAll('.rev, .tagrow, .ch-big');
+    // Logo marquee uses `.lg-flow.rev` in source HTML but must stay visible/animating (not scroll-hidden).
+    document.querySelectorAll('.referenciak-page .lg-flow').forEach((el) => {
+      el.classList.add('in');
+    });
+
+    const els = document.querySelectorAll('.rev:not(.lg-flow), .tagrow, .ch-big');
 
     if (reduced) {
       els.forEach((el) => el.classList.add('in'));
