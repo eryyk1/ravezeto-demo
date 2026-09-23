@@ -154,6 +154,24 @@ function normalizeTanacsadas(
   };
 }
 
+function normalizeTeam(
+  stored: TeamMember[] | undefined,
+  defaults: TeamMember[],
+): TeamMember[] {
+  if (!stored?.length) return defaults;
+  const defaultBySlug = new Map(defaults.map((member) => [member.slug, member]));
+  return stored.map((member) => {
+    let linkedInUrl: string | undefined;
+    if (member.linkedInUrl !== undefined) {
+      const trimmed = member.linkedInUrl.trim();
+      linkedInUrl = trimmed || undefined;
+    } else {
+      linkedInUrl = defaultBySlug.get(member.slug)?.linkedInUrl;
+    }
+    return { ...member, linkedInUrl };
+  });
+}
+
 function mergeSiteContent(parsed: Partial<SiteContent>, defaults: SiteContent): SiteContent {
   return {
     ...defaults,
@@ -188,7 +206,7 @@ function mergeSiteContent(parsed: Partial<SiteContent>, defaults: SiteContent): 
         }
       : defaults.referenciakPage,
     tanacsadas: normalizeTanacsadas(parsed.tanacsadas, defaults.tanacsadas),
-    team: parsed.team?.length ? parsed.team : defaults.team,
+    team: normalizeTeam(parsed.team, defaults.team),
     partners: parsed.partners?.length ? parsed.partners : defaults.partners,
     references: parsed.references?.length ? parsed.references : defaults.references,
     palyazatok: normalizePalyazatok(parsed.palyazatok, defaults.palyazatok),

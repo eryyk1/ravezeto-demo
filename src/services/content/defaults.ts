@@ -48,6 +48,15 @@ import {
   tanacsadasValtozasmenedzsment,
 } from '../../content/tanacsadas';
 import { teamMembers as legacyTeam } from '../../content/team';
+
+/** Default LinkedIn URLs (bundled CMS defaults — editable in admin, published via KV). */
+const TEAM_LINKEDIN_BY_SLUG: Record<string, string> = {
+  'riz-adam-cmc': 'https://www.linkedin.com/in/adamriz/',
+  'berta-aniko': 'https://www.linkedin.com/in/anik%C3%B3-berta-426aa03a9/',
+  'biro-gabriella': 'https://www.linkedin.com/in/b%C3%ADr%C3%B3-gabriella-96585538/',
+  'soos-andrea': 'https://www.linkedin.com/in/andrea-soos-78a203a0/',
+  'szoke-adam': 'https://www.linkedin.com/in/%C3%A1d%C3%A1m-sz%C5%91ke-a628a7a7/',
+};
 import { kapcsolatForm, kapcsolatHero } from '../../pages/kapcsolat/kapcsolatContent';
 import {
   palyazatokAbout,
@@ -289,6 +298,7 @@ export function createDefaultContent(): SiteContent {
       portrait: member.portrait,
       portraitPosition: member.portraitPosition,
       featured: member.featured,
+      linkedInUrl: TEAM_LINKEDIN_BY_SLUG[member.slug],
       order: index + 1,
       active: true,
     })),

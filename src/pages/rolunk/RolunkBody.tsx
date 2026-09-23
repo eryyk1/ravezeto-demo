@@ -3,14 +3,6 @@ import { Link } from 'react-router-dom';
 import { pageImage } from '../../data/media';
 import { useRolunkContent, useTeamMembers } from '../../services/content/useContent';
 
-const TEAM_LINKEDIN: Record<string, string> = {
-  'riz-adam-cmc': 'https://www.linkedin.com/in/adamriz/',
-  'berta-aniko': 'https://www.linkedin.com/in/anik%C3%B3-berta-426aa03a9/',
-  'biro-gabriella': 'https://www.linkedin.com/in/b%C3%ADr%C3%B3-gabriella-96585538/',
-  'soos-andrea': 'https://www.linkedin.com/in/andrea-soos-78a203a0/',
-  'szoke-adam': 'https://www.linkedin.com/in/%C3%A1d%C3%A1m-sz%C5%91ke-a628a7a7/',
-};
-
 function valuesImageAlt(labels: string[]): string {
   return `Értékeink kézzel rajzolt mozaikja: ${labels.join(', ')}`;
 }
@@ -76,7 +68,7 @@ export default function RolunkBody() {
           <h2 className="sec-t rev">Munkatársaink</h2>
           <div className="team-grid">
             {team.map((member) => {
-              const linkedIn = TEAM_LINKEDIN[member.slug];
+              const linkedIn = member.linkedInUrl?.trim();
               return (
                 <article key={member.id} className="member rev">
                   <h3>{member.name}</h3>
