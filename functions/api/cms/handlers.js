@@ -102,3 +102,78 @@ export async function handleCmsPublishPost(request, env) {
     published: buildPublishedPayload(state, state.meta?.publishedBuildRef ?? 'live'),
   });
 }
+
+const UPLOAD_MAX_BYTES = 2 * 1024 * 1024;
+const UPLOAD_ALLOWED = {
+  'image/jpeg': 'jpg',
+  'image/png': 'png',
+  'image/webp': 'webp',
+  'image/gif': 'gif',
+  'image/svg+xml': 'svg',
+};
+
+export async function handleCmsUploadPost(request, env) {
+  const auth = await requireAdmin(request, env);
+  if (auth.error) return auth.error;
+
+  if (!env?.CMS_UPLOADS) {
+    return jsonResponse(
+      { error: 'CMS uploads storage (R2) is not configured on the Worker.' },
+      503,
+    );
+  }
+
+  let formData;
+  try {
+    formData = await request.formData();
+  } catch {
+    return jsonResponse({ error: 'Invalid multipart body' }, 400);
+  }
+
+  const file = formData.get('file');
+  if (!file || typeof file === 'string') {
+    return jsonResponse({ error: 'Missing file upload' }, 400);
+  }
+
+  const mime = file.type || 'application/octet-stream';
+  const ext = UPLOAD_ALLOWED[mime];
+  if (!ext) {
+    return jsonResponse({ error: 'Unsupported image type' }, 400);
+  }
+
+  const bytes = await file.arrayBuffer();
+  if (bytes.byteLength > UPLOAD_MAX_BYTES) {
+    return jsonResponse({ error: 'File too large' }, 400);
+  }
+
+  const stamp = new Date().toISOString().replace(/[-:T.Z]/g, '').slice(0, 14);
+  const rand = crypto.getRandomValues(new Uint8Array(4));
+  const hex = [...rand].map((b) => b.toString(16).padStart(2, '0')).join('');
+  const name = `cms-${stamp}-${hex}.${ext}`;
+  const key = `uploads/cms/${name}`;
+
+  await env.CMS_UPLOADS.put(key, bytes, {
+    httpMetadata: { contentType: mime },
+  });
+
+  return jsonResponse({ url: `/assets/uploads/cms/${name}` });
+}
+
+export async function handleCmsUploadAssetGet(request, env, path) {
+  if (!env?.CMS_UPLOADS) return null;
+  const prefix = '/assets/uploads/cms/';
+  if (!path.startsWith(prefix)) return null;
+  const fileName = path.slice(prefix.length);
+  if (!fileName || fileName.includes('..') || fileName.includes('/')) return null;
+
+  const object = await env.CMS_UPLOADS.get(`uploads/cms/${fileName}`);
+  if (!object) return null;
+
+  const headers = new Headers();
+  headers.set(
+    'Content-Type',
+    object.httpMetadata?.contentType || 'application/octet-stream',
+  );
+  headers.set('Cache-Control', 'public, max-age=31536000, immutable');
+  return new Response(object.body, { status: 200, headers });
+}

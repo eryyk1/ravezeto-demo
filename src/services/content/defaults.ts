@@ -22,6 +22,7 @@ import {
   felnottkepzesProgrammeGroups,
   felnottkepzesReg,
 } from '../../content/felnottkepzes';
+import { defaultJogiAdatvedelem, defaultJogiImpresszum } from '../../content/jogi/jogiDefaults';
 import { referenceClientLogos } from '../../content/partners';
 import {
   referenciakCta,
@@ -291,14 +292,24 @@ export function createDefaultContent(): SiteContent {
       order: index + 1,
       active: true,
     })),
-    partners: referenceClientLogos.map((partner, index) => ({
-      id: partner.slug,
-      slug: partner.slug,
-      name: partner.name,
-      logo: partner.logo,
-      order: index + 1,
-      active: true,
-    })),
+    partners: [
+      ...referenceClientLogos.map((partner, index) => ({
+        id: partner.slug,
+        slug: partner.slug,
+        name: partner.name,
+        logo: partner.logo,
+        order: index + 1,
+        active: true,
+      })),
+      {
+        id: 'egis',
+        slug: 'egis',
+        name: 'Egis Gyógyszergyár Zrt.',
+        logo: '/assets/images/referenciak/img-07.svg',
+        order: referenceClientLogos.length + 1,
+        active: true,
+      },
+    ],
     references: referenciakTestimonials.map((item, index) => ({
       id: slugify(item.logo) || `ref-${index + 1}`,
       title: item.logo,
@@ -340,6 +351,13 @@ export function createDefaultContent(): SiteContent {
       formPrivacyLinkLabel: palyazatokForm.privacyLinkLabel,
       formSubmit: palyazatokForm.submit,
       active: true,
+    },
+    jogiImpresszum: {
+      bodyHtml: defaultJogiImpresszum.bodyHtml,
+    },
+    jogiAdatvedelem: {
+      heroLead: defaultJogiAdatvedelem.heroLead,
+      bodyHtml: defaultJogiAdatvedelem.bodyHtml,
     },
   };
 }

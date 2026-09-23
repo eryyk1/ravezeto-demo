@@ -123,7 +123,7 @@ export const homeServices = [
   },
   {
     title: 'Mentally',
-    text: 'A munkahelyi stressz nem HR-ügy, hanem üzleti kockázat. Tudd meg, mi stresszeli a csapatodat, mielőtt a legjobb embereid felmondanak!',
+    text: 'A munkahelyi stressz nem HR-ügy, hanem üzleti kockázat. Tudja meg, mi stresszeli a csapatát, mielőtt a legjobb emberei felmondanak!',
     link: 'https://mentally.team',
     cta: 'Bővebben',
     external: true,

@@ -192,6 +192,25 @@ function mergeSiteContent(parsed: Partial<SiteContent>, defaults: SiteContent): 
     partners: parsed.partners?.length ? parsed.partners : defaults.partners,
     references: parsed.references?.length ? parsed.references : defaults.references,
     palyazatok: normalizePalyazatok(parsed.palyazatok, defaults.palyazatok),
+    jogiImpresszum: {
+      bodyHtml:
+        typeof parsed.jogiImpresszum?.bodyHtml === 'string' &&
+        parsed.jogiImpresszum.bodyHtml.trim()
+          ? parsed.jogiImpresszum.bodyHtml
+          : defaults.jogiImpresszum.bodyHtml,
+    },
+    jogiAdatvedelem: {
+      heroLead:
+        typeof parsed.jogiAdatvedelem?.heroLead === 'string' &&
+        parsed.jogiAdatvedelem.heroLead.trim()
+          ? parsed.jogiAdatvedelem.heroLead
+          : defaults.jogiAdatvedelem.heroLead,
+      bodyHtml:
+        typeof parsed.jogiAdatvedelem?.bodyHtml === 'string' &&
+        parsed.jogiAdatvedelem.bodyHtml.trim()
+          ? parsed.jogiAdatvedelem.bodyHtml
+          : defaults.jogiAdatvedelem.bodyHtml,
+    },
   };
 }
 

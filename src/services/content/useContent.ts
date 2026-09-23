@@ -28,6 +28,8 @@ import type {
   TeamMember,
   CloseBand,
   EuMarkContent,
+  JogiAdatvedelemContent,
+  JogiImpresszumContent,
 } from './types';
 
 function useStoreValue<T>(read: () => T): T {
@@ -228,4 +230,20 @@ export function useDraftPalyazatok(): PalyazatokSettings {
 
 export function useDraftCompanySettings(): CompanySettings {
   return useStoreValue(() => contentStore.getDraft().company);
+}
+
+export function useJogiImpresszumContent(): JogiImpresszumContent {
+  return useStoreValue(() => contentStore.getPublished().jogiImpresszum);
+}
+
+export function useJogiAdatvedelemContent(): JogiAdatvedelemContent {
+  return useStoreValue(() => contentStore.getPublished().jogiAdatvedelem);
+}
+
+export function useDraftJogiImpresszum(): JogiImpresszumContent {
+  return useStoreValue(() => contentStore.getDraft().jogiImpresszum);
+}
+
+export function useDraftJogiAdatvedelem(): JogiAdatvedelemContent {
+  return useStoreValue(() => contentStore.getDraft().jogiAdatvedelem);
 }

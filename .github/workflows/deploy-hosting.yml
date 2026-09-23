@@ -1,0 +1,96 @@
+# Deploy production build to shared hosting (dev.ravezeto.hu document root) via FTP.
+# Does NOT use dangerous-clean-slate — the remote directory is never wiped.
+# Excluded paths are not uploaded and not removed by the deploy action.
+#
+# Enable uploads by setting repository secret HOSTING_DEPLOY_ENABLED=true
+# (leave unset or any other value to build-only on push / manual run).
+
+name: Deploy shared hosting
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-hosting-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Production build
+        run: npm run build
+        env:
+          GITHUB_SHA: ${{ github.sha }}
+
+      - name: List build output (summary)
+        run: |
+          echo "dist/ top level:"
+          find dist -maxdepth 2 -type f | head -80
+          echo "..."
+          find dist -type f | wc -l
+
+      - name: Decide whether to deploy
+        id: deploy_gate
+        env:
+          HOSTING_DEPLOY_ENABLED: ${{ secrets.HOSTING_DEPLOY_ENABLED }}
+        run: |
+          if [ "$HOSTING_DEPLOY_ENABLED" = "true" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+            echo "Deploy upload is enabled."
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "Deploy upload skipped (set secret HOSTING_DEPLOY_ENABLED=true when ready)."
+          fi
+
+      - name: Validate FTP secrets
+        if: steps.deploy_gate.outputs.enabled == 'true'
+        env:
+          HOSTING_FTP_HOST: ${{ secrets.HOSTING_FTP_HOST }}
+          HOSTING_FTP_USERNAME: ${{ secrets.HOSTING_FTP_USERNAME }}
+          HOSTING_FTP_PASSWORD: ${{ secrets.HOSTING_FTP_PASSWORD }}
+          HOSTING_REMOTE_PATH: ${{ secrets.HOSTING_REMOTE_PATH }}
+        run: |
+          missing=0
+          check() { var_name="$1"; eval "val=\$$var_name"; if [ -z "$val" ]; then echo "::error::Missing required secret: $var_name"; missing=1; fi; }
+          check HOSTING_FTP_HOST
+          check HOSTING_FTP_USERNAME
+          check HOSTING_FTP_PASSWORD
+          check HOSTING_REMOTE_PATH
+          if [ "$missing" -ne 0 ]; then
+            exit 1
+          fi
+          echo "Required FTP secrets are present."
+
+      - name: Upload dist to shared hosting (FTP)
+        if: steps.deploy_gate.outputs.enabled == 'true'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.HOSTING_FTP_HOST }}
+          username: ${{ secrets.HOSTING_FTP_USERNAME }}
+          password: ${{ secrets.HOSTING_FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: ${{ secrets.HOSTING_REMOTE_PATH }}/
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/api/cms/config.php
+            **/assets/uploads/cms/**

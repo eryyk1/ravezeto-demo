@@ -22,6 +22,8 @@ import ReferenciakPageEditPage from './pages/references/ReferenciakPageEditPage'
 import KapcsolatEditPage from './pages/kapcsolat/KapcsolatEditPage';
 import SettingsPage from './pages/settings/SettingsPage';
 import PalyazatokEditPage from './pages/palyazatok/PalyazatokEditPage';
+import JogiAdatvedelemEditPage from './pages/jogi/JogiAdatvedelemEditPage';
+import JogiImpresszumEditPage from './pages/jogi/JogiImpresszumEditPage';
 import VersionsPage from './pages/VersionsPage';
 import './admin.css';
 
@@ -59,6 +61,8 @@ export default function AdminApp() {
             <Route path="partners" element={<PartnersListPage />} />
             <Route path="partners/:id" element={<PartnerEditPage />} />
             <Route path="palyazatok" element={<PalyazatokEditPage />} />
+            <Route path="jogi/impresszum" element={<JogiImpresszumEditPage />} />
+            <Route path="jogi/adatvedelem" element={<JogiAdatvedelemEditPage />} />
             <Route path="verziok" element={<VersionsPage />} />
             <Route path="settings" element={<SettingsPage />} />
           </Route>

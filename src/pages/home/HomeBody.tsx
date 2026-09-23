@@ -97,7 +97,7 @@ export default function HomeBody() {
               </details>
               <details>
                 <summary><span>Mentally</span><span className="pm">+</span></summary>
-                <div className="body">A munkahelyi stressz nem HR-ügy, hanem üzleti kockázat. Tudd meg, mi stresszeli a csapatodat, mielőtt a legjobb embereid felmondanak! <a className="go" href="https://mentally.team" target="_blank" rel="noopener">Bővebben →</a></div>
+                <div className="body">A munkahelyi stressz nem HR-ügy, hanem üzleti kockázat. Tudja meg, mi stresszeli a csapatát, mielőtt a legjobb emberei felmondanak! <a className="go" href="https://mentally.team" target="_blank" rel="noopener">Bővebben →</a></div>
               </details>
             </div>
           </div>

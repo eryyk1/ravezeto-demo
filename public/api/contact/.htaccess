@@ -1,0 +1,2 @@
+# Direct requests to /api/contact/index.php only; public URL is rewritten to ../contact-submit.php
+Options -Indexes

@@ -29,6 +29,12 @@ function loadPublishedFromProductionState() {
 }
 
 const productionState = loadPublishedFromProductionState();
+if (!productionState && existsSync(outFile)) {
+  console.log(
+    `generate-cms-snapshot: keeping ${path.relative(root, outFile)} (no ${path.relative(root, stateFile)})`,
+  );
+  process.exit(0);
+}
 const published = productionState?.published ?? createDefaultContent();
 const payload = {
   schemaVersion: published.schemaVersion,

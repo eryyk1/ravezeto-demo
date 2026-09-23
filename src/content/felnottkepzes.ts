@@ -137,9 +137,9 @@ export const felnottkepzesProgrammeGroups = [
   },
   {
     id: 'stressz',
-    tab: 'Stresszkezelés',
+    tab: 'Vállalati stresszmenedzsment',
     index: '02',
-    title: 'Stresszkezelés, mentális egészség fejlesztése',
+    title: 'Vállalati stresszmenedzsment, mentális egészség fejlesztése',
     items: [
       { title: 'A stressz és én', hours: '16 óra' },
       { title: 'Mentálhigiéné és lelki egészségvédelem', hours: '54 óra' },
