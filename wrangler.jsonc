@@ -10,7 +10,12 @@
     "run_worker_first": true
   },
   // Must match Cloudflare dashboard binding name CMS_KV. Replace id with your KV namespace ID before `wrangler deploy`.
-  "kv_namespaces": [{ "binding": "CMS_KV", "id": "7d9629259d8c4e8dae6ecc712fc61d73" }]
+  "kv_namespaces": [{ "binding": "CMS_KV", "id": "7d9629259d8c4e8dae6ecc712fc61d73" }],
+  // Non-secret sender for Resend (verified domain ravezeto.hu). Override in dashboard if needed.
+  "vars": {
+    "CONTACT_FROM_EMAIL": "Rávezető weboldal <weboldal@ravezeto.hu>"
+  }
+  // Set secret in dashboard or: npx wrangler secret put RESEND_API_KEY
   // Optional later — not required for deploy (upload returns 503 until configured):
   // "r2_buckets": [{ "binding": "CMS_UPLOADS", "bucket_name": "ravezeto-cms-uploads" }]
 }

@@ -1,5 +1,7 @@
 const CONTACT_TO = 'info@ravezeto.hu';
-const CONTACT_SUBJECT = 'New contact form message – Rávezető';
+const CONTACT_SUBJECT = 'Új kapcsolatfelvétel – Rávezető weboldal';
+/** Verified Resend domain sender; override with CONTACT_FROM_EMAIL env var if needed. */
+const DEFAULT_CONTACT_FROM = 'Rávezető weboldal <weboldal@ravezeto.hu>';
 
 function buildEmailText({ name, email, phone, message }) {
   const lines = [
@@ -19,9 +21,9 @@ function buildEmailText({ name, email, phone, message }) {
 
 export async function sendContactEmail(env, payload) {
   const apiKey = env?.RESEND_API_KEY?.trim();
-  const from = env?.CONTACT_FROM_EMAIL?.trim();
+  const from = (env?.CONTACT_FROM_EMAIL?.trim() || DEFAULT_CONTACT_FROM).trim();
 
-  if (!apiKey || !from) {
+  if (!apiKey) {
     return {
       ok: false,
       status: 503,
@@ -46,6 +48,16 @@ export async function sendContactEmail(env, payload) {
   });
 
   if (!response.ok) {
+    let detail = '';
+    try {
+      const errBody = await response.json();
+      if (errBody && typeof errBody.message === 'string') {
+        detail = errBody.message;
+      }
+    } catch {
+      /* ignore parse errors */
+    }
+    console.error('[contact-email] Resend error', response.status, detail || response.statusText);
     return {
       ok: false,
       status: 502,
