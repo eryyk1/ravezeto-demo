@@ -9,6 +9,8 @@ export type TeamMember = {
   portrait: string;
   portraitPosition?: string;
   featured?: boolean;
+  /** Personal or company LinkedIn profile URL (optional). */
+  linkedInUrl?: string;
   order: number;
   active: boolean;
 };

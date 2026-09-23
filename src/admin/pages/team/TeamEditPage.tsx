@@ -7,6 +7,7 @@ import { useAdminUi } from '../../context/AdminUiContext';
 import { createId, teamService } from '../../../services/content/store';
 import { useDraftTeamMembers } from '../../../services/content/useContent';
 import type { TeamMember } from '../../../services/content/types';
+import { isValidLinkedInUrl, normalizeLinkedInUrl } from '../../../utils/linkedinUrl';
 
 function slugify(text: string) {
   return text
@@ -62,7 +63,19 @@ export default function TeamEditPage() {
       pushToast('error', 'A név és leírás megadása kötelező.');
       return;
     }
-    teamService.save({ ...form, slug: form.slug || slugify(form.name) });
+    const linkedInRaw = form.linkedInUrl?.trim() ?? '';
+    if (linkedInRaw && !isValidLinkedInUrl(linkedInRaw)) {
+      pushToast(
+        'error',
+        'Érvénytelen LinkedIn URL. Használjon https://www.linkedin.com/in/... vagy .../company/... formátumot.',
+      );
+      return;
+    }
+    teamService.save({
+      ...form,
+      slug: form.slug || slugify(form.name),
+      linkedInUrl: normalizeLinkedInUrl(linkedInRaw),
+    });
     pushToast('success', 'Csapattag mentve.');
     navigate('/admin/team');
   }
@@ -135,6 +148,22 @@ export default function TeamEditPage() {
             value={form.bio}
             onChange={(event) => update('bio', event.target.value)}
             required
+          />
+        </AdminField>
+
+        <AdminField
+          label="LinkedIn URL"
+          htmlFor="team-linkedin"
+          hint="Opcionális. Üresen hagyva nem jelenik meg LinkedIn link a Csapatunk oldalon."
+        >
+          <input
+            id="team-linkedin"
+            className="admin-input"
+            type="url"
+            inputMode="url"
+            placeholder="https://www.linkedin.com/in/..."
+            value={form.linkedInUrl ?? ''}
+            onChange={(event) => update('linkedInUrl', event.target.value)}
           />
         </AdminField>
 
