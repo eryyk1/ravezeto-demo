@@ -33,10 +33,71 @@ nav a.cta:hover{background:var(--ink)}
 .hero{padding:9.5rem 0 3.5rem}
 .hero h1{font-size:clamp(2.3rem,4.8vw,3.5rem);line-height:1.1;font-weight:800;letter-spacing:-.01em;margin:1rem 0 0;max-width:46rem}
 
-/* TARTALOM */
-.sec{padding:0 0 4rem}
-.doc{background:var(--card);border:1px solid var(--hair);border-radius:1.2rem;padding:2.6rem 2.4rem;max-width:52rem}
-.doc .ph{border:2px dashed var(--hair);border-radius:.9rem;padding:2.2rem;text-align:center;color:var(--muted);font-size:1rem}
+/* TARTALOM – jogi dokumentum */
+.hlead{font-size:1.12rem;color:var(--muted);max-width:40rem;margin-top:1.1rem}
+.sec{padding:0 0 4.5rem}
+.lgrid{display:grid;grid-template-columns:13.5rem minmax(0,44rem);gap:4rem;align-items:start}
+@media(max-width:66rem){.lgrid{grid-template-columns:minmax(0,44rem);gap:2.6rem}}
+.ltoc{position:sticky;top:6.6rem;font-size:.88rem;line-height:1.45}
+.ltoc .kicker{display:block;margin-bottom:.95rem;font-size:.7rem}
+.ltoc ol{list-style:none;counter-reset:t}
+.ltoc li{counter-increment:t;margin-bottom:.52rem;display:flex;gap:.5rem}
+.ltoc li::before{content:counter(t) ".";color:var(--gold);font-family:'Urbanist',sans-serif;font-weight:700;font-size:.8rem;flex:none}
+.ltoc a{color:var(--muted)}
+.ltoc a:hover{color:var(--oliva-s)}
+.ltoc a.on{color:var(--ink);font-weight:700}
+@media(max-width:66rem){.ltoc{position:static;border-left:3px solid var(--hair);padding-left:1.25rem}}
+.legal{max-width:44rem}
+.lsec{padding-top:2.9rem;margin-top:2.9rem;border-top:1px solid var(--hair);scroll-margin-top:6.5rem}
+.lsec:first-child{border-top:0;margin-top:0;padding-top:0}
+.lsec>h2{font-size:clamp(1.3rem,2.6vw,1.7rem);font-weight:800;line-height:1.22;letter-spacing:-.01em;margin-bottom:1.3rem;display:flex;gap:.85rem;align-items:baseline}
+.lnum{font-family:'Urbanist',sans-serif;font-weight:800;font-size:.9rem;color:var(--gold);letter-spacing:.05em;flex:none}
+.lsec h3{font-family:'Urbanist',sans-serif;font-size:1.02rem;font-weight:700;margin:1.9rem 0 .6rem;color:var(--oliva-text)}
+.lsec h4{font-family:'Urbanist',sans-serif;font-size:.95rem;font-weight:700;margin:1.5rem 0 .45rem}
+.lsec p{margin:0 0 1rem}
+.lsec ul{margin:0 0 1.1rem 1.15rem}
+.lsec li{margin-bottom:.45rem}
+.lsec a{color:var(--oliva-s);border-bottom:1px solid rgba(117,131,58,.3)}
+.lsec a:hover{color:var(--ink);border-bottom-color:var(--gold)}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.86em;background:rgba(157,173,82,.14);padding:.12rem .38rem;border-radius:.3rem}
+.ltab{width:100%;border-collapse:collapse;margin:.3rem 0 1.3rem;font-size:.97rem}
+.ltab th,.ltab td{text-align:left;vertical-align:top;padding:.72rem 1rem .72rem 0;border-bottom:1px solid var(--hair)}
+.ltab th{font-family:'Urbanist',sans-serif;font-weight:700;color:var(--ink);width:34%}
+.ltab td{color:var(--muted)}
+.ltab thead th{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--oliva-text);border-bottom:2px solid var(--hair);width:auto}
+@media(max-width:40rem){
+  .ltab,.ltab tbody,.ltab tr,.ltab th,.ltab td{display:block;width:auto}
+  .ltab thead{display:none}
+  .ltab th{border-bottom:0;padding:.9rem 0 .1rem}
+  .ltab td{padding:0 0 .9rem}
+  .ltab tr:first-child th{padding-top:0}
+}
+.ldef{margin:0 0 1rem}
+.ldef dt{font-family:'Urbanist',sans-serif;font-weight:700;color:var(--ink);margin:1.15rem 0 .2rem}
+.ldef dd{color:var(--muted)}
+.lproc{border-left:3px solid var(--oliva);padding-left:1.25rem;margin:1.5rem 0}
+.lproc h4{margin:0 0 .15rem}
+.lproc .lseat{font-size:.86rem;color:var(--muted);margin-bottom:.55rem}
+.lproc p{margin:0 0 .4rem;font-size:.95rem}
+.lproc p:last-child{margin-bottom:0}
+.lref{font-size:.82rem;color:var(--muted);opacity:.85;margin:-.5rem 0 0}
+.lref::before{content:"§ ";color:var(--gold);font-weight:700}
+.lnote{border-left:3px solid var(--gold);padding:.1rem 0 .1rem 1.2rem;margin:1.4rem 0}
+.lnote p:last-child{margin-bottom:0}
+.lauth{background:var(--oliva-d);color:rgba(242,243,232,.75);border-radius:1.6rem;padding:2.1rem 2rem;margin:1.6rem 0;box-shadow:0 14px 34px rgba(45,52,54,.12)}
+.lauth .kicker{color:var(--gold);display:block;margin-bottom:1.2rem}
+.lauth .lname{font-family:'Urbanist',sans-serif;font-weight:800;color:#F2F3E8;font-size:1.08rem;margin-bottom:.9rem}
+.lauth dl{display:grid;gap:1.35rem}
+.lauth dt{font-family:'Urbanist',sans-serif;font-weight:700;color:#F2F3E8;font-size:.97rem;margin-bottom:.2rem}
+.lauth dd{font-size:.9rem;line-height:1.65}
+.lauth .lwhen{display:block;color:var(--gold);font-size:.78rem;letter-spacing:.04em;margin-top:.25rem}
+.lauth table{width:100%;border-collapse:collapse;font-size:.9rem}
+.lauth th,.lauth td{text-align:left;vertical-align:top;padding:.42rem 1rem .42rem 0;border-bottom:1px solid rgba(242,243,232,.14)}
+.lauth th{font-weight:600;color:rgba(242,243,232,.5);width:9.5rem;font-family:'Urbanist',sans-serif}
+.lauth tr:last-child th,.lauth tr:last-child td{border-bottom:0}
+.lauth a{color:rgba(242,243,232,.78);border-bottom:1px solid rgba(242,243,232,.25)}
+.lauth a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+.lupd{margin-top:2.9rem;padding-top:1.5rem;border-top:1px solid var(--hair);font-size:.85rem;color:var(--muted)}
 
 /* FOOTER */
 footer{border-top:1px solid var(--hair);padding:2.6rem 0 2rem;color:var(--muted);font-size:.9rem}

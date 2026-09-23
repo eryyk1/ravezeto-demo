@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /api/
+
+# Backup if document-root rules are not applied (same-origin POST /api/contact)
+RewriteRule ^contact/?$ contact-submit.php [END,QSA]

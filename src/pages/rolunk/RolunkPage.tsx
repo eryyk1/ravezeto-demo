@@ -8,5 +8,9 @@ export default function RolunkPage() {
   const meta = useMemo(() => resolvePageMeta('/rolunk'), []);
   usePageMeta(meta);
 
-  return <RolunkBody />;
+  return (
+    <div className="rolunk-page">
+      <RolunkBody />
+    </div>
+  );
 }

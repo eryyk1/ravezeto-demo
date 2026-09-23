@@ -184,3 +184,22 @@ body.mopen .mmenu{opacity:1;pointer-events:auto}
 body.mopen{overflow:hidden}
 @media(max-width:56rem){.menu-btn{display:flex}.nav nav{margin-left:auto;margin-right:.5rem}.mmenu nav a{display:block}}
 @media(prefers-reduced-motion:reduce){.mmenu{transition:none}.menu-btn span{transition:none}}
+
+/* Logófolyó — page-local guard (final-referenciak.html: `.lg-flow rev`; must not inherit scroll-reveal hide) */
+.referenciak-page .lg-flow.rev,
+.referenciak-page .lg-flow {
+  opacity: 1 !important;
+  transform: none !important;
+}
+.referenciak-page .lg-flow .lg-track {
+  visibility: visible !important;
+  animation-play-state: running !important;
+}
+.referenciak-page .lg-flow .cell img {
+  filter: grayscale(1);
+  opacity: 0.88;
+}
+.referenciak-page .lg-flow .cell:hover img {
+  filter: none;
+  opacity: 1;
+}

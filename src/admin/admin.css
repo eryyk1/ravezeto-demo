@@ -547,6 +547,16 @@ body.admin-mode .rev {
   min-height: 7rem;
 }
 
+.admin-textarea--tall {
+  min-height: 22rem;
+}
+
+.admin-textarea--mono {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
 /* ── Buttons ── */
 
 .admin-btn {

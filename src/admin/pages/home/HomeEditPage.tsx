@@ -66,8 +66,9 @@ export default function HomeEditPage() {
     setPublishing(true);
     try {
       if (dirty) applyDraftUpdates();
-      contentStore.publish('Kezdőlap publikálva');
-      pushToast('success', 'Kezdőlap publikálva.');
+      const result = await contentStore.publishToServer('Kezdőlap publikálva');
+      if (result.ok) pushToast('success', 'Kezdőlap publikálva a szerverre.');
+      else pushToast('error', result.error);
     } catch {
       pushToast('error', 'A publikálás sikertelen.');
     } finally {

@@ -103,6 +103,11 @@ async function apiGetSession(): Promise<AuthSession | null> {
 const apiAuthProvider: AuthProvider = {
   login: apiLogin,
   logout: async () => {
+    try {
+      await fetch('/api/admin/logout', { method: 'POST', credentials: 'include' });
+    } catch {
+      /* offline or non-PHP host */
+    }
     clearSession();
   },
   getSession: apiGetSession,

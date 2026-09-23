@@ -340,6 +340,15 @@ export type CompanySettings = {
   facebook: string;
 };
 
+export type JogiImpresszumContent = {
+  bodyHtml: string;
+};
+
+export type JogiAdatvedelemContent = {
+  heroLead: string;
+  bodyHtml: string;
+};
+
 /** Full editable site snapshot */
 export type SiteContent = {
   schemaVersion: number;
@@ -365,6 +374,8 @@ export type SiteContent = {
   partners: Partner[];
   references: Reference[];
   palyazatok: PalyazatokSettings;
+  jogiImpresszum: JogiImpresszumContent;
+  jogiAdatvedelem: JogiAdatvedelemContent;
 };
 
 export type ContentVersion = {
@@ -415,4 +426,6 @@ export type ContentSection =
   | 'kapcsolat'
   | 'footer'
   | 'seo'
-  | 'palyazatok';
+  | 'palyazatok'
+  | 'jogiImpresszum'
+  | 'jogiAdatvedelem';

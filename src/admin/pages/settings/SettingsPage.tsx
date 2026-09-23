@@ -37,8 +37,9 @@ export default function SettingsPage() {
     }
     setPublishing(true);
     try {
-      contentStore.publish('Beállítások publikálva');
-      pushToast('success', 'Beállítások publikálva.');
+      const result = await contentStore.publishToServer('Beállítások publikálva');
+      if (result.ok) pushToast('success', 'Beállítások publikálva a szerverre.');
+      else pushToast('error', result.error);
     } catch {
       pushToast('error', 'A publikálás sikertelen.');
     } finally {

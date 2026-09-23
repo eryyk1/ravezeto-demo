@@ -37,8 +37,9 @@ export default function ReferenciakPageEditPage() {
     }
     setPublishing(true);
     try {
-      contentStore.publish('Referenciák oldal publikálva');
-      pushToast('success', 'Referenciák oldal publikálva.');
+      const result = await contentStore.publishToServer('Referenciák oldal publikálva');
+      if (result.ok) pushToast('success', 'Referenciák oldal publikálva a szerverre.');
+      else pushToast('error', result.error);
     } catch {
       pushToast('error', 'A publikálás sikertelen.');
     } finally {

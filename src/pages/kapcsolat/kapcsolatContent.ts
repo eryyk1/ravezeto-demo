@@ -34,7 +34,7 @@ export const kapcsolatDetails = [
 
 export const kapcsolatForm = {
   title: 'Üzenet',
-  submitEndpoint: '/api/contact',
+  submitEndpoint: '/api/contact-submit.php',
   fields: {
     name: { label: 'Név', required: true },
     email: { label: 'Email', required: true },

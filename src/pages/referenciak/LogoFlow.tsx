@@ -1,6 +1,3 @@
-import { useMemo } from 'react';
-import ScrollReveal from '../../components/client/ScrollReveal';
-import { usePreloadImages } from '../../hooks/usePreloadImages';
 import type { ReferenciakLogoCell } from './referenciakPageData';
 
 type LogoFlowProps = {
@@ -26,7 +23,13 @@ function LogoCell({
       onMouseEnter={() => onPartnerHover?.(item.slug)}
       onMouseLeave={() => onPartnerHover?.(null)}
     >
-      <img src={item.logo} alt={ariaHidden ? '' : item.name} loading="lazy" decoding="async" />
+      <img
+        src={item.logo}
+        alt={ariaHidden ? '' : item.name}
+        loading="eager"
+        decoding="async"
+        fetchPriority="high"
+      />
     </div>
   );
 }
@@ -59,24 +62,10 @@ function LogoTrack({
 }
 
 export default function LogoFlow({ forwardTrack, backTrack, onPartnerHover }: LogoFlowProps) {
-  const uniqueUrls = useMemo(
-    () => [...new Set([...forwardTrack, ...backTrack].map((logo) => logo.logo))],
-    [forwardTrack, backTrack],
-  );
-  const imagesReady = usePreloadImages(uniqueUrls);
-
   return (
-    <ScrollReveal
-      className={`lg-flow${imagesReady ? ' lg-flow--ready' : ''}`}
-      onMouseLeave={() => onPartnerHover?.(null)}
-    >
-      <div className="lg-flow__preload" aria-hidden="true">
-        {uniqueUrls.map((url) => (
-          <img key={url} src={url} alt="" decoding="async" fetchPriority="high" />
-        ))}
-      </div>
+    <div className="lg-flow rev" onMouseLeave={() => onPartnerHover?.(null)}>
       <LogoTrack items={forwardTrack} onPartnerHover={onPartnerHover} />
       <LogoTrack items={backTrack} back ariaHidden onPartnerHover={onPartnerHover} />
-    </ScrollReveal>
+    </div>
   );
 }

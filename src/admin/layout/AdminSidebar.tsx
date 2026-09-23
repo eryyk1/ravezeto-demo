@@ -37,6 +37,8 @@ const NAV_SECTIONS = [
       { to: '/admin/partners', label: 'Partnerek', icon: IconHandshake },
       { to: '/admin/kapcsolat', label: 'Kapcsolat', icon: IconPages },
       { to: '/admin/palyazatok', label: 'Pályázatok', icon: IconGrant },
+      { to: '/admin/jogi/impresszum', label: 'Impresszum', icon: IconPages },
+      { to: '/admin/jogi/adatvedelem', label: 'Adatkezelés', icon: IconPages },
     ],
   },
   {

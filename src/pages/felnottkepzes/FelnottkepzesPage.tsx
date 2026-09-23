@@ -3,57 +3,26 @@ import { Link } from 'react-router-dom';
 import { usePageMeta } from '../../hooks/usePageMeta';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { resolvePageMeta } from '../../seo/pageMeta';
+import { useFelnottkepzesProgrammes } from '../../services/content/useContent';
 import './felnottkepzes.css';
-
-const CATALOG = [
-  {
-    tab: 'Munkavállalói kompetenciák',
-    title: 'Munkavállalói kompetenciák fejlesztése',
-    items: [
-      ['Gazdálkodj az időddel!', '24 óra'],
-      ['Időgazdálkodás', '16 óra'],
-      ['Kommunikációs és együttműködési készségek fejlesztése', '24 óra'],
-      ['Kommunikációs tréning', '24 óra'],
-      ['Komplex kommunikációs készségek fejlesztése', '42 óra'],
-      ['Konfliktuskezelés', '24 óra'],
-      ['Konfliktushelyzetek kezelése', '24 óra'],
-      ['Konfliktuskezelés és kommunikáció', '30 óra'],
-      ['Sikeres szervezeti együttműködés és kommunikáció a gyakorlatban', '16 óra'],
-      ['Szervezeti és generációk közötti együttműködés fejlesztése', '30 óra'],
-      ['Üzleti kapcsolattartás és kommunikáció', '16 óra'],
-    ],
-  },
-  {
-    tab: 'Stresszkezelés',
-    title: 'Stresszkezelés, mentális egészség fejlesztése',
-    items: [
-      ['A stressz és én', '16 óra'],
-      ['Mentálhigiéné és lelki egészségvédelem', '54 óra'],
-    ],
-  },
-  {
-    tab: 'Vezetői kompetenciák',
-    title: 'Vezetői kompetenciák fejlesztése',
-    items: [
-      ['Menedzseri szemlélet a vezetői munkában', '16 óra'],
-      ['Tudatosság és társas készségek a vezetésben', '16 óra'],
-      ['Tudatosság és társas készségek a vezetésben tréning', '24 óra'],
-      ['Tudatosság és társas készségek fejlesztése', '20 óra'],
-      ['Vezetői kompetenciák fejlesztése', '16 óra'],
-      ['Tudatos vezetői működés fejlesztése', '24 óra'],
-    ],
-  },
-  {
-    tab: 'Mentori kompetenciák',
-    title: 'Mentori kompetenciák fejlesztése',
-    items: [['Munkahelyi mentorok képzése', '16 óra']],
-  },
-] as const;
 
 export default function FelnottkepzesPage() {
   const meta = useMemo(() => resolvePageMeta('/felnottkepzes'), []);
   usePageMeta(meta);
   const reduced = useReducedMotion();
+  const programmeGroups = useFelnottkepzesProgrammes();
+  const catalog = useMemo(
+    () =>
+      programmeGroups
+        .filter((group) => group.active)
+        .sort((a, b) => a.order - b.order)
+        .map((group) => ({
+          tab: group.tab,
+          title: group.title,
+          items: group.items.map((item) => [item.title, item.hours] as const),
+        })),
+    [programmeGroups],
+  );
   const [activeTab, setActiveTab] = useState(0);
   const [catalogTransition, setCatalogTransition] = useState(false);
 
@@ -283,7 +252,7 @@ export default function FelnottkepzesPage() {
             </div>
           </div>
           <div className="cat-tabs rev" role="tablist" aria-label="Képzési kategóriák">
-            {CATALOG.map((group, index) => (
+            {catalog.map((group, index) => (
               <button
                 key={group.tab}
                 type="button"
@@ -298,7 +267,7 @@ export default function FelnottkepzesPage() {
           </div>
           <div className="cat-card rev">
             <div className={`cat-inner${catalogTransition ? ' out' : ''}`}>
-              {CATALOG.map((group, index) => (
+              {catalog.map((group, index) => (
                 <div
                   key={group.tab}
                   className={`cat-panel${index === activeTab ? ' on' : ''}`}

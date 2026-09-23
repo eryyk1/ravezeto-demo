@@ -19,7 +19,7 @@ export const REFERENCIAK_LOGO_TRACK_A: ReferenciakLogoCell[] = [
   { slug: 'bgyh', name: 'Budapest Gyógyfürdői és Hévizei Zrt.', logo: img('img-04.png') },
   { slug: 'dku', name: 'Digitális Kormányzati Ügynökség Zrt.', logo: img('img-05.png') },
   { slug: 'dyntell', name: 'Dyntell Kft.', logo: img('img-06.png') },
-  { slug: 'egis', name: 'Egis Gyógyszergyár Zrt.', logo: img('img-07.jpg') },
+  { slug: 'egis', name: 'Egis Gyógyszergyár Zrt.', logo: img('img-07.svg') },
   { slug: 'equinox', name: 'Equinox Consulting Kft.', logo: img('img-08.jpg') },
   { slug: 'ex-ante', name: 'Ex Ante Kft.', logo: img('img-09.png') },
   { slug: 'globomax', name: 'Globomax Zrt.', logo: img('img-10.png') },

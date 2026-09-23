@@ -8,6 +8,7 @@ import {
 } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { authService } from '../../services/auth/authService';
+import { contentStore } from '../../services/content/store';
 import type { AuthSession } from '../../services/auth/types';
 
 type AuthContextValue = {
@@ -66,6 +67,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const result = await authService.login(email, password);
     if (!result.ok) return result.error;
     setSession(result.session);
+    await contentStore.syncFromServerAsAdmin();
     return null;
   }, []);
 

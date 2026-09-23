@@ -52,8 +52,9 @@ export default function PalyazatokEditPage() {
     }
     setPublishing(true);
     try {
-      contentStore.publish('Pályázatok oldal publikálva');
-      pushToast('success', 'Pályázatok oldal publikálva.');
+      const result = await contentStore.publishToServer('Pályázatok oldal publikálva');
+      if (result.ok) pushToast('success', 'Pályázatok oldal publikálva a szerverre.');
+      else pushToast('error', result.error);
     } catch {
       pushToast('error', 'A publikálás sikertelen.');
     } finally {

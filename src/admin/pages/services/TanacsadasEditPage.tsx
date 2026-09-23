@@ -37,8 +37,9 @@ export default function TanacsadasEditPage() {
     setPublishing(true);
     try {
       if (dirty) markSaved(form);
-      contentStore.publish('Tanácsadás oldal publikálva');
-      pushToast('success', 'Tanácsadás oldal publikálva.');
+      const result = await contentStore.publishToServer('Tanácsadás oldal publikálva');
+      if (result.ok) pushToast('success', 'Tanácsadás oldal publikálva a szerverre.');
+      else pushToast('error', result.error);
     } catch {
       pushToast('error', 'A publikálás sikertelen.');
     } finally {

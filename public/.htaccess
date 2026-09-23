@@ -1,0 +1,21 @@
+# Rávezető — Apache document root (public/ / dist/)
+# React SPA fallback + preserve PHP under /api/
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Contact form — map to a real .php file (never the api/contact/ directory)
+  RewriteRule ^api/contact/?$ api/contact-submit.php [END,QSA]
+
+  # PHP CMS + admin APIs — never rewrite to index.html
+  RewriteRule ^api/ - [L]
+
+  # Static files, prerendered route folders, uploads, etc.
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Client-side routes (/admin, deep links, 404 shell)
+  RewriteRule ^ index.html [L]
+</IfModule>

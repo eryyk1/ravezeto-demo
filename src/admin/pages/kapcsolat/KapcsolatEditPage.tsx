@@ -37,8 +37,9 @@ export default function KapcsolatEditPage() {
     }
     setPublishing(true);
     try {
-      contentStore.publish('Kapcsolat oldal publikálva');
-      pushToast('success', 'Kapcsolat oldal publikálva.');
+      const result = await contentStore.publishToServer('Kapcsolat oldal publikálva');
+      if (result.ok) pushToast('success', 'Kapcsolat oldal publikálva a szerverre.');
+      else pushToast('error', result.error);
     } catch {
       pushToast('error', 'A publikálás sikertelen.');
     } finally {
