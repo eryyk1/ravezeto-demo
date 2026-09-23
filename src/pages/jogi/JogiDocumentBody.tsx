@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { company } from '../../content/company';
 import { SITE_LAST_MODIFIED, SITE_LAST_MODIFIED_LABEL } from '../../seo/config';
+import { defaultJogiAdatvedelem } from '../../content/jogi/jogiDefaults';
 import type { JogiAdatvedelemContent, JogiImpresszumContent } from '../../services/content/types';
 import { useJogiTocSpy } from './useJogiTocSpy';
 
@@ -22,6 +23,11 @@ export default function JogiDocumentBody({
   const isAdatvedelem = variant === 'adatvedelem';
   useJogiTocSpy(isAdatvedelem);
 
+  const adatLead =
+    adatvedelem.heroLead?.trim() || defaultJogiAdatvedelem.heroLead;
+  const adatBodyHtml =
+    adatvedelem.bodyHtml?.trim() || defaultJogiAdatvedelem.bodyHtml;
+
   const title = isAdatvedelem ? 'Adatkezelési tájékoztató' : 'Impresszum';
 
   return (
@@ -30,9 +36,7 @@ export default function JogiDocumentBody({
         <div className="wrap">
           <div className="kicker">Dokumentumok</div>
           <h1>{title}</h1>
-          {isAdatvedelem && adatvedelem.heroLead ? (
-            <p className="hlead">{adatvedelem.heroLead}</p>
-          ) : null}
+          {isAdatvedelem && adatLead ? <p className="hlead">{adatLead}</p> : null}
         </div>
       </section>
 
@@ -40,8 +44,8 @@ export default function JogiDocumentBody({
         <div className="wrap">
           {isAdatvedelem ? (
             <div
-              className="lgrid rev"
-              dangerouslySetInnerHTML={{ __html: adatvedelem.bodyHtml }}
+              className="lgrid"
+              dangerouslySetInnerHTML={{ __html: adatBodyHtml }}
             />
           ) : (
             <div className="legal rev">

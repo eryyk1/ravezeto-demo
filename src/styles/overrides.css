@@ -359,6 +359,11 @@ footer .eu-slot span {
   object-fit: cover;
 }
 
+/* Csapatunk hero group photo — full color (client-design applies sepia/grayscale to .team-photo img) */
+.rolunk-page .hero-sub .team-photo img {
+  filter: none !important;
+}
+
 .photo-slot:has(img[src$='.svg']:not(.ill)) img {
   object-fit: contain;
   padding: 0;

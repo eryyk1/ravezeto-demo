@@ -18,16 +18,19 @@ function json(res: ServerResponse, status: number, body: unknown) {
   res.end(JSON.stringify(body));
 }
 
+const CONTACT_POST_PATHS = new Set(['/api/contact', '/api/contact-submit.php']);
+
 function contactApiMiddleware() {
   return async (req: IncomingMessage, res: ServerResponse, next: () => void) => {
-    if (req.url !== '/api/contact' || req.method !== 'POST') {
+    const path = req.url?.split('?')[0] ?? '';
+    if (!CONTACT_POST_PATHS.has(path) || req.method !== 'POST') {
       return next();
     }
 
     const host = req.headers.host ?? 'localhost';
     const fakeRequest = {
       headers: req.headers,
-      url: `http://${host}${req.url}`,
+      url: `http://${host}${path}`,
     };
 
     if (!isSameOriginRequest(fakeRequest)) {
@@ -79,15 +82,12 @@ export function contactApiDevPlugin(): Plugin {
 }
 
 function logContactApiStatus() {
-  const hasKey = Boolean(process.env.RESEND_API_KEY);
-  const hasFrom = Boolean(process.env.CONTACT_FROM_EMAIL);
-
-  if (hasKey && hasFrom) {
-    console.log('[contact-api] Local contact form email configured');
+  if (process.env.RESEND_API_KEY) {
+    console.log('[contact-api] Local contact form email configured (Resend)');
     return;
   }
 
   console.warn(
-    '[contact-api] Missing RESEND_API_KEY or CONTACT_FROM_EMAIL. Add them to .env.local for local form testing.',
+    '[contact-api] Missing RESEND_API_KEY. Add it to .env.local for local form testing (server-side only).',
   );
 }
