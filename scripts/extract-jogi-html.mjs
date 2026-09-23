@@ -5,11 +5,26 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
 const outDir = path.join(root, 'src', 'content', 'jogi');
+const impressumCandidates = [
+  process.argv[2],
+  path.join(process.env.USERPROFILE ?? '', 'Downloads', 'final-impresszum.html'),
+  path.join(root, 'client-reference', 'impresszum.html'),
+].filter(Boolean);
+const adatCandidates = [
+  process.argv[3],
+  path.join(process.env.USERPROFILE ?? '', 'Downloads', 'final-adatvedelem.html'),
+  path.join(root, 'client-reference', 'adatvedelem.html'),
+].filter(Boolean);
 
-const impressumPath =
-  process.argv[2] ?? 'C:/Users/Erikk/Downloads/final-impresszum.html';
-const adatPath =
-  process.argv[3] ?? 'C:/Users/Erikk/Downloads/final-adatvedelem.html';
+function firstExisting(candidates) {
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) return candidate;
+  }
+  return null;
+}
+
+const impressumPath = firstExisting(impressumCandidates);
+const adatPath = firstExisting(adatCandidates);
 
 fs.mkdirSync(outDir, { recursive: true });
 
@@ -25,14 +40,14 @@ function extract(html, startMarker, endMarker) {
   return chunk;
 }
 
-if (!fs.existsSync(impressumPath)) {
-  console.error('Missing:', impressumPath);
+if (!impressumPath || !adatPath) {
+  console.error('Missing impressum or adatvedelem HTML. Tried:', impressumCandidates, adatCandidates);
   process.exit(1);
 }
+console.log('Using impressum:', impressumPath);
+console.log('Using adatvedelem:', adatPath);
 const impHtml = fs.readFileSync(impressumPath, 'utf8');
 const adatHtml = fs.readFileSync(adatPath, 'utf8');
-const legalIdx = impHtml.indexOf('class="legal"');
-console.log('legal idx', legalIdx, impHtml.slice(legalIdx - 5, legalIdx + 20));
 
 const impressumStart = impHtml.indexOf('class="legal"');
 if (impressumStart < 0) throw new Error('no legal');

@@ -132,13 +132,13 @@
   position: relative;
   aspect-ratio: 3168 / 1344;
 }
-.rolunk-page .team-photo img {
+.rolunk-page .team-photo--hero img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: none;
+  filter: none !important;
   -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent),
     linear-gradient(to bottom, transparent, #000 6%, #000 94%, transparent);
   -webkit-mask-composite: source-in;

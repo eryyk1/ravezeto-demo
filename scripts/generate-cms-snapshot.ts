@@ -28,12 +28,28 @@ function loadPublishedFromProductionState() {
   return null;
 }
 
+function loadExistingSnapshotRevision(): number | null {
+  if (!existsSync(outFile)) return null;
+  try {
+    const existing = JSON.parse(readFileSync(outFile, 'utf8')) as { defaultsRevision?: number };
+    return typeof existing.defaultsRevision === 'number' ? existing.defaultsRevision : 0;
+  } catch {
+    return null;
+  }
+}
+
 const productionState = loadPublishedFromProductionState();
-if (!productionState && existsSync(outFile)) {
+const existingRevision = loadExistingSnapshotRevision();
+if (!productionState && existingRevision !== null && existingRevision >= CONTENT_DEFAULTS_REVISION) {
   console.log(
-    `generate-cms-snapshot: keeping ${path.relative(root, outFile)} (no ${path.relative(root, stateFile)})`,
+    `generate-cms-snapshot: keeping ${path.relative(root, outFile)} (rev ${existingRevision}, no ${path.relative(root, stateFile)})`,
   );
   process.exit(0);
+}
+if (!productionState && existingRevision !== null && existingRevision < CONTENT_DEFAULTS_REVISION) {
+  console.log(
+    `generate-cms-snapshot: refreshing ${path.relative(root, outFile)} (${existingRevision} → ${CONTENT_DEFAULTS_REVISION})`,
+  );
 }
 const published = productionState?.published ?? createDefaultContent();
 const payload = {

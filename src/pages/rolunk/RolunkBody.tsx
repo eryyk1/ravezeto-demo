@@ -47,7 +47,7 @@ export default function RolunkBody() {
           <p className="lead">{hero.intro}</p>
         </div>
         <div className="wrap" style={{ marginTop: '3rem' }}>
-          <div className="team-photo rev">
+          <div className="team-photo team-photo--hero rev">
             <img src={hero.image} alt={hero.imageAlt} />
           </div>
         </div>

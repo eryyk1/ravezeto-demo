@@ -4,6 +4,15 @@
 #
 # Enable uploads by setting repository secret HOSTING_DEPLOY_ENABLED=true
 # (leave unset or any other value to build-only on push / manual run).
+#
+# FTP path notes (Tarhely / shared hosting):
+# - SamKirkland/FTP-Deploy-Action server-dir is relative to the FTP account login root,
+#   NOT necessarily the full server path /home/ravezeto/ravezetov2/public.
+# - If HOSTING_REMOTE_PATH is set to the full filesystem path while FTP roots at
+#   /home/ravezeto/, files may land under public/home/ravezeto/... and dev.ravezeto.hu
+#   will not change even though the Action reports success.
+# - Typical value for this project: ravezetov2/public (verify in your FTP client).
+# - Workflow runs on push to main only; other branches build in CI but do not deploy here.
 
 name: Deploy shared hosting
 
@@ -79,6 +88,12 @@ jobs:
           echo "Required FTP secrets are present."
 
       - name: Upload dist to shared hosting (FTP)
+        if: steps.deploy_gate.outputs.enabled == 'true'
+        run: |
+          echo "FTP upload: local-dir=./dist/ (Vite build output, includes cms/published.json and assets/)"
+          echo "FTP upload: server-dir=<HOSTING_REMOTE_PATH>/ (must match dev.ravezeto.hu document root; see workflow header comments)"
+
+      - name: FTP deploy
         if: steps.deploy_gate.outputs.enabled == 'true'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
