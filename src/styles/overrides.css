@@ -360,7 +360,7 @@ footer .eu-slot span {
 }
 
 /* Csapatunk hero group photo — full color (client-design applies sepia/grayscale to .team-photo img) */
-.rolunk-page .hero-sub .team-photo--hero img {
+.rolunk-page .hero-sub .team-photo img {
   filter: none !important;
 }
 
