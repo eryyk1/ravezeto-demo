@@ -1,9 +1,17 @@
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import type { FelnottkepzesProgrammeGroup } from '../../services/content/types';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 const ALL = 'all';
 const EASE = 'cubic-bezier(.22,.8,.2,1)';
+
+const LEGACY_FILTER_CODE: Record<string, string> = {
+  munkavallaloi: 'mv',
+  stressz: 'st',
+  vezetoi: 've',
+  mentori: 'me',
+  digitalis: 'di',
+};
 
 type Props = {
   groups: FelnottkepzesProgrammeGroup[];
@@ -13,108 +21,97 @@ function animTargets(root: HTMLElement) {
   return [...root.querySelectorAll<HTMLElement>('.g-grp, .g-card')];
 }
 
+function runFlip(
+  root: HTMLElement,
+  first: Map<HTMLElement, DOMRect>,
+) {
+  animTargets(root).forEach((el) => {
+    const from = first.get(el);
+    const to = el.getBoundingClientRect();
+    if (!to.width) return;
+    if (!from?.width) {
+      el.animate([{ opacity: 0, transform: 'scale(.94)' }, { opacity: 1, transform: 'none' }], {
+        duration: 480,
+        easing: EASE,
+      });
+      return;
+    }
+    const dx = from.left - to.left;
+    const dy = from.top - to.top;
+    if (Math.abs(dx) > 0.5 || Math.abs(dy) > 0.5) {
+      el.animate([{ transform: `translate(${dx}px, ${dy}px)` }, { transform: 'none' }], {
+        duration: 620,
+        easing: EASE,
+      });
+    }
+  });
+}
+
 export default function FelnottkepzesCatalog({ groups }: Props) {
   const reduced = useReducedMotion();
   const gridRef = useRef<HTMLDivElement>(null);
+  const flipBeforeRef = useRef<Map<HTMLElement, DOMRect> | null>(null);
   const [filter, setFilter] = useState(ALL);
   const [openKey, setOpenKey] = useState<string | null>(null);
 
   const activeGroups = useMemo(
-    () => groups.filter((g) => g.active).sort((a, b) => a.order - b.order),
+    () =>
+      groups
+        .filter((group) => group.active)
+        .sort((a, b) => a.order - b.order)
+        .map((group) => ({
+          ...group,
+          filterCode: group.filterCode || LEGACY_FILTER_CODE[group.id] || group.id,
+        })),
     [groups],
   );
 
   const courseCount = useMemo(
-    () => activeGroups.reduce((sum, g) => sum + g.items.length, 0),
+    () => activeGroups.reduce((sum, group) => sum + group.items.length, 0),
     [activeGroups],
   );
 
   const tabs = useMemo(
-    () => [{ code: ALL, label: 'Mind' }, ...activeGroups.map((g) => ({ code: g.filterCode, label: g.tab }))],
+    () => [
+      { code: ALL, label: 'Mind' },
+      ...activeGroups.map((group) => ({ code: group.filterCode, label: group.tab })),
+    ],
     [activeGroups],
   );
 
-  const flip = useCallback(
-    (mutate: () => void) => {
-      const grid = gridRef.current;
-      if (!grid || reduced) {
-        mutate();
-        return;
-      }
+  const captureFlipStart = useCallback(() => {
+    const grid = gridRef.current;
+    if (!grid || reduced) return;
+    flipBeforeRef.current = new Map(animTargets(grid).map((el) => [el, el.getBoundingClientRect()]));
+  }, [reduced]);
 
-      const els = animTargets(grid);
-      const first = new Map(els.map((el) => [el, el.getBoundingClientRect()]));
-      mutate();
+  useLayoutEffect(() => {
+    const grid = gridRef.current;
+    const first = flipBeforeRef.current;
+    if (!grid || !first || reduced) {
+      flipBeforeRef.current = null;
+      return;
+    }
+    flipBeforeRef.current = null;
+    runFlip(grid, first);
+  }, [filter, openKey, reduced]);
 
-      els.forEach((el) => {
-        const from = first.get(el);
-        const to = el.getBoundingClientRect();
-        if (!to.width) return;
-        if (!from?.width) {
-          el.animate([{ opacity: 0, transform: 'scale(.94)' }, { opacity: 1, transform: 'none' }], {
-            duration: 480,
-            easing: EASE,
-          });
-          return;
-        }
-        const dx = from.left - to.left;
-        const dy = from.top - to.top;
-        if (Math.abs(dx) > 0.5 || Math.abs(dy) > 0.5) {
-          el.animate([{ transform: `translate(${dx}px, ${dy}px)` }, { transform: 'none' }], {
-            duration: 620,
-            easing: EASE,
-          });
-        }
-      });
+  const selectFilter = useCallback(
+    (code: string) => {
+      if (code === filter) return;
+      captureFlipStart();
+      setOpenKey(null);
+      setFilter(code);
     },
-    [reduced],
-  );
-
-  const setFilterWithAnim = useCallback(
-    async (code: string) => {
-      const grid = gridRef.current;
-      if (!grid) {
-        setFilter(code);
-        setOpenKey(null);
-        return;
-      }
-
-      const match = (cat: string) => code === ALL || cat === code;
-      const secs = [...grid.querySelectorAll<HTMLElement>('.g-sec')];
-      const leaving = secs.filter(
-        (sec) => !sec.classList.contains('gone') && !match(sec.dataset.cat ?? ''),
-      );
-
-      if (!reduced && leaving.length) {
-        await Promise.all(
-          leaving.map((sec) =>
-            sec
-              .animate(
-                [{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'scale(.97)' }],
-                { duration: 220, easing: 'ease-in', fill: 'forwards' },
-              )
-              .finished.catch(() => undefined),
-          ),
-        );
-      }
-
-      flip(() => {
-        setFilter(code);
-        setOpenKey(null);
-      });
-
-      leaving.forEach((sec) => sec.getAnimations().forEach((a) => a.cancel()));
-    },
-    [flip, reduced],
+    [captureFlipStart, filter],
   );
 
   const toggleCard = useCallback(
     (key: string) => {
-      flip(() => {
-        setOpenKey((prev) => (prev === key ? null : key));
-      });
+      captureFlipStart();
+      setOpenKey((prev) => (prev === key ? null : key));
     },
-    [flip],
+    [captureFlipStart],
   );
 
   return (
@@ -140,7 +137,7 @@ export default function FelnottkepzesCatalog({ groups }: Props) {
               className={`cat-tab${selected ? ' on' : ''}`}
               aria-selected={selected}
               data-cat={tab.code}
-              onClick={() => void setFilterWithAnim(tab.code)}
+              onClick={() => selectFilter(tab.code)}
             >
               {tab.label}
             </button>

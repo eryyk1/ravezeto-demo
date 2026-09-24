@@ -154,6 +154,22 @@ function normalizeTanacsadas(
   };
 }
 
+function normalizeFelnottkepzesProgrammes(
+  stored: FelnottkepzesProgrammeGroup[] | undefined,
+  defaults: FelnottkepzesProgrammeGroup[],
+): FelnottkepzesProgrammeGroup[] {
+  const storedById = new Map((stored ?? []).map((group) => [group.id, group]));
+  return defaults.map((def) => {
+    const patch = storedById.get(def.id);
+    if (!patch) return { ...def };
+    return {
+      ...def,
+      order: patch.order,
+      active: patch.active,
+    };
+  });
+}
+
 function normalizeReferences(
   stored: Reference[] | undefined,
   defaults: Reference[],
@@ -253,6 +269,10 @@ function mergeSiteContent(parsed: Partial<SiteContent>, defaults: SiteContent): 
           ? parsed.jogiAdatvedelem.bodyHtml
           : defaults.jogiAdatvedelem.bodyHtml,
     },
+    felnottkepzesProgrammes: normalizeFelnottkepzesProgrammes(
+      parsed.felnottkepzesProgrammes,
+      defaults.felnottkepzesProgrammes,
+    ),
   };
 }
 
