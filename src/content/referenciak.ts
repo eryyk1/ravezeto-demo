@@ -97,7 +97,7 @@ export const referenciakTestimonials = [
     ],
   },
   {
-    logo: 'Szervezetfejlesztés / Generációváltás',
+    logo: 'Termelő családi vállalkozás',
     who: 'Szabó Balázs, ügyvezető, közepes méretű családi vállalkozás',
     quotes: [
       '„Cégünk szervezetfejlesztés és generációváltás kapcsán kezdett együtt dolgozni Ríz Ádámmal és a Rávezetővel.',

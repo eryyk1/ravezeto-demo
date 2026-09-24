@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-24T07:41:55.572Z",
+  "generatedAt": "2026-09-24T10:17:48.252Z",
   "buildRef": "local",
-  "defaultsRevision": 12,
+  "defaultsRevision": 13,
   "published": {
     "schemaVersion": 2,
     "company": {
@@ -1128,10 +1128,10 @@
         "active": true
       },
       {
-        "id": "szervezetfejlesztes-generaciovaltas",
-        "title": "Szervezetfejlesztés / Generációváltás",
+        "id": "termelo-csaladi-vallalkozas",
+        "title": "Termelő családi vállalkozás",
         "description": "„Cégünk szervezetfejlesztés és generációváltás kapcsán kezdett együtt dolgozni Ríz Ádámmal és a Rávezetővel.",
-        "logo": "Szervezetfejlesztés / Generációváltás",
+        "logo": "Termelő családi vállalkozás",
         "who": "Szabó Balázs, ügyvezető, közepes méretű családi vállalkozás",
         "quotes": [
           "„Cégünk szervezetfejlesztés és generációváltás kapcsán kezdett együtt dolgozni Ríz Ádámmal és a Rávezetővel.",
