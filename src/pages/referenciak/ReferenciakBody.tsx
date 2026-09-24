@@ -18,6 +18,7 @@ export default function ReferenciakBody() {
   const testimonials = useMemo(
     () =>
       references.map((ref) => ({
+        id: ref.id,
         logo: ref.title,
         who: ref.who,
         quotes: ref.quotes,

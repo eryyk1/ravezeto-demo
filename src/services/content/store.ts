@@ -154,6 +154,30 @@ function normalizeTanacsadas(
   };
 }
 
+function normalizeReferences(
+  stored: Reference[] | undefined,
+  defaults: Reference[],
+): Reference[] {
+  const cleaned = (stored ?? []).filter(
+    (ref) => !(ref.who.includes('Arany Mónika') && ref.id !== 'kormanyhivatal'),
+  );
+  const storedById = new Map(cleaned.map((ref) => [ref.id, ref]));
+
+  const merged = defaults.map((def) => {
+    const patch = storedById.get(def.id);
+    if (!patch) return { ...def };
+    return {
+      ...def,
+      order: patch.order,
+      active: patch.active,
+    };
+  });
+
+  const defaultIds = new Set(defaults.map((item) => item.id));
+  const extras = cleaned.filter((ref) => !defaultIds.has(ref.id));
+  return [...merged, ...extras].sort((a, b) => a.order - b.order);
+}
+
 function normalizeTeam(
   stored: TeamMember[] | undefined,
   defaults: TeamMember[],
@@ -208,7 +232,7 @@ function mergeSiteContent(parsed: Partial<SiteContent>, defaults: SiteContent): 
     tanacsadas: normalizeTanacsadas(parsed.tanacsadas, defaults.tanacsadas),
     team: normalizeTeam(parsed.team, defaults.team),
     partners: parsed.partners?.length ? parsed.partners : defaults.partners,
-    references: parsed.references?.length ? parsed.references : defaults.references,
+    references: normalizeReferences(parsed.references, defaults.references),
     palyazatok: normalizePalyazatok(parsed.palyazatok, defaults.palyazatok),
     jogiImpresszum: {
       bodyHtml:

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 type Testimonial = {
+  id: string;
   logo: string;
   who: string;
   quotes: readonly string[];
@@ -103,7 +104,7 @@ export default function TestimonialDeck({ items }: TestimonialDeckProps) {
       >
         {items.map((item, index) => (
           <button
-            key={item.logo}
+            key={item.id}
             type="button"
             role="tab"
             className={`tst-logo${index === activeIndex ? ' on' : ''}`}
