@@ -1,48 +1,43 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../../hooks/usePageMeta';
-import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { resolvePageMeta } from '../../seo/pageMeta';
-import { useFelnottkepzesProgrammes } from '../../services/content/useContent';
+import {
+  useFelnottkepzesCategories,
+  useFelnottkepzesContent,
+  useFelnottkepzesProgrammes,
+} from '../../services/content/useContent';
+import { company } from '../../content/company';
+import FelnottkepzesCatalog from './FelnottkepzesCatalog';
 import './felnottkepzes.css';
+
+function categoryImage(id: string, cmsImage?: string): string {
+  if (cmsImage) return cmsImage;
+  const map: Record<string, string> = {
+    kommunikacio: '/assets/images/felnottkepzes/fk-kommunikacio.png',
+    vezetoi: '/assets/images/felnottkepzes/fk-vezetoi.png',
+    generaciok: '/assets/images/felnottkepzes/fk-generaciok.png',
+    stressz: '/assets/images/felnottkepzes/fk-stressz.png',
+  };
+  return map[id] ?? '';
+}
 
 export default function FelnottkepzesPage() {
   const meta = useMemo(() => resolvePageMeta('/felnottkepzes'), []);
   usePageMeta(meta);
-  const reduced = useReducedMotion();
+  const content = useFelnottkepzesContent();
+  const categories = useFelnottkepzesCategories();
   const programmeGroups = useFelnottkepzesProgrammes();
-  const catalog = useMemo(
-    () =>
-      programmeGroups
-        .filter((group) => group.active)
-        .sort((a, b) => a.order - b.order)
-        .map((group) => ({
-          tab: group.tab,
-          title: group.title,
-          items: group.items.map((item) => [item.title, item.hours] as const),
-        })),
-    [programmeGroups],
+
+  const sortedCategories = useMemo(
+    () => categories.filter((c) => c.active).sort((a, b) => a.order - b.order),
+    [categories],
   );
-  const [activeTab, setActiveTab] = useState(0);
-  const [catalogTransition, setCatalogTransition] = useState(false);
 
-  const showTab = useCallback(
-    (index: number) => {
-      if (index === activeTab) return;
-
-      if (reduced) {
-        setActiveTab(index);
-        return;
-      }
-
-      setCatalogTransition(true);
-      window.setTimeout(() => {
-        setActiveTab(index);
-        setCatalogTransition(false);
-      }, 280);
-    },
-    [activeTab, reduced],
-  );
+  const bandParagraphs = content.credentials.paragraphs;
+  const bandLead = bandParagraphs[0] ?? '';
+  const bandSecond = bandParagraphs[1] ?? '';
+  const midClosing = bandParagraphs[2] ?? '';
 
   return (
     <>
@@ -58,13 +53,14 @@ export default function FelnottkepzesPage() {
           />
         </svg>
         <div className="wrap">
-          <div className="kicker">Felnőttképzés</div>
+          <div className="kicker">{content.hero.label}</div>
           <h1>
-            Minőségi képzéseink segítségével fejlesztjük a XXI. század munkahelyi{' '}
-            <span className="mark">kulcskompetenciáit!</span>
+            {content.hero.titleLead}{' '}
+            <span className="mark">{content.hero.titleMark}</span>
           </h1>
           <p className="award-line">
-            <span className="g">›</span>Az év trénerei is nálunk dolgoznak
+            <span className="g">›</span>
+            {content.hero.awardLine}
           </p>
           <a
             className="award-proof"
@@ -81,48 +77,36 @@ export default function FelnottkepzesPage() {
         <div className="wrap">
           <div className="band flip rev">
             <div>
-              <h2 className="sec-t2">
-                A munkatársi kiválóság mellett a szervezeti működés fejlesztésében is
-                segítenek a kompetenciafejlesztő képzések.
-              </h2>
-              <p className="mut">
-                A szervezeti teljesítmény növelése optimálisan több tényező együttes
-                fejlesztésével, több eszköz használatával valósítható meg, amelyek közül
-                az egyik legfontosabb a képzés.
-              </p>
-              <p className="mut" style={{ marginTop: '1rem' }}>
-                A fejlesztési és képzési igények meghatározását, illesztését és
-                megvalósítását vállalatra szabva, ügyfeleink igényei és meglévő
-                tudásszintje figyelembevételével végezzük. Ennek szerves része a
-                tananyagfejlesztés is.
-              </p>
+              <h2 className="sec-t2">{content.keyMessage.title}.</h2>
+              {bandLead ? (
+                <p className="mut">{bandLead}</p>
+              ) : null}
+              {bandSecond ? (
+                <p className="mut" style={{ marginTop: '1rem' }}>
+                  {bandSecond}
+                </p>
+              ) : null}
             </div>
             <div className="photo-slot">
               <img
                 className="ill"
-                src="/assets/images/felnottkepzes/img-02.jpg"
-                alt="Tusrajz: tréner a flipchartnál, félkörben ülő résztvevők"
+                src={content.hero.image}
+                alt={content.hero.imageAlt}
               />
             </div>
           </div>
           <div className="mid rev">
-            <p>
-              Képzési programjaink sosem „dobozos” termékek, változatos
-              oktatás-módszertani megoldásokkal biztosítjuk a képzések jobb
-              hasznosulását.
-            </p>
+            <p>{content.keyMessage.text}</p>
             <div className="tagrow" aria-label="Oktatás-módszertani megoldásaink">
-              <span className="tag">Jelenléti tréningek</span>
-              <span className="tag">E-learning tananyag</span>
-              <span className="tag">Online tréning elemek</span>
-              <span className="tag">Szervezeti modul</span>
-              <span className="tag">Follow up szolgáltatások</span>
+              {content.methodTags.map((tag) => (
+                <span key={tag} className="tag">
+                  {tag}
+                </span>
+              ))}
             </div>
-            <p style={{ marginTop: '1.4rem' }}>
-              Tréneri csapatunk sokéves tereptapasztalata, kiemelkedő szakmai tudása
-              garantálja, hogy közvetlen, felszabadult légkörben zajló tréningjeink a
-              lehető legjobban szolgálják a megfogalmazott képzési célokat.
-            </p>
+            {midClosing ? (
+              <p style={{ marginTop: '1.4rem' }}>{midClosing}</p>
+            ) : null}
           </div>
           <div className="doc rev">
             <div className="toplab">Engedélyezett felnőttképző intézmény</div>
@@ -142,150 +126,52 @@ export default function FelnottkepzesPage() {
 
       <section className="sec strip">
         <div className="wrap rev">
-          <p>
-            A munkahelyek legnagyobb kihívása gyakran a hatékony kommunikáció és a
-            csapatmunka hiánya. Célunk, hogy résztvevőink olyan készségeket
-            sajátítsanak el, amelyek révén sikeresen navigálhatnak a munkahelyi
-            kihívások között.
-          </p>
+          <p>{content.motto}</p>
         </div>
       </section>
 
       <section className="sec">
         <div className="wrap">
           <div className="kicker rev">Főbb képzési területeink</div>
-          <h2 className="sec-t rev">
-            Négy terület, amelyben a legerősebbek vagyunk.
-          </h2>
-          <div className="band rev">
-            <div className="photo-slot">
-              <img
-                className="ill"
-                src="/assets/images/felnottkepzes/img-03.jpg"
-                alt="Tusrajz: két beszélgető alak, beszédbuborékaik összeérnek"
-              />
-            </div>
-            <div>
-              <h3>Kommunikációs készségfejlesztés</h3>
-              <p>
-                A világ folyamatosan változik, ahogyan a kommunikációs módszerek is.
-                Részletesen foglalkozunk az aktív hallgatás, az érzelmi intelligencia
-                és a hatékony visszajelzés technikáival, hogy a résztvevők
-                magabiztosan tudják kifejezni gondolataikat és érzéseiket.
-              </p>
-            </div>
-          </div>
-          <div className="band flip rev">
-            <div>
-              <h3>Vezetői skillek fejlesztése</h3>
-              <p>
-                A sikeres vezetés kulcsa a megfelelő eszközök és ismeretek
-                birtoklása. Képzésünk során a résztvevők megismerkednek a különböző
-                vezetési stílusokkal és azok alkalmazásával, valamint a
-                konfliktuskezelési és döntéshozatali technikákkal.
-              </p>
-            </div>
-            <div className="photo-slot">
-              <img
-                className="ill"
-                src="/assets/images/felnottkepzes/img-04.jpg"
-                alt="Tusrajz: karmester alak, pálcája nyomán felfelé ívelő vonalak"
-              />
-            </div>
-          </div>
-          <div className="band rev">
-            <div className="photo-slot">
-              <img
-                className="ill"
-                src="/assets/images/felnottkepzes/img-05.jpg"
-                alt="Tusrajz: két oldalról épülő híd, középen arany zárókő"
-              />
-            </div>
-            <div>
-              <h3>Generációk közötti együttműködés</h3>
-              <p>
-                Képzésünk segít az eltérő korú munkatársak közötti hatékony
-                kommunikáció, megértés és együttműködés kialakításában. A különböző
-                életkorú munkavállalók más-más munkastílust, technológiai tudást és
-                tapasztalatokat hoznak a munkahelyre, ami kihívásokat jelenthet a
-                mindennapi együttműködés során. Célunk, hogy a különböző generációk
-                közötti szakadékot áthidaljuk, és elősegítsük a kölcsönös tiszteleten
-                alapuló, eredményes munkakapcsolatokat.
-              </p>
-            </div>
-          </div>
-          <div className="band flip rev">
-            <div>
-              <h3>Munkahelyi stressz – stresszkezelési technikák</h3>
-              <p>
-                A munkahelyi stressz napjaink egyik legnagyobb kihívása. A mentális
-                egészség megőrzése érdekében tréningjeinken a résztvevők
-                megismerkednek a stresszforrások azonosításának módszereivel és
-                elsajátítják azokat a gyakorlati technikákat, amelyekkel képesek
-                lesznek tudatosan kezelni a kihívásokat, hogyan őrizhetik meg lelki
-                egyensúlyukat és növelhetik teljesítőképességüket a mindennapi munka
-                során.
-              </p>
-            </div>
-            <div className="photo-slot">
-              <img
-                className="ill"
-                src="/assets/images/felnottkepzes/img-06.jpg"
-                alt="Tusrajz: kusza vonal kisimul nyugodt vonallá"
-              />
-            </div>
-          </div>
+          <h2 className="sec-t rev">Négy terület, amelyben a legerősebbek vagyunk.</h2>
+          {sortedCategories.map((category, index) => {
+            const flip = index % 2 === 1;
+            const src = categoryImage(category.id, category.image);
+            const textBlock = (
+              <div>
+                <h3>{category.title}</h3>
+                <p>{category.text}</p>
+              </div>
+            );
+            const imageBlock = (
+              <div className="photo-slot">
+                {src ? (
+                  <img className="ill" src={src} alt="" />
+                ) : null}
+              </div>
+            );
+            return (
+              <div key={category.id} className={`band${flip ? ' flip' : ''} rev`}>
+                {flip ? (
+                  <>
+                    {textBlock}
+                    {imageBlock}
+                  </>
+                ) : (
+                  <>
+                    {imageBlock}
+                    {textBlock}
+                  </>
+                )}
+              </div>
+            );
+          })}
         </div>
       </section>
 
       <section className="sec">
         <div className="wrap">
-          <div className="cat-head">
-            <div>
-              <div className="kicker rev">Referencia-képzéseink</div>
-              <h2 className="sec-t rev" style={{ marginBottom: 0 }}>
-                Képzési katalógus.
-              </h2>
-            </div>
-            <div className="cat-count rev">
-              <b>20</b> képzés · <b>4</b> terület
-            </div>
-          </div>
-          <div className="cat-tabs rev" role="tablist" aria-label="Képzési kategóriák">
-            {catalog.map((group, index) => (
-              <button
-                key={group.tab}
-                type="button"
-                role="tab"
-                className={`cat-tab${index === activeTab ? ' on' : ''}`}
-                aria-selected={index === activeTab}
-                onClick={() => showTab(index)}
-              >
-                {group.tab}
-              </button>
-            ))}
-          </div>
-          <div className="cat-card rev">
-            <div className={`cat-inner${catalogTransition ? ' out' : ''}`}>
-              {catalog.map((group, index) => (
-                <div
-                  key={group.tab}
-                  className={`cat-panel${index === activeTab ? ' on' : ''}`}
-                >
-                  <h3>{group.title}</h3>
-                  <ul className="reflist">
-                    {group.items.map(([title, hours]) => (
-                      <li key={title}>
-                        <span className="t">{title}</span>
-                        <span className="dots" />
-                        <span className="h">{hours}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
+          <FelnottkepzesCatalog groups={programmeGroups} />
         </div>
       </section>
 
@@ -296,19 +182,14 @@ export default function FelnottkepzesPage() {
           <div className="duo">
             <article className="info rev">
               <h3>Ügyfélszolgálat</h3>
-              <p className="big">1146 Budapest, Izsó u. 7. 1/3.</p>
-              <p>H–P: 9.00–16.00</p>
+              <p className="big">{company.address}</p>
+              <p>{company.hours}</p>
             </article>
             <article className="info rev">
               <h3>Irodánk</h3>
-              <p className="big">1146 Budapest, Izsó u. 7. 1/3.</p>
+              <p className="big">{company.address}</p>
               <p>6. kapucsengő</p>
-              <a
-                className="map"
-                href="https://www.google.com/maps/search/1146+Budapest,+Izs%C3%B3+u.+7.+1%2F3."
-                target="_blank"
-                rel="noopener"
-              >
+              <a className="map" href={company.mapsSearch} target="_blank" rel="noopener">
                 Megnyitás térképen →
               </a>
             </article>
@@ -348,13 +229,13 @@ export default function FelnottkepzesPage() {
               transform="translate(0,4)"
             />
           </svg>
-          <div className="kicker">Kapcsolat</div>
-          <h2>Képezzük együtt csapatát!</h2>
+          <div className="kicker">{content.close.kicker}</div>
+          <h2>{content.close.title}</h2>
           <p className="refs">
-            1146 Budapest, Izsó u. 7. 1/3. · info@ravezeto.hu · +36 70/513 4128
+            {company.address} · {company.email} · {company.phone}
           </p>
-          <Link to="/kapcsolat" className="btn">
-            Írjon nekünk
+          <Link to={content.close.link} className="btn">
+            {content.close.cta}
           </Link>
         </div>
         <footer>
@@ -365,10 +246,10 @@ export default function FelnottkepzesPage() {
                 <div className="tag">Változásokat vezetünk, együtt!</div>
               </div>
               <div>
-                1146 Budapest, Izsó u. 7. 1/3.
+                {company.address}
                 <br />
-                <a href="mailto:info@ravezeto.hu">info@ravezeto.hu</a> ·{' '}
-                <a href="tel:+36705134128">+36 70/513 4128</a>
+                <a href={`mailto:${company.email}`}>{company.email}</a> ·{' '}
+                <a href={`tel:${company.phoneTel}`}>{company.phone}</a>
               </div>
               <div>
                 <a

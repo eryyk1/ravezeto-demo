@@ -1,10 +1,10 @@
 import PremiumButton from '../home/PremiumButton';
 import { StaggerGrid, StaggerItem } from '../pages/StaggerReveal';
-import type { felnottkepzesProgrammeGroups } from '../../content/felnottkepzes';
+import type { FelnottkepzesProgrammeGroup } from '../../services/content/types';
 import './TrainingProgrammes.css';
 
 type TrainingProgrammesProps = {
-  groups: typeof felnottkepzesProgrammeGroups;
+  groups: FelnottkepzesProgrammeGroup[];
   ctaLabel: string;
   ctaLink: string;
 };
@@ -26,7 +26,9 @@ export default function TrainingProgrammes({ groups, ctaLabel, ctaLink }: Traini
                   <span className="training-programmes__dot" aria-hidden="true" />
                   <div className="training-programmes__meta">
                     <span className="training-programmes__title">{item.title}</span>
-                    <span className="training-programmes__hours">{item.hours}</span>
+                    {item.hours ? (
+                      <span className="training-programmes__hours">{item.hours}</span>
+                    ) : null}
                   </div>
                   <PremiumButton to={ctaLink} variant="outline">
                     {ctaLabel}

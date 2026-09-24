@@ -244,12 +244,22 @@ export function createDefaultContent(): SiteContent {
       title: cat.title,
       text: cat.text,
       visual: cat.visual,
-      image: '',
+      image:
+        cat.id === 'kommunikacio'
+          ? '/assets/images/felnottkepzes/fk-kommunikacio.png'
+          : cat.id === 'vezetoi'
+            ? '/assets/images/felnottkepzes/fk-vezetoi.png'
+            : cat.id === 'generaciok'
+              ? '/assets/images/felnottkepzes/fk-generaciok.png'
+              : cat.id === 'stressz'
+                ? '/assets/images/felnottkepzes/fk-stressz.png'
+                : '',
       order: index + 1,
       active: true,
     })),
     felnottkepzesProgrammes: felnottkepzesProgrammeGroups.map((group, index) => ({
       id: group.id,
+      filterCode: group.filterCode,
       tab: group.tab,
       index: group.index,
       title: group.title,

@@ -209,11 +209,13 @@ export type FelnottkepzesCategory = {
 
 export type FelnottkepzesProgrammeItem = {
   title: string;
-  hours: string;
+  hours?: string;
+  description?: string;
 };
 
 export type FelnottkepzesProgrammeGroup = {
   id: string;
+  filterCode: string;
   tab: string;
   index: string;
   title: string;

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-23T09:45:04.257Z",
+  "generatedAt": "2026-09-24T07:16:22.165Z",
   "buildRef": "local",
-  "defaultsRevision": 9,
+  "defaultsRevision": 10,
   "published": {
     "schemaVersion": 2,
     "company": {
@@ -326,8 +326,8 @@
         "titleLead": "Minőségi képzéseink segítségével fejlesztjük a XXI. század munkahelyi",
         "titleMark": "kulcskompetenciáit!",
         "awardLine": "Az év trénerei is nálunk dolgoznak",
-        "image": "/assets/images/felnottkepzes/img-02.jpg",
-        "imageAlt": "Rávezető Projekt — felnőttképzés és kompetenciafejlesztés"
+        "image": "/assets/images/felnottkepzes/fk-terem.png",
+        "imageAlt": "Tusrajz: tréner a flipchartnál, félkörben ülő résztvevők"
       },
       "methodTags": [
         "Jelenléti tréningek",
@@ -343,9 +343,9 @@
       },
       "credentials": {
         "paragraphs": [
-          "A szervezeti teljesítmény növelése optimálisan több tényező együttes fejlesztésével, több eszköz használatával valósítható meg, amelyek közül az egyik legfontosabb a képzés.",
-          "Cégünk felnőttképzési engedéllyel rendelkező intézmény.",
-          "Tréneri csapatunk sokéves tereptapasztalata, kiemelkedő szakmai tudása garantálja, hogy közvetlen, felszabadult légkörben zajló tréningjeink a lehető legjobban szolgálják a megfogalmazott képzési célokat."
+          "A mai, mesterséges intelligencia által gyorsan formált üzleti környezetben a technológiai tudás mellett a humán készségek értékelődnek fel igazán. Gyakorlatias soft skill- és AI-képzéseket tartunk, amelyekkel segítünk, hogy a vezetők és munkatársak hatékonyabban és felelősen használják a mesterséges intelligencia eszközeit, ezáltal gyorsabban végezzék munkájukat.",
+          "Programjaink révén a résztvevők azokat a kritikus gondolkodási, kommunikációs és adaptációs képességeket is elsajátíthatják, amelyek elengedhetetlenek a jövőálló vállalati működéshez. Fejlessze csapatát velünk, és alakítsa versenyelőnnyé a technológia és az emberi tényező szinergiáját!",
+          "Tréneri csapatunk sokéves tereptapasztalata, kiemelkedő szakmai tudása garantálja, hogy közvetlen, felszabadolt légkörben zajló tréningjeink a lehető legjobban szolgálják a megfogalmazott képzési célokat."
         ]
       },
       "registration": "Nyilvántartásba vételi számunk: B/2020/001943",
@@ -366,7 +366,7 @@
         "title": "Kommunikációs készségfejlesztés",
         "text": "A világ folyamatosan változik, ahogyan a kommunikációs módszerek is. Részletesen foglalkozunk az aktív hallgatás, az érzelmi intelligencia és a hatékony visszajelzés technikáival, hogy a résztvevők magabiztosan tudják kifejezni gondolataikat és érzéseiket.",
         "visual": "/assets/illustrations/illust_inner_courses.svg",
-        "image": "",
+        "image": "/assets/images/felnottkepzes/fk-kommunikacio.png",
         "order": 1,
         "active": true
       },
@@ -376,7 +376,7 @@
         "title": "Vezetői skillek fejlesztése",
         "text": "A sikeres vezetés kulcsa a megfelelő eszközök és ismeretek birtoklása. Képzésünk során a résztvevők megismerkednek a különböző vezetési stílusokkal és azok alkalmazásával, valamint a konfliktuskezelési és döntéshozatali technikákkal.",
         "visual": "/assets/illustrations/illust_coaching.svg",
-        "image": "",
+        "image": "/assets/images/felnottkepzes/fk-vezetoi.png",
         "order": 2,
         "active": true
       },
@@ -386,7 +386,7 @@
         "title": "Generációk közötti együttműködés",
         "text": "Képzésünk segít az eltérő korú munkatársak közötti hatékony kommunikáció, megértés és együttműködés kialakításában. A különböző életkorú munkavállalók más-más munkastílust, technológiai tudást és tapasztalatokat hoznak a munkahelyre, ami kihívásokat jelenthet a mindennapi együttműködés során. Célunk, hogy a különböző generációk közötti szakadékot áthidaljuk, és elősegítsük a kölcsönös tiszteleten alapuló, eredményes munkakapcsolatokat.",
         "visual": "/assets/illustrations/illust_inner_hrdevelopment.svg",
-        "image": "",
+        "image": "/assets/images/felnottkepzes/fk-generaciok.png",
         "order": 3,
         "active": true
       },
@@ -396,7 +396,7 @@
         "title": "Munkahelyi stressz – stresszkezelési technikák",
         "text": "A munkahelyi stressz napjaink egyik legnagyobb kihívása. A mentális egészség megőrzése érdekében tréningjeinken a résztvevők megismerkednek a stresszforrások azonosításának módszereivel és elsajátítják azokat a gyakorlati technikákat, amelyekkel képesek lesznek tudatosan kezelni a kihívásokat, hogyan őrizhetik meg lelki egyensúlyukat és növelhetik teljesítőképességüket a mindennapi munka során.",
         "visual": "/assets/illustrations/illust_stress.svg",
-        "image": "",
+        "image": "/assets/images/felnottkepzes/fk-stressz.png",
         "order": 4,
         "active": true
       }
@@ -404,53 +404,34 @@
     "felnottkepzesProgrammes": [
       {
         "id": "munkavallaloi",
-        "tab": "Munkavállalói kompetenciák",
+        "filterCode": "mv",
+        "tab": "Munkavállalói kompetenciák fejlesztése",
         "index": "01",
         "title": "Munkavállalói kompetenciák fejlesztése",
         "items": [
           {
-            "title": "Gazdálkodj az időddel!",
-            "hours": "24 óra"
-          },
-          {
             "title": "Időgazdálkodás",
-            "hours": "16 óra"
-          },
-          {
-            "title": "Kommunikációs és együttműködési készségek fejlesztése",
-            "hours": "24 óra"
-          },
-          {
-            "title": "Kommunikációs tréning",
-            "hours": "24 óra"
+            "description": "Ismerős érzés, hogy a sürgős és fontos feladatok halmozódása miatt egyikkel sem sikerül igazán haladni? Segítünk megérteni, mi történik bennünk a sürgetés és a befejezetlen munka hatására, és választ adunk arra, hogyan érdemes priorizálni, mikor és hogyan lehet nemet mondani, valamint milyen technikákkal használható fel a leghatékonyabban a rendelkezésre álló idő."
           },
           {
             "title": "Komplex kommunikációs készségek fejlesztése",
-            "hours": "42 óra"
+            "description": "Segítünk bővíteni az eredményes személyes kommunikációs készségekhez tartozó ismereteket! Fejlesztjük a kommunikációs készségtárat, hogy a munkavégzés színterein hatékonyabbá váljon a feladatvégzés, a munkahelyi kapcsolatok kiépítése. Ezáltal változik a munkahelyi viselkedéskultúra, az együttműködés és a közös problémamegoldás."
           },
           {
             "title": "Konfliktuskezelés",
-            "hours": "24 óra"
-          },
-          {
-            "title": "Konfliktushelyzetek kezelése",
-            "hours": "24 óra"
-          },
-          {
-            "title": "Konfliktuskezelés és kommunikáció",
-            "hours": "30 óra"
+            "description": "A konfliktusok felismerése és hatékony kezelése, valamint a nyertes-nyertes megoldások kialakítása kulcsfontosságú a sikeres együttműködéshez. Az elméleti alapok mellett gyakorlati tapasztalatot is adunk ehhez, emellett segítünk tudatosítani a saját stresszreakciókat, bővítjük a stresszkezelési eszköztárat, és fejlesztjük a változásokhoz való rugalmas alkalmazkodás képességét."
           },
           {
             "title": "Sikeres szervezeti együttműködés és kommunikáció a gyakorlatban",
-            "hours": "16 óra"
+            "description": "A hatékony munkahelyi kommunikáció és együttműködés nemcsak az eredményesebb munkavégzést, hanem a jó munkahelyi légkört is megalapozza. Ehhez adunk a gyakorlatban is alkalmazható kommunikációs és tárgyalástechnikai eszközöket, amelyeket a résztvevők a saját munkakörnyezetükben is hasznosítani tudnak."
           },
           {
             "title": "Szervezeti és generációk közötti együttműködés fejlesztése",
-            "hours": "30 óra"
+            "description": "A szervezetek sikere nagyban múlik azon, hogy a különböző csapatok, területek és generációk milyen hatékonyan tudnak együtt dolgozni egy közös cél érdekében. Feltárjuk a szervezeti és generációs különbségekből fakadó együttműködési nehézségeket, és olyan közös nyelvet, gyakorlati eszközöket adunk a résztvevők kezébe, amelyekkel erősíthető a kölcsönös megértés és a hatékony, összehangolt munkavégzés."
           },
           {
             "title": "Üzleti kapcsolattartás és kommunikáció",
-            "hours": "16 óra"
+            "description": "Olyan helyzetekre kínálunk megoldást, mint a nemet mondás nehézségei, a meggyőző fellépés kialakítása vitahelyzetekben, valamint a testbeszéd, a kommunikációs stílus és az artikuláció tudatosabb használata. Mindezekkel azt a hatékony, átgondolt kommunikációt erősítjük, amely az eredményes együttműködés egyik alapfeltétele."
           }
         ],
         "order": 1,
@@ -458,17 +439,18 @@
       },
       {
         "id": "stressz",
+        "filterCode": "st",
         "tab": "Vállalati stresszmenedzsment",
         "index": "02",
-        "title": "Vállalati stresszmenedzsment, mentális egészség fejlesztése",
+        "title": "Vállalati stresszmenedzsment",
         "items": [
           {
             "title": "A stressz és én",
-            "hours": "16 óra"
+            "description": "Megismertetjük a stressz fogalmát, biológiáját és fiziológiáját, valamint a stresszel való megküzdés személyes eszközeit. Segítünk azonosítani a munkahelyi stresszfaktorokat, bemutatjuk a különböző megküzdési stratégiákat és a kiégés jelenségét, majd segítünk elsajátítani a különböző stresszkezelési technikákat."
           },
           {
             "title": "Mentálhigiéné és lelki egészségvédelem",
-            "hours": "54 óra"
+            "description": "Az önismeret fejlesztésével és a mentális egészség megőrzését szolgáló módszerek bemutatásával segítünk hatékonyabban kezelni a mindennapi élet lelki kihívásait. Külön figyelmet szentelünk a társas támogatás és a kapcsolati háló szerepére, amely mind a munkahelyi, mind a magánéleti lelki egészség megőrzésében fontos szerepet játszik."
           }
         ],
         "order": 2,
@@ -476,33 +458,26 @@
       },
       {
         "id": "vezetoi",
-        "tab": "Vezetői kompetenciák",
+        "filterCode": "ve",
+        "tab": "Vezetőfejlesztés",
         "index": "03",
-        "title": "Vezetői kompetenciák fejlesztése",
+        "title": "Vezetőfejlesztés",
         "items": [
           {
             "title": "Menedzseri szemlélet a vezetői munkában",
-            "hours": "16 óra"
-          },
-          {
-            "title": "Tudatosság és társas készségek a vezetésben",
-            "hours": "16 óra"
+            "description": "Ahhoz, hogy egy vezető eredményesen és hatékonyan tudja ellátni a rábízott feladatokat, egy kicsit menedzserré is kell válnia. Fejlesztjük a vezetői készségeket: erősítjük a menedzseri szemléletmódot, az együttműködési készséget és a kapcsolódó kompetenciákat, valamint javítjuk a problémamegoldó készséget."
           },
           {
             "title": "Tudatosság és társas készségek a vezetésben tréning",
-            "hours": "24 óra"
-          },
-          {
-            "title": "Tudatosság és társas készségek fejlesztése",
-            "hours": "20 óra"
+            "description": "A vezetői szerep hatékony betöltéséhez elengedhetetlen a feladatok és kompetenciák tudatos ismerete, valamint a problémamegoldás komplex szemlélete. Bemutatjuk a problémafelvető és -elemző módszereket, döntéshozatali gyakorlatokon keresztül fejlesztjük a résztvevők képességeit, és megismertetjük velük a projektszemléletet."
           },
           {
             "title": "Vezetői kompetenciák fejlesztése",
-            "hours": "16 óra"
+            "description": "Az üzleti, piaci szemléletmód tudatos kialakítása és gyakorlása kulcsfontosságú a hatékony vezetői működéshez. Élményszerű tanulással és vezetői helyzetgyakorlatok segítségével fejlesztjük a résztvevőket olyan területeken, mint a szervezeti célok és kultúra képviselete, az időgazdálkodás, a változáskezelés, valamint a tárgyalási és érdekérvényesítési készségek."
           },
           {
             "title": "Tudatos vezetői működés fejlesztése",
-            "hours": "24 óra"
+            "description": "Milyen a jó vezető? Tudatában van saját szerepének és felelősségének, komplex módon képes értelmezni és megoldani a felmerülő problémákat, és megalapozott döntéseket hoz. Segítünk tudatosítani a vezetői funkciókat, és fejlesztjük a vezetői szerepteljesítményt."
           }
         ],
         "order": 3,
@@ -510,16 +485,48 @@
       },
       {
         "id": "mentori",
+        "filterCode": "me",
         "tab": "Mentori kompetenciák",
         "index": "04",
-        "title": "Mentori kompetenciák fejlesztése",
+        "title": "Mentori kompetenciák",
         "items": [
           {
             "title": "Munkahelyi mentorok képzése",
-            "hours": "16 óra"
+            "description": "Korunk mentorai olyan tapasztaltabb munkatársak, akik kevésbé rutinos kollégáikat segítik szakmai fejlődésükben. A mentori kapcsolat sikere a személyes viszonyon, a harmonikus együttműködésen múlik, ezért a mentori szerephez szükséges kompetenciák és kommunikációs eszközök fejlesztésével készítjük fel a résztvevőket erre a feladatra."
           }
         ],
         "order": 4,
+        "active": true
+      },
+      {
+        "id": "digitalis",
+        "filterCode": "di",
+        "tab": "Digitális kompetenciák",
+        "index": "05",
+        "title": "Digitális kompetenciák",
+        "items": [
+          {
+            "title": "Irodai Office alapok",
+            "description": "Megmutatjuk a Word, Excel és PowerPoint alapjait, valamint az internet és az e-mail magabiztos kezelését is. Emellett bepillantást adunk további modern digitális eszközök használatába is."
+          },
+          {
+            "title": "Haladó Irodai Office",
+            "description": "A képzés végére a résztvevők magabiztosan készítenek majd professzionális, többoldalas dokumentumokat, összetett táblázatokat, kimutatásokat és vizuálisan igényes prezentációkat. Emellett megismerik azokat a digitális eszközöket is, amelyek tudatos használatával hatékonyabbá tehető a mindennapi irodai munka."
+          },
+          {
+            "title": "Mesterséges intelligencia alapjai",
+            "description": "Segítünk felfedezni a mesterséges intelligencia világát, és példákkal megmutatni, hogyan használható hatékony munkatársként a mindennapokban – gyakorlati tudással, magabiztos AI-kommunikációval."
+          },
+          {
+            "title": "AI alkalmazási lehetőségei üzleti folyamatokban",
+            "description": "Megmutatjuk, hogyan építhető be az AI a mindennapi üzleti folyamatokba, és hogyan növelhető vele a hatékonyság. Olyan szemléletet adunk, amellyel a résztvevők magabiztosan felismerik a saját munkájukban rejlő AI-lehetőségeket."
+          },
+          {
+            "title": "AI támogatás a vezetői munkában",
+            "description": "Hogyan segítheti az AI a vezetői döntéshozatalt, a csapatirányítást és a napi feladatok hatékonyabb szervezését? Erre adunk választ olyan gyakorlati eszközökkel, amelyekkel időt és energiát lehet megtakarítani."
+          }
+        ],
+        "order": 5,
         "active": true
       }
     ],
@@ -658,6 +665,7 @@
         "portrait": "",
         "portraitPosition": "center 18%",
         "featured": true,
+        "linkedInUrl": "https://www.linkedin.com/in/adamriz/",
         "order": 1,
         "active": true
       },
@@ -669,6 +677,7 @@
         "bio": "2018 óta foglalkozom felnőttképzések szervezésével és lebonyolításával. A képzési folyamatot a tervezéstől a megvalósításig végigkísérem, ügyelve arra, hogy a programok az ügyfelek valós igényeire épüljenek, szakmailag magas színvonalúak legyenek, és minden jogszabályi előírásnak megfeleljenek.",
         "portrait": "",
         "portraitPosition": "center 12%",
+        "linkedInUrl": "https://www.linkedin.com/in/anik%C3%B3-berta-426aa03a9/",
         "order": 2,
         "active": true
       },
@@ -680,6 +689,7 @@
         "bio": "1992-től dolgozom szervezetfejlesztés területén. 1989-ben megismerkedtem az OD szervezetfejlesztés módszerével, azóta közreműködtem szervezeti kultúraváltás folyamataiban, vezettem tréningeket, workshopokat, és szervezeti folyamatok fejlesztése részeként coachként dolgoztam vezetőkkel. A kulturális antropológia területén szerzett ismereteimet törekszem alkalmazni, szemlélődöm, tanulok és értelmezek.",
         "portrait": "",
         "portraitPosition": "center 20%",
+        "linkedInUrl": "https://www.linkedin.com/in/b%C3%ADr%C3%B3-gabriella-96585538/",
         "order": 3,
         "active": true
       },
@@ -691,6 +701,7 @@
         "bio": "A korábbi munkahelyeken szerzett változatos tapasztalatokat felhasználva a cég operatív vezetésében veszek részt. A projektek menedzsmentjén felül azért is felelek, hogy a cég pénzügyei rendben legyenek. Számomra fontos, hogy a minőségi munkavégzés kiemelt szempont a Rávezetőnél, ami együtt jár az ügyfeleink és a velünk együtt dolgozó szakértők elégedettségével.",
         "portrait": "",
         "portraitPosition": "center 15%",
+        "linkedInUrl": "https://www.linkedin.com/in/andrea-soos-78a203a0/",
         "order": 4,
         "active": true
       },
@@ -702,6 +713,7 @@
         "bio": "A Rávezetőben elsősorban szervezetfejlesztési projekteken dolgozom tanácsadóként, amelyben nagy segítséget nyújt a korábban 9 év alatt szerzett vezetői tapasztalatom egy felsőoktatási intézményben. Rendszergondolkodásom, empátiám kiegészült a szervezetfejlesztés képzésen szerzett strukturált ismeretekkel, amelyeket még tovább bővítve igyekszem több szemszögből és eszközzel megközelíteni az egyéni-, csoportos- és szervezeti problémákat.",
         "portrait": "",
         "portraitPosition": "center 22%",
+        "linkedInUrl": "https://www.linkedin.com/in/%C3%A1d%C3%A1m-sz%C5%91ke-a628a7a7/",
         "order": 5,
         "active": true
       }
@@ -1046,11 +1058,11 @@
       {
         "id": "kormanyhivatal",
         "title": "Kormányhivatal",
-        "description": "„A Rávezető Projekt Kft. szakértőivel 2019–2020 között a szervezeti kultúrafejlesztési program során dolgoztam együtt, a",
+        "description": "„A Rávezető Projekt Kft. szakértőivel a szervezeti kultúrafejlesztési program során dolgoztam együtt, ami a közös érték,",
         "logo": "Kormányhivatal",
         "who": "Arany Mónika, főosztályvezető",
         "quotes": [
-          "„A Rávezető Projekt Kft. szakértőivel 2019–2020 között a szervezeti kultúrafejlesztési program során dolgoztam együtt, ami a közös érték, kultúra, szemléletváltás megújulását alapozta meg a területi közigazgatás szervezetrendszerében. A Rávezető Projekt Kft. igényes és alapos munkával feltárta a szervezet célját, törekvését, szervezeti kultúra képességét és hatékonyságát, ehhez az állapothoz igazította a közös érték, kultúra, szemléletváltás megújulását célzó fejlesztési programokat.",
+          "„A Rávezető Projekt Kft. szakértőivel a szervezeti kultúrafejlesztési program során dolgoztam együtt, ami a közös érték, kultúra, szemléletváltás megújulását alapozta meg a területi közigazgatás szervezetrendszerében. A Rávezető Projekt Kft. igényes és alapos munkával feltárta a szervezet célját, törekvését, szervezeti kultúra képességét és hatékonyságát, ehhez az állapothoz igazította a közös érték, kultúra, szemléletváltás megújulását célzó fejlesztési programokat.",
           "Szakértői magas szakmai színvonalon dolgoztak, külön figyelmet fordítottak a szervezeti kultúrafejlesztés aktuális trendjeire, változatos andragógiai-didaktikai és fejlesztési megoldásokra. Általuk eredményesen megvalósult több ezer, különböző szakterületen munkát végző munkatárs fejlesztése a szervezeti változások aktív támogatása céljából.”"
         ],
         "order": 5,
@@ -1113,6 +1125,22 @@
           "A közös munka során minden esetben magas szintű szakértelmet, alapos felkészültséget és a szervezetünk működésének gyors megértését tapasztaltuk. Külön értékként emeljük ki emberközpontú hozzáállásukat, együttműködő szemléletüket és azt a figyelmet, amellyel igényeinkhez alkalmazkodnak.”"
         ],
         "order": 9,
+        "active": true
+      },
+      {
+        "id": "szervezetfejlesztes-generaciovaltas",
+        "title": "Szervezetfejlesztés / Generációváltás",
+        "description": "„Cégünk szervezetfejlesztés és generációváltás kapcsán kezdett együtt dolgozni Ríz Ádámmal és a Rávezetővel.",
+        "logo": "Szervezetfejlesztés / Generációváltás",
+        "who": "Szabó Balázs, ügyvezető, közepes méretű családi vállalkozás",
+        "quotes": [
+          "„Cégünk szervezetfejlesztés és generációváltás kapcsán kezdett együtt dolgozni Ríz Ádámmal és a Rávezetővel.",
+          "Már az első beszélgetések során azt éreztük, hogy Ádám gyorsan megérti, hogyan működik a cégünk, és jól rálát azokra a problémákra is, amelyeket belülről sokszor nehezebb észrevenni. Nagyon sokat segített abban, hogy bizonyos helyzeteket más szemszögből nézzünk, és tisztábban lássuk, min érdemes változtatnunk.",
+          "A generációváltás nálunk természetesen nem csak üzleti kérdés. Egy családi vállalkozásban a céges és a családi szerepek sokszor összemosódnak, ezért nem mindig egyszerű megtalálni azt a megoldást, ami hosszú távon is jól működik. Ádám ebben végig objektív tudott maradni, ugyanakkor értette és jól kezelte az emberi oldalát is a folyamatnak.",
+          "A közös munka hatására sok minden letisztult bennünk a feladatkörökkel, felelősségekkel és a cég jövőbeni működésével kapcsolatban. Ami számomra különösen pozitív volt, hogy nem elméleti tanácsokat kaptunk, hanem olyan kérdéseket, szempontokat és konkrét segítséget, amit a saját működésünkben is tudtunk használni.",
+          "Ádámot jó szívvel ajánlom azoknak a vállalkozásoknak, ahol szükség van egy tapasztalt külső szemre, akár szervezetfejlesztésről, akár generációváltásról van szó.”"
+        ],
+        "order": 10,
         "active": true
       }
     ],

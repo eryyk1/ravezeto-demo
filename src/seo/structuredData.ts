@@ -246,18 +246,24 @@ function hoursToIsoDuration(hoursLabel: string): string | undefined {
 
 type TrainingCatalogItem = {
   title: string;
-  hours: string;
+  hours?: string;
+  description?: string;
   area: string;
 };
 
 function buildCourseNode(course: TrainingCatalogItem, index: number) {
-  const duration = hoursToIsoDuration(course.hours);
+  const duration = course.hours ? hoursToIsoDuration(course.hours) : undefined;
+  const description =
+    course.description?.trim() ||
+    (course.hours
+      ? `${course.title} — akkreditált felnőttképzési program (${course.hours}).`
+      : course.title);
 
   return {
     '@type': ['Course', 'EducationalOccupationalProgram'],
     '@id': `${SITE_URL}/felnottkepzes#course-${index + 1}`,
     name: course.title,
-    description: `${course.title} — akkreditált felnőttképzési program (${course.hours}).`,
+    description,
     provider: { '@id': ORGANIZATION_ID },
     offers: {
       '@type': 'Offer',
@@ -275,7 +281,8 @@ function buildTrainingCatalogNodes() {
   const courses: TrainingCatalogItem[] = felnottkepzesProgrammeGroups.flatMap((group) =>
     group.items.map((item) => ({
       title: item.title,
-      hours: item.hours,
+      hours: 'hours' in item ? (item.hours as string | undefined) : undefined,
+      description: item.description,
       area: group.title,
     })),
   );
@@ -285,7 +292,7 @@ function buildTrainingCatalogNodes() {
   return [
     {
       '@type': 'ItemList',
-      name: 'Képzési katalógus – Rávezető Projekt Kft.',
+      name: 'Képzéseink – Rávezető Projekt Kft.',
       numberOfItems: courses.length,
       itemListElement: courseNodes.map((course, index) => ({
         '@type': 'ListItem',

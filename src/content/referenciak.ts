@@ -53,7 +53,7 @@ export const referenciakTestimonials = [
     logo: 'Kormányhivatal',
     who: 'Arany Mónika, főosztályvezető',
     quotes: [
-      '„A Rávezető Projekt Kft. szakértőivel 2019–2020 között a szervezeti kultúrafejlesztési program során dolgoztam együtt, ami a közös érték, kultúra, szemléletváltás megújulását alapozta meg a területi közigazgatás szervezetrendszerében. A Rávezető Projekt Kft. igényes és alapos munkával feltárta a szervezet célját, törekvését, szervezeti kultúra képességét és hatékonyságát, ehhez az állapothoz igazította a közös érték, kultúra, szemléletváltás megújulását célzó fejlesztési programokat.',
+      '„A Rávezető Projekt Kft. szakértőivel a szervezeti kultúrafejlesztési program során dolgoztam együtt, ami a közös érték, kultúra, szemléletváltás megújulását alapozta meg a területi közigazgatás szervezetrendszerében. A Rávezető Projekt Kft. igényes és alapos munkával feltárta a szervezet célját, törekvését, szervezeti kultúra képességét és hatékonyságát, ehhez az állapothoz igazította a közös érték, kultúra, szemléletváltás megújulását célzó fejlesztési programokat.',
       'Szakértői magas szakmai színvonalon dolgoztak, külön figyelmet fordítottak a szervezeti kultúrafejlesztés aktuális trendjeire, változatos andragógiai-didaktikai és fejlesztési megoldásokra. Általuk eredményesen megvalósult több ezer, különböző szakterületen munkát végző munkatárs fejlesztése a szervezeti változások aktív támogatása céljából.”',
     ],
   },
@@ -94,6 +94,17 @@ export const referenciakTestimonials = [
       '„Partnerünk az elmúlt több mint másfél év során meghatározó szerepet vállalt szervezetünk fejlesztési céljainak támogatásában. Közös munkánk során kultúrafejlesztési és szervezetfejlesztési projektekben, Assessment Center folyamatok lebonyolításában, toborzási feladatokban, vezetői coaching programok megvalósításában, valamint a GINOP támogatású képzések szervezésében és lebonyolításában működtünk együtt.',
       'Tanácsadóik, támogató munkatársaik nem csupán szakértőként, hanem valódi partnerként támogatják a közös célok megvalósítását, miközben a legkülönbözőbb szervezeti kihívásokra is konstruktív és gyakorlatias megoldásokat kínálnak.',
       'A közös munka során minden esetben magas szintű szakértelmet, alapos felkészültséget és a szervezetünk működésének gyors megértését tapasztaltuk. Külön értékként emeljük ki emberközpontú hozzáállásukat, együttműködő szemléletüket és azt a figyelmet, amellyel igényeinkhez alkalmazkodnak.”',
+    ],
+  },
+  {
+    logo: 'Szervezetfejlesztés / Generációváltás',
+    who: 'Szabó Balázs, ügyvezető, közepes méretű családi vállalkozás',
+    quotes: [
+      '„Cégünk szervezetfejlesztés és generációváltás kapcsán kezdett együtt dolgozni Ríz Ádámmal és a Rávezetővel.',
+      'Már az első beszélgetések során azt éreztük, hogy Ádám gyorsan megérti, hogyan működik a cégünk, és jól rálát azokra a problémákra is, amelyeket belülről sokszor nehezebb észrevenni. Nagyon sokat segített abban, hogy bizonyos helyzeteket más szemszögből nézzünk, és tisztábban lássuk, min érdemes változtatnunk.',
+      'A generációváltás nálunk természetesen nem csak üzleti kérdés. Egy családi vállalkozásban a céges és a családi szerepek sokszor összemosódnak, ezért nem mindig egyszerű megtalálni azt a megoldást, ami hosszú távon is jól működik. Ádám ebben végig objektív tudott maradni, ugyanakkor értette és jól kezelte az emberi oldalát is a folyamatnak.',
+      'A közös munka hatására sok minden letisztult bennünk a feladatkörökkel, felelősségekkel és a cég jövőbeni működésével kapcsolatban. Ami számomra különösen pozitív volt, hogy nem elméleti tanácsokat kaptunk, hanem olyan kérdéseket, szempontokat és konkrét segítséget, amit a saját működésünkben is tudtunk használni.',
+      'Ádámot jó szívvel ajánlom azoknak a vállalkozásoknak, ahol szükség van egy tapasztalt külső szemre, akár szervezetfejlesztésről, akár generációváltásról van szó.”',
     ],
   },
 ] as const;
