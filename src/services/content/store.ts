@@ -154,6 +154,56 @@ function normalizeTanacsadas(
   };
 }
 
+const LEGACY_FELNOTTKEPZES_INTRO_MARKERS = [
+  'A szervezeti teljesítmény növelése optimálisan',
+  'Cégünk felnőttképzési engedéllyel rendelkező intézmény',
+] as const;
+
+function felnottkepzesIntroParagraphs(
+  stored: string[] | undefined,
+  defaults: FelnottkepzesPageContent,
+): string[] {
+  const paragraphs = stored?.filter((p) => typeof p === 'string' && p.trim()) ?? [];
+  if (!paragraphs.length) return [...defaults.credentials.paragraphs];
+  const legacy = paragraphs.some((p) =>
+    LEGACY_FELNOTTKEPZES_INTRO_MARKERS.some((marker) => p.includes(marker)),
+  );
+  if (legacy) return [...defaults.credentials.paragraphs];
+  return paragraphs;
+}
+
+function normalizeFelnottkepzes(
+  stored: Partial<FelnottkepzesPageContent> | undefined,
+  defaults: FelnottkepzesPageContent,
+): FelnottkepzesPageContent {
+  if (!stored) return { ...defaults };
+
+  return {
+    ...defaults,
+    ...stored,
+    hero: { ...defaults.hero, ...stored.hero },
+    keyMessage: { ...defaults.keyMessage, ...stored.keyMessage },
+    credentials: {
+      paragraphs: felnottkepzesIntroParagraphs(stored.credentials?.paragraphs, defaults),
+    },
+    methodTags: stored.methodTags?.length ? stored.methodTags : defaults.methodTags,
+    registration:
+      typeof stored.registration === 'string' && stored.registration.trim()
+        ? stored.registration
+        : defaults.registration,
+    license:
+      typeof stored.license === 'string' && stored.license.trim()
+        ? stored.license
+        : defaults.license,
+    motto: typeof stored.motto === 'string' && stored.motto.trim() ? stored.motto : defaults.motto,
+    processLead:
+      typeof stored.processLead === 'string' && stored.processLead.trim()
+        ? stored.processLead
+        : defaults.processLead,
+    close: { ...defaults.close, ...stored.close },
+  };
+}
+
 function normalizeFelnottkepzesProgrammes(
   stored: FelnottkepzesProgrammeGroup[] | undefined,
   defaults: FelnottkepzesProgrammeGroup[],
@@ -269,6 +319,7 @@ function mergeSiteContent(parsed: Partial<SiteContent>, defaults: SiteContent): 
           ? parsed.jogiAdatvedelem.bodyHtml
           : defaults.jogiAdatvedelem.bodyHtml,
     },
+    felnottkepzes: normalizeFelnottkepzes(parsed.felnottkepzes, defaults.felnottkepzes),
     felnottkepzesProgrammes: normalizeFelnottkepzesProgrammes(
       parsed.felnottkepzesProgrammes,
       defaults.felnottkepzesProgrammes,
