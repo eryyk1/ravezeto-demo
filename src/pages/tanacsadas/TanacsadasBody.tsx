@@ -30,7 +30,7 @@ export default function TanacsadasBody() {
         </div>
       </div>
 
-      <section className="chapter">
+      <section className="chapter" id="szervezetfejlesztes">
         <div className="wrap">
           <div className="ch-head">
                   <h2 className="ch-big">Szervezet<wbr /><b>fejlesztés</b></h2>
@@ -55,7 +55,7 @@ export default function TanacsadasBody() {
         </div>
       </section>
 
-      <section className="chapter w alt">
+      <section className="chapter w alt" id="valtozasmenedzsment">
         <div className="wrap">
           <div className="ch-head">
                   <h2 className="ch-big">Változás<wbr /><b>menedzsment</b></h2>
@@ -67,7 +67,7 @@ export default function TanacsadasBody() {
         </div>
       </section>
 
-      <section className="chapter">
+      <section className="chapter" id="coaching">
         <div className="wrap">
           <div className="ch-head">
                   <h2 className="ch-big">Üzleti edzés, <b>coaching</b></h2>

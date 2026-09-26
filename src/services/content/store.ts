@@ -248,17 +248,26 @@ function normalizeTeam(
   stored: TeamMember[] | undefined,
   defaults: TeamMember[],
 ): TeamMember[] {
-  if (!stored?.length) return defaults;
-  const defaultBySlug = new Map(defaults.map((member) => [member.slug, member]));
-  return stored.map((member) => {
+  const storedBySlug = new Map((stored ?? []).map((member) => [member.slug, member]));
+  return defaults.map((def) => {
+    const patch = storedBySlug.get(def.slug);
+    if (!patch) return { ...def };
+
     let linkedInUrl: string | undefined;
-    if (member.linkedInUrl !== undefined) {
-      const trimmed = member.linkedInUrl.trim();
+    if (patch.linkedInUrl !== undefined) {
+      const trimmed = patch.linkedInUrl.trim();
       linkedInUrl = trimmed || undefined;
     } else {
-      linkedInUrl = defaultBySlug.get(member.slug)?.linkedInUrl;
+      linkedInUrl = def.linkedInUrl;
     }
-    return { ...member, linkedInUrl };
+
+    return {
+      ...def,
+      order: patch.order,
+      active: patch.active,
+      linkedInUrl,
+      portrait: patch.portrait?.trim() ? patch.portrait : def.portrait,
+    };
   });
 }
 

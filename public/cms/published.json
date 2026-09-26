@@ -1,8 +1,8 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-24T12:50:59.747Z",
+  "generatedAt": "2026-09-26T08:20:52.176Z",
   "buildRef": "local",
-  "defaultsRevision": 14,
+  "defaultsRevision": 16,
   "published": {
     "schemaVersion": 2,
     "company": {
@@ -637,12 +637,12 @@
       {
         "path": "/jogi/adatvedelem",
         "title": "RÁVezető – Adatvédelem",
-        "description": "A Rávezető Projekt Kft. adatvédelmi szabályzata. A végleges szöveg feltöltése az oldal élesítése előtt történik meg."
+        "description": "A Rávezető Projekt Kft. adatvédelmi tájékoztatói és adatkezelési gyakorlata. Engedélyezett felnőttképző intézmény (E/2021/000106, B/2020/001943)."
       },
       {
         "path": "/jogi/impresszum",
         "title": "RÁVezető – Impresszum",
-        "description": "A Rávezető Projekt Kft. impresszuma. A végleges jogi tartalom feltöltése az oldal élesítése előtt történik meg."
+        "description": "A Rávezető Projekt Kft. hivatalos elérhetőségei, cégadatok és jogi dokumentumai."
       },
       {
         "path": "/jogi/cookie",
@@ -710,7 +710,7 @@
         "name": "Szőke Ádám",
         "slug": "szoke-adam",
         "role": "Tanácsadó",
-        "bio": "A Rávezetőben elsősorban szervezetfejlesztési projekteken dolgozom tanácsadóként, amelyben nagy segítséget nyújt a korábban 9 év alatt szerzett vezetői tapasztalatom egy felsőoktatási intézményben. Rendszergondolkodásom, empátiám kiegészült a szervezetfejlesztés képzésen szerzett strukturált ismeretekkel, amelyeket még tovább bővítve igyekszem több szemszögből és eszközzel megközelíteni az egyéni-, csoportos- és szervezeti problémákat.",
+        "bio": "Azt keresem, hogy mitől fáj valójában. A legapróbb részletig leírt folyamat sem lesz hatékony, ha a benne dolgozók nem tudnak együttműködni. Ennek feloldása és támogatása egy olyan feladat, ami állandó kihívást biztosít és új eszközök, módszerek kipróbálására motivál.",
         "portrait": "",
         "portraitPosition": "center 22%",
         "linkedInUrl": "https://www.linkedin.com/in/%C3%A1d%C3%A1m-sz%C5%91ke-a628a7a7/",

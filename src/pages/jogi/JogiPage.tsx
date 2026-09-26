@@ -21,7 +21,8 @@ export default function JogiPage() {
   const impresszum = useJogiImpresszumContent();
   const adatvedelem = useJogiAdatvedelemContent();
 
-  const variant = slug === 'impresszum' ? 'impresszum' : 'adatvedelem';
+  const variant =
+    slug === 'impresszum' ? 'impresszum' : slug === 'cookie' ? 'cookie' : 'adatvedelem';
 
   return (
     <JogiDocumentBody

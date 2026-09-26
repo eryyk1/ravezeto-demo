@@ -53,7 +53,7 @@ export const teamMembers: TeamMember[] = [
     id: 806,
     name: 'Szőke Ádám',
     slug: 'szoke-adam',
-    bio: 'A Rávezetőben elsősorban szervezetfejlesztési projekteken dolgozom tanácsadóként, amelyben nagy segítséget nyújt a korábban 9 év alatt szerzett vezetői tapasztalatom egy felsőoktatási intézményben. Rendszergondolkodásom, empátiám kiegészült a szervezetfejlesztés képzésen szerzett strukturált ismeretekkel, amelyeket még tovább bővítve igyekszem több szemszögből és eszközzel megközelíteni az egyéni-, csoportos- és szervezeti problémákat.',
+    bio: 'Azt keresem, hogy mitől fáj valójában. A legapróbb részletig leírt folyamat sem lesz hatékony, ha a benne dolgozók nem tudnak együttműködni. Ennek feloldása és támogatása egy olyan feladat, ami állandó kihívást biztosít és új eszközök, módszerek kipróbálására motivál.',
     portrait: teamPhotos2025['szoke-adam'],
     portraitPosition: 'center 22%',
   },

@@ -101,9 +101,9 @@ export const rolunkTestimonials = [
   },
   {
     quote:
-      'A Rávezető Projekt Kft. szakértőivel 2019-2020 között a szervezeti kultúrafejlesztési program során dolgoztam együtt, ami a közös érték, kultúra, szemléletváltás megújulását alapozta meg a területi közigazgatás szervezetrendszerében. A Rávezető Projekt Kft. igényes és alapos munkával feltárta a szervezet célját, törekvését, szervezeti kultúra képességét és hatékonyságát, ehhez az állapothoz igazította a közös érték, kultúra, szemléletváltás megújulását célzó fejlesztési programokat. Szakértői magas szakmai színvonalon dolgoztak, külön figyelmet fordítottak a szervezeti kultúrafejlesztés aktuális trendjeire, változatos andragógiai-didaktikai és fejlesztési megoldásokra. Általuk eredményesen megvalósult több ezer, különböző szakterületen munkát végző munkatárs fejlesztése a szervezeti változások aktív támogatása céljából.',
+      'A Rávezető Projekt Kft. szakértőivel a szervezeti kultúrafejlesztési program során dolgoztam együtt, ami a közös érték, kultúra, szemléletváltás megújulását alapozta meg a területi közigazgatás szervezetrendszerében. A Rávezető Projekt Kft. igényes és alapos munkával feltárta a szervezet célját, törekvését, szervezeti kultúra képességét és hatékonyságát, ehhez az állapothoz igazította a közös érték, kultúra, szemléletváltás megújulását célzó fejlesztési programokat. Szakértői magas szakmai színvonalon dolgoztak, külön figyelmet fordítottak a szervezeti kultúrafejlesztés aktuális trendjeire, változatos andragógiai-didaktikai és fejlesztési megoldásokra. Általuk eredményesen megvalósult több ezer, különböző szakterületen munkát végző munkatárs fejlesztése a szervezeti változások aktív támogatása céljából.',
     author: 'Arany Mónika',
-    role: 'főosztályvezető (2019-2020)',
+    role: 'főosztályvezető',
   },
 ] as const;
 

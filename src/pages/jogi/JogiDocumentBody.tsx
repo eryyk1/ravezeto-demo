@@ -4,8 +4,9 @@ import { SITE_LAST_MODIFIED, SITE_LAST_MODIFIED_LABEL } from '../../seo/config';
 import { defaultJogiAdatvedelem } from '../../content/jogi/jogiDefaults';
 import type { JogiAdatvedelemContent, JogiImpresszumContent } from '../../services/content/types';
 import { useJogiTocSpy } from './useJogiTocSpy';
+import { jogiPages } from './jogiContent';
 
-export type JogiDocumentVariant = 'impresszum' | 'adatvedelem';
+export type JogiDocumentVariant = 'impresszum' | 'adatvedelem' | 'cookie';
 
 type JogiDocumentBodyProps = {
   variant: JogiDocumentVariant;
@@ -21,6 +22,7 @@ export default function JogiDocumentBody({
   logoSrc = '/assets/images/adatvedelem/img-02.svg',
 }: JogiDocumentBodyProps) {
   const isAdatvedelem = variant === 'adatvedelem';
+  const isCookie = variant === 'cookie';
   useJogiTocSpy(isAdatvedelem);
 
   const adatLead =
@@ -28,7 +30,12 @@ export default function JogiDocumentBody({
   const adatBodyHtml =
     adatvedelem.bodyHtml?.trim() || defaultJogiAdatvedelem.bodyHtml;
 
-  const title = isAdatvedelem ? 'Adatkezelési tájékoztató' : 'Impresszum';
+  const cookiePage = jogiPages.cookie;
+  const title = isCookie
+    ? cookiePage.title
+    : isAdatvedelem
+      ? 'Adatkezelési tájékoztató'
+      : 'Impresszum';
 
   return (
     <>
@@ -37,6 +44,7 @@ export default function JogiDocumentBody({
           <div className="kicker">Dokumentumok</div>
           <h1>{title}</h1>
           {isAdatvedelem && adatLead ? <p className="hlead">{adatLead}</p> : null}
+          {isCookie && cookiePage.intro ? <p className="hlead">{cookiePage.intro}</p> : null}
         </div>
       </section>
 
@@ -47,6 +55,25 @@ export default function JogiDocumentBody({
               className="lgrid"
               dangerouslySetInnerHTML={{ __html: adatBodyHtml }}
             />
+          ) : isCookie ? (
+            <div className="legal rev">
+              {cookiePage.body?.map((paragraph) => (
+                <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+              ))}
+              <ul className="doc-list">
+                {cookiePage.documents.map((doc) => (
+                  <li key={doc.href}>
+                    <a href={doc.href} target="_blank" rel="noopener noreferrer">
+                      {doc.label}
+                    </a>
+                    {doc.description ? <> — {doc.description}</> : null}
+                  </li>
+                ))}
+              </ul>
+              <p>
+                <Link to="/jogi/adatvedelem">Teljes adatkezelési tájékoztató →</Link>
+              </p>
+            </div>
           ) : (
             <div className="legal rev">
               <div dangerouslySetInnerHTML={{ __html: impresszum.bodyHtml }} />
