@@ -2,7 +2,8 @@ import type { IncomingMessage, ServerResponse } from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import type { Plugin } from 'vite';
-import { verifyAdminToken, getAdminSecret } from './api/lib/adminAuth.js';
+import { getAdminSecret } from './api/lib/adminAuth.js';
+import { requireActiveAdmin } from './api/lib/adminAccess.js';
 import {
   readCmsStateFromDisk,
   writeCmsStateToDisk,
@@ -24,29 +25,17 @@ function json(res: ServerResponse, status: number, body: unknown) {
   res.end(JSON.stringify(body));
 }
 
-function getBearer(req: IncomingMessage): string | null {
-  const header = req.headers.authorization;
-  if (!header?.startsWith('Bearer ')) return null;
-  return header.slice(7);
-}
-
-async function requireAuth(req: IncomingMessage, res: ServerResponse) {
-  const secret = getAdminSecret();
-  if (!secret) {
+async function requireAuth(req: IncomingMessage, res: ServerResponse, rootDir: string) {
+  if (!getAdminSecret()) {
     json(res, 503, { error: 'CMS API: állítsa be az ADMIN_JWT_SECRET értéket a .env.local fájlban.' });
     return null;
   }
-  const token = getBearer(req);
-  if (!token) {
-    json(res, 401, { error: 'Unauthorized' });
+  const auth = await requireActiveAdmin(req, rootDir);
+  if (auth.status) {
+    json(res, auth.status, auth.body);
     return null;
   }
-  const payload = await verifyAdminToken(token, secret);
-  if (!payload) {
-    json(res, 401, { error: 'Invalid or expired session' });
-    return null;
-  }
-  return payload;
+  return auth.user;
 }
 
 export function cmsApiDevPlugin(rootDir: string): Plugin {
@@ -81,14 +70,14 @@ export function cmsApiDevPlugin(rootDir: string): Plugin {
         }
 
         if (pathname === '/api/cms/state' && req.method === 'GET') {
-          if (!(await requireAuth(req, res))) return;
+          if (!(await requireAuth(req, res, rootDir))) return;
           const state = readCmsStateFromDisk(rootDir);
           if (!state) return json(res, 404, { error: 'CMS state not initialized on server' });
           return json(res, 200, { state });
         }
 
         if (pathname === '/api/cms/state' && (req.method === 'PUT' || req.method === 'POST')) {
-          if (!(await requireAuth(req, res))) return;
+          if (!(await requireAuth(req, res, rootDir))) return;
           try {
             const raw = await readBody(req);
             const body = JSON.parse(raw.toString('utf8')) as { state?: unknown };
@@ -103,7 +92,7 @@ export function cmsApiDevPlugin(rootDir: string): Plugin {
         }
 
         if (pathname === '/api/cms/publish' && req.method === 'POST') {
-          if (!(await requireAuth(req, res))) return;
+          if (!(await requireAuth(req, res, rootDir))) return;
           try {
             const raw = await readBody(req);
             const body = JSON.parse(raw.toString('utf8')) as { state?: unknown };
@@ -118,7 +107,7 @@ export function cmsApiDevPlugin(rootDir: string): Plugin {
         }
 
         if (pathname === '/api/cms/upload' && req.method === 'POST') {
-          if (!(await requireAuth(req, res))) return;
+          if (!(await requireAuth(req, res, rootDir))) return;
           return json(res, 501, {
             error:
               'Helyi fájlfeltöltés: használjon /assets/... URL-t, vagy telepítse a PHP CMS API-t. (Dev upload hamarosan.)',

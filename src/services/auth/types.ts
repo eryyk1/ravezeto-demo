@@ -1,6 +1,9 @@
+export type AdminRole = 'foadmin' | 'admin';
+
 export type AuthUser = {
   id: string;
   email: string;
+  role: AdminRole;
 };
 
 export type AuthSession = {

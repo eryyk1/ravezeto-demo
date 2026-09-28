@@ -53,44 +53,10 @@ export function getAdminSecret() {
   return process.env.ADMIN_JWT_SECRET ?? null;
 }
 
-/**
- * Authenticate against configured admin accounts (primary + optional client).
- * Returns { id, email } on success, null on failure.
- */
-export function authenticateAdminUser(email, password) {
-  const normalizedEmail = String(email ?? '').trim();
-  const normalizedPassword = String(password ?? '');
-
-  const primaryEmail = process.env.ADMIN_EMAIL;
-  const primaryPassword = process.env.ADMIN_PASSWORD;
-  if (
-    primaryEmail &&
-    primaryPassword &&
-    normalizedEmail === primaryEmail &&
-    normalizedPassword === primaryPassword
-  ) {
-    return { id: 'admin', email: primaryEmail };
-  }
-
-  const clientEmail = process.env.CLIENT_ADMIN_EMAIL;
-  const clientPassword = process.env.CLIENT_ADMIN_PASSWORD;
-  if (
-    clientEmail &&
-    clientPassword &&
-    normalizedEmail === clientEmail &&
-    normalizedPassword === clientPassword
-  ) {
-    return { id: 'client-admin', email: clientEmail };
-  }
-
-  return null;
-}
-
-/** @deprecated Use authenticateAdminUser — kept for callers expecting a boolean */
-export function validateAdminCredentials(email, password) {
-  return authenticateAdminUser(email, password) !== null;
-}
-
-export function isPrimaryAdminConfigured() {
-  return Boolean(process.env.ADMIN_EMAIL && process.env.ADMIN_PASSWORD && getAdminSecret());
+export function isAdminAuthConfigured() {
+  if (!getAdminSecret()) return false;
+  return Boolean(
+    process.env.ADMIN_BOOTSTRAP_PASSWORD ||
+      (process.env.ADMIN_EMAIL && process.env.ADMIN_PASSWORD),
+  );
 }

@@ -25,6 +25,8 @@ import PalyazatokEditPage from './pages/palyazatok/PalyazatokEditPage';
 import JogiAdatvedelemEditPage from './pages/jogi/JogiAdatvedelemEditPage';
 import JogiImpresszumEditPage from './pages/jogi/JogiImpresszumEditPage';
 import VersionsPage from './pages/VersionsPage';
+import ProtectedFoadminRoute from './components/ProtectedFoadminRoute';
+import AdminUsersPage from './pages/users/AdminUsersPage';
 import './admin.css';
 
 function AdminBodyClass() {
@@ -65,6 +67,9 @@ export default function AdminApp() {
             <Route path="jogi/adatvedelem" element={<JogiAdatvedelemEditPage />} />
             <Route path="verziok" element={<VersionsPage />} />
             <Route path="settings" element={<SettingsPage />} />
+            <Route element={<ProtectedFoadminRoute />}>
+              <Route path="users" element={<AdminUsersPage />} />
+            </Route>
           </Route>
           <Route path="*" element={<Navigate to="dashboard" replace />} />
         </Routes>

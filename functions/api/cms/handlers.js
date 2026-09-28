@@ -1,4 +1,4 @@
-import { verifyAdminToken, getAdminSecret } from '../../lib/adminAuth.js';
+import { requireActiveAdmin } from '../../lib/adminAccess.js';
 import { jsonResponse } from '../../lib/http.js';
 import {
   buildPublishedPayload,
@@ -7,26 +7,8 @@ import {
   writeCmsState,
 } from '../../lib/cmsStorage.js';
 
-function getBearerToken(request) {
-  const header = request.headers.get('Authorization');
-  if (!header?.startsWith('Bearer ')) return null;
-  return header.slice(7);
-}
-
 async function requireAdmin(request, env) {
-  const secret = getAdminSecret(env);
-  if (!secret) {
-    return { error: jsonResponse({ error: 'Auth not configured' }, 503) };
-  }
-  const token = getBearerToken(request);
-  if (!token) {
-    return { error: jsonResponse({ error: 'Unauthorized' }, 401) };
-  }
-  const payload = await verifyAdminToken(token, secret);
-  if (!payload) {
-    return { error: jsonResponse({ error: 'Invalid or expired session' }, 401) };
-  }
-  return { payload };
+  return requireActiveAdmin(request, env);
 }
 
 export async function handleCmsPublishedGet(_request, env) {

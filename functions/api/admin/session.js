@@ -1,32 +1,18 @@
-import { getAdminSecret, verifyAdminToken } from '../../lib/adminAuth.js';
+import { requireActiveAdmin } from '../../lib/adminAccess.js';
+import { getAdminSecret } from '../../lib/adminAuth.js';
 import { jsonResponse } from '../../lib/http.js';
 
-function getBearerToken(request) {
-  const header = request.headers.get('Authorization');
-  if (!header?.startsWith('Bearer ')) return null;
-  return header.slice(7);
-}
-
 export async function handleAdminSession(request, env) {
-  const secret = getAdminSecret(env);
-
-  if (!secret) {
+  if (!getAdminSecret(env)) {
     return jsonResponse({ error: 'Auth not configured' }, 503);
   }
 
-  const token = getBearerToken(request);
-  if (!token) {
-    return jsonResponse({ error: 'Unauthorized' }, 401);
-  }
-
-  const payload = await verifyAdminToken(token, secret);
-  if (!payload) {
-    return jsonResponse({ error: 'Invalid or expired session' }, 401);
-  }
+  const auth = await requireActiveAdmin(request, env);
+  if (auth.error) return auth.error;
 
   return jsonResponse({
-    user: { id: payload.sub, email: payload.email },
-    expiresAt: payload.exp,
+    user: auth.user,
+    expiresAt: auth.payload.exp,
   });
 }
 

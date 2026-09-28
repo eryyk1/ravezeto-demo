@@ -1,19 +1,17 @@
-import {
-  authenticateAdminUser,
-  getAdminSecret,
-  signAdminToken,
-} from '../../lib/adminAuth.js';
+import { getAdminSecret, isAdminAuthConfigured, signAdminToken } from '../../lib/adminAuth.js';
+import { readAdminUsers, writeAdminUsers } from '../../lib/adminUserStore.js';
+import { authenticateAdminUser } from '../../lib/adminUsersService.js';
 import { ADMIN_SESSION_TTL_MS } from '../../lib/sessionConfig.js';
 import { jsonResponse } from '../../lib/http.js';
 
 export async function handleAdminLogin(request, env) {
   const secret = getAdminSecret(env);
 
-  if (!secret) {
+  if (!secret || !isAdminAuthConfigured(env)) {
     return jsonResponse(
       {
         error:
-          'Az admin bejelentkezés nincs konfigurálva. Állítsa be az ADMIN_EMAIL, ADMIN_PASSWORD és ADMIN_JWT_SECRET változókat a Cloudflare Worker környezeti változóiban.',
+          'Az admin bejelentkezés nincs konfigurálva. Állítsa be az ADMIN_JWT_SECRET értéket, és a CMS_KV-t, valamint az ADMIN_BOOTSTRAP_* vagy legacy ADMIN_EMAIL/ADMIN_PASSWORD párost.',
       },
       503,
     );
@@ -33,19 +31,27 @@ export async function handleAdminLogin(request, env) {
     return jsonResponse({ error: 'Email és jelszó megadása kötelező.' }, 400);
   }
 
-  const user = authenticateAdminUser(email, password, env);
+  const user = await authenticateAdminUser(email, password, {
+    env,
+    readUsers: () => readAdminUsers(env),
+    writeUsers: (record) => writeAdminUsers(env, record),
+  });
   if (!user) {
     return jsonResponse({ error: 'Hibás email vagy jelszó.' }, 401);
   }
 
   const ttlMs = ADMIN_SESSION_TTL_MS;
   const expiresAt = Date.now() + ttlMs;
-  const accessToken = await signAdminToken({ sub: user.id, email: user.email }, secret, ttlMs);
+  const accessToken = await signAdminToken(
+    { sub: user.id, email: user.email, role: user.role },
+    secret,
+    ttlMs,
+  );
 
   return jsonResponse({
     accessToken,
     expiresAt,
-    user: { id: user.id, email: user.email },
+    user: { id: user.id, email: user.email, role: user.role },
   });
 }
 

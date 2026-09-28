@@ -52,6 +52,7 @@ const NAV_SECTIONS = [
 
 export default function AdminSidebar() {
   const { logout, session } = useAuth();
+  const isFoadmin = session?.user.role === 'foadmin';
   const { sidebarOpen, setSidebarOpen } = useAdminUi();
   const meta = useCmsMeta();
   const navigate = useNavigate();
@@ -103,6 +104,18 @@ export default function AdminSidebar() {
                   </NavLink>
                 );
               })}
+              {section.title === 'Rendszer' && isFoadmin ? (
+                <NavLink
+                  to="/admin/users"
+                  className={({ isActive }) =>
+                    `admin-sidebar__link${isActive ? ' is-active' : ''}`
+                  }
+                  onClick={() => setSidebarOpen(false)}
+                >
+                  <IconUsers className="admin-sidebar__icon" />
+                  <span>Felhasználók</span>
+                </NavLink>
+              ) : null}
             </div>
           ))}
         </nav>
@@ -111,7 +124,10 @@ export default function AdminSidebar() {
           <p className="admin-sidebar__build">
             Build: {__APP_BUILD_ID__} · Tartalom rev: {meta.defaultsRevision ?? 0}/{CONTENT_DEFAULTS_REVISION}
           </p>
-          <p className="admin-sidebar__user">{session?.user.email}</p>
+          <p className="admin-sidebar__user">
+            {session?.user.email}
+            {session?.user.role === 'foadmin' ? ' · Főadmin' : ' · Admin'}
+          </p>
           <a className="admin-sidebar__link admin-sidebar__link--muted" href="/" target="_blank" rel="noreferrer">
             <IconExternal className="admin-sidebar__icon" />
             <span>Weboldal megnyitása</span>

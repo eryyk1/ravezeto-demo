@@ -68,35 +68,10 @@ export function getAdminSecret(env) {
   return env?.ADMIN_JWT_SECRET ?? null;
 }
 
-export function authenticateAdminUser(email, password, env) {
-  const normalizedEmail = String(email ?? '').trim();
-  const normalizedPassword = String(password ?? '');
-
-  const primaryEmail = env?.ADMIN_EMAIL;
-  const primaryPassword = env?.ADMIN_PASSWORD;
-  if (
-    primaryEmail &&
-    primaryPassword &&
-    normalizedEmail === primaryEmail &&
-    normalizedPassword === primaryPassword
-  ) {
-    return { id: 'admin', email: primaryEmail };
-  }
-
-  const clientEmail = env?.CLIENT_ADMIN_EMAIL;
-  const clientPassword = env?.CLIENT_ADMIN_PASSWORD;
-  if (
-    clientEmail &&
-    clientPassword &&
-    normalizedEmail === clientEmail &&
-    normalizedPassword === clientPassword
-  ) {
-    return { id: 'client-admin', email: clientEmail };
-  }
-
-  return null;
-}
-
-export function isPrimaryAdminConfigured(env) {
-  return Boolean(env?.ADMIN_EMAIL && env?.ADMIN_PASSWORD && getAdminSecret(env));
+export function isAdminAuthConfigured(env) {
+  if (!getAdminSecret(env)) return false;
+  if (env?.CMS_KV) return true;
+  return Boolean(
+    env?.ADMIN_BOOTSTRAP_PASSWORD || (env?.ADMIN_EMAIL && env?.ADMIN_PASSWORD),
+  );
 }

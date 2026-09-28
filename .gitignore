@@ -3,4 +3,5 @@ dist
 .env.local
 .env*.local
 data/cms/state.json
+data/cms/admin-users.json
 public/api/cms/config.php

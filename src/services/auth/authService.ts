@@ -45,16 +45,21 @@ async function apiLogin(email: string, password: string): Promise<LoginResult> {
 
     const accessToken = payload.accessToken;
     const expiresAt = payload.expiresAt;
-    const user = payload.user as { id: string; email: string } | undefined;
+    const user = payload.user as { id: string; email: string; role?: string } | undefined;
 
-    if (typeof accessToken !== 'string' || !user?.email || typeof expiresAt !== 'number') {
+    if (
+      typeof accessToken !== 'string' ||
+      !user?.email ||
+      typeof expiresAt !== 'number' ||
+      (user.role !== 'foadmin' && user.role !== 'admin')
+    ) {
       return { ok: false, error: 'Érvénytelen szerver válasz.' };
     }
 
     const session: AuthSession = {
       accessToken,
       expiresAt,
-      user,
+      user: { id: user.id, email: user.email, role: user.role },
     };
 
     saveSession(session);
@@ -80,10 +85,14 @@ async function apiGetSession(): Promise<AuthSession | null> {
     }
 
     const payload = await parseJsonBody(response);
-    const user = payload.user as { id: string; email: string } | undefined;
+    const user = payload.user as { id: string; email: string; role?: string } | undefined;
     const expiresAt = payload.expiresAt;
 
-    if (!user?.email || typeof expiresAt !== 'number') {
+    if (
+      !user?.email ||
+      typeof expiresAt !== 'number' ||
+      (user.role !== 'foadmin' && user.role !== 'admin')
+    ) {
       clearSession();
       return null;
     }
@@ -91,7 +100,7 @@ async function apiGetSession(): Promise<AuthSession | null> {
     const session: AuthSession = {
       accessToken: token,
       expiresAt,
-      user,
+      user: { id: user.id, email: user.email, role: user.role },
     };
     saveSession(session);
     return session;

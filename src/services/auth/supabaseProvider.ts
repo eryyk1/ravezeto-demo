@@ -20,7 +20,7 @@ export function createSupabaseAuthProvider(url: string, anonKey: string): AuthPr
       const session: AuthSession = {
         accessToken: data.session.access_token,
         expiresAt: (data.session.expires_at ?? 0) * 1000,
-        user: { id: data.user.id, email: data.user.email ?? email },
+        user: { id: data.user.id, email: data.user.email ?? email, role: 'foadmin' },
       };
       saveSession(session);
       return { ok: true, session };
@@ -45,6 +45,7 @@ export function createSupabaseAuthProvider(url: string, anonKey: string): AuthPr
         user: {
           id: data.session.user.id,
           email: data.session.user.email ?? cached?.user.email ?? '',
+          role: cached?.user.role ?? 'foadmin',
         },
       };
       saveSession(session);

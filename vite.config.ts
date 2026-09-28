@@ -12,6 +12,8 @@ const ADMIN_ENV_KEYS = [
   'ADMIN_EMAIL',
   'ADMIN_PASSWORD',
   'ADMIN_JWT_SECRET',
+  'ADMIN_BOOTSTRAP_EMAIL',
+  'ADMIN_BOOTSTRAP_PASSWORD',
   'CLIENT_ADMIN_EMAIL',
   'CLIENT_ADMIN_PASSWORD',
 ] as const;
@@ -34,7 +36,7 @@ export default defineConfig(({ mode }) => {
     define: {
       __APP_BUILD_ID__: JSON.stringify(buildId),
     },
-    plugins: [react(), adminAuthDevPlugin(), contactApiDevPlugin(), cmsApiDevPlugin(viteRoot)],
+    plugins: [react(), adminAuthDevPlugin(viteRoot), contactApiDevPlugin(), cmsApiDevPlugin(viteRoot)],
     server: {
       watch: {
         // OneDrive can lock PDFs and favicons in public/, causing EBUSY watcher crashes.

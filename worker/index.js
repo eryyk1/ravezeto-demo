@@ -1,6 +1,7 @@
 import { handleAdminLogin } from '../functions/api/admin/login.js';
 import { handleAdminLogout } from '../functions/api/admin/logout.js';
 import { handleAdminSession } from '../functions/api/admin/session.js';
+import { routeAdminUsers } from '../functions/api/admin/users.js';
 import { handleContactSubmit } from '../functions/api/contact.js';
 import {
   handleCmsPublishedGet,
@@ -36,6 +37,11 @@ export default {
 
     if (path === '/api/admin/logout' && request.method === 'POST') {
       return handleAdminLogout(request, env);
+    }
+
+    if (path.startsWith('/api/admin/users')) {
+      const usersResponse = await routeAdminUsers(request, env, path);
+      if (usersResponse) return usersResponse;
     }
 
     if (
