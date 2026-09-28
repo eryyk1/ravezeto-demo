@@ -10,6 +10,10 @@ body.admin-mode {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body.admin-mode {
+  overflow-x: clip;
+}
+
 /* Neutralize public-site header styles that leak into admin via global `header` selector */
 body.admin-mode header,
 body.admin-mode .admin-page-header,
@@ -76,6 +80,8 @@ body.admin-mode .rev {
     var(--admin-bg);
   color: var(--admin-ink);
   font-family: 'Mulish', system-ui, sans-serif;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 .admin-main {
@@ -105,6 +111,8 @@ body.admin-mode .rev {
   font-size: 1.1rem;
   cursor: pointer;
   color: var(--admin-ink);
+  flex-shrink: 0;
+  line-height: 1;
 }
 
 .admin-topbar__title {
@@ -118,6 +126,8 @@ body.admin-mode .rev {
   padding: 2rem 2.25rem 3rem;
   width: 100%;
   max-width: 1180px;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 /* ── Page layout ── */
@@ -651,6 +661,10 @@ body.admin-mode .rev {
 .admin-table-wrap {
   overflow-x: auto;
   padding: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
 }
 
 .admin-table {
@@ -666,6 +680,8 @@ body.admin-mode .rev {
   border-bottom: 1px solid var(--admin-border);
   vertical-align: middle;
   line-height: 1.5;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .admin-table th {
@@ -1401,6 +1417,26 @@ body.admin-mode .rev {
 
   .admin-topbar {
     display: flex;
+    flex-wrap: wrap;
+    row-gap: 0.65rem;
+  }
+
+  .admin-topbar__menu {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .admin-topbar__title {
+    min-width: 0;
+    flex: 1 1 8rem;
+  }
+
+  .admin-topbar__actions {
+    flex: 1 1 100%;
+    justify-content: flex-end;
   }
 
   .admin-content {
@@ -1420,8 +1456,8 @@ body.admin-mode .rev {
   }
 
   .admin-page-header__actions .admin-btn {
-    flex: 1;
-    min-width: fit-content;
+    flex: 1 1 auto;
+    min-width: min(100%, 10rem);
   }
 
   .admin-page__body {
@@ -1434,6 +1470,37 @@ body.admin-mode .rev {
 
   .admin-cards {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .admin-panel__head {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .admin-version-preview__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-activity-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .admin-activity-list time {
+    white-space: normal;
+  }
+
+  .admin-toasts {
+    left: 1rem;
+    right: 1rem;
+    bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+  }
+
+  .admin-toast {
+    min-width: 0;
+    max-width: none;
+    width: 100%;
   }
 
   .admin-login__layout {
@@ -1454,9 +1521,20 @@ body.admin-mode .rev {
   .admin-login__logo {
     margin-inline: auto;
   }
+
+  .admin-modal-backdrop {
+    align-items: flex-start;
+    padding: 1rem;
+    padding-top: max(1rem, env(safe-area-inset-top, 0px));
+  }
 }
 
 @media (max-width: 40rem) {
+  :root {
+    --admin-page-gap: 1.35rem;
+    --admin-header-gap: 1.15rem;
+  }
+
   .admin-cards {
     grid-template-columns: 1fr;
   }
@@ -1474,18 +1552,58 @@ body.admin-mode .rev {
 
   .admin-save-bar__actions {
     width: 100%;
+    flex-direction: column;
   }
 
   .admin-save-bar__actions .admin-btn {
-    flex: 1;
+    width: 100%;
+    min-height: 2.75rem;
+  }
+
+  .admin-topbar {
+    padding: 0.75rem 0.85rem;
   }
 
   .admin-topbar__actions {
-    gap: 0.35rem;
+    gap: 0.5rem;
   }
 
   .admin-topbar__actions .admin-badge {
     display: none;
+  }
+
+  .admin-topbar__actions .admin-btn {
+    min-height: 2.75rem;
+    flex: 1 1 auto;
+  }
+
+  .admin-page-header__actions {
+    flex-direction: column;
+  }
+
+  .admin-page-header__actions .admin-btn {
+    width: 100%;
+    min-height: 2.75rem;
+  }
+
+  .admin-btn--sm {
+    min-height: 2.75rem;
+    padding-top: 0.55rem;
+    padding-bottom: 0.55rem;
+  }
+
+  .admin-modal__actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .admin-modal__actions .admin-btn {
+    width: 100%;
+    min-height: 2.75rem;
+  }
+
+  .admin-table-wrap {
+    overflow-x: visible;
   }
 
   .admin-table {
@@ -1499,14 +1617,18 @@ body.admin-mode .rev {
   .admin-table tbody tr {
     display: grid;
     gap: 0.55rem;
-    padding: 1rem 0.25rem;
+    padding: 1rem 0;
     border-bottom: 1px solid var(--admin-border);
+  }
+
+  .admin-table tbody tr:last-child {
+    border-bottom: 0;
   }
 
   .admin-table td {
     display: grid;
-    grid-template-columns: 7.5rem 1fr;
-    gap: 0.65rem;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.35rem;
     padding: 0.35rem 0;
     border: 0;
   }
@@ -1522,12 +1644,57 @@ body.admin-mode .rev {
     line-height: 1.4;
   }
 
+  .admin-table__person {
+    flex-wrap: nowrap;
+    align-items: flex-start;
+  }
+
+  .admin-table__person-meta strong,
+  .admin-table__person-meta span {
+    overflow-wrap: anywhere;
+  }
+
   .admin-table__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
     text-align: left;
+    white-space: normal;
+    padding-top: 0.65rem;
+    margin-top: 0.15rem;
+    border-top: 1px dashed var(--admin-border);
+  }
+
+  .admin-table__actions .admin-btn {
+    width: 100%;
+    justify-content: center;
   }
 
   .admin-table__actions-head {
     display: none;
+  }
+
+  .admin-table__reorder {
+    flex-wrap: wrap;
+  }
+
+  .admin-login__layout {
+    padding: 1.35rem 1rem 2rem;
+    gap: 1.25rem;
+  }
+
+  .admin-login__card {
+    padding: 1.25rem 1.1rem 1.15rem;
+  }
+
+  .admin-login__card .admin-btn--block {
+    min-height: 2.75rem;
+  }
+
+  .admin-image-field__actions .admin-btn {
+    flex: 1 1 calc(50% - 0.3rem);
+    min-height: 2.75rem;
   }
 }
 
@@ -1540,15 +1707,20 @@ body.admin-mode .rev {
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .admin-modal {
   width: min(100%, 28rem);
-  background: var(--admin-surface);
+  background: var(--admin-panel);
   border: 1px solid var(--admin-border);
   border-radius: 12px;
   padding: 1.25rem 1.35rem 1.35rem;
   box-shadow: 0 18px 48px rgba(15, 23, 42, 0.18);
+  max-height: min(92vh, 40rem);
+  overflow-y: auto;
+  margin: auto;
 }
 
 .admin-modal h2 {
