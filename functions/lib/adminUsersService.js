@@ -1,4 +1,4 @@
-import { hashPassword, verifyPassword } from './passwordHash.js';
+import { hashPassword, shouldUpgradePasswordHash, verifyPassword } from './passwordHash.js';
 import {
   ADMIN_ROLES,
   countActiveFoadmins,
@@ -121,36 +121,43 @@ async function tryLegacyMigrateUser(record, email, password, env) {
 /**
  * @param {{ readUsers: () => Promise<{version:number, users:object[]}>, writeUsers: (r: object) => Promise<{ok:boolean}>, env: object }} deps
  */
+function userAuthResult(user) {
+  return { id: user.id, email: user.email, role: user.role };
+}
+
 export async function authenticateAdminUser(email, password, deps) {
   const { readUsers, writeUsers, env } = deps;
   let record = await readUsers();
 
   if (record.users.length === 0) {
     const bootstrapped = await tryBootstrapFirstUser(record, email, password, env);
-    if (bootstrapped) {
-      await writeUsers(record);
-    } else {
-      return null;
-    }
-    record = await readUsers();
+    if (!bootstrapped) return null;
+    const write = await writeUsers(record);
+    if (!write.ok) return null;
+    return userAuthResult(bootstrapped);
   }
 
   let user = findUserByEmail(record, email);
   if (!user) {
     const migrated = await tryLegacyMigrateUser(record, email, password, env);
-    if (migrated) {
-      await writeUsers(record);
-      user = migrated;
-    } else {
-      return null;
-    }
+    if (!migrated) return null;
+    const write = await writeUsers(record);
+    if (!write.ok) return null;
+    return userAuthResult(migrated);
   }
 
   if (!user.active) return null;
   const valid = await verifyPassword(String(password ?? ''), user.passwordHash);
   if (!valid) return null;
 
-  return { id: user.id, email: user.email, role: user.role };
+  if (shouldUpgradePasswordHash(user.passwordHash)) {
+    user.passwordHash = await hashPassword(String(password));
+    user.updatedAt = nowIso();
+    const write = await writeUsers(record);
+    if (!write.ok) return null;
+  }
+
+  return userAuthResult(user);
 }
 
 export async function listAdminUsers(readUsers) {

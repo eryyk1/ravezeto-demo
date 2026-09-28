@@ -13,7 +13,8 @@
     "extract": "node scripts/extract-content.mjs",
     "extract:jogi": "node scripts/extract-jogi-html.mjs \"%USERPROFILE%\\Downloads\\final-impresszum.html\" \"%USERPROFILE%\\Downloads\\final-adatvedelem.html\"",
     "extract:csapatunk": "node scripts/extract-csapatunk-from-bundle.mjs \"%USERPROFILE%\\Downloads\\RAV-honlap-velemenyezes (2).html\"",
-    "verify:jogi": "node scripts/verify-jogi-extract.mjs"
+    "verify:jogi": "node scripts/verify-jogi-extract.mjs",
+    "verify:admin-auth-worker": "node scripts/verify-admin-auth-worker.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.112.4",
