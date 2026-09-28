@@ -43,6 +43,16 @@ body.admin-mode .rev {
   transform: none !important;
 }
 
+/*
+ * Public layout CSS (client-design.css) hides mobile header links via
+ * `nav a:not(.cta) { display: none }` below 56rem. Admin sidebar uses
+ * `<nav>` + `<a class="admin-sidebar__link">` (no .cta), so those rules
+ * hid every menu item while section `<div>` headings stayed visible.
+ */
+body.admin-mode .admin-sidebar__nav .admin-sidebar__link {
+  display: flex;
+}
+
 :root {
   --admin-bg: #e8ecf1;
   --admin-bg-soft: #f4f7fa;
@@ -190,6 +200,7 @@ body.admin-mode .rev {
   display: grid;
   gap: 1.15rem;
   flex: 1;
+  min-height: 0;
   overflow: auto;
   padding: 0.15rem 0.2rem 0.15rem 0;
   scrollbar-width: thin;
@@ -1393,6 +1404,8 @@ body.admin-mode .rev {
     z-index: 30;
     transform: translateX(-105%);
     transition: transform 0.25s ease;
+    min-height: 0;
+    overflow: hidden;
   }
 
   .admin-sidebar.is-open {
