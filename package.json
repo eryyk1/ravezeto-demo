@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && node scripts/generate-vercel-redirects.mjs && npx tsx scripts/generate-cms-snapshot.ts && vite build && node scripts/prerender-seo.mjs",
+    "build": "tsc -b && node scripts/generate-vercel-redirects.mjs && npx tsx scripts/generate-cms-snapshot.ts && vite build && node scripts/prerender-seo.mjs && node scripts/verify-dist-assets.mjs",
     "cms:snapshot": "npx tsx scripts/generate-cms-snapshot.ts",
     "redirects": "node scripts/generate-vercel-redirects.mjs",
     "preview": "vite preview",
