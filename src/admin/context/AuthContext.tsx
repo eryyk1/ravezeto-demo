@@ -26,7 +26,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     let active = true;
-    authService.getSession().then((next: AuthSession | null) => {
+    authService.getSession().then(async (next: AuthSession | null) => {
+      if (!active) return;
+      if (next && Date.now() < next.expiresAt) {
+        await contentStore.syncFromServerAsAdmin();
+      }
       if (active) {
         setSession(next);
         setLoading(false);

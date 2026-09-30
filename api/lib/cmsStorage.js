@@ -23,6 +23,26 @@ export function readCmsStateFromDisk(rootDir) {
   }
 }
 
+export function buildCmsStateFromPublishedSnapshot(snapshot) {
+  if (!snapshot?.published) return null;
+  const published = snapshot.published;
+  const generatedAt = snapshot.generatedAt ?? new Date().toISOString();
+  return {
+    storageVersion: 5,
+    draft: published,
+    published,
+    versions: [],
+    activity: [],
+    meta: {
+      lastModified: generatedAt,
+      lastPublished: generatedAt,
+      hasUnpublishedChanges: false,
+      publishedBuildRef: snapshot.buildRef ?? 'live',
+      defaultsRevision: snapshot.defaultsRevision ?? 0,
+    },
+  };
+}
+
 export function writeCmsStateToDisk(rootDir, state) {
   const { stateFile, publishedFile } = cmsPaths(rootDir);
   fs.mkdirSync(path.dirname(stateFile), { recursive: true });

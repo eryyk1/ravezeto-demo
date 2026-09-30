@@ -24,6 +24,39 @@ export async function readCmsState(env) {
   return null;
 }
 
+function buildCmsStateFromPublishedSnapshot(snapshot) {
+  if (!snapshot?.published) return null;
+  const published = snapshot.published;
+  const generatedAt = snapshot.generatedAt ?? new Date().toISOString();
+  return {
+    storageVersion: 5,
+    draft: published,
+    published,
+    versions: [],
+    activity: [],
+    meta: {
+      lastModified: generatedAt,
+      lastPublished: generatedAt,
+      hasUnpublishedChanges: false,
+      publishedBuildRef: snapshot.buildRef ?? 'live',
+      defaultsRevision: snapshot.defaultsRevision ?? 0,
+    },
+  };
+}
+
+export async function readOrInitializeCmsState(env) {
+  const existing = await readCmsState(env);
+  if (existing) return existing;
+
+  const snapshot = await readPublishedFromAssets(env);
+  const seeded = buildCmsStateFromPublishedSnapshot(snapshot);
+  if (!seeded) return null;
+
+  const write = await writeCmsState(env, seeded);
+  if (!write.ok) return null;
+  return seeded;
+}
+
 export async function writeCmsState(env, state) {
   if (!env?.CMS_KV) {
     return { ok: false, error: 'CMS_KV binding is not configured on the Worker.' };

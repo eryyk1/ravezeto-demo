@@ -445,3 +445,68 @@ footer .eu-slot span {
 }
 
 /* Rolunk / Csapatunk — page-specific styles live in src/pages/rolunk/rolunk.css */
+
+/* Mobile: natural wrapping without aggressive hyphenation (desktop unchanged) */
+@media (max-width: 56rem) {
+  body {
+    hyphens: none;
+    -webkit-hyphens: none;
+  }
+
+  .display-heading {
+    hyphens: none;
+    -webkit-hyphens: none;
+  }
+
+  .rolunk-page p,
+  .rolunk-page .member .bio,
+  .rolunk-page .member h3,
+  .legal p,
+  .legal li,
+  .legal td,
+  .legal th,
+  .lgrid p,
+  .lgrid li,
+  .lgrid td,
+  .lgrid th,
+  .facc .body,
+  .quote .why,
+  .quote .team-line,
+  .hatok-intro .sub,
+  .word-sec p,
+  .fintro .intro,
+  .hero .lead,
+  .hero-sub .lead,
+  .hlead,
+  .manifest,
+  .aurelius,
+  .chapter p,
+  .page-felnottkepzes p,
+  .referenciak-page p {
+    hyphens: none;
+    -webkit-hyphens: none;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+}
+
+/* Homepage sticky card stack: prevent dark stats panel overlapping content on mobile */
+@media (max-width: 56rem) {
+  .stick {
+    position: relative;
+    top: auto;
+  }
+
+  .panel.cardp.stick {
+    min-height: auto;
+    padding: 4rem 0 3rem;
+  }
+
+  .cardp.c-hatok {
+    padding-bottom: 2.5rem;
+  }
+
+  .cardp.pC {
+    margin-top: 0.5rem;
+  }
+}

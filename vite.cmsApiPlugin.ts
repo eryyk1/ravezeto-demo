@@ -9,6 +9,7 @@ import {
   writeCmsStateToDisk,
   cmsPaths,
 } from './api/lib/cmsStorage.js';
+import { buildCmsStateFromPublishedSnapshot } from './api/lib/cmsStorage.js';
 
 function readBody(req: IncomingMessage): Promise<Buffer> {
   return new Promise((resolve, reject) => {
@@ -71,7 +72,22 @@ export function cmsApiDevPlugin(rootDir: string): Plugin {
 
         if (pathname === '/api/cms/state' && req.method === 'GET') {
           if (!(await requireAuth(req, res, rootDir))) return;
-          const state = readCmsStateFromDisk(rootDir);
+          let state = readCmsStateFromDisk(rootDir);
+          if (!state) {
+            const publishedFile = cmsPaths(rootDir).publishedFile;
+            if (fs.existsSync(publishedFile)) {
+              try {
+                const snapshot = JSON.parse(fs.readFileSync(publishedFile, 'utf8'));
+                const seeded = buildCmsStateFromPublishedSnapshot(snapshot);
+                if (seeded) {
+                  writeCmsStateToDisk(rootDir, seeded);
+                  state = seeded;
+                }
+              } catch {
+                /* fall through */
+              }
+            }
+          }
           if (!state) return json(res, 404, { error: 'CMS state not initialized on server' });
           return json(res, 200, { state });
         }

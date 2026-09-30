@@ -3,6 +3,7 @@ import { jsonResponse } from '../../lib/http.js';
 import {
   buildPublishedPayload,
   readCmsState,
+  readOrInitializeCmsState,
   readPublishedFromAssets,
   writeCmsState,
 } from '../../lib/cmsStorage.js';
@@ -29,7 +30,7 @@ export async function handleCmsStateGet(request, env) {
   const auth = await requireAdmin(request, env);
   if (auth.error) return auth.error;
 
-  const state = await readCmsState(env);
+  const state = await readOrInitializeCmsState(env);
   if (!state) {
     return jsonResponse({ error: 'CMS state not initialized on server' }, 404);
   }

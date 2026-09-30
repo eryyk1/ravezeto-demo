@@ -6,6 +6,7 @@ import { useDraftForm } from '../../hooks/useDraftForm';
 import { useAdminUi } from '../../context/AdminUiContext';
 import { contentStore } from '../../../services/content/store';
 import { useDraftJogiAdatvedelem } from '../../../services/content/useContent';
+import { normalizeLegalHtml } from '../../../utils/legalHtml';
 
 export default function JogiAdatvedelemEditPage() {
   const source = useDraftJogiAdatvedelem();
@@ -15,11 +16,16 @@ export default function JogiAdatvedelemEditPage() {
   const [publishing, setPublishing] = useState(false);
   const [savedFlash, setSavedFlash] = useState(false);
 
+  function normalizedForm() {
+    return { ...form, bodyHtml: normalizeLegalHtml(form.bodyHtml) };
+  }
+
   async function handleSaveDraft() {
     setSaving(true);
     try {
-      contentStore.updateDraftSection('jogiAdatvedelem', form, 'Adatkezelés mentve');
-      markSaved(form);
+      const next = normalizedForm();
+      contentStore.updateDraftSection('jogiAdatvedelem', next, 'Adatkezelés mentve');
+      markSaved(next);
       setSavedFlash(true);
       window.setTimeout(() => setSavedFlash(false), 2000);
       pushToast('success', 'Adatkezelés piszkozat mentve.');
@@ -32,8 +38,9 @@ export default function JogiAdatvedelemEditPage() {
 
   async function handlePublish() {
     if (dirty) {
-      contentStore.updateDraftSection('jogiAdatvedelem', form, 'Adatkezelés mentve');
-      markSaved(form);
+      const next = normalizedForm();
+      contentStore.updateDraftSection('jogiAdatvedelem', next, 'Adatkezelés mentve');
+      markSaved(next);
     }
     setPublishing(true);
     try {

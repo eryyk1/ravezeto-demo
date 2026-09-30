@@ -6,6 +6,7 @@ import { useDraftForm } from '../../hooks/useDraftForm';
 import { useAdminUi } from '../../context/AdminUiContext';
 import { contentStore } from '../../../services/content/store';
 import { useDraftJogiImpresszum } from '../../../services/content/useContent';
+import { normalizeLegalHtml } from '../../../utils/legalHtml';
 
 export default function JogiImpresszumEditPage() {
   const source = useDraftJogiImpresszum();
@@ -18,8 +19,9 @@ export default function JogiImpresszumEditPage() {
   async function handleSaveDraft() {
     setSaving(true);
     try {
-      contentStore.updateDraftSection('jogiImpresszum', form, 'Impresszum mentve');
-      markSaved(form);
+      const next = { ...form, bodyHtml: normalizeLegalHtml(form.bodyHtml) };
+      contentStore.updateDraftSection('jogiImpresszum', next, 'Impresszum mentve');
+      markSaved(next);
       setSavedFlash(true);
       window.setTimeout(() => setSavedFlash(false), 2000);
       pushToast('success', 'Impresszum piszkozat mentve.');
@@ -32,8 +34,9 @@ export default function JogiImpresszumEditPage() {
 
   async function handlePublish() {
     if (dirty) {
-      contentStore.updateDraftSection('jogiImpresszum', form, 'Impresszum mentve');
-      markSaved(form);
+      const next = { ...form, bodyHtml: normalizeLegalHtml(form.bodyHtml) };
+      contentStore.updateDraftSection('jogiImpresszum', next, 'Impresszum mentve');
+      markSaved(next);
     }
     setPublishing(true);
     try {

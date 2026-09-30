@@ -6,6 +6,7 @@ import {
 } from './cmsApi';
 import { CONTENT_DEFAULTS_REVISION } from './constants';
 import { createDefaultContent } from './defaults';
+import { normalizeLegalHtml } from '../../utils/legalHtml';
 import type {
   ActivityEntry,
   CmsState,
@@ -310,11 +311,12 @@ function mergeSiteContent(parsed: Partial<SiteContent>, defaults: SiteContent): 
     references: normalizeReferences(parsed.references, defaults.references),
     palyazatok: normalizePalyazatok(parsed.palyazatok, defaults.palyazatok),
     jogiImpresszum: {
-      bodyHtml:
+      bodyHtml: normalizeLegalHtml(
         typeof parsed.jogiImpresszum?.bodyHtml === 'string' &&
-        parsed.jogiImpresszum.bodyHtml.trim()
+          parsed.jogiImpresszum.bodyHtml.trim()
           ? parsed.jogiImpresszum.bodyHtml
           : defaults.jogiImpresszum.bodyHtml,
+      ),
     },
     jogiAdatvedelem: {
       heroLead:
@@ -322,11 +324,12 @@ function mergeSiteContent(parsed: Partial<SiteContent>, defaults: SiteContent): 
         parsed.jogiAdatvedelem.heroLead.trim()
           ? parsed.jogiAdatvedelem.heroLead
           : defaults.jogiAdatvedelem.heroLead,
-      bodyHtml:
+      bodyHtml: normalizeLegalHtml(
         typeof parsed.jogiAdatvedelem?.bodyHtml === 'string' &&
-        parsed.jogiAdatvedelem.bodyHtml.trim()
+          parsed.jogiAdatvedelem.bodyHtml.trim()
           ? parsed.jogiAdatvedelem.bodyHtml
           : defaults.jogiAdatvedelem.bodyHtml,
+      ),
     },
     felnottkepzes: normalizeFelnottkepzes(parsed.felnottkepzes, defaults.felnottkepzes),
     felnottkepzesProgrammes: normalizeFelnottkepzesProgrammes(
@@ -533,15 +536,42 @@ class ContentStore {
 
   async syncFromServerAsAdmin(): Promise<{ ok: true } | { ok: false; error: string }> {
     const result = await fetchAdminCmsState();
-    if (!result.ok) {
-      return { ok: false, error: result.message };
+    const defaults = createDefaultContent();
+
+    if (result.ok) {
+      this.state = applyDefaultsRefresh(hydrateCmsState(result.data.state, defaults), defaults);
+      this.persist();
+      this.notify();
+      return { ok: true };
     }
 
-    const defaults = createDefaultContent();
-    this.state = applyDefaultsRefresh(hydrateCmsState(result.data.state, defaults), defaults);
-    this.persist();
-    this.notify();
-    return { ok: true };
+    const snapshot = await fetchPublishedSnapshot();
+    if (snapshot.ok && snapshot.data.published) {
+      const mergedPublished = mergeSiteContent(snapshot.data.published, defaults);
+      const ts = nowIso();
+      this.state = applyDefaultsRefresh(
+        {
+          storageVersion: CMS_STORAGE_VERSION,
+          draft: cloneContent(mergedPublished),
+          published: cloneContent(mergedPublished),
+          versions: [],
+          activity: this.state.activity,
+          meta: defaultMeta({
+            lastModified: ts,
+            lastPublished: snapshot.data.generatedAt ?? ts,
+            hasUnpublishedChanges: false,
+            publishedBuildRef: normalizeBuildRef(snapshot.data.buildRef),
+            defaultsRevision: snapshot.data.defaultsRevision ?? CONTENT_DEFAULTS_REVISION,
+          }),
+        },
+        defaults,
+      );
+      this.persist();
+      this.notify();
+      return { ok: true };
+    }
+
+    return { ok: false, error: result.message };
   }
 
   whenPublishedSynced = (): Promise<void> => this.syncPromise ?? Promise.resolve();

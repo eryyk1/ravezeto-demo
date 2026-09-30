@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 import { company } from '../../content/company';
 import { SITE_LAST_MODIFIED, SITE_LAST_MODIFIED_LABEL } from '../../seo/config';
-import { defaultJogiAdatvedelem } from '../../content/jogi/jogiDefaults';
+import { defaultJogiAdatvedelem, defaultJogiImpresszum } from '../../content/jogi/jogiDefaults';
 import type { JogiAdatvedelemContent, JogiImpresszumContent } from '../../services/content/types';
 import { useJogiTocSpy } from './useJogiTocSpy';
 import { jogiPages } from './jogiContent';
+import { normalizeLegalHtml, normalizeLegalPlainText } from '../../utils/legalHtml';
 
 export type JogiDocumentVariant = 'impresszum' | 'adatvedelem' | 'cookie';
 
@@ -25,10 +26,15 @@ export default function JogiDocumentBody({
   const isCookie = variant === 'cookie';
   useJogiTocSpy(isAdatvedelem);
 
-  const adatLead =
-    adatvedelem.heroLead?.trim() || defaultJogiAdatvedelem.heroLead;
-  const adatBodyHtml =
-    adatvedelem.bodyHtml?.trim() || defaultJogiAdatvedelem.bodyHtml;
+  const adatLead = normalizeLegalPlainText(
+    adatvedelem.heroLead?.trim() || defaultJogiAdatvedelem.heroLead,
+  );
+  const adatBodyHtml = normalizeLegalHtml(
+    adatvedelem.bodyHtml?.trim() || defaultJogiAdatvedelem.bodyHtml,
+  );
+  const impresszumBodyHtml = normalizeLegalHtml(
+    impresszum.bodyHtml?.trim() || defaultJogiImpresszum.bodyHtml,
+  );
 
   const cookiePage = jogiPages.cookie;
   const title = isCookie
@@ -43,7 +49,9 @@ export default function JogiDocumentBody({
         <div className="wrap">
           <div className="kicker">Dokumentumok</div>
           <h1>{title}</h1>
-          {isAdatvedelem && adatLead ? <p className="hlead">{adatLead}</p> : null}
+          {isAdatvedelem && adatLead ? (
+            <p className="hlead" dangerouslySetInnerHTML={{ __html: adatLead }} />
+          ) : null}
           {isCookie && cookiePage.intro ? <p className="hlead">{cookiePage.intro}</p> : null}
         </div>
       </section>
@@ -76,7 +84,7 @@ export default function JogiDocumentBody({
             </div>
           ) : (
             <div className="legal rev">
-              <div dangerouslySetInnerHTML={{ __html: impresszum.bodyHtml }} />
+              <div dangerouslySetInnerHTML={{ __html: impresszumBodyHtml }} />
             </div>
           )}
         </div>
