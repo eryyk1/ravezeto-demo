@@ -78,7 +78,8 @@ const ROUTES = [
 const ORG_JSON_LD = {
   '@context': 'https://schema.org',
   '@type': ['Organization', 'EducationalOrganization'],
-  name: 'RÁvezető Projekt Kft.',
+  name: 'Rávezető Projekt Kft.',
+  telephone: '+36 70 513 4128',
   legalName:
     'Rávezető Projekt Tanácsadó és Szolgáltató Korlátolt Felelősségű Társaság',
   url: siteUrl,
