@@ -76,12 +76,6 @@ export default {
       if (fromR2) return fromR2;
     }
 
-    if (request.method === 'GET' && PRERENDER_ROUTES.has(path)) {
-      const prerenderUrl = new URL(request.url);
-      prerenderUrl.pathname = `${path}/index.html`;
-      return env.ASSETS.fetch(new Request(prerenderUrl, request));
-    }
-
     return env.ASSETS.fetch(request);
   },
 };
