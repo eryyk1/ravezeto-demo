@@ -23,10 +23,6 @@ export default {
    const url = new URL(request.url);
 const path = normalizePath(url.pathname);
 
-if (url.pathname === '/worker-test/') {
-  return Response.redirect('https://example.com/', 302);
-}
-
 if (
   request.method === 'GET' &&
   url.pathname.length > 1 &&
@@ -34,10 +30,17 @@ if (
   !url.pathname.startsWith('/api/') &&
   !url.pathname.startsWith('/assets/')
 ) {
-      const redirectUrl = new URL(request.url);
-      redirectUrl.pathname = url.pathname.slice(0, -1);
-      return Response.redirect(redirectUrl.toString(), 301);
-    }
+  const redirectUrl = new URL(request.url);
+  redirectUrl.pathname = url.pathname.slice(0, -1);
+  redirectUrl.search = url.search;
+  return new Response(null, {
+    status: 301,
+    headers: {
+      Location: redirectUrl.toString(),
+      'Cache-Control': 'no-store',
+    },
+  });
+}
 
     if (GONE_PATHS.has(path)) {
       return goneResponse();
