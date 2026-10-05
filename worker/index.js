@@ -23,6 +23,18 @@ export default {
     const url = new URL(request.url);
     const path = normalizePath(url.pathname);
 
+if (
+  request.method === 'GET' &&
+  url.pathname.length > 1 &&
+  url.pathname.endsWith('/') &&
+  !url.pathname.startsWith('/api/') &&
+  !url.pathname.startsWith('/assets/')
+) {
+      const redirectUrl = new URL(request.url);
+      redirectUrl.pathname = url.pathname.slice(0, -1);
+      return Response.redirect(redirectUrl.toString(), 301);
+    }
+
     if (GONE_PATHS.has(path)) {
       return goneResponse();
     }
