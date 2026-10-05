@@ -11,7 +11,7 @@ export const DEFAULT_TITLE = `${SITE_NAME} – ${company.tagline}`;
 export const DEFAULT_DESCRIPTION =
   'A Rávezető Projekt Kft. emberközpontú szervezetfejlesztéssel és vezetési tanácsadással segíti vállalatát 2008 óta, 400+ lezárt fejlesztési és képzési projekttel.';
 
-const OG_IMAGE_PATH = '/og-image.svg';
+const OG_IMAGE_PATH = '/og-image.png';
 
 export const OG_IMAGE_URL = `${SITE_URL}${OG_IMAGE_PATH}`;
 

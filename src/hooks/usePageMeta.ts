@@ -8,8 +8,8 @@ function upsertMeta(
   content: string,
 ) {
   let element = document.head.querySelector(
-    `meta[${attribute}="${key}"][data-managed="seo"]`,
-  ) as HTMLMetaElement | null;
+    `meta[${attribute}="${key}"]`,
+) as HTMLMetaElement | null;
 
   if (!element) {
     element = document.createElement('meta');
@@ -23,8 +23,8 @@ function upsertMeta(
 
 function upsertLink(rel: string, href: string, hreflang?: string) {
   const selector = hreflang
-    ? `link[rel="${rel}"][hreflang="${hreflang}"][data-managed="seo"]`
-    : `link[rel="${rel}"]:not([hreflang])[data-managed="seo"]`;
+    ? `link[rel="${rel}"][hreflang="${hreflang}"]`
+    : `link[rel="${rel}"]:not([hreflang])`;
 
   let element = document.head.querySelector(selector) as HTMLLinkElement | null;
 

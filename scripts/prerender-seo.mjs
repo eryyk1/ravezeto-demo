@@ -10,12 +10,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
 const distDir = path.join(root, 'dist');
 const siteUrl = 'https://www.ravezeto.hu';
-const ogImage = `${siteUrl}/og-image.svg`;
+const ogImage = `${siteUrl}/og-image.png`;
 
 const ROUTES = [
   {
     path: '/rolunk',
-    title: 'RÁVezető – Csapatunk',
+    title: 'Rávezető – Csapatunk',
     description:
       'Ismerje meg a Rávezető Projekt Kft. tanácsadó csapatát: több éves szervezetfejlesztési és felnőttképzési tapasztalattal segítik vállalata fejlődését.',
   },

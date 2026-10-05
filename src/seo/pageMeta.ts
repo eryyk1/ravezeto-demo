@@ -22,51 +22,51 @@ const PAGE_META: Record<string, Omit<PageMeta, 'canonical'>> = {
       'A Rávezető Projekt Kft. emberközpontú szervezetfejlesztéssel és vezetési tanácsadással segíti vállalatát 2008 óta, 400+ lezárt fejlesztési és képzési projekttel.',
   },
   '/rolunk': {
-    title: `RÁVezető – Csapatunk`,
+    title: `Rávezető – Csapatunk`,
     description:
       'Ismerje meg a Rávezető Projekt Kft. tanácsadó csapatát: több éves szervezetfejlesztési és felnőttképzési tapasztalattal segítik vállalata fejlődését.',
   },
   '/tanacsadas': {
-    title: `RÁVezető – Tanácsadás`,
+    title: `Rávezető – Tanácsadás`,
     description:
       'A Rávezető Projekt Kft. emberközpontú szervezetfejlesztési tanácsadással támogatja a változást irányító vezetőket és munkatársakat.',
   },
   '/felnottkepzes': {
-    title: `RÁVezető – Felnőttképzés`,
+    title: `Rávezető – Felnőttképzés`,
     description:
       'A Rávezető Projekt Kft. engedélyes felnőttképzőként kulcskompetencia-fejlesztő tréningeket kínál jelenléti, e-learning és online formában vállalatoknak.',
   },
   '/referenciak': {
-    title: `RÁVezető – Referenciák`,
+    title: `Rávezető – Referenciák`,
     description:
       'A Rávezető Projekt Kft. 18 éve dolgozik vezető magyar vállalatokkal: 400+ tanácsadási projekt, 200+ visszatérő ügyfél, 3500+ képzési résztvevő.',
   },
   '/palyazatok': {
-    title: `RÁVezető – Pályázatok`,
+    title: `Rávezető – Pályázatok`,
     description:
       'A Rávezető Projekt Kft. díjmentes konzultációval segít cégre szabott, pályázattal támogatott képzési portfóliót összeállítani és megvalósítani.',
   },
   '/mentally': {
-    title: `RÁVezető – Mentally`,
+    title: `Rávezető – Mentally`,
     description:
       'Tudományos alapokon nyugvó online mérőeszköz a munkahelyi mentális egészség támogatására. Ismerje meg a Mentally-t.',
   },
   '/kapcsolat': {
-    title: `RÁVezető – Kapcsolat`,
+    title: `Rávezető – Kapcsolat`,
     description: `Lépjen kapcsolatba a Rávezető Projekt Kft.-vel: telefon, e-mail és ${company.address}, hétköznap 9 és 16 óra között.`,
   },
   '/jogi/adatvedelem': {
-    title: `RÁVezető – Adatvédelem`,
+    title: `Rávezető – Adatvédelem`,
     description:
       'A Rávezető Projekt Kft. adatvédelmi tájékoztatói és adatkezelési gyakorlata. Engedélyezett felnőttképző intézmény (E/2021/000106, B/2020/001943).',
   },
   '/jogi/impresszum': {
-    title: `RÁVezető – Impresszum`,
+    title: `Rávezető – Impresszum`,
     description:
       'A Rávezető Projekt Kft. hivatalos elérhetőségei, cégadatok és jogi dokumentumai.',
   },
   '/jogi/cookie': {
-    title: `RÁVezető – Cookie tájékoztató`,
+    title: `Rávezető – Cookie tájékoztató`,
     description:
       'A Rávezető Projekt Kft. cookie-k használatáról szóló tájékoztatója.',
   },
