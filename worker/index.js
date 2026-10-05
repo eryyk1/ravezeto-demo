@@ -20,8 +20,12 @@ import {
 
 export default {
   async fetch(request, env) {
-    const url = new URL(request.url);
-    const path = normalizePath(url.pathname);
+   const url = new URL(request.url);
+const path = normalizePath(url.pathname);
+
+if (url.pathname === '/worker-test/') {
+  return Response.redirect('https://example.com/', 302);
+}
 
 if (
   request.method === 'GET' &&
