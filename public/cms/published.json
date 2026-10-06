@@ -587,10 +587,6 @@
     },
     "footer": {
       "trainingReg": "Nyilvántartásba vételi számunk: B/2020/001943 · Engedélyszámunk: E/2021/000106",
-      "euMark": {
-        "image": "/assets/images/Szechenyi-2020-logo.png",
-        "alt": "Széchenyi 2020 — Európai Unió",
-        "link": "/palyazatok"
       }
     },
     "seo": [

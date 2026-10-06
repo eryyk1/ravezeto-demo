@@ -1,3 +1,4 @@
+import ClientFooter from '../../components/client/ClientFooter';
 import { Link } from 'react-router-dom';
 
 export default function TanacsadasBody() {
@@ -39,7 +40,7 @@ export default function TanacsadasBody() {
             <div className="photo-slot"><img className="ill" src="/assets/images/tanacsadas/img-02.jpg" alt="Tusrajz: fa, amelynek gyökerei a felszín alatt is látszanak – a szervezeti kultúra metaforája" /></div>
             <div className="btxt">
               <h3>Szervezeti kultúra: a sikeres változás alapja</h3>
-              <p>A szervezeti kultúra változása nélkül, nincs esély a stratégia sikeres végrehajtására!</p>
+              <p>A szervezeti kultúra változása nélkül nincs esély a stratégia sikeres végrehajtására!</p>
               <p>A kultúra jórészt a felszín alatt működik: a kimondatlan szabályokban, a beidegződött reflexekben, abban, ahogyan a szervezetben valójában döntenek és együttműködnek. Munkánk első lépése ezért mindig az, hogy ezt láthatóvá és megbeszélhetővé tegyük.</p>
             </div>
           </div>
@@ -89,19 +90,7 @@ export default function TanacsadasBody() {
           <p className="refs">1146 Budapest, Izsó u. 7. 1/3. · info@ravezeto.hu · +36 70/513 4128</p>
           <Link className="btn" to="/kapcsolat">Írjon nekünk</Link>
         </div>
-        <footer>
-          <div className="wrap">
-            <div className="cols">
-              <div className="flogo"><img src="/assets/images/tanacsadas/img-06.svg" alt="Rávezető Projekt" /><div className="tag">Változásokat vezetünk, együtt!</div></div>
-              <div>1146 Budapest, Izsó u. 7. 1/3.<br /><a href="mailto:info@ravezeto.hu">info@ravezeto.hu</a> · <a href="tel:+36705134128">+36 70/513 4128</a></div>
-              <div><a href="https://www.linkedin.com/company/r%C3%A1vezet%C5%91-projekt/" target="_blank" rel="noopener">LinkedIn</a><br /><Link to="/jogi/adatvedelem">Adatvédelem</Link> · <Link to="/jogi/impresszum">Impresszum</Link></div>
-            </div>
-            <div className="fcred">
-            <div className="fdoc"><b>Cégünk felnőttképzési engedéllyel rendelkező intézmény.</b><br />Nyilvántartásba vételi számunk: B/2020/001943 · Engedélyszámunk: E/2021/000106</div>
-          </div>
-          <div className="copy">© 2026 Rávezető Projekt Kft. · Frissítve: <time dateTime="2026-09-09">2026. szeptember</time></div>
-          </div>
-        </footer>
+        <ClientFooter />
       </section>
     </>
   );

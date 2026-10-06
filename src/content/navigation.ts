@@ -23,5 +23,6 @@ export const footerNav = {
   legal: [
     { label: 'Adatvédelem', path: '/jogi/adatvedelem' },
     { label: 'Impresszum', path: '/jogi/impresszum' },
+    { label: 'Cookie tájékoztató', path: '/jogi/cookie' },
   ],
 } as const;

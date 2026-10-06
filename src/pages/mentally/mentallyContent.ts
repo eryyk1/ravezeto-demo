@@ -22,7 +22,7 @@ export const mentallyWhatIs = {
 
 export const mentallyBenefits = {
   eyebrow: 'Előnyök',
-  title: 'Mentális védernyő a munkahelyen',
+  title: 'Mentális védőernyő a munkahelyen',
   items: [
     {
       id: 'feedback',

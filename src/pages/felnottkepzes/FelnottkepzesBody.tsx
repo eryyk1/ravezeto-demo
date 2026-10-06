@@ -1,3 +1,4 @@
+import ClientFooter from '../../components/client/ClientFooter';
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { company as companyStatic } from '../../content/company';
@@ -219,39 +220,7 @@ export default function FelnottkepzesBody() {
             {content.close.cta}
           </Link>
         </div>
-        <footer>
-          <div className="wrap">
-            <div className="cols">
-              <div className="flogo">
-                <img src="/assets/logo.svg" alt="Rávezető Projekt Kft." />
-                <div className="tag">{company.tagline}</div>
-              </div>
-              <div>
-                {company.address}
-                <br />
-                <a href={`mailto:${company.email}`}>{company.email}</a> ·{' '}
-                <a href={`tel:${company.phoneTel}`}>{company.phone}</a>
-              </div>
-              <div>
-                <a href={companyStatic.linkedIn} target="_blank" rel="noopener noreferrer">
-                  LinkedIn
-                </a>
-                <br />
-                <Link to="/jogi/adatvedelem">Adatvédelem</Link> ·{' '}
-                <Link to="/jogi/impresszum">Impresszum</Link>
-              </div>
-            </div>
-            <div className="fcred">
-              <div className="fdoc">
-                <b>Cégünk felnőttképzési engedéllyel rendelkező intézmény.</b>
-                <br />
-                Nyilvántartásba vételi számunk: B/2020/001943 · Engedélyszámunk:
-                E/2021/000106
-              </div>
-            </div>
-            <div className="copy">© 2026 Rávezető Projekt Kft.</div>
-          </div>
-        </footer>
+        <ClientFooter />
       </section>
     </div>
   );

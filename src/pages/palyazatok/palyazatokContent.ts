@@ -4,7 +4,7 @@
 
 
 export const palyazatokHero = {
-  label: 'Pályázatok · GINOP Plusz 3.2.1-21',
+  label: 'Pályázatok · Támogatott képzések',
   q1: 'Mi van, ha képzem a munkavállalóimat és elmennek?',
   q2Lead: 'Ok, de mi van akkor, ha nem képzem és',
   q2Mark: 'maradnak?!',
@@ -67,7 +67,7 @@ export const palyazatokContact = {
 } as const;
 
 export const palyazatokForm = {
-  title: 'Lépjen velünk kapcsolatba!',
+  title: 'Kérjen értesítést, ha új pályázat nyílik!',
   formspreeEndpoint: import.meta.env?.VITE_FORMSPREE_CONTACT as string | undefined,
   privacyText:
     'Ennek az űrlapnak a kitöltésével hozzájárul, hogy a weblap eltárolja és felhasználja a megadott adatokat.',

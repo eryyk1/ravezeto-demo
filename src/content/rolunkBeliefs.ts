@@ -14,7 +14,7 @@ export const rolunkBeliefs = {
     {
       id: 'bridge',
       title: 'Átvezetjük a nehézségeken',
-      text: 'Minőségi szakembereink segítségével a változtatási folyamatban törvényszerű elbizonytalanodás fázisát gyorsan meghaladjuk.',
+      text: 'Minőségi szakembereink segítségével a változtatási folyamatban a törvényszerű elbizonytalanodás fázisát gyorsan meghaladjuk.',
     },
     {
       id: 'guide',
@@ -34,7 +34,7 @@ export const rolunkBeliefs = {
     {
       id: 'growth',
       title: 'Továbbvezetjük a fejlődés útján',
-      text: 'Minden vállalat esetében előre tekintünk, nemcsak a rövidtávú szempontokat vizsgáljuk, erős csapat nélkül nem működnek sem folyamatok, sem rendszerek.',
+      text: 'Minden vállalat esetében előre tekintünk, nemcsak a rövid távú szempontokat vizsgáljuk, erős csapat nélkül nem működnek sem folyamatok, sem rendszerek.',
     },
   ],
 } as const;

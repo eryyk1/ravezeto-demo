@@ -29,7 +29,7 @@ export const tanacsadasSzervezetfejlesztes = {
     {
       title: 'Szervezeti kultúra: a sikeres változás alapja',
       paragraphs: [
-        'A szervezeti kultúra változása nélkül, nincs esély a stratégia sikeres végrehajtására!',
+        'A szervezeti kultúra változása nélkül nincs esély a stratégia sikeres végrehajtására!',
         'A kultúra jórészt a felszín alatt működik: a kimondatlan szabályokban, a beidegződött reflexekben, abban, ahogyan a szervezetben valójában döntenek és együttműködnek. Munkánk első lépése ezért mindig az, hogy ezt láthatóvá és megbeszélhetővé tegyük.',
       ],
       photoLabel: '🖊 sketch-rajz helye\n(assets/tanacsadas-kultura.png)',
@@ -65,7 +65,7 @@ export const tanacsadasServices = [
     label: 'Szervezetfejlesztés',
     title: 'Szervezeti kultúra: a sikeres változás alapja',
     intro:
-      'A szervezeti kultúra változása nélkül, nincs esély a stratégia sikeres végrehajtására!',
+      'A szervezeti kultúra változása nélkül nincs esély a stratégia sikeres végrehajtására!',
     detail:
       'Hiszünk a folyamatalapú megközelítésben. Nem kész megoldásokat kínálunk, hanem szoros csapatmunkában támogatjuk partnereinket céljaik megvalósításában.',
     problems: [

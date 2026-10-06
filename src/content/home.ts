@@ -24,7 +24,7 @@ export const homeQuote = {
   text: 'Az optimizmus az igazi erkölcsi bátorság',
   author: 'Ernest Shackleton',
   context:
-    'Kedvenc idézetünk a híres felfedezőtől, aki a lehetetlennel dacolva 120 éve megmentette legénységét a jég és fagy fogságából. Mi így szeretünk dolgozni.',
+    'Kedvenc idézetünk a híres felfedezőtől, aki a lehetetlennel dacolva több mint száz éve megmentette legénységét a jég és fagy fogságából. Mi így szeretünk dolgozni.',
   teamLine:
     'Munkatársaink jelentős szervezeti és vezetői tapasztalattal rendelkező tanácsadók, szakértők.',
   teamLink: '/rolunk',
@@ -34,7 +34,7 @@ export const homeQuote = {
 export const homeReasons = {
   title: 'Hat ok, amiért minket érdemes választani',
   intro:
-    '18 év tapasztalat, több mint 400 fejlesztési és képzési projekt áll mögöttünk. Lépésről-lépésre',
+    '18 év tapasztalat, több mint 400 fejlesztési és képzési projekt áll mögöttünk. Lépésről lépésre',
   items: [
     {
       emphasis: 'LE',
@@ -46,7 +46,7 @@ export const homeReasons = {
       emphasis: 'ÁT',
       rest: 'VEZETJÜK',
       subtitle: 'a nehézségeken',
-      text: 'Szakembereink segítségével a változtatási folyamatban törvényszerű elbizonytalanodás fázisát gyorsan meghaladjuk.',
+      text: 'Szakembereink segítségével a változtatási folyamatban a törvényszerű elbizonytalanodás fázisát gyorsan meghaladjuk.',
     },
     {
       emphasis: 'VÉGIG',
@@ -70,7 +70,7 @@ export const homeReasons = {
       emphasis: 'TOVÁBB',
       rest: 'VEZETJÜK',
       subtitle: 'a fejlődés útján',
-      text: 'Minden vállalat esetében előre tekintünk, nemcsak a rövidtávú szempontokat vizsgáljuk, erős csapat nélkül nem működnek sem folyamatok, sem rendszerek.',
+      text: 'Minden vállalat esetében előre tekintünk, nemcsak a rövid távú szempontokat vizsgáljuk, erős csapat nélkül nem működnek sem folyamatok, sem rendszerek.',
     },
   ],
 } as const;
@@ -82,7 +82,7 @@ export const homeAbout = {
   image: pageImage('csapatunk', 'img-02.jpg'),
   overlayLines: ['18+ év', '400+ projekt'],
   label: 'Rólunk',
-  headline: 'Gyorsabban, erősebben, magasabbra!',
+  headline: 'Gyorsabban, magasabbra, erősebben!',
   text:
     'Az egyéni és szervezeti minőség és teljesítmény növelésében tudunk segíteni, közös gondolkodással, elhivatott szakemberekkel.',
   link: '/rolunk',

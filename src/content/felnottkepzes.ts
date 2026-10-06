@@ -33,7 +33,7 @@ export const felnottkepzesCredentials = {
   paragraphs: [
     'A mai, mesterséges intelligencia által gyorsan formált üzleti környezetben a technológiai tudás mellett a humán készségek értékelődnek fel igazán. Gyakorlatias soft skill- és AI-képzéseket tartunk, amelyekkel segítünk, hogy a vezetők és munkatársak hatékonyabban és felelősen használják a mesterséges intelligencia eszközeit, ezáltal gyorsabban végezzék munkájukat.',
     'Programjaink révén a résztvevők azokat a kritikus gondolkodási, kommunikációs és adaptációs képességeket is elsajátíthatják, amelyek elengedhetetlenek a jövőálló vállalati működéshez. Fejlessze csapatát velünk, és alakítsa versenyelőnnyé a technológia és az emberi tényező szinergiáját!',
-    'Tréneri csapatunk sokéves tereptapasztalata, kiemelkedő szakmai tudása garantálja, hogy közvetlen, felszabadolt légkörben zajló tréningjeink a lehető legjobban szolgálják a megfogalmazott képzési célokat.',
+    'Tréneri csapatunk sokéves tereptapasztalata, kiemelkedő szakmai tudása garantálja, hogy közvetlen, felszabadult légkörben zajló tréningjeink a lehető legjobban szolgálják a megfogalmazott képzési célokat.',
   ],
 } as const;
 
@@ -71,7 +71,7 @@ export const felnottkepzesCategories = [
     id: 'stressz',
     index: '04',
     title: 'Munkahelyi stressz – stresszkezelési technikák',
-    text: 'A munkahelyi stressz napjaink egyik legnagyobb kihívása. A mentális egészség megőrzése érdekében tréningjeinken a résztvevők megismerkednek a stresszforrások azonosításának módszereivel és elsajátítják azokat a gyakorlati technikákat, amelyekkel képesek lesznek tudatosan kezelni a kihívásokat, hogyan őrizhetik meg lelki egyensúlyukat és növelhetik teljesítőképességüket a mindennapi munka során.',
+    text: 'A munkahelyi stressz napjaink egyik legnagyobb kihívása. A mentális egészség megőrzése érdekében tréningjeinken a résztvevők megismerkednek a stresszforrások azonosításának módszereivel és elsajátítják azokat a gyakorlati technikákat, amelyekkel tudatosan kezelhetik a kihívásokat, megőrizhetik lelki egyensúlyukat, és növelhetik teljesítőképességüket a mindennapi munka során.',
     visual: '/assets/illustrations/illust_stress.svg',
   },
 ] as const;

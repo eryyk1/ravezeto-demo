@@ -292,7 +292,8 @@ export function createDefaultContent(): SiteContent {
     },
     footer: {
       trainingReg: company.trainingReg,
-      euMark: { ...homeEuMark },
+      // Empty by default: the supported-projects block renders only when a real logo is set.
+      euMark: { image: '', alt: '', link: homeEuMark.link },
     },
     seo: Object.entries(pageMeta).map(([path, meta]) => ({
       path,

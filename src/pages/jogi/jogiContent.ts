@@ -64,13 +64,7 @@ export const jogiPages: Record<string, JogiPageContent> = {
       'A működéshez szükséges sütik biztosítják az oldal alapvető funkcióit (például navigáció, űrlapok). Analitikai sütiket csak a vonatkozó jogszabályoknak megfelelően, megfelelő tájékoztatás mellett alkalmazunk. A sütik beállításait böngészőjében módosíthatja; egyes funkciók ilyenkor korlátozottan érhetők el.',
       'Cookie-kkal és adatkezeléssel kapcsolatos kérdés esetén írjon az info@ravezeto.hu címre.',
     ],
-    documents: [
-      {
-        label: 'Adatvédelmi tájékoztató (2025)',
-        href: '/assets/documents/Adatvedelmi_2025.pdf',
-        description: 'PDF letöltés — tartalmazza a cookie-kra vonatkozó rendelkezéseket',
-      },
-    ],
+    documents: [],
   },
 };
 

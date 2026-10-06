@@ -510,3 +510,4 @@ footer .eu-slot span {
     margin-top: 0.5rem;
   }
 }
+.eu-band__img{display:block;max-height:3.4rem;width:auto;max-width:100%;object-fit:contain}

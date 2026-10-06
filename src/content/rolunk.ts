@@ -8,7 +8,7 @@ import { teamMembers } from './team';
 
 export const rolunkHero = {
   label: 'Csapatunk',
-  title: 'Gyorsabban, erősebben, magasabbra!',
+  title: 'Gyorsabban, magasabbra, erősebben!',
   intro:
     'Az egyéni és szervezeti minőség és teljesítmény növelésében tudunk segíteni, közös gondolkodással, elhivatott szakemberekkel.',
   image: pageImage('csapatunk', 'img-02.jpg'),

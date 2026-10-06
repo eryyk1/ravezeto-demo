@@ -1,3 +1,4 @@
+import ClientFooter from '../../components/client/ClientFooter';
 import { Link } from 'react-router-dom';
 
 export default function HomeBody() {
@@ -28,7 +29,7 @@ export default function HomeBody() {
         <div className="wrap rev">
           <blockquote><span className="gm">„</span>Az optimizmus az igazi erkölcsi bátorság<span className="gm">”</span></blockquote>
           <div className="who">Ernest Shackleton</div>
-          <p className="why">Kedvenc idézetünk a híres felfedezőtől, aki a lehetetlennel dacolva 120 éve megmentette legénységét a jég és fagy fogságából. Mi így szeretünk dolgozni.</p>
+          <p className="why">Kedvenc idézetünk a híres felfedezőtől, aki a lehetetlennel dacolva több mint száz éve megmentette legénységét a jég és fagy fogságából. Mi így szeretünk dolgozni.</p>
           <p className="team-line">Munkatársaink jelentős szervezeti és vezetői tapasztalattal rendelkező tanácsadók, szakértők. <Link to="/rolunk">Ismerje meg csapatunkat →</Link></p>
         </div>
       </section>
@@ -36,7 +37,7 @@ export default function HomeBody() {
       <section className="cardp c-hatok">
       <div className="hatok-intro">
         <div className="kicker rev">Hat ok, amiért minket érdemes választani</div>
-        <p className="sub rev">18 év tapasztalat, több mint 400 fejlesztési és képzési projekt áll mögöttünk. Lépésről-lépésre</p>
+        <p className="sub rev">18 év tapasztalat, több mint 400 fejlesztési és képzési projekt áll mögöttünk. Lépésről lépésre</p>
       </div>
       <div className="wrap">
         <section className="word-sec"><div className="inner rev">
@@ -47,7 +48,7 @@ export default function HomeBody() {
         <section className="word-sec"><div className="inner rev">
           <div className="big"><b>ÁT</b>VEZETJÜK</div>
           <div className="rest">a nehézségeken</div>
-          <p>Szakembereink segítségével a változtatási folyamatban törvényszerű elbizonytalanodás fázisát gyorsan meghaladjuk.</p>
+          <p>Szakembereink segítségével a változtatási folyamatban a törvényszerű elbizonytalanodás fázisát gyorsan meghaladjuk.</p>
         </div></section>
         <section className="word-sec"><div className="inner rev">
           <div className="big"><b>VÉGIG</b>VEZETJÜK</div>
@@ -67,7 +68,7 @@ export default function HomeBody() {
         <section className="word-sec"><div className="inner rev">
           <div className="big"><b>TOVÁBB</b>VEZETJÜK</div>
           <div className="rest">a fejlődés útján</div>
-          <p>Minden vállalat esetében előre tekintünk, nemcsak a rövidtávú szempontokat vizsgáljuk, erős csapat nélkül nem működnek sem folyamatok, sem rendszerek.</p>
+          <p>Minden vállalat esetében előre tekintünk, nemcsak a rövid távú szempontokat vizsgáljuk, erős csapat nélkül nem működnek sem folyamatok, sem rendszerek.</p>
         </div></section>
       </div>
       </section>
@@ -128,19 +129,7 @@ export default function HomeBody() {
           <p className="refs">1146 Budapest, Izsó u. 7. 1/3. · info@ravezeto.hu · +36 70/513 4128</p>
           <Link className="btn" to="/kapcsolat">Írjon nekünk</Link>
         </div>
-        <footer>
-          <div className="wrap">
-            <div className="cols">
-              <div className="flogo"><img src="/assets/images/fooldal/img-02.svg" alt="Rávezető Projekt" /><div className="tag">Változásokat vezetünk, együtt!</div></div>
-              <div>1146 Budapest, Izsó u. 7. 1/3.<br /><a href="mailto:info@ravezeto.hu">info@ravezeto.hu</a> · <a href="tel:+36705134128">+36 70/513 4128</a></div>
-              <div><a href="https://www.linkedin.com/company/r%C3%A1vezet%C5%91-projekt/" target="_blank" rel="noopener">LinkedIn</a><br /><Link to="/jogi/adatvedelem">Adatvédelem</Link> · <Link to="/jogi/impresszum">Impresszum</Link></div>
-            </div>
-            <div className="fcred">
-            <div className="fdoc"><b>Cégünk felnőttképzési engedéllyel rendelkező intézmény.</b><br />Nyilvántartásba vételi számunk: B/2020/001943 · Engedélyszámunk: E/2021/000106</div>
-          </div>
-          <div className="copy">© 2026 Rávezető Projekt Kft. · Frissítve: <time dateTime="2026-09-09">2026. szeptember</time></div>
-          </div>
-        </footer>
+        <ClientFooter />
       </section>
     </>
   );

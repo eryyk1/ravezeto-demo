@@ -1,6 +1,6 @@
+import ClientFooter from '../../components/client/ClientFooter';
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { pageImage } from '../../data/media';
 import { useRolunkContent, useTeamMembers } from '../../services/content/useContent';
 
 function valuesImageAlt(labels: string[]): string {
@@ -143,44 +143,7 @@ export default function RolunkBody() {
             {close.cta}
           </Link>
         </div>
-        <footer>
-          <div className="wrap">
-            <div className="cols">
-              <div className="flogo">
-                <img src={pageImage('csapatunk', 'img-04.svg')} alt="Rávezető Projekt" />
-                <div className="tag">Változásokat vezetünk, együtt!</div>
-              </div>
-              <div>
-                1146 Budapest, Izsó u. 7. 1/3.
-                <br />
-                <a href="mailto:info@ravezeto.hu">info@ravezeto.hu</a> ·{' '}
-                <a href="tel:+36705134128">+36 70/513 4128</a>
-              </div>
-              <div>
-                <a
-                  href="https://www.linkedin.com/company/r%C3%A1vezet%C5%91-projekt/"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  LinkedIn
-                </a>
-                <br />
-                <Link to="/jogi/adatvedelem">Adatvédelem</Link> · <Link to="/jogi/impresszum">Impresszum</Link>
-              </div>
-            </div>
-            <div className="fcred">
-              <div className="fdoc">
-                <b>Cégünk felnőttképzési engedéllyel rendelkező intézmény.</b>
-                <br />
-                Nyilvántartásba vételi számunk: B/2020/001943 · Engedélyszámunk: E/2021/000106
-              </div>
-            </div>
-            <div className="copy">
-              © 2026 Rávezető Projekt Kft. · Frissítve:{' '}
-              <time dateTime="2026-09-09">2026. szeptember</time>
-            </div>
-          </div>
-        </footer>
+        <ClientFooter />
       </section>
     </>
   );

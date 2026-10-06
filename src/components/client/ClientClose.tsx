@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useCompanySettings, useEuMark } from '../../services/content/useContent';
+import { useCompanySettings } from '../../services/content/useContent';
 import ClientFooter from './ClientFooter';
 
 function ChevTrio() {
@@ -43,8 +43,6 @@ type ClientCloseProps = {
   refsLine?: string;
   btnLabel?: string;
   btnTo?: string;
-  euKicker?: string;
-  showEuBand?: boolean;
   showFooter?: boolean;
   className?: string;
 };
@@ -55,13 +53,10 @@ export default function ClientClose({
   refsLine,
   btnLabel = 'Írjon nekünk',
   btnTo = '/kapcsolat',
-  euKicker = 'Támogatott projektjeink',
-  showEuBand = true,
   showFooter = true,
   className = '',
 }: ClientCloseProps) {
   const company = useCompanySettings();
-  const euMark = useEuMark();
   const refs =
     refsLine ??
     `${company.address} · ${company.email} · ${company.phone}`;
@@ -78,16 +73,6 @@ export default function ClientClose({
         </Link>
       </div>
 
-      {showEuBand && (
-        <div className="eu-band">
-          <div className="wrap">
-            <div className="kicker">{euKicker}</div>
-            <Link to={euMark.link} className="eu-ph">
-              Széchenyi 2020 / Európai Unió logó helye
-            </Link>
-          </div>
-        </div>
-      )}
 
       {showFooter && <ClientFooter />}
     </section>

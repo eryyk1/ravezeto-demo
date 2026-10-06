@@ -618,8 +618,6 @@ footer .copy{margin-top:2rem;text-align:center;font-size:.8rem}
 /* SZÉCHENYI-SÁV */
 .eu-band{margin-top:5rem;border-top:1px solid var(--hair);padding:1.5rem 0}
 .eu-band .wrap{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
-.eu-band .eu-ph{display:inline-block;border:2px dashed var(--hair);border-radius:.8rem;padding:.75rem 1.5rem;color:var(--muted);font-size:.9rem;text-align:center}
-.eu-band .eu-ph:hover{border-color:var(--gold);color:var(--oliva-text)}
 .eu-band + footer{margin-top:0}
 
 @media(max-width:56rem){
