@@ -7,6 +7,7 @@ import { useAdminUi } from '../../context/AdminUiContext';
 import { contentStore } from '../../../services/content/store';
 import { useDraftJogiAdatvedelem } from '../../../services/content/useContent';
 import { normalizeLegalHtml } from '../../../utils/legalHtml';
+import { defaultJogiAdatvedelem } from '../../../content/jogi/jogiDefaults';
 
 export default function JogiAdatvedelemEditPage() {
   const source = useDraftJogiAdatvedelem();
@@ -18,6 +19,21 @@ export default function JogiAdatvedelemEditPage() {
 
   function normalizedForm() {
     return { ...form, bodyHtml: normalizeLegalHtml(form.bodyHtml) };
+  }
+
+  /** Loads the bundled default text into this form only. Nothing is saved or published until the editor does so. */
+  function handleLoadBundledDefault() {
+    const confirmed = window.confirm(
+      'Az űrlap jelenlegi szövege (bevezető és tartalom) felülíródik a kódban szereplő, legújabb adatkezelési szöveggel. ' +
+        'Ez csak az űrlapot módosítja: a piszkozat és a publikált tartalom csak a Mentés / Publikálás gombbal változik. Folytatja?',
+    );
+    if (!confirmed) return;
+    setForm({
+      ...form,
+      heroLead: defaultJogiAdatvedelem.heroLead,
+      bodyHtml: defaultJogiAdatvedelem.bodyHtml,
+    });
+    pushToast('success', 'A legújabb szöveg betöltve az űrlapba — ellenőrizze, majd mentse vagy publikálja.');
   }
 
   async function handleSaveDraft() {
@@ -67,6 +83,12 @@ export default function JogiAdatvedelemEditPage() {
         onSaveDraft={handleSaveDraft}
         onPublish={handlePublish}
       />
+
+      <p>
+        <button type="button" className="admin-btn" onClick={handleLoadBundledDefault}>
+          A kódban szereplő legújabb szöveg betöltése az űrlapba
+        </button>
+      </p>
 
       <AdminField label="Hero bevezető">
         <textarea
